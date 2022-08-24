@@ -14,10 +14,14 @@
 
     <style>
         header {
-            position: relative;
+            background: white;
+            position: fixed;
             height: 70px;
             /*border: 1px solid black;*/
             box-shadow: 6px 1px 9px 0px #1c1717e8;
+            width: 100%;
+            top: 0;
+            z-index: 2;
         }
 
         header > img {
@@ -38,14 +42,28 @@
             padding: 10px;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
+            border-right: 2px solid black;
+        }
+
+        header > nav > ul > li:first-child{
+            border-left: 2px solid black;
         }
 
         header > nav > ul{
             padding-right: 40px;
         }
 
+        ul>li:hover a{
+            color: #5a6eff;
+        }
+
+        ul>li:hover i{
+            color: #5a6eff;
+        }
+
         main{
             position: relative;
+            margin-top: 73px;
         }
 
         main>nav{
