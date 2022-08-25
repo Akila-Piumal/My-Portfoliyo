@@ -1,34 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CSS Case_4</title>
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link rel="stylesheet" href="../../../assets/css/normalize.css">
-  <style>
+    <meta charset="UTF-8">
+    <title>CSS Case_4</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="../../../assets/css/normalize.css">
+    <style>
+        section {
+            position: relative;
+            height: 100vh;
+        }
 
-  </style>
+        section:nth-child(1)>header{
+          position: sticky;
+          top: 0;
+          height: 80px;
+          background-color: #fe351f;
+        }
+
+        section:nth-child(2)>header{
+          position: sticky;
+          top: 0;
+          height: 80px;
+          background-color: #004583;
+        }
+
+        section:nth-child(3)>header{
+          position: sticky;
+          top: 0;
+          height: 80px;
+          background-color: #292925;
+        }
+
+        section:nth-child(4)>header{
+          position: sticky;
+          top: 0;
+          height: 80px;
+          background-color: #7c322a;
+        }
+    </style>
 </head>
 
 <body>
 <section>
-  <header><h4>Card 1</h4></header>
-  <h1>Hello</h1>
+    <header><h4>Card 1</h4></header>
+    <h1>Hello</h1>
 </section>
 
 <section>
-  <header><h4>Card 2</h4></header>
-  <h1>How</h1>
+    <header><h4>Card 2</h4></header>
+    <h1>How</h1>
 </section>
 
 <section>
-  <header><h4>Card 3</h4></header>
-  <h1>Are</h1>
+    <header><h4>Card 3</h4></header>
+    <h1>Are</h1>
 </section>
 
 <section>
-  <header><h4>Card 4</h4></header>
-  <h1>You..?</h1>
+    <header><h4>Card 4</h4></header>
+    <h1>You..?</h1>
 </section>
 </body>
 </html>
