@@ -89,7 +89,7 @@
         }
 
         main > section > section > p:nth-child(1) {
-            margin-top: 0;
+            margin-top: 15px;
             padding-top: 10px;
         }
 
@@ -104,6 +104,7 @@
             padding-top: 14px;
             color: white;
             font-weight: lighter;
+            font-family: 'Poppins', sans-serif;
         }
 
         main > section > section > p:last-child {
@@ -150,6 +151,7 @@
             height: 100%;
             width: calc(100%/3);
             position: absolute;
+            border: 1px solid rgba(0, 0, 0, 0.65);
         }
 
         main>section>section:first-child>div:first-child{
@@ -167,6 +169,27 @@
             right: 0;
         }
 
+        main>nav>div>a{
+            position: fixed;
+            bottom: 10px;
+            left: 93px;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        div>a>img{
+            border-radius: 100%;
+        }
+
+        main>nav>div>a:hover {
+            border: 10px solid rgb(255 70 70);
+        }
+
     </style>
 </head>
 <body>
@@ -180,6 +203,7 @@
             <li><i class="fa-solid fa-phone"></i><a href="#">Contact</a></li>
             <li><i class="fa-solid fa-address-card"></i><a href="#">About Us</a></li>
         </ul>
+
     </nav>
 </header>
 
@@ -191,6 +215,8 @@
             <li><i class="fa-solid fa-phone"></i><a href="#">Contact</a></li>
             <li><i class="fa-solid fa-address-card"></i><a href="#">About Us</a></li>
         </ul>
+
+        <div><a href="tel:+94783223485"><img src="assets/calling.gif" alt="image"></a></div>
     </nav>
 
     <section>
