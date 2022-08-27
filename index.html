@@ -11,23 +11,134 @@
     <meta name="description" content="Hi there! I'm Akila, Full Stack Developer in Sri Lanka. Check out my portfolio!">
     <meta name="author" content="Akila Piumal">
     <meta name="viewport" content="width=device-width initial-scale=1">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <style>
+        main > section {
+            height: 100vh;
+            /*border: 1px solid red;*/
+        }
+
+        main > section:nth-child(1) > aside {
+            position: fixed;
+            height: 100vh;
+            width: 300px;
+            background: linear-gradient(to left, #ffffff,#ffffff, #7cd6ff);
+            border-right: 1px solid #00eaff;
+        }
+
+        main > section:nth-child(1) > aside > div {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            position: absolute;
+            left: 86px;
+            top: 9px;
+            background: url(assets/images/My.png);
+            background-size: 300px;
+            background-position-x: 217px;
+            background-position-y: -27px;
+        }
+
+        main > section:nth-child(1) > aside > h1 > b {
+            color: #070707;
+            position: absolute;
+            left: 54px;
+            top: 111px;
+        }
+
+        main > section:nth-child(1) > aside > h6:nth-child(3) {
+            color: #3f51b5;
+            position: absolute;
+            left: 29px;
+            top: 119px;
+            font-size: 15px;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        main > section:nth-child(1) > aside > h6:nth-child(4) {
+            color: #607d8b;
+            position: absolute;
+            left: 184px;
+            top: 119px;
+            font-size: 15px;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        main > section:nth-child(1) > aside > nav {
+            position: absolute;
+            left: 54px;
+            right: 54px;
+            top: 237px;
+        }
+
+        main > section:nth-child(1) > aside > small {
+            position: absolute;
+            left: 36px;
+            bottom: 35px;
+        }
+
+        main > section:nth-child(1) > aside > nav > ul {
+            position: absolute;
+            list-style: none;
+            padding-left: 0;
+            right: 0;
+            left: 0;
+            top: -49px;
+        }
+
+        main > section:nth-child(1) > aside > nav > ul > li > div {
+            position: relative;
+            text-align: center;
+            width: 192px;
+            height: 33px;
+            margin-bottom: 30px;
+            border-radius: 7px;
+            box-shadow: 0px 2px 11px 0px #0000008c;
+        }
+
+        main > section:nth-child(1) > aside > nav > ul > li > div > b {
+            position: relative;
+            bottom: -8px;
+            font-family: 'Roboto Slab', serif;
+        }
+    </style>
 </head>
 <body>
 <main>
     <section>
         <aside>
-            <img src="assets/images/My.png" alt="This is a image">
+            <div></div>
             <h1><b>Akila Piumal</b></h1>
-            <h6>Full Stack Developer in SRI LANKA</h6>
+            <h6>FULL STACK DEVELOPER</h6>
+            <h6>IN SRI LANKA</h6>
             <nav>
                 <ul>
-                    <li><b>HOME -></b></li>
-                    <li><b>ABOUT -></b></li>
-                    <li><b>EDUCATION -></b></li>
-                    <li><b>SKILLS -></b></li>
-                    <li><b>SERVICES -></b></li>
-                    <li><b>PROJECTS -></b></li>
-                    <li><b>CONTACT ME -></b></li>
+                    <li>
+                        <div><b>HOME</b></div>
+                    </li>
+                    <li>
+                        <div><b>ABOUT</b></div>
+                    </li>
+                    <li>
+                        <div><b>EDUCATION</b></div>
+                    </li>
+                    <li>
+                        <div><b>SKILLS</b></div>
+                    </li>
+                    <li>
+                        <div><b>SERVICES</b></div>
+                    </li>
+                    <li>
+                        <div><b>PROJECTS</b></div>
+                    </li>
+                    <li>
+                        <div><b>CONTACT ME</b></div>
+                    </li>
                 </ul>
             </nav>
 
@@ -50,7 +161,8 @@
             <section>
                 <nav>
                     <map name="linkedInMap">
-                        <area shape="rect" href="https://linkedin.com/in/akila-piumal-3b7040229" target="_blank" coords="0,0,200,200">
+                        <area shape="rect" href="https://linkedin.com/in/akila-piumal-3b7040229" target="_blank"
+                              coords="0,0,200,200">
                     </map>
 
                     <img src="assets/images/linkedIn.png" alt="this is linkedIn image" usemap="#linkedInMap">
@@ -62,13 +174,15 @@
                     <img src="assets/images/github.png" alt="this is github image" usemap="#githubMap">
 
                     <map name="twitterMap">
-                        <area shape="rect" href="https://twitter.com/AkilaPiumal99" target="_blank" coords="0,0,200,200">
+                        <area shape="rect" href="https://twitter.com/AkilaPiumal99" target="_blank"
+                              coords="0,0,200,200">
                     </map>
 
                     <img src="assets/images/twitter.png" alt="this is twitter image" usemap="#twitterMap">
 
                     <map name="facebookMap">
-                        <area shape="rect" href="https://www.facebook.com/akila.piumal.90/" target="_blank" coords="0,0,200,200">
+                        <area shape="rect" href="https://www.facebook.com/akila.piumal.90/" target="_blank"
+                              coords="0,0,200,200">
                     </map>
 
                     <img src="assets/images/facebook.png" alt="this is facebook image" usemap="#facebookMap">
