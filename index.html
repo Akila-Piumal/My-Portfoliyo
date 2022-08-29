@@ -18,11 +18,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap" rel="stylesheet">
+
+    <meta content="width=device-width initial-scale=1" name="viewport">
 
     <style>
         main > section {
             height: 100vh;
             /*border: 1px solid red;*/
+        }
+
+        main>section:nth-child(1){
+            top: 0;
         }
 
         main > section:nth-child(1) > aside {
@@ -113,7 +122,7 @@
             width: 80%;
             right: 0;
             height: 100vh;
-            background: linear-gradient(25deg, #7cd6ff,#c0ebff3b,#ffffff);
+            background: linear-gradient(25deg, #7cd6ff, #c0ebff3b, #ffffff);
         }
 
         main > section:nth-child(1) > section:nth-child(2) > section:nth-child(1) {
@@ -262,6 +271,136 @@
             margin-top: 13px;
         }
 
+
+        /*/////////////////////*/
+
+        main > section:nth-child(2) {
+            position: absolute;
+            width: 80%;
+            right: 0;
+            height: 100vh;
+            background: linear-gradient(25deg, #7cd6ff, #c0ebff3b, #ffffff);
+        }
+
+        main > section:nth-child(2) > header:nth-child(1) {
+            position: relative;
+            background-color: #1B1464;
+            height: 75px;
+        }
+
+        main > section:nth-child(2) > header:nth-child(1) > h1 {
+            position: absolute;
+            color: white;
+            width: 173px;
+            height: 39px;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        /*about me main section*/
+        main > section:nth-child(2) > section:nth-child(2) {
+            position: relative;
+            height: 420px;
+        }
+
+        /*details*/
+        main > section:nth-child(2) > section:nth-child(2) > aside:nth-child(1) {
+            position: relative;
+            width: 50%;
+            height: 80%;
+        }
+
+        /*image*/
+        main > section:nth-child(2) > section:nth-child(2) > aside:nth-child(2) {
+            background: url(assets/images/side_image.png);
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            /* border: 1px solid #60116d; */
+            top: 0;
+            width: 36%;
+            height: 80%;
+            right: 16px;
+            opacity: 0.8;
+        }
+
+        /*Who am I*/
+        main > section:nth-child(2) > section:nth-child(2) > aside:nth-child(1) > h1:nth-child(1) {
+            position: absolute;
+            left: 30px;
+            top: 15px;
+            font-family: 'Merriweather', serif;
+            color: #474040;
+            padding: 10px;
+            border-top-left-radius: 41%;
+            background: linear-gradient(25deg, #7cd6ff, #c0ebff3b, #ffffff);
+            border-bottom-right-radius: 41%;
+        }
+
+        /*un order List*/
+        main > section:nth-child(2) > section:nth-child(2) > aside:nth-child(1) > ul:nth-child(2) {
+            position: absolute;
+            left: 95px;
+            bottom: -35px;
+            list-style: none;
+            padding-left: 0px;
+        }
+
+        /*list in the un order list*/
+        main > section:nth-child(2) > section:nth-child(2) > aside:nth-child(1) > ul:nth-child(2) > li {
+            margin: 16px;
+            font-family: 'Merriweather', serif;
+            font-size: 23px;
+        }
+
+        /*icon in the list*/
+        main > section:nth-child(2) > section:nth-child(2) > aside:nth-child(1) > ul:nth-child(2) > li > i {
+            padding-right: 10px;
+        }
+
+        /*download cv button*/
+        main > section:nth-child(2) > section:nth-child(2) > div:nth-child(3) {
+            position: absolute;
+            bottom: 6px;
+            background: #151464a8;
+            width: 161px;
+            height: 45px;
+            left: 534px;
+            box-shadow: -1px 6px 7px 0px rgba(0, 0, 0, 0.48);
+            border-radius: 10px;
+        }
+
+        /*text in the button*/
+        main > section:nth-child(2) > section:nth-child(2) > div:nth-child(3) > h2 {
+            position: absolute;
+            font-size: 17px;
+            height: 17px;
+            width: 135px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            color: white;
+        }
+
+        /*Article*/
+        main > section:nth-child(2) > article:nth-child(3) {
+            position: absolute;
+            width: 726px;
+            left: 0;
+            right: 0;
+            bottom: 31px;
+            margin: auto;
+            text-align: -webkit-center;
+            font: 400 26px/34px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a73e8a3;
+        }
+
+
     </style>
 </head>
 <body>
@@ -356,25 +495,28 @@
 
         <section>
             <aside>
-                <h1>Who am I ?</h1>
+                <h1>WHO AM I ?</h1>
 
                 <ul>
-                    <li>K. K. Akila Piumal Madushanka</li>
-                    <li>Udumulla, Makalandawa, Walallawita </li>
-                    <li>23 Years</li>
-                    <li>akilapiumal16@gmail.com</li>
-                    <li>078-3223485</li>
+                    <li><i class="fa-solid fa-address-card"></i> K. K. Akila Piumal Madushanka</li>
+                    <li><i class="fa-solid fa-house"></i> Udumulla, Makalandawa, Walallawita</li>
+                    <li><i class="fa-solid fa-image-portrait"></i> 23 Years</li>
+                    <li><i class="fa-solid fa-envelope"></i> akilapiumal16@gmail.com</li>
+                    <li><i class="fa-solid fa-phone"></i> 078-3223485</li>
                 </ul>
             </aside>
 
             <aside>
-<!--                <img src="" alt="">-->
+                <!--                <img src="" alt="">-->
             </aside>
 
-            <button>Download CV</button>
+            <div><h2>DOWNLOAD CV</h2></div>
         </section>
 
-        <article></article>
+        <article> Hi I’m Akila Piumal. I’m currently studying Programming in Institute of Software Engineering. I’m also
+            Working as a freelancer in Fiver and learning Python Language these days. I,m currently working on Web
+            Designing, Mobile Application Developing and Graphic Designing.
+        </article>
     </section>
 
     <section>
@@ -411,126 +553,126 @@
         </section>
     </section>
 
-    <section>
-        <header><h1>EDUCATION</h1></header>
+    <!--    <section>-->
+    <!--        <header><h1>EDUCATION</h1></header>-->
 
-        <section>
-            <blockquote>"NEVER STOP LEARNING UNTIL YOU DIE."</blockquote>
+    <!--        <section>-->
+    <!--            <blockquote>"NEVER STOP LEARNING UNTIL YOU DIE."</blockquote>-->
 
-            <section>
-                <img src="" alt="">
-                <h1>PRIMARY EDUCATION</h1>
-                <article></article>
-                <h1></h1>
-            </section>
+    <!--            <section>-->
+    <!--                <img src="" alt="">-->
+    <!--                <h1>PRIMARY EDUCATION</h1>-->
+    <!--                <article></article>-->
+    <!--                <h1></h1>-->
+    <!--            </section>-->
 
-            <section>
-                <img src="" alt="">
-                <h1>ORDINARY LEVEL</h1>
-                <article></article>
-                <h1></h1>
-            </section>
+    <!--            <section>-->
+    <!--                <img src="" alt="">-->
+    <!--                <h1>ORDINARY LEVEL</h1>-->
+    <!--                <article></article>-->
+    <!--                <h1></h1>-->
+    <!--            </section>-->
 
-            <section>
-                <img src="" alt="">
-                <h1>ADVANCED LEVEL</h1>
-                <article></article>
-                <h1></h1>
-            </section>
+    <!--            <section>-->
+    <!--                <img src="" alt="">-->
+    <!--                <h1>ADVANCED LEVEL</h1>-->
+    <!--                <article></article>-->
+    <!--                <h1></h1>-->
+    <!--            </section>-->
 
-            <section>
-                <img src="" alt="">
-                <h1>HIGHER EDUCATION</h1>
-                <article></article>
-                <h1></h1>
-            </section>
-        </section>
+    <!--            <section>-->
+    <!--                <img src="" alt="">-->
+    <!--                <h1>HIGHER EDUCATION</h1>-->
+    <!--                <article></article>-->
+    <!--                <h1></h1>-->
+    <!--            </section>-->
+    <!--        </section>-->
 
-    </section>
+    <!--    </section>-->
 
-    <section>
-        <header>SKILLS</header>
+    <!--    <section>-->
+    <!--        <header>SKILLS</header>-->
 
-        <section>
-            <img src="" alt="">
-            <h1>JAVA</h1>
-            <article></article>
+    <!--        <section>-->
+    <!--            <img src="" alt="">-->
+    <!--            <h1>JAVA</h1>-->
+    <!--            <article></article>-->
 
-            <img src="" alt="">
-            <h1>JAVA SCRIPT</h1>
-            <article></article>
+    <!--            <img src="" alt="">-->
+    <!--            <h1>JAVA SCRIPT</h1>-->
+    <!--            <article></article>-->
 
-            <img src="" alt="">
-            <h1>JAVAFX</h1>
-            <article></article>
-        </section>
+    <!--            <img src="" alt="">-->
+    <!--            <h1>JAVAFX</h1>-->
+    <!--            <article></article>-->
+    <!--        </section>-->
 
-        <section>
-            <img src="" alt="">
-            <h1>MYSQL</h1>
-            <article></article>
+    <!--        <section>-->
+    <!--            <img src="" alt="">-->
+    <!--            <h1>MYSQL</h1>-->
+    <!--            <article></article>-->
 
-            <img src="" alt="">
-            <h1>HTML</h1>
-            <article></article>
+    <!--            <img src="" alt="">-->
+    <!--            <h1>HTML</h1>-->
+    <!--            <article></article>-->
 
-            <img src="" alt="">
-            <h1>CSS</h1>
-            <article></article>
-        </section>
+    <!--            <img src="" alt="">-->
+    <!--            <h1>CSS</h1>-->
+    <!--            <article></article>-->
+    <!--        </section>-->
 
-        <section>
-            <h1>TOOLS</h1>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-        </section>
-    </section>
+    <!--        <section>-->
+    <!--            <h1>TOOLS</h1>-->
+    <!--            <img src="" alt="">-->
+    <!--            <img src="" alt="">-->
+    <!--            <img src="" alt="">-->
+    <!--            <img src="" alt="">-->
+    <!--            <img src="" alt="">-->
+    <!--            <img src="" alt="">-->
+    <!--            <img src="" alt="">-->
+    <!--        </section>-->
+    <!--    </section>-->
 
-    <section>
-        <header>PROJECTS</header>
+    <!--    <section>-->
+    <!--        <header>PROJECTS</header>-->
 
-        <section>
-            <img src="" alt="">
-            <h1></h1>
-            <li>View Project</li>
-        </section>
+    <!--        <section>-->
+    <!--            <img src="" alt="">-->
+    <!--            <h1></h1>-->
+    <!--            <li>View Project</li>-->
+    <!--        </section>-->
 
-        <section>
-            <img src="" alt="">
-            <h1></h1>
-            <li>View Project</li>
-        </section>
+    <!--        <section>-->
+    <!--            <img src="" alt="">-->
+    <!--            <h1></h1>-->
+    <!--            <li>View Project</li>-->
+    <!--        </section>-->
 
-        <section>
-            <img src="" alt="">
-            <h1></h1>
-            <li>View Project</li>
-        </section>
+    <!--        <section>-->
+    <!--            <img src="" alt="">-->
+    <!--            <h1></h1>-->
+    <!--            <li>View Project</li>-->
+    <!--        </section>-->
 
-        <li>All projects</li>
-    </section>
+    <!--        <li>All projects</li>-->
+    <!--    </section>-->
 </main>
 
-<footer>
-    <header>CONTACT ME</header>
-    <h1>Let's discuss for a project</h1>
-    <h2>Contact e any time.</h2>
-    <section>
+<!--<footer>-->
+<!--    <header>CONTACT ME</header>-->
+<!--    <h1>Let's discuss for a project</h1>-->
+<!--    <h2>Contact e any time.</h2>-->
+<!--    <section>-->
 
-    </section>
+<!--    </section>-->
 
-    <section>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </section>
-</footer>
+<!--    <section>-->
+<!--        <li></li>-->
+<!--        <li></li>-->
+<!--        <li></li>-->
+<!--        <li></li>-->
+<!--    </section>-->
+<!--</footer>-->
 </body>
 
 </html>
