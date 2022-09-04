@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animations Case_1</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../../../../assets/css/normalize.css" rel="stylesheet">
+    <link href="../../../../assets/fonts/css/all.min.css" rel="stylesheet">
+    <style>
+        div {
+            width: 120px;
+            height: 60px;
+            background-color: black;
+            border: 2px solid black;
+            border-radius: 10px;
+            animation-name: my-animation;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes my-animation {
+            0% {
+                background-color: yellow;
+                margin: 0 0 0 0;
+            }
+            25% {
+                background-color: blue;
+                margin: 0 0 0 500px;
+                transform: rotate(180deg);
+            }
+            50% {
+                background-color: orangered;
+                margin: 400px 0 0 500px;
+                transform: rotate(-180deg);
+            }
+            75% {
+                background-color: red;
+                margin: 400px 0 0 0;
+                transform: rotate(180deg);
+            }
+            100% {
+                background: deeppink;
+                margin: 0 0 0 0;
+                transform: rotate(-180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <div></div>
+</main>
+
+</body>
+</html>
