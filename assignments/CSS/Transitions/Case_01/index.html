@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Case_1</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../../../../assets/css/normalize.css" rel="stylesheet">
+    <link href="../../../../assets/fonts/css/all.min.css" rel="stylesheet">
+    <style>
+        main > section {
+            width: 17%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-evenly;
+            right: 155px;
+            position: relative;
+        }
+
+        main > section > div {
+            left: 0;
+            position: relative;
+            width: 200px;
+            height: 50px;
+            background-color: #89049f;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            box-shadow: 2px 4px 6px 1px #3a36367d;
+            cursor: pointer;
+            transition-property: all;
+            transition-duration: 2s;
+        }
+
+        section > div > i {
+            position: absolute;
+            right: 8px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: max-content;
+            font-size: 25px;
+            color: white;
+        }
+
+        section > div > h3 {
+            position: absolute;
+            color: white;
+            top: 0;
+            bottom: 0;
+            left: 8px;
+            margin: auto;
+            height: max-content;
+        }
+
+        section > div:hover {
+            left: 155px;
+            transition-property: all;
+            transition-duration: 2s;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section>
+        <div>
+            <h3>Menu One</h3>
+            <i class="fa-solid fa-address-book"></i>
+        </div>
+        <div>
+            <h3>Menu Two</h3>
+            <i class="fa-solid fa-truck-medical"></i>
+        </div>
+        <div>
+            <h3>Menu Three</h3>
+            <i class="fa-solid fa-book-atlas"></i>
+        </div>
+        <div>
+            <h3>Menu Four</h3>
+            <i class="fa-solid fa-layer-group"></i>
+        </div>
+        <div>
+            <h3>Menu Five</h3>
+            <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
