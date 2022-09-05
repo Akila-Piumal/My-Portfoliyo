@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animations Case_1</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../../../../assets/css/normalize.css" rel="stylesheet">
+    <link href="../../../../assets/fonts/css/all.min.css" rel="stylesheet">
+    <style>
+
+        div {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 100%;
+            border: 4px solid red;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            animation-name: my-animation;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes my-animation {
+            0% {
+                width: 25px;
+                height: 25px;
+
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <div></div>
+</main>
+
+</body>
+</html>
