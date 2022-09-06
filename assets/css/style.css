@@ -149,7 +149,9 @@
     height: 80%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
+
 
 .image_box {
     width: 50%;
@@ -269,6 +271,107 @@
 }
 
 /*<<<<<<<  Home Page Ends  >>>>>>>>>*/
+
+
+/*<<<<<<  About Me page Started  >>>>>>>>>>>>>*/
+
+.aboutPage {
+    width: 100%;
+    height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(25deg, #7cd6ff, #c0ebff3b, #ffffff);
+    /*background-color: red;*/
+}
+
+.header_aboutMe {
+    width: 100%;
+    height: 10%;
+    /*background-color: #3f51b5;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mid_sec_about {
+    width: 100%;
+    height: 50%;
+    /*background-color: yellow;*/
+    display: flex;
+}
+
+.my_about {
+    width: 50%;
+    height: 100%;
+    /*background-color: green;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.side_image_box {
+    width: 50%;
+    height: 100%;
+    /*border: 1px solid red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my_details_box {
+    width: 100%;
+    height: 40%;
+    /*background-color: #3d0047;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.my_article {
+    width: 50%;
+    height: 62%;
+    /*background-color: white;*/
+    text-align: center;
+    font: 400 20px/34px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a73e8a3;
+}
+
+.my_about > h1:nth-child(1) {
+    font-family: 'Merriweather', serif;
+    color: #474040;
+    margin-left: 20px;
+}
+
+.my_about > ul:nth-child(2) {
+    list-style: none;
+    font-family: 'Merriweather', serif;
+    font-size: 23px;
+    padding-left: 80px;
+}
+
+.my_about > ul:nth-child(2) > li {
+    padding-bottom: 20px;
+}
+
+.btn_DownloadCV {
+    width: 150px;
+    border: none;
+    height: 50px;
+    border-radius: 7px;
+    background-color: #30336B;
+    color: white;
+    font-size: 20px;
+}
+
+.side_image_about {
+    width: 80%;
+    height: 100%;
+    /*border: 1px solid green;*/
+    background: url("../images/side_image.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+}
 
 
 /*main > section {*/
