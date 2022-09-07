@@ -19,7 +19,8 @@
     flex-direction: column;
     top: 30px;
     margin-left: 42px;
-    background: #FFD15C;
+    /*background: #FFD15C;*/
+    background: #7c5ef2a3;
 }
 
 /*start profile section >>>>>>>>>>>>>*/
@@ -41,7 +42,7 @@
     background-size: 300px;
     background-position-x: 217px;
     background-position-y: -27px;
-    border-bottom: 5px solid #003e80;
+    border-bottom: 4px solid white;
     /* border-right: 2px solid #003e80;*/
 }
 
@@ -60,18 +61,20 @@
     font-weight: bold;
     margin-bottom: 3px;
     margin-top: 3px;
-    color: black;
+    color: white;
     font-family: 'Aldrich', sans-serif;
 }
 
 .position {
     font-size: 13px;
     font-family: 'Noto Sans Display', sans-serif;
-    color: #3f51b5;
+    color: black;
+    font-weight: 520;
 }
 
 .sri-lanka {
-    color: black;
+    font-weight: bold;
+    color: white;
 }
 
 /*Start button section   >>>>>>>>>>>>>*/
@@ -341,13 +344,15 @@
 }
 
 .header_aboutMe > h1 {
-    padding-left: 73px;
     color: white;
-    padding-top: 40px;
-    margin-top: 0;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 56px;
+    margin-top: 57px;
     margin-bottom: 0;
     font-size: 38px;
     font-family: 'Aldrich', sans-serif;
+    box-shadow: 0px 1px 0px 0px black;
 }
 
 .mid_sec_about {
@@ -385,49 +390,52 @@
 }
 
 .my_article {
-    width: 50%;
-    height: 62%;
-    /*background-color: white;*/
+    width: 86%;
+    height: 41%;
+    /* background-color: white; */
     text-align: center;
     font: 400 20px/34px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #1a73e8a3;
+    color: white;
 }
 
-.my_about > h1:nth-child(1) {
-    font-family: 'Merriweather', serif;
-    color: #474040;
-    margin-left: 20px;
-}
-
-.my_about > ul:nth-child(2) {
+.my_about > ul:nth-child(1) {
     list-style: none;
-    font-family: 'Merriweather', serif;
+    font-family: 'Aldrich', sans-serif;
     font-size: 23px;
-    padding-left: 80px;
+    color: white;
+    padding-left: 121px;
+    padding-top: 50px;
 }
 
-.my_about > ul:nth-child(2) > li {
+.my_about > ul:nth-child(1) > li {
     padding-bottom: 20px;
 }
 
+.my_about > ul:nth-child(1) > li > i {
+    color: #7c5ef2;
+}
+
 .btn_DownloadCV {
-    width: 150px;
+    width: 192px;
     border: none;
     height: 50px;
     border-radius: 7px;
-    background-color: #30336B;
+    background-color: #7c5ef2;
     color: white;
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .side_image_about {
-    width: 80%;
-    height: 100%;
-    /*border: 1px solid green;*/
-    background: url("../images/side_image.png");
+    width: 55%;
+    height: 90%;
+    /* border: 1px solid green; */
+    background: url(../images/programmer.svg);
     background-size: cover;
     background-position: center;
-    opacity: 0.8;
+    opacity: 1;
+    border-radius: 100%;
+    border: 6px solid #7c5ef2;
 }
 
 
