@@ -391,7 +391,7 @@
 
 .my_article {
     width: 86%;
-    height: 41%;
+    height: 37%;
     /* background-color: white; */
     text-align: center;
     font: 400 20px/34px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -467,4 +467,41 @@
     font-size: 38px;
     font-family: 'Aldrich', sans-serif;
     box-shadow: 0 1px 0 0 black;
+}
+
+#service_sec {
+    width: 100%;
+    height: 87%;
+    /*border: 1px solid green;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.service_div {
+    background: linear-gradient(145deg, #181f34, #1d243e);
+    /* background: #7c5ef2; */
+    border-radius: 10px;
+    box-shadow: 4px 6px 8px 2px #101523;
+    height: 340px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ser_icons {
+    font-size: 70px;
+    color: #7c5ef2;
+}
+
+.service_titles {
+    color: #cdcdcd;
+}
+
+.service_arti {
+    color: #888;
+    font-size: 20px;
+    text-align: center;
 }
