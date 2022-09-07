@@ -176,7 +176,7 @@
 /*Top section   >>>>>*/
 .top_section {
     width: 100%;
-    height: 65%;
+    height: 70%;
     display: flex;
 }
 
@@ -189,8 +189,8 @@
 }
 
 .welcome_details {
-    width: 80%;
-    height: 80%;
+    width: 77%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -214,32 +214,32 @@
 }
 
 .txt_hi {
-    color: #9C88FF;
+    color: #7c5ef2;
     font-size: 60px;
     margin-bottom: 20px;
 }
 
 .txt_name {
-    font-size: 60px;
+    font-size: 80px;
     margin-top: 0;
     margin-bottom: 0;
     color: white;
 }
 
 .txt_des {
-    color: #9C88FF;
-    font-size: 20px;
-    font-style: italic;
-    margin-top: 5px;
+    color: #7c5ef2;
+    font-size: 33px;
+    margin-top: 8px;
     margin-left: 4px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .btn_hireMe {
     width: 150px;
     border: none;
-    height: 42px;
+    height: 50px;
     border-radius: 7px;
-    background-color: #FFD15C;
+    background-color: #7c5ef2;
     color: white;
     font-weight: bold;
     font-size: 24px;
@@ -250,7 +250,7 @@
 
 .bottom_section {
     width: 100%;
-    height: 35%;
+    height: 30%;
     /*background-color: pink;*/
     display: flex;
 }
@@ -267,14 +267,14 @@
 .social_links {
     width: 80%;
     height: 80%;
-    /*border: 1px solid green;*/
+    /* border: 1px solid green; */
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: space-evenly;
 }
 
 .fa-brands {
-    color: #FFD15C;
+    color: #7c5ef2;
     font-size: 50px;
 }
 
