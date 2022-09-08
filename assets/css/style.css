@@ -688,3 +688,196 @@
 
 /*<<<<<<<<<<<<<<   Education page Ends    >>>>>>>>>>>>>>>>>>>>>*/
 
+#skillsPage {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    background: #313C42;
+    margin-top: 2%;
+    align-items: center;
+}
+
+/*header*/
+#header_skills {
+    width: 100%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#header_skills > h1 {
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 56px;
+    margin-top: 22px;
+    margin-bottom: 0;
+    font-size: 36px;
+    font-family: 'Aldrich', sans-serif;
+    box-shadow: 0 1px 0 0 black;
+}
+
+/*main*/
+#mainOfSkills {
+    width: 90%;
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+}
+
+.subTopics {
+    width: 100%;
+    height: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.subTopics > h1 {
+    font-size: 20px;
+    color: #7c5ef2;
+}
+
+.subTopics > hr {
+    height: 1px;
+    width: 896px;
+    background: #7c5ef2;
+    border: none;
+}
+
+.subTopics #hr_tools {
+    width: 945px;
+}
+
+#languages_section {
+    width: 100%;
+    height: 64%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.lan_Box {
+    width: 26%;
+    height: 42%;
+    background: linear-gradient(145deg, #181f34, #1d243e);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 4px 6px 8px 2px #101523;
+}
+
+#java_box {
+    width: 37%;
+    height: 62%;
+    background: url("../images/java.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#javascriptBox {
+    width: 37%;
+    height: 62%;
+    background: url("../images/Javascript.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#javafx_Box {
+    width: 37%;
+    height: 62%;
+    background: url("../images/javafx.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#mysql_Box {
+    width: 37%;
+    height: 62%;
+    background: url("../images/mysql.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#html_Box {
+    width: 32%;
+    height: 59%;
+    margin-top: 16px;
+    background: url("../images/html.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#css_Box {
+    width: 31%;
+    height: 56%;
+    margin-top: 16px;
+    background: url("../images/css.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.lan_Box > h2 {
+    color: #cdcdcd;
+}
+
+#tools_section {
+    width: 100%;
+    height: 28%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.tool_Box {
+    width: 9%;
+    height: 45%;
+}
+
+#intellij_Box {
+    background: url("../images/intellij.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#figma_box {
+    background: url("../images/figma.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#photoshop_box {
+    background: url("../images/photoshop.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#vsCode_box {
+    background: url("../images/vscode.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#node_js_box {
+    background: url(../images/nodejs.png);
+    background-size: contain;
+    background-position: center;
+}
+
+#slack_box {
+    background: url("../images/slack.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#hibernate_box {
+    background: url("../images/hibernate.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
