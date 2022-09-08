@@ -498,10 +498,16 @@
 
 .service_titles {
     color: #cdcdcd;
+    font-size: 26px;
 }
 
 .service_arti {
     color: #888;
     font-size: 20px;
     text-align: center;
+    width: 85%;
+}
+
+#mobile_app_title {
+    margin-top: 41px;
 }
