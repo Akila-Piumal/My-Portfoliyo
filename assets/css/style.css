@@ -511,3 +511,180 @@
 #mobile_app_title {
     margin-top: 41px;
 }
+
+
+/*<<<<<<  Education page starts   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+#educationPage {
+    width: 100%;
+    height: 760px;
+    display: flex;
+    flex-direction: column;
+    background: #313C42;
+    margin-top: 2%;
+}
+
+/*header*/
+#header_education {
+    width: 100%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#header_education > h1 {
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 56px;
+    margin-top: 57px;
+    margin-bottom: 0;
+    font-size: 38px;
+    font-family: 'Aldrich', sans-serif;
+    box-shadow: 0 1px 0 0 black;
+}
+
+/*main*/
+#mainSecEducation {
+    width: 100%;
+    height: 87%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#years_side {
+    height: 88%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.year_div {
+    width: 206px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.rectangle {
+    width: 170px;
+    height: 40px;
+    background: #7c5ef2;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.traingle {
+    width: 0;
+    height: 0;
+    border-top: 27px solid transparent;
+    border-left: 23px solid #7c5ef2;
+    border-bottom: 27px solid transparent;
+}
+
+.years {
+    color: #cdcdcd;
+}
+
+/*line*/
+#line_div {
+    width: 2%;
+    height: 83%;
+    position: relative;
+}
+
+.line {
+    height: 100%;
+    width: 3px;
+    background: #7c5ef2;
+}
+
+.dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+#dot1 {
+    top: 0;
+    left: -6px;
+}
+
+#dot2 {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: -6px;
+}
+
+#dot3 {
+    bottom: 0;
+    left: -6px;
+}
+
+#edu_details {
+    width: 38%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.edu_levels {
+    height: 17%;
+    width: 100%;
+}
+
+.Edu_Stages {
+    color: #cdcdcd;
+}
+
+.Edu_Place {
+    color: #888;
+    font-size: 19px;
+}
+
+#images_side {
+    width: 17%;
+    height: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#ijse_img_div {
+    width: 170px;
+    height: 60px;
+    background: url("../images/ijse.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#kannangara_img_div {
+    width: 99px;
+    height: 113px;
+    background: url("../images/kannangara.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#makalandawa_img_div {
+    width: 135px;
+    height: 67px;
+    background: url("../images/makalandawa.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/*<<<<<<<<<<<<<<   Education page Ends    >>>>>>>>>>>>>>>>>>>>>*/
+
