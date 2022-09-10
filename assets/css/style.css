@@ -1010,3 +1010,150 @@
 
 /*<<<<<< Projects Page Ends   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
+
+/*<<<<<<<<     Assignments Page Starts    >>>>>>>*/
+
+#assignmentsPage {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    background: #313C42;
+    margin-top: 2%;
+    align-items: center;
+}
+
+/*header*/
+#header_assignments {
+    width: 100%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#header_assignments > h1 {
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 56px;
+    margin-top: 22px;
+    margin-bottom: 0;
+    font-size: 36px;
+    font-family: 'Aldrich', sans-serif;
+    box-shadow: 0 1px 0 0 black;
+}
+
+/*main*/
+#mainOfAssignments {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/*one box of assignment details*/
+.assignment_box {
+    width: 20%;
+    height: 70%;
+    /*border: 1px solid green;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(145deg, #181f34, #1d243e);
+    box-shadow: 2px 8px 13px 0px black;
+    border-radius: 15px;
+}
+
+.assignment_name {
+    color: #cdcdcd;
+    font-size: 19px;
+}
+
+/*image box*/
+.assignment_image_box {
+    width: 90%;
+    height: 50%;
+    box-shadow: 0px 0px 10px 0px white;
+}
+
+#assignment01_img {
+    background: url("../images/Basics_Assignment_01.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#assignment02_img {
+    background: url("../images/Basics_Assignment_02.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#assignment06_img {
+    background: url("../images/Basics_Assignment_06.png");
+    background-size: cover;
+    background-position: center;
+}
+
+#ani_assignment_04 {
+    background: url("../images/Animations_assignment_04.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/*view button box*/
+.assignment_box > div:nth-child(3) {
+    width: 40%;
+    height: 12%;
+    background: #7c5ef2;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.assignment_box > div > a {
+    color: #cdcdcd;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*footer*/
+#footerOfAssignments {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/*view all button*/
+#view_All_div {
+    width: 15%;
+    height: 60%;
+    border-radius: 7px;
+    background: #7c5ef2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*margin-top: 10px;*/
+}
+
+#view_All_div > a {
+    color: #cdcdcd;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
