@@ -398,21 +398,55 @@
 
 </main>
 
-<!--<footer>-->
-<!--    <header>CONTACT ME</header>-->
-<!--    <h1>Let's discuss for a project</h1>-->
-<!--    <h2>Contact e any time.</h2>-->
-<!--    <section>-->
+<footer id="contactMePage">
+    <header id="header_contact_me">
+        <h1>Let's discuss for a project</h1>
+    </header>
 
-<!--    </section>-->
+    <!--    <h2>Contact e any time.</h2>-->
+    <section id="mainOfContactMe">
+        <div class="contactDetailsDiv" id="sendAmessageDiv">
+            <form action="send_Massage" id="sendMessageForm" method="post">
+                <legend><span id="sendMeBold">Send Me</span> A Message</legend>
+                <lable for="txtCustomerName" id="label">Name</lable>
+                <input id="txtCustomerName" name="CustomerName" type="text">
+                <lable for="txtEmail" id="label">Email</lable>
+                <input id="txtEmail" name="CustomerName" type="text">
+                <lable for="textArea" id="label">Message Text</lable>
+                <textarea cols="30" id="textArea" name="massageText" rows="5"></textarea>
+                <button formaction="sendMessage" formtarget="_blank">Send Message</button>
+            </form>
 
-<!--    <section>-->
-<!--        <li></li>-->
-<!--        <li></li>-->
-<!--        <li></li>-->
-<!--        <li></li>-->
-<!--    </section>-->
-<!--</footer>-->
+        </div>
+        <div class="contactDetailsDiv" id="myContactsDiv">
+            <h2 id="h2_myContacts"><span>MY</span> Contacts</h2>
+            <dl id="details_list">
+                <dl><i class="fa-solid fa-location-dot"></i> Address</dl>
+                <dd>Udumulla,Makalandaw,Walallawita</dd>
+                <dl><i class="fa-solid fa-envelope"></i> Email</dl>
+                <dd>akilapiumal16@gmail.com</dd>
+                <dl><i class="fa-solid fa-phone"></i>Telephone</dl>
+                <dd>+94 78-3223485</dd>
+                <dl><i class="fa-solid fa-clock"></i>Working Hours</dl>
+                <dd>24 Hours</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section id="footerOfContactMe">
+        <h2 id="txtFollowMe">Follow Me</h2>
+        <nav id="social_links">
+            <a href="https://linkedin.com/in/akila-piumal-3b7040229" target="_blank"><i
+                    class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/Akila-Piumal" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="https://twitter.com/AkilaPiumal99" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.facebook.com/akila.piumal.90/" target="_blank"><i
+                    class="fa-brands fa-facebook"></i></a>
+        </nav>
+        <small>ⓒ Copyright ⓒ2022 All Rights Reserved</small>
+    </section>
+</footer>
 </body>
 
 </html>
