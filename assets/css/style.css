@@ -1359,3 +1359,23 @@ body {
     cursor: pointer;
 }
 
+
+/*<<<<<<<<<<<<<<<<<      MEDIA QUERIES        >>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+@media all and (max-width: 1340px) {
+    .aside {
+        /*position: absolute;*/
+        /*visibility: hidden;*/
+        display: none;
+    }
+
+    #hidden_nav {
+        display: flex;
+    }
+
+    .homepage {
+        border-top-right-radius: 0;
+    }
+}
+
