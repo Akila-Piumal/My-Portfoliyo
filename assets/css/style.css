@@ -167,13 +167,13 @@
 .homepage {
     width: 100%;
     /*height: 100vh !important;*/
-    height: 647px;
+    height: 620px;
     display: flex;
     flex-direction: column;
     /*background: linear-gradient(25deg, #7cd6ff, #c0ebff3b, #ffffff);*/
     background: #313C42;
     border-top-right-radius: 102px;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
 }
 
 /*Top section   >>>>>*/
@@ -214,6 +214,16 @@
     background: url(../images/My_crop.png);
     background-size: cover;
     background-position: center;
+    z-index: 1;
+}
+
+#decoration_box {
+    height: 368px;
+    width: 368px;
+    border-radius: 100%;
+    background-color: #7c5ef2;
+    border: 2px solid white;
+    margin-left: -386px;
 }
 
 .txt_hi {
@@ -246,6 +256,13 @@
     color: white;
     font-weight: bold;
     font-size: 24px;
+    cursor: pointer;
+}
+
+.btn_hireMe:hover {
+    background-color: white;
+    color: #7c5ef2;
+    border: 3px solid #7c5ef2;
 }
 
 
@@ -279,6 +296,10 @@
 .fa-brands {
     color: #7c5ef2;
     font-size: 50px;
+}
+
+.fa-brands:hover {
+    color: white;
 }
 
 .deco_box {
@@ -331,7 +352,7 @@
     display: flex;
     flex-direction: column;
     background: #313C42;
-    margin-top: 1%;
+    margin-top: 2%;
 }
 
 .header_aboutMe {
@@ -415,7 +436,7 @@
     color: #7c5ef2;
 }
 
-.btn_DownloadCV {
+#btn_DownloadCV {
     width: 192px;
     border: none;
     height: 50px;
@@ -424,6 +445,13 @@
     color: white;
     font-weight: bold;
     font-size: 24px;
+    cursor: pointer;
+}
+
+#btn_DownloadCV:hover {
+    background-color: white;
+    color: #7c5ef2;
+    border: 3px solid #7c5ef2;
 }
 
 .side_image_about {
@@ -446,7 +474,7 @@
     display: flex;
     flex-direction: column;
     background: #313C42;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 #header_service {
@@ -521,7 +549,7 @@
     display: flex;
     flex-direction: column;
     background: #313C42;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 /*header*/
@@ -996,6 +1024,15 @@
     margin-top: 10px;
 }
 
+#footerOfProjects > div:hover {
+    border: 3px solid #7c5ef2;
+    background-color: white;
+}
+
+#footerOfProjects > div > a:hover {
+    color: #7c5ef2;
+}
+
 #footerOfProjects > div > a {
     width: 100%;
     height: 100%;
@@ -1125,6 +1162,17 @@
     justify-content: center;
 }
 
+/*hover*/
+.assignment_box > div:nth-child(3):hover {
+    background-color: white;
+    border: 3px solid #7c5ef2;
+}
+
+.assignment_box > div:nth-child(3) > a:hover {
+    color: #7c5ef2;
+    font-size: 25px;
+}
+
 /*footer*/
 #footerOfAssignments {
     width: 100%;
@@ -1156,6 +1204,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*hover*/
+#view_All_div:hover {
+    background-color: white;
+    border: 3px solid #7c5ef2;
+}
+
+#view_All_div > a:hover {
+    color: #7c5ef2;
 }
 
 
@@ -1340,10 +1398,13 @@ body {
 #hidden_nav {
     width: 100%;
     height: 1%;
-    background-color: #313C42;
+    /*background-color: #313C42;*/
     /*display: flex;*/
     justify-content: flex-end;
     display: none;
+    position: sticky;
+    top: 1px;
+    backdrop-filter: blur(10px);
 }
 
 #hidden_ul {
@@ -1352,18 +1413,24 @@ body {
     align-items: center;
     justify-content: space-around;
     list-style: none;
-    color: #7c5ef2;
+    color: #cdcdcd;
+    font-size: 20px;
 }
 
 #hidden_ul > li {
     cursor: pointer;
 }
 
+#hidden_ul > li:hover {
+    color: #866af3;
+    border-bottom: 2px solid #866af3;
+}
+
 
 /*<<<<<<<<<<<<<<<<<      MEDIA QUERIES        >>>>>>>>>>>>>>>>>>>>>>>>*/
 
 
-@media all and (max-width: 1340px) {
+@media all and (max-width: 1355px) {
     .aside {
         /*position: absolute;*/
         /*visibility: hidden;*/
@@ -1376,6 +1443,10 @@ body {
 
     .homepage {
         border-top-right-radius: 0;
+    }
+
+    .side_image_about {
+        width: 47%;
     }
 }
 
