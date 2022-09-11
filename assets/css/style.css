@@ -1448,5 +1448,61 @@ body {
     .side_image_about {
         width: 47%;
     }
+
+    #decoration_box {
+        margin-left: -434px;
+    }
+
+    .image_box {
+        width: 45%;
+    }
+
+    /*.coder_designer {*/
+    /*    margin-left: 68px;*/
+    /*}*/
+}
+
+@media all and (max-width: 1150px) {
+    #details_list {
+        margin-left: 12px;
+    }
+}
+
+@media all and (max-width: 1060px) {
+    #hidden_nav {
+        justify-content: space-evenly;
+    }
+
+    #hidden_ul {
+        width: 83%;
+    }
+
+    .main_side {
+        width: 96%;
+    }
+
+    .txt_coder {
+        font-size: 53px;
+    }
+
+    .txt_designer {
+        font-size: 31px;
+    }
+
+    .txt_developer {
+        font-size: 20px;
+    }
+
+    .side_image_about {
+        height: 68%;
+    }
+
+    .my_about > ul:nth-child(1) {
+        font-size: 20px;
+    }
+
+    .my_article {
+        margin-bottom: 35px;
+    }
 }
 
