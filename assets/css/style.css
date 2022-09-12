@@ -174,7 +174,6 @@
     background: #313C42;
     border-top-right-radius: 102px;
     margin-bottom: 2%;
-    margin-top: 61px;
 }
 
 /*Top section   >>>>>*/
@@ -1488,6 +1487,7 @@ label #cancel {
 
     .homepage {
         border-top-right-radius: 0;
+        margin-top: 61px;
     }
 
     .side_image_about {
@@ -1865,4 +1865,133 @@ label #cancel {
         display: block;
     }
 
+
+    /*home page*/
+    .homepage {
+        height: 600px;
+    }
+
+    .top_section {
+        flex-direction: column-reverse;
+        height: 80%;
+    }
+
+    .bottom_section {
+        height: 20%;
+        justify-content: center;
+    }
+
+    .welcome_details_box {
+        width: 100%;
+        height: 50%;
+    }
+
+    .welcome_details {
+        height: 70%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .txt_hi {
+        font-size: 56px;
+        margin-bottom: 0;
+        margin-top: -5px;
+    }
+
+    .txt_name {
+        font-size: 56px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .txt_des {
+        margin-top: 0;
+    }
+
+    .btn_hireMe {
+        font-size: 27px !important;
+    }
+
+    .social_link_box {
+        justify-content: center;
+    }
+
+    .deco_box {
+        display: none;
+    }
+
+    .image_box {
+        width: 90%;
+    }
+
+    .welcome_details_box {
+        height: 45%;
+    }
+
+    .my_image {
+        width: 47%;
+        height: 89%;
+    }
+
+    #decoration_box {
+        height: 177px;
+        width: 177px;
+        margin-left: -260px;
+    }
+
+    /*aboutme*/
+    .my_about > ul:nth-child(1) {
+        padding-left: 48px;
+        font-size: 16px !important;
+    }
+
+    /*my services*/
+    #service_sec {
+        flex-wrap: wrap;
+    }
+
+    .service_div {
+        height: 287px;
+        width: 271px;
+    }
+
+    #servicesPage {
+        height: 760px;
+    }
+
+    #service_sec > div:nth-child(3) {
+        margin-top: 16px;
+    }
+
+
+    /*projects*/
+    #mainOfProjects {
+        flex-wrap: wrap;
+    }
+
+    .projectBox {
+        width: 247px;
+        height: 210px;
+    }
+
+    #projectsPage {
+        height: 648px;
+    }
+
+    #header_projects {
+        height: 18%;
+    }
+
+    #header_projects > h1 {
+        margin-top: -6px;
+    }
+
+    #footerOfProjects {
+        align-items: center;
+    }
+
+
+    .fa-brands {
+        font-size: 36px;
+    }
 }
