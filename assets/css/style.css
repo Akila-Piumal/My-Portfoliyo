@@ -174,6 +174,7 @@
     background: #313C42;
     border-top-right-radius: 102px;
     margin-bottom: 2%;
+    margin-top: 61px;
 }
 
 /*Top section   >>>>>*/
@@ -1395,37 +1396,80 @@ body {
 
 /*<<<<<  Hidden navigation bar   >>>>>>>>>>>*/
 
-#hidden_nav {
-    width: 100%;
-    height: 1%;
-    /*background-color: #313C42;*/
-    /*display: flex;*/
-    justify-content: flex-end;
-    display: none;
-    position: sticky;
-    top: 1px;
-    backdrop-filter: blur(10px);
-}
-
-#hidden_ul {
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+#hidden_list > li {
+    margin: 0;
+    padding: 0;
     list-style: none;
-    color: #cdcdcd;
-    font-size: 20px;
+    text-decoration: none;
 }
 
-#hidden_ul > li {
+#hidden_list {
+    margin: 0;
+    padding: 0;
+}
+
+#hidden_nav {
+    height: 60px;
+    backdrop-filter: blur(10px);
+    display: none;
+    width: 96%;
+    margin-top: -17px;
+    z-index: 2;
+}
+
+#hidden_nav > ul {
+    float: right;
+    margin-right: 25px;
+    z-index: 2;
+}
+
+#hidden_nav > ul > li {
+    display: inline-block;
+    line-height: 75px;
+    margin: 0 15px;
+}
+
+#hidden_nav > ul > li > a {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    padding: 5px 0;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#hidden_nav ul li a:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .4s linear;
+}
+
+#hidden_nav ul li a:hover:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+label #btn,
+label #cancel {
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
     cursor: pointer;
+    display: none;
 }
 
-#hidden_ul > li:hover {
-    color: #866af3;
-    border-bottom: 2px solid #866af3;
+#check {
+    display: none;
 }
-
 
 /*<<<<<<<<<<<<<<<<<      MEDIA QUERIES        >>>>>>>>>>>>>>>>>>>>>>>>*/
 
@@ -1438,7 +1482,8 @@ body {
     }
 
     #hidden_nav {
-        display: flex;
+        display: block;
+        position: fixed;
     }
 
     .homepage {
@@ -1456,10 +1501,6 @@ body {
     .image_box {
         width: 45%;
     }
-
-    /*.coder_designer {*/
-    /*    margin-left: 68px;*/
-    /*}*/
 }
 
 @media all and (max-width: 1150px) {
@@ -1479,8 +1520,11 @@ body {
         justify-content: space-evenly;
     }
 
-    #hidden_ul {
-        width: 83%;
+    /*#hidden_list {*/
+    /*    width: 83%;*/
+    /*}*/
+    #hidden_list > li > a {
+        font-size: 15px !important;
     }
 
     .main_side {
@@ -1535,6 +1579,15 @@ body {
 }
 
 @media all and (max-width: 950px) {
+    /*nav*/
+    #hidden_nav > ul > li {
+        margin: 0 10px;
+    }
+
+    #hidden_nav > ul > li > a {
+        font-size: 13px !important;
+    }
+
     .my_image {
         width: 84%;
         height: 88%;
@@ -1767,4 +1820,49 @@ body {
     #txtFollowMe {
         font-size: 23px;
     }
+}
+
+@media all and (max-width: 768px) {
+    /*nav*/
+    label #btn {
+        display: block;
+    }
+
+    #hidden_list {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #34495e;
+        top: 80px;
+        left: -103%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        transition: all .5s;
+        margin-top: -20px;
+        margin-left: 0px;
+    }
+
+    #hidden_list > li {
+        display: block;
+        margin: 50px 0;
+        line-height: 60px !important;
+    }
+
+    #hidden_nav > ul > li > a {
+        font-size: 18px !important;
+    }
+
+    #check:checked ~ ul {
+        left: 0;
+    }
+
+    #check:checked ~ label #btn {
+        display: none;
+    }
+
+    #check:checked ~ label #cancel {
+        display: block;
+    }
+
 }
