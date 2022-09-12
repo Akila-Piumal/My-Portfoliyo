@@ -1466,6 +1466,12 @@ body {
     #details_list {
         margin-left: 12px;
     }
+
+    #decoration_box {
+        height: 360px;
+        width: 360px;
+        margin-left: -401px;
+    }
 }
 
 @media all and (max-width: 1060px) {
@@ -1504,5 +1510,261 @@ body {
     .my_article {
         margin-bottom: 35px;
     }
+
+    /*service page*/
+    #servicesPage {
+        height: 519px;
+    }
+
+    #header_service {
+        height: 20%;
+    }
+
+    #header_service > h1 {
+        margin-top: -12px;
+    }
+
+    #service_sec {
+        height: 72%;
+    }
+
+    .service_div {
+        height: 305px;
+        width: 247px;
+    }
 }
 
+@media all and (max-width: 950px) {
+    .my_image {
+        width: 84%;
+        height: 88%;
+    }
+
+    #decoration_box {
+        height: 320px;
+        width: 320px;
+        margin-left: -290px;
+    }
+
+    .coder_designer {
+        margin-left: -71px;
+        margin-top: -25px;
+    }
+
+    .txt_hi {
+        font-size: 56px;
+    }
+
+    .txt_name {
+        font-size: 72px;
+    }
+
+    .txt_des {
+        font-size: 29px;
+    }
+
+    .btn_hireMe {
+        width: 135px;
+        height: 42px;
+        font-size: 21px;
+    }
+
+    .txt_coder {
+        font-size: 48px;
+    }
+
+    .txt_designer {
+        font-size: 27px;
+    }
+
+    .txt_developer {
+        font-size: 19px;
+    }
+
+    .homepage {
+        height: 586px;
+    }
+
+    /*about me*/
+    .aboutPage {
+        height: 586px;
+    }
+
+    .header_aboutMe > h1 {
+        margin-top: 23px;
+        font-size: 33px;
+    }
+
+    .my_about > ul:nth-child(1) {
+        padding-left: 67px;
+        padding-top: 41px;
+    }
+
+    .mid_sec_about {
+        height: 45%;
+    }
+
+    .my_details_box {
+        height: 42%;
+    }
+
+    #btn_DownloadCV {
+        width: 173px;
+        height: 43px;
+        font-size: 19px;
+    }
+
+    .my_details_box {
+        justify-content: space-evenly;
+    }
+
+    .my_article {
+        font: 400 17px/25px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
+        margin-bottom: 0;
+    }
+
+    /*my services*/
+    .service_div {
+        height: 287px;
+        width: 226px;
+    }
+
+    #header_service > h1 {
+        margin-top: -11px;
+        font-size: 33px;
+    }
+
+    /*education*/
+    #header_education > h1 {
+        margin-top: 2px;
+        font-size: 33px;
+    }
+
+    #educationPage {
+        height: 670px;
+    }
+
+    #mainSecEducation {
+        height: 80%;
+    }
+
+    .Edu_Stages {
+        font-size: 1.5em;
+    }
+
+    .Edu_Place {
+        font-size: 17px;
+    }
+
+    #ijse_img_div {
+        width: 145px;
+        height: 52px;
+    }
+
+    #kannangara_img_div {
+        width: 76px;
+        height: 89px;
+    }
+
+    #makalandawa_img_div {
+        width: 122px;
+        height: 56px;
+    }
+
+    /*skils*/
+    #tools_section {
+        height: 24%;
+    }
+
+    #header_skills > h1 {
+        margin-top: -10px;
+        font-size: 33px;
+    }
+
+    #languages_section {
+        width: 92%;
+    }
+
+    .lan_Box {
+        width: 26%;
+        height: 39%;
+    }
+
+    /*projexts*/
+    #header_projects > h1 {
+        margin-top: 20px;
+        font-size: 33px;
+    }
+
+    .projectBox {
+        width: 28%;
+        height: 58%;
+    }
+
+    #projectsPage {
+        height: 579px;
+    }
+
+    /*assignments*/
+    #assignmentsPage {
+        height: 700px;
+    }
+
+    #header_assignments {
+        height: 17%;
+    }
+
+    #header_assignments > h1 {
+        margin-left: 47px;
+        margin-top: -25px;
+        font-size: 33px;
+    }
+
+    #mainOfAssignments {
+        width: 90%;
+        height: 70%;
+        flex-wrap: wrap;
+    }
+
+    .assignment_box {
+        width: 34%;
+        height: 45%;
+    }
+
+    #footerOfAssignments {
+        align-items: center;
+    }
+
+    /*contact me page*/
+    #contactMePage {
+        height: 530px;
+    }
+
+    #header_contact_me > h1 {
+        font-size: 22px;
+    }
+
+    #mainOfContactMe {
+        width: 82%;
+    }
+
+    #sendMeBold {
+        font-size: 17px;
+    }
+
+    #label {
+        padding-bottom: 10px;
+    }
+
+    #h2_myContacts > span {
+        font-size: 17px;
+    }
+
+    #details_list {
+        font-size: 17px;
+    }
+
+    #txtFollowMe {
+        font-size: 23px;
+    }
+}
