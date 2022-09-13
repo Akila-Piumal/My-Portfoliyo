@@ -1261,7 +1261,9 @@
     border-radius: 10px;
     margin-bottom: -50px;
     z-index: 1;
+    background: linear-gradient(145deg, #181f34, #1d243e);
 }
+
 
 .contactDetailsDiv {
     width: 50%;
@@ -1286,14 +1288,19 @@
     justify-content: space-evenly;
 }
 
+#sendMessageForm > legend {
+    color: #7c5ef2;
+}
+
 #sendMeBold {
     font-weight: bold;
-    color: #7c5ef2;
+    color: white;
     font-size: 20px;
 }
 
 #label {
     font-weight: bold;
+    color: white;
 }
 
 input {
@@ -1334,11 +1341,12 @@ textarea {
     margin-left: 10px;
     font-size: 18px;
     font-weight: lighter;
+    color: #7c5ef2;
 }
 
 #h2_myContacts > span {
     font-size: 20px;
-    color: #5a6eff;
+    color: white;
 }
 
 #details_list {
@@ -1349,16 +1357,18 @@ textarea {
 #details_list > dl {
     font-weight: bold;
     margin-bottom: 3px;
+    color: #7c5ef2;
 }
 
 #details_list > dd {
     font-size: 14px;
+    color: white;
 }
 
 #details_list > dl > i {
     font-size: 20px;
     margin-right: 10px;
-    color: rgba(255, 0, 0, 0.64);
+    color: #7c5ef2;
 }
 
 
