@@ -2005,3 +2005,321 @@ label #cancel {
         font-size: 36px;
     }
 }
+
+
+@media all and (max-width: 700px) {
+    /*homepage*/
+    .my_image {
+        width: 52%;
+        height: 89%;
+    }
+
+    /*about me*/
+    .header_aboutMe > h1 {
+        margin-top: 18px;
+        font-size: 29px;
+        margin-left: 44px;
+    }
+
+    .my_about > ul:nth-child(1) {
+        padding-left: 34px;
+        font-size: 15px !important;
+    }
+
+    .side_image_box {
+        width: 166px;
+        height: 166px;
+        margin-top: 61px;
+        margin-left: 30px;
+    }
+
+    .side_image_about {
+        height: 100%;
+        width: 100%;
+    }
+
+    #btn_DownloadCV {
+        width: 144px;
+        height: 36px;
+        font-size: 17px;
+    }
+
+    .my_article {
+        width: 90%;
+        height: 52%;
+        font: 400 14px/25px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /*service*/
+    #header_service > h1 {
+        margin-top: -17px;
+        font-size: 29px;
+        margin-left: 32px;
+    }
+
+    #servicesPage {
+        align-items: center;
+        height: 800px;
+    }
+
+    #header_service {
+        height: 12%;
+    }
+
+    #service_sec {
+        width: 55%;
+        height: 100%;
+    }
+
+    .service_div {
+        height: 212px;
+        width: 212px;
+    }
+
+    .ser_icons {
+        font-size: 40px;
+    }
+
+    .service_titles {
+        font-size: 20px;
+    }
+
+    .service_arti {
+        font-size: 15px;
+    }
+
+    #service_sec > div:nth-child(3) {
+        margin-top: 0;
+    }
+
+    /*education  */
+    #header_education > h1 {
+        margin-top: -9px;
+        font-size: 29px;
+        margin-left: 36px;
+    }
+
+    #educationPage {
+        align-items: center;
+    }
+
+    #mainSecEducation {
+        width: 75%;
+    }
+
+    .year_div {
+        width: 152px;
+        height: 42px;
+    }
+
+    .rectangle {
+        width: 107px;
+        height: 29px;
+    }
+
+    .years {
+        font-size: 16px;
+    }
+
+    .traingle {
+        border-top: 21px solid transparent;
+        border-left: 18px solid #7c5ef2;
+        border-bottom: 21px solid transparent;
+    }
+
+    #edu_details {
+        width: 38%;
+    }
+
+    .Edu_Stages {
+        font-size: 22px;
+    }
+
+    #edu_details {
+        width: 45%;
+    }
+
+    .Edu_Place {
+        font-size: 16px;
+    }
+
+    #images_side {
+        width: 27%;
+    }
+
+    /*skills*/
+    #header_skills > h1 {
+        margin-top: -6px;
+        font-size: 29px;
+        margin-left: 40px;
+    }
+
+    .tool_Box {
+        width: 60px;
+        height: 45px;
+    }
+
+    .subTopics > hr {
+        display: none;
+    }
+
+    .subTopics {
+        justify-content: center;
+    }
+
+    #mainOfSkills {
+        justify-content: space-around;
+    }
+
+    #tools_section {
+        height: 13%;
+    }
+
+    .lan_Box > h2 {
+        font-size: 21px;
+    }
+
+
+    /*projects*/
+    #header_projects {
+        height: 11%;
+    }
+
+    #header_projects > h1 {
+        font-size: 29px;
+        margin-top: -13px;
+        margin-left: 41px;
+    }
+
+    #mainOfProjects {
+        width: 57%;
+        height: 79%;
+    }
+
+    #projectsPage {
+        height: 800px;
+    }
+
+    #footerOfProjects {
+        height: 10%;
+    }
+
+    .projectBox {
+        width: 211px;
+        height: 190px;
+    }
+
+    .projectBox > h1 {
+        font-size: 18px;
+    }
+
+    .projectBox > a > i {
+        margin-top: 10px;
+        font-size: 30px;
+    }
+
+    #footerOfProjects > div {
+        margin-top: 0;
+    }
+
+    #footerOfProjects > div > a {
+        font-size: 17px;
+    }
+
+    .projectBox > h1 {
+        text-align: center;
+    }
+
+
+    /*assignments*/
+    #assignmentsPage {
+        height: 950px;
+    }
+
+    #header_assignments {
+        height: 11%;
+    }
+
+    #header_assignments > h1 {
+        margin-left: 38px;
+        margin-top: -3px;
+        font-size: 29px;
+    }
+
+    #mainOfAssignments {
+        width: 79%;
+        height: 79%;
+    }
+
+    .assignment_box {
+        width: 340px;
+        height: 167px;
+    }
+
+    #footerOfAssignments {
+        height: 10%;
+    }
+
+    .assignment_name {
+        font-size: 17px;
+    }
+
+    .assignment_box {
+        justify-content: space-evenly;
+    }
+
+    .assignment_name {
+        margin-top: 0;
+    }
+
+    .assignment_image_box {
+        width: 200px;
+        height: 90px;
+    }
+
+    .assignment_box > div:nth-child(3) {
+        width: 36%;
+    }
+
+    #view_All_div {
+        width: 120px;
+        height: 40px;
+    }
+
+    /*contact me*/
+    #contactMePage {
+        height: 547px;
+    }
+
+    #sendAmessageDiv {
+        display: none;
+    }
+
+    #mainOfContactMe {
+        width: 65%;
+        flex-direction: column;
+        height: 56%;
+    }
+
+    #myContactsDiv {
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    #h2_myContacts {
+        display: none;
+    }
+
+    #footerOfContactMe {
+        height: 41%;
+    }
+
+    #details_list {
+        font-size: 21px;
+        margin-left: 50px;
+    }
+
+    #details_list > dd {
+        font-size: 17px;
+    }
+}
