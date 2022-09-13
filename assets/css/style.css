@@ -416,7 +416,7 @@
     /* background-color: white; */
     text-align: center;
     font: 400 20px/34px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
-    color: white;
+    color: #cdcdcd;
 }
 
 .my_about > ul:nth-child(1) {
@@ -2321,5 +2321,332 @@ label #cancel {
 
     #details_list > dd {
         font-size: 17px;
+    }
+}
+
+@media all and (max-width: 600px) {
+
+    /*homepage*/
+    .my_image {
+        width: 62%;
+        height: 89%;
+    }
+
+    .txt_hi {
+        font-size: 48px;
+    }
+
+    .txt_name {
+        font-size: 48px;
+    }
+
+    .txt_des {
+        font-size: 21px;
+    }
+
+    .top_section {
+        align-items: center;
+    }
+
+    .image_box {
+        width: 200px;
+        height: 50%;
+    }
+
+    .top_section {
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .image_box {
+        width: 200px;
+        height: 50%;
+    }
+
+    .my_image {
+        width: 78%;
+        height: 82%;
+    }
+
+    #decoration_box {
+        height: 154px;
+        width: 154px;
+        margin-left: -170px;
+    }
+
+    .welcome_details {
+        width: 400px;
+    }
+
+    .btn_hireMe {
+        font-size: 23px !important;
+    }
+
+    .social_links {
+        width: 200px;
+        height: 50px;
+    }
+
+    /*about me*/
+    .header_aboutMe {
+        justify-content: center;
+    }
+
+    .header_aboutMe > h1 {
+        margin-top: 0;
+        font-size: 25px;
+        margin-left: 0;
+    }
+
+    .mid_sec_about {
+        flex-direction: column-reverse;
+        height: 54%;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .my_details_box {
+        height: 31%;
+        justify-content: space-evenly;
+    }
+
+    .my_about > ul:nth-child(1) {
+        padding-left: 0;
+        padding-top: 0;
+        margin-bottom: 0;
+    }
+
+    .side_image_box {
+        width: 80px;
+        height: 80px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .my_about {
+        height: 50%;
+        width: 280px;
+        margin-top: 20px;
+    }
+
+    .side_image_about {
+        border: 3px solid #7c5ef2;
+    }
+
+    .my_article {
+        text-align: center;
+        width: 360px;
+        height: 125px;
+    }
+
+    /*services*/
+    #header_service {
+        justify-content: center;
+    }
+
+    #header_service > h1 {
+        margin-top: 0;
+        font-size: 25px;
+        margin-left: 0;
+    }
+
+    /*education*/
+    #header_education > h1 {
+        margin-top: 0;
+        font-size: 25px;
+        margin-left: 0;
+    }
+
+    #header_education {
+        height: 10%;
+        justify-content: center;
+    }
+
+    .Edu_Stages {
+        font-size: 20px;
+    }
+
+    #images_side {
+        width: 147px;
+        margin-left: -56%;
+        margin-top: 144px;
+    }
+
+    #mainSecEducation {
+        width: 350px;
+        height: 80%;
+    }
+
+    #years_side {
+        width: 33%;
+    }
+
+    .year_div {
+        width: 116px;
+        height: 44px;
+    }
+
+    .rectangle {
+        width: 80px;
+        height: 29px;
+    }
+
+    #edu_details {
+        width: 60%;
+    }
+
+    #kannangara_img_div {
+        margin-top: 86px;
+    }
+
+    #educationPage {
+        height: 750px;
+    }
+
+    .Edu_Place {
+        font-size: 14px;
+    }
+
+    /*skills*/
+    #header_skills {
+        height: 11%;
+        justify-content: center;
+    }
+
+    #header_skills > h1 {
+        margin-top: 0;
+        font-size: 25px;
+        margin-left: 0;
+    }
+
+    #skillsPage {
+        height: 800px;
+    }
+
+    #mainOfSkills {
+        justify-content: flex-start;
+        align-items: center;
+        width: 335px;
+        height: 89%;
+    }
+
+    #languages_section {
+        width: 310px;
+        margin-top: 12px;
+    }
+
+    .lan_Box {
+        width: 140px;
+        height: 140px;
+    }
+
+    .subTopics {
+        margin-top: 20px;
+    }
+
+    #tools_topic {
+        margin-top: 40px;
+    }
+
+    #tools_section {
+        width: 263px;
+        flex-wrap: wrap;
+        height: 17%;
+    }
+
+    .tool_Box {
+        width: 53px;
+        height: 42px;
+    }
+
+
+    /*projects*/
+    #header_projects {
+        justify-content: center;
+    }
+
+    #header_projects > h1 {
+        font-size: 25px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    #footerOfProjects > div {
+        width: 105px;
+    }
+
+    /*assignments*/
+    #header_assignments {
+        justify-content: center;
+    }
+
+    #header_assignments > h1 {
+        margin-left: 0;
+        margin-top: 0;
+        font-size: 25px;
+    }
+
+    #view_All_div > a {
+        font-size: 18px;
+    }
+
+    #view_All_div {
+        width: 113px;
+        height: 35px;
+    }
+
+
+    /*contact me page*/
+    #header_contact_me > h1 {
+        font-size: 20px;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    #footerOfContactMe {
+        height: 25%;
+    }
+
+    #mainOfContactMe {
+        height: 62%;
+        background: none;
+        margin-bottom: 0;
+        width: 85%;
+        justify-content: flex-end;
+    }
+
+    #myContactsDiv {
+        background: linear-gradient(145deg, #181f34, #1d243e);
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+    }
+
+    #details_list {
+        margin-left: 19px;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #txtFollowMe {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+    small {
+        margin-top: 20px;
+    }
+
+    #social_links {
+        width: 243px;
+    }
+
+    #details_list {
+        font-size: 19px;
+    }
+
+    #details_list > dd {
+        font-size: 14px;
     }
 }
