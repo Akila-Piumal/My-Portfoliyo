@@ -113,10 +113,23 @@
     /* box-shadow: 0px 2px 11px 0px #0000008c; */
     letter-spacing: 0.18em;
     font-size: 11px;
+    cursor: pointer;
 }
 
-.navigation_names {
+.btn_box:hover {
+    background-color: #7c5ef2;
+    border: 2px solid white;
+}
+
+.nav_link {
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact_me {
@@ -1414,6 +1427,7 @@ body {
     padding: 0;
     list-style: none;
     text-decoration: none;
+    cursor: pointer;
 }
 
 #hidden_list {
@@ -1426,7 +1440,7 @@ body {
     backdrop-filter: blur(10px);
     display: none;
     width: 96%;
-    margin-top: -17px;
+    margin-top: -28px;
     z-index: 2;
 }
 

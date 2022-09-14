@@ -47,25 +47,26 @@
         <section class="btn_Section">
             <nav class="btn_nav_box">
                 <div class="btn_box">
-                    <h3 class="navigation_names">HOME</h3>
+                    <a class="nav_link" onclick="document.getElementById('selectHomePage').scrollIntoView()">HOME</a>
                 </div>
                 <div class="btn_box">
-                    <h3 class="navigation_names">ABOUT</h3>
+                    <a class="nav_link" onclick="document.getElementById('selectAboutPage').scrollIntoView()">ABOUT</a>
                 </div>
                 <div class="btn_box">
-                    <h3 class="navigation_names">SERVICES</h3>
+                    <a class="nav_link" onclick="document.getElementById('servicesPage').scrollIntoView()">SERVICES</a>
                 </div>
                 <div class="btn_box">
-                    <h3 class="navigation_names">EDUCATION</h3>
+                    <a class="nav_link"
+                       onclick="document.getElementById('educationPage').scrollIntoView()">EDUCATION</a>
                 </div>
                 <div class="btn_box">
-                    <h3 class="navigation_names">SKILLS</h3>
+                    <a class="nav_link" onclick="document.getElementById('skillsPage').scrollIntoView()">SKILLS</a>
                 </div>
                 <div class="btn_box">
-                    <h3 class="navigation_names">PROJECTS</h3>
+                    <a class="nav_link" onclick="document.getElementById('projectsPage').scrollIntoView()">PROJECTS</a>
                 </div>
                 <div class="btn_box">
-                    <h3 class="navigation_names">ASSIGNMENTS</h3>
+                    <a class="nav_link" onclick="document.getElementById('assignmentsPage').scrollIntoView()">ASSIGNMENTS</a>
                 </div>
 
             </nav>
@@ -74,7 +75,7 @@
 
         <div class="contact_me">
             <div class="btn_box">
-                <h3 class="navigation_names">CONTACT ME</h3>
+                <a class="nav_link" onclick="document.getElementById('contactMePage').scrollIntoView()">CONTACT ME</a>
             </div>
 
             <small class="copyright">ⓒ Copyright ⓒ2022 All Rights Reserved.</small>
@@ -92,19 +93,19 @@
                 <i class="fas fa-times" id="cancel"></i>
             </label>
             <ul id="hidden_list">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">Education</a></li>
-                <li><a href="">Skills</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Assignments</a></li>
-                <li><a href="">Contact me</a></li>
+                <li><a onclick="document.getElementById('selectHomePage').scrollIntoView()">Home</a></li>
+                <li><a onclick="document.getElementById('selectAboutPage').scrollIntoView()">About</a></li>
+                <li><a onclick="document.getElementById('servicesPage').scrollIntoView()">Services</a></li>
+                <li><a onclick="document.getElementById('educationPage').scrollIntoView()">Education</a></li>
+                <li><a onclick="document.getElementById('skillsPage').scrollIntoView()">Skills</a></li>
+                <li><a onclick="document.getElementById('projectsPage').scrollIntoView()">Projects</a></li>
+                <li><a onclick="document.getElementById('assignmentsPage').scrollIntoView()">Assignments</a></li>
+                <li><a onclick="document.getElementById('contactMePage').scrollIntoView()">Contact me</a></li>
             </ul>
         </nav>
 
         <!--        <<<<<  HOME PAGE  >>>>>>>-->
-        <section class="homepage">
+        <section class="homepage" id="selectHomePage">
             <section class="top_section">
                 <aside class="welcome_details_box">
                     <div class="welcome_details">
@@ -146,7 +147,7 @@
         </section>
 
         <!--        <<<<<<  ABOUT PAGE   >>>>>>>>-->
-        <section class="aboutPage">
+        <section class="aboutPage" id="selectAboutPage">
             <header class="header_aboutMe">
                 <h1>About Me</h1>
             </header>
