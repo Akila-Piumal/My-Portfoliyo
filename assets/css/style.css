@@ -1498,6 +1498,30 @@ label #cancel {
     display: none;
 }
 
+
+/*scrollbar*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /*background: #555;*/
+    background: #7c5ef2;
+}
+
 /*<<<<<<<<<<<<<<<<<      MEDIA QUERIES        >>>>>>>>>>>>>>>>>>>>>>>>*/
 
 
@@ -2655,6 +2679,11 @@ label #cancel {
 
     #details_list > dd {
         font-size: 14px;
+    }
+
+    /*scrollbar*/
+    ::-webkit-scrollbar {
+        width: 10px;
     }
 }
 
