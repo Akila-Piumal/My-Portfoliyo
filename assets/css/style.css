@@ -2393,7 +2393,7 @@ label #cancel {
 
     /*about me*/
     .header_aboutMe {
-        justify-content: center;
+        /*justify-content: flex-start;*/
     }
 
     .header_aboutMe > h1 {
@@ -2444,9 +2444,6 @@ label #cancel {
     }
 
     /*services*/
-    #header_service {
-        justify-content: center;
-    }
 
     #header_service > h1 {
         margin-top: 0;
@@ -2463,7 +2460,6 @@ label #cancel {
 
     #header_education {
         height: 10%;
-        justify-content: center;
     }
 
     .Edu_Stages {
@@ -2514,7 +2510,6 @@ label #cancel {
     /*skills*/
     #header_skills {
         height: 11%;
-        justify-content: center;
     }
 
     #header_skills > h1 {
@@ -2565,9 +2560,6 @@ label #cancel {
 
 
     /*projects*/
-    #header_projects {
-        justify-content: center;
-    }
 
     #header_projects > h1 {
         font-size: 25px;
@@ -2580,9 +2572,6 @@ label #cancel {
     }
 
     /*assignments*/
-    #header_assignments {
-        justify-content: center;
-    }
 
     #header_assignments > h1 {
         margin-left: 0;
