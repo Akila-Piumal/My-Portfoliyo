@@ -2650,3 +2650,333 @@ label #cancel {
         font-size: 14px;
     }
 }
+
+@media all and (max-width: 400px) {
+    /*homepage*/
+    .image_box {
+        height: 43%;
+    }
+
+    .my_image {
+        width: 87%;
+        height: 82%;
+    }
+
+    #decoration_box {
+        height: 140px;
+        width: 140px;
+    }
+
+    .txt_hi {
+        font-size: 31px;
+        margin-top: 0;
+    }
+
+    .txt_name {
+        font-size: 31px;
+    }
+
+    .txt_des {
+        font-size: 14px;
+    }
+
+    .btn_hireMe {
+        font-size: 19px !important;
+        width: 102px;
+        height: 30px;
+    }
+
+    /*.homepage {*/
+    /*    height: 516px;*/
+    /*}*/
+    .social_link_box {
+        width: 250px;
+    }
+
+    .social_links {
+        width: 100%;
+        height: 42px;
+    }
+
+    .fa-brands {
+        font-size: 33px;
+    }
+
+    .homepage {
+        margin-top: 42px;
+    }
+
+    #hidden_nav {
+        height: 50px;
+    }
+
+    label #btn, label #cancel {
+        font-size: 25px;
+        margin-right: 15px;
+    }
+
+    .welcome_details {
+        height: 100%;
+        justify-content: space-evenly;
+    }
+
+    /*about me*/
+    .my_details_box {
+        height: 33%;
+    }
+
+    .my_article {
+        width: 281px;
+        height: 124px;
+        font: 400 12px/22px Google Sans, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    #btn_DownloadCV {
+        width: 118px;
+        height: 31px;
+        font-size: 16px;
+    }
+
+    .header_aboutMe > h1 {
+        font-size: 21px;
+    }
+
+    /*services*/
+    .service_div {
+        height: 200px;
+        width: 200px;
+    }
+
+    .service_titles {
+        font-size: 19px;
+    }
+
+    #mobile_app_title {
+        margin-top: 0;
+    }
+
+    #header_service {
+        height: 10%;
+    }
+
+    #header_service > h1 {
+        font-size: 21px;
+    }
+
+    /*education*/
+    #header_education > h1 {
+        font-size: 21px;
+    }
+
+    #mainSecEducation {
+        width: 280px;
+        margin-top: 20px;
+    }
+
+    #years_side {
+        margin-right: -137px;
+        margin-bottom: 86px;
+        width: 50%;
+    }
+
+    #edu_details {
+        width: 71%;
+        margin-left: 16px;
+        margin-top: 20px;
+    }
+
+    .traingle {
+        border-top: 15px solid transparent;
+        border-right: 17px solid #7c5ef2;
+        border-bottom: 15px solid transparent;
+        margin-left: -97px;
+        border-left: 0;
+    }
+
+    .year_div {
+        width: 116px;
+        height: 44px;
+        margin-right: -31px;
+        margin-bottom: 7px;
+    }
+
+    .rectangle {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 7px;
+        border-top-right-radius: 7px;
+    }
+
+    #ijse_img_div {
+        width: 113px;
+        height: 35px;
+        margin-left: -39px;
+    }
+
+    #kannangara_img_div {
+        width: 56px;
+        height: 57px;
+        margin-top: 77px;
+        margin-left: -64px;
+    }
+
+    #makalandawa_img_div {
+        width: 89px;
+        height: 42px;
+        margin-left: -56px;
+    }
+
+    .Edu_Stages {
+        font-size: 18px;
+    }
+
+
+    /*skills*/
+    #header_skills {
+        height: 10%;
+    }
+
+    #header_skills > h1 {
+        font-size: 21px;
+    }
+
+    #mainOfSkills {
+        width: 278px;
+    }
+
+    #languages_section {
+        width: 278px;
+    }
+
+    .lan_Box {
+        width: 180px;
+        height: 63px;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .lan_Box > h2 {
+        font-size: 18px;
+    }
+
+    .lang_img_box {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    #css_Box {
+        margin-top: 0;
+    }
+
+    #html_Box {
+        margin-top: 0;
+    }
+
+    .subTopics {
+        margin-top: 8px;
+    }
+
+    .subTopics > h1 {
+        font-size: 18px;
+    }
+
+    #tools_section {
+        width: 236px;
+    }
+
+    .tool_Box {
+        width: 48px;
+        height: 37px;
+    }
+
+    /*projects*/
+    #header_projects > h1 {
+        font-size: 21px;
+    }
+
+    #mainOfProjects {
+        width: 260px;
+    }
+
+    .projectBox {
+        height: 170px;
+        width: 220px;
+    }
+
+    .projectBox > h1 {
+        font-size: 17px;
+    }
+
+    .projects_image_box {
+        width: 130px;
+        height: 72px;
+    }
+
+    #footerOfProjects > div {
+        width: 99px;
+        height: 34px;
+    }
+
+    #footerOfProjects > div > a {
+        font-size: 15px;
+    }
+
+    /*assignments*/
+    #header_assignments {
+        height: 9%;
+    }
+
+    #header_assignments > h1 {
+        font-size: 21px;
+    }
+
+    #mainOfAssignments {
+        width: 240px;
+    }
+
+    .assignment_box {
+        justify-content: space-evenly;
+    }
+
+    .assignment_name {
+        margin-bottom: 0;
+    }
+
+    .assignment_image_box {
+        width: 128px;
+        height: 73px;
+    }
+
+    .assignment_box > div:nth-child(3) {
+        height: 15%;
+    }
+
+    #view_All_div {
+        width: 107px;
+        height: 33px;
+    }
+
+    #view_All_div > a {
+        font-size: 17px;
+    }
+
+    #contactMePage {
+        background: linear-gradient(145deg, #181f34, #1d243e);
+    }
+
+    #details_list {
+        font-size: 17px;
+    }
+
+    #details_list > dd {
+        font-size: 13px;
+    }
+
+    #txtFollowMe {
+        font-size: 18px;
+    }
+
+    #header_contact_me > h1 {
+        font-size: 18px;
+    }
+}
