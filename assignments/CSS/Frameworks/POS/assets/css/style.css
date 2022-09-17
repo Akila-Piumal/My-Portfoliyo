@@ -3,24 +3,7 @@
     box-shadow: 1px 1px 7px 1px #00b712;
 }
 
-/*brand name*/
-.navbar-brand {
-    color: white;
-    font-size: 22px;
-}
-
-/*nav links bar*/
-.navbar-nav {
-    padding-left: 22px;
-}
-
 /*when links hover*/
 .nav-link:hover {
     color: white;
-}
-
-#main_div {
-    margin-top: 56px;
-    height: 80vh;
-    border: 2px solid red;
 }
