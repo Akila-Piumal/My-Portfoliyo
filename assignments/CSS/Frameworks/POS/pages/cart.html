@@ -50,6 +50,7 @@
     <div class="mt-1">
         <h3 class="small text-muted">Home > Cart</h3>
     </div>
+
     <hr class="mb-2 mt-0">
     <section>
         <div>
@@ -357,9 +358,42 @@
                         </div>
 
                         <div class="row justify-content-center pt-3 mt-5 mb-xl-5 mb-lg-5 pb-6">
-                            <button class="col-5 col-sm-3 col-md-2 col-lg-6 col-xl-4 btn btn-success btn rounded-1"
+                            <button class="col-5 col-sm-3 col-md-2 col-lg-6 col-xl-4 btn btn-success btn rounded-1 "
+                                    data-bs-target="#succesNotifiModel" data-bs-toggle="modal"
                                     type="button">Purchase
                             </button>
+
+                            <!-- Modal -->
+                            <div aria-hidden="true" aria-labelledby="succesNotifiModelLabel"
+                                 class="modal fade text-center" id="succesNotifiModel"
+                                 tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                                                    type="button"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Order Purchased Successfully.
+                                            <div class="row justify-content-center">
+                                                <div>
+                                                    <label class="form-label fs-5 fw-bold"
+                                                           for="balance">Balance(Rs.)</label>
+                                                </div>
+                                                <div class="col-4">
+                                                    <input class="text-center form-control fw-bold " id="balance"
+                                                           readonly type="number" value="00.00">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
 
