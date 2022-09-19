@@ -72,6 +72,73 @@
             </div>
         </div>
 
+        <!--Order details-->
+        <div class="rounded-3 border shadow-lg mt-3 mx-lg-3 bg-success bg-opacity-25">
+            <div class="row gx-3 m-3 ">
+                <!--Order ID-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="orderID">Order ID</label>
+                    <input class="form-control" id="orderID" type="text">
+                </div>
+
+                <!--Order Date-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="orderDate">Order Date</label>
+                    <input class="form-control" id="orderDate" type="date">
+                </div>
+
+                <!--Customer ID-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerID">Customer ID</label>
+                    <input class="form-control" id="customerID" type="text">
+                </div>
+
+                <!--Customer Name-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerName">Customer Name</label>
+                    <input class="form-control" id="customerName" type="text">
+                </div>
+
+                <!--Discount-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold"
+                           for="discount">Discount</label>
+                    <input class="form-control" id="discount" type="number">
+                </div>
+
+                <!--Sub Total-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="subTotal">Sub Total</label>
+                    <input class="form-control" id="subTotal" type="text">
+                </div>
+            </div>
+
+            <!--Buttons-->
+            <div class="row mb-4 mt-4">
+                <div class="d-flex justify-content-center">
+                    <!--delete button-->
+                    <button class="btn btn-outline-danger col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#"
+                            data-bs-toggle="modal"
+                            type="button">Delete
+                    </button>
+
+                    <!--update button-->
+                    <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#"
+                            data-bs-toggle="modal"
+                            type="button">Update
+                    </button>
+
+                    <!--Clear button-->
+                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#"
+                            data-bs-toggle="modal"
+                            type="button">Clear
+                    </button>
+                </div>
+            </div>
+        </div>
 
     </section>
 </main>
