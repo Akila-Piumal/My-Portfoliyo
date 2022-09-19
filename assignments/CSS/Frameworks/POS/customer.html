@@ -68,10 +68,10 @@
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
             </div>
-            <!--add customer button-->
+            <!--add Customer button-->
             <div class="col">
                 <div class="col d-flex justify-content-center justify-content-md-end">
-                    <button class="btn btn-primary col-6 col-sm-3 col-md-6 col-lg-5 col-xl-3"
+                    <button class="btn btn-primary col-7 col-sm-4 col-md-8 col-lg-6 col-xl-4"
                             data-bs-target="#newCustomerModel"
                             data-bs-toggle="modal"
                             type="button">+New Customer
@@ -147,6 +147,83 @@
                 </div>
             </div>
         </div>
+
+        <div class="rounded-3 border shadow-lg mt-3 mx-lg-3 bg-success bg-opacity-25">
+            <!--Customer details-->
+            <div class="row gx-3 m-3 ">
+                <!--Customer ID-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerID">Customer ID</label>
+                    <input class="form-control" id="customerID" type="text">
+                </div>
+
+                <!--Customer Name-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerName">Customer Name</label>
+                    <input class="form-control" id="customerName" type="text">
+                </div>
+
+                <!--Customer address-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerAddress">Customer Address</label>
+                    <input class="form-control" id="customerAddress" type="text">
+                </div>
+
+                <!--Customer Salary-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerSalary">Customer Salary</label>
+                    <input class="form-control" id="customerSalary" type="text">
+                </div>
+
+                <!--Gender-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold"
+                           for="gender">Gender</label>
+                    <select class="form-select " id="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+
+                <!--Contact Number-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="contactNumber">Contact
+                        No</label>
+                    <input class="form-control" id="contactNumber"
+                           type="number">
+                </div>
+
+            </div>
+
+            <!--Buttons-->
+            <div class="row mb-4 mt-4">
+                <div class="d-flex justify-content-center">
+                    <!--delete button-->
+                    <button class="btn btn-outline-danger col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#addItemModal"
+                            data-bs-toggle="modal"
+                            type="button">Delete
+                    </button>
+
+                    <!--update button-->
+                    <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#addItemModal"
+                            data-bs-toggle="modal"
+                            type="button">Update
+                    </button>
+
+                    <!--Clear button-->
+                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#addItemModal"
+                            data-bs-toggle="modal"
+                            type="button">Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <hr class="mt-4">
+
 
     </section>
 </main>
