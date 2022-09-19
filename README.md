@@ -42,10 +42,10 @@ _Wireframe url_ -  https://wireframe.cc/wDidLm
 _Github pages url_  -  https://akila-piumal.github.io/My-Portfoliyo/
 
 ## POS System
-_SiteMap url_
+_SiteMap url_    -  https://www.gloomaps.com/ZHHGb3VGow
 
-_Mockup url_
+_Mockup url_     -  
 
-_Wireframe url_
+_Wireframe url_  -  https://wireframe.cc/rcNrOo
 
 <!-- TODO: List any blog posts, tutorials or plugins that you may have used to complete the project. Only list those that had a significant impact. Obviously, we all 'Google' stuff while working on our things, but maybe something in particular stood out as a 'major contributor' to your skill set for this project. -->
