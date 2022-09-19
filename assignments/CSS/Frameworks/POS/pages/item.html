@@ -178,10 +178,68 @@
 
                     <!--update button-->
                     <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#addItemModal"
+                            data-bs-target="#updateItemModel"
                             data-bs-toggle="modal"
                             type="button">Update
                     </button>
+
+                    <!-- Update Item Modal -->
+                    <div aria-hidden="true" aria-labelledby="updateItemModelLabel" class="modal fade"
+                         id="updateItemModel"
+                         tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateItemModelLabel">Update Item</h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                                            type="button"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+
+                                        <div class="row">
+                                            <div>
+                                                <label class="form-label" for="itemCodeNew">Item
+                                                    Code</label>
+                                                <input class="form-control" id="itemCodeNew"
+                                                       placeholder="P001"
+                                                       readonly type="text" value="P006">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <label class="form-label" for="itemNameNew">Item
+                                                    Name</label>
+                                                <input class="form-control" id="itemNameNew" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <label class="form-label "
+                                                       for="itemPriceNew">Item Price</label>
+                                                <input class="form-control" id="itemPriceNew"
+                                                       placeholder="1000.00" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div>
+                                                <label class="form-label " for="itemQuantityNew">Item
+                                                    Quantity</label>
+                                                <input class="form-control" id="itemQuantityNew"
+                                                       type="number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer mt-2 d-flex justify-content-center">
+                                    <button class="btn btn-outline-success" type="button">Update</button>
+                                    <button class="btn btn-outline-danger" data-bs-dismiss="modal"
+                                            type="button">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!--Clear button-->
                     <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2"
