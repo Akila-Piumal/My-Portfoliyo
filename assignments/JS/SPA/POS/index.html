@@ -8,7 +8,6 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -231,7 +230,7 @@
 </main>
 
 <!--Cart-->
-<div id="Cart">
+<div id="Cart" style="display: none">
     <nav class="navbar navbar-expand-lg fixed-top"
          style="background-image: linear-gradient(315deg,#00b712 0%,#5aff15 74%);">
         <div class="container-fluid">
@@ -677,10 +676,15 @@
     </main>
 </div>
 
+
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 
 <script>
-
+    $('#login_button').click(function () {
+        $('#Login').css('display', 'none');
+        $('#loginModel').modal('hide');
+        $('#Cart').css('display', 'block');
+    });
 </script>
 
 <script src="../POS/assets/js/bootstrap.min.js"></script>
