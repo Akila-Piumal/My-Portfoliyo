@@ -44,7 +44,7 @@ _Github pages url_  -  https://akila-piumal.github.io/My-Portfoliyo/
 ## POS System
 _SiteMap url_    -  https://www.gloomaps.com/ZHHGb3VGow
 
-_Mockup url_     -  
+_Mockup url_     -  https://www.figma.com/file/PZsz2SUy2LinumM0yb3913/Untitled?node-id=0%3A1
 
 _Wireframe url_  -  https://wireframe.cc/rcNrOo
 
