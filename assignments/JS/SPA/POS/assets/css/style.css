@@ -1,0 +1,9 @@
+/*navbar*/
+.navbar {
+    box-shadow: 1px 1px 7px 1px #00b712;
+}
+
+/*when links hover*/
+.nav-link:hover {
+    color: white;
+}

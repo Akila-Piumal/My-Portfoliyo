@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link href="../favIcon.png" rel="icon">
+    <meta content="Akila Piumal" name="author">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top"
+     style="background-image: linear-gradient(315deg,#00b712 0%,#5aff15 74%);">
+    <div class="container-fluid">
+        <span class="navbar-brand fw-bolder fs-3 mb-0 text-white h1">
+                <img alt="Logo" class="d-inline-block align-text-top" height="30" src="../assets/images/Cart.png"
+                     width="30">
+                My Shop
+            </span>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+                <li class="nav-item">
+                    <a aria-current="page" class="nav-link active text-decoration-underline fw-bold text-white"
+                       href="cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="item.html">Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="customer.html">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="order.html">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container-fluid mt-5 pt-4">
+    <div class="mt-1">
+        <h3 class="small text-muted">Home > Cart</h3>
+    </div>
+
+    <hr class="mb-2 mt-0">
+    <section>
+        <div>
+            <div class="row gx-4">
+                <!-- invoice details-->
+                <div class="col-xl col-lg-5 col-sm-6 ">
+
+                    <!--header-->
+                    <div class="fw-bolder text-white p-2 mt-1 text-center rounded-5" style="background-color:#00b712">
+                        Invoice
+                        Details
+                    </div>
+
+                    <!--main of invoice details-->
+                    <div class="rounded-3 mt-4 p-3 border mb-lg-0 mb-sm-4 mb-4 shadow-lg">
+                        <div class="row gx-3 mb-lg-0">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label class="form-label" for="orderId">Order ID</label>
+                                    <input class="form-control" id="orderId" placeholder="O001" type="text">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class=" mb-3">
+                                    <label class="form-label" for="dateInput">Date</label>
+                                    <input class="form-control" id="dateInput" type="date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gx-3 ">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label class="form-label" for="customerId">Customer</label>
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-ls"
+                                            id="customerId">
+                                        <option selected>C003</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label class="form-label" for="customerName">Customer ID</label>
+                                    <input class="form-control" id="customerName" placeholder="C003" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gx-3">
+                            <div class="col mb-3">
+                                <label class="form-label" for="inputName">Name</label>
+                                <input class="form-control" id="inputName" placeholder="Pawan" type="text">
+                            </div>
+                            <div class="col mb-3">
+                                <label class="form-label" for="salary">Salary</label>
+                                <input class="form-control" id="salary" placeholder="0000.00" type="text">
+                            </div>
+
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="address">Address</label>
+                            <input class="form-control" id="address" placeholder="Panadura" type="text">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary btn rounded-1" data-bs-target="#exampleModal"
+                                    data-bs-toggle="modal" type="button">+New Customer
+                            </button>
+
+                            <!-- New Customer Modal -->
+                            <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade"
+                                 id="exampleModal"
+                                 tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">New Customer</h5>
+                                            <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                                                    type="button"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+
+                                                <div class="row">
+                                                    <div class="col-6 col-md-12">
+                                                        <label class="form-label" for="customerIdInput">ID</label>
+                                                        <input class="form-control" id="customerIdInput" type="text">
+                                                    </div>
+                                                    <div class="col-6 col-md-12">
+                                                        <label class="form-label" for="customerNameInput">Name</label>
+                                                        <input class="form-control" id="customerNameInput" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <label class="form-label"
+                                                               for="customerAddressInput">Address</label>
+                                                        <input class="form-control" id="customerAddressInput"
+                                                               type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label class="form-label "
+                                                               for="customerSalaryInput">Salary</label>
+                                                        <input class="form-control" id="customerSalaryInput"
+                                                               placeholder="1000.00" type="number">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label class="form-label "
+                                                               for="maleOrFemale">Gender</label>
+                                                        <select class="form-select " id="maleOrFemale">
+                                                            <option>Male</option>
+                                                            <option>Female</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label class="form-label " for="CustomerNumberInput">Contact
+                                                            No</label>
+                                                        <input class="form-control" id="CustomerNumberInput"
+                                                               type="number">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer mt-2 d-flex justify-content-center">
+                                            <button class="btn btn-outline-success" type="button">Save</button>
+                                            <button class="btn btn-outline-danger" data-bs-dismiss="modal"
+                                                    type="button">Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Select Item-->
+                <div class="col-lg col-sm-6">
+
+                    <!--header-->
+                    <div class="fw-bolder text-white p-2 mt-1 text-center rounded-5" style="background-color:#00b712">
+                        Select
+                        Item
+                    </div>
+
+                    <!--main of Select Item-->
+                    <div class="rounded-3 mt-4 p-3 border mb-lg-0 mb-sm-4 mb-4 shadow-lg">
+
+                        <div class="row gx-3 ">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label class="form-label" for="selectItem">Item</label>
+                                    <select aria-label=".form-select-lg example" class="form-select form-select-ls"
+                                            id="selectItem">
+                                        <option selected>P003</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label class="form-label" for="itemCode">Item Code</label>
+                                    <input class="form-control" id="itemCode" placeholder="P003" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gx-3">
+                            <div class="col-6 col-sm-6 col-lg-6  mb-3">
+                                <label class="form-label" for="ItemName">Item Name</label>
+                                <input class="form-control" id="ItemName" placeholder="Sugar 1kg " type="text">
+                            </div>
+                            <div class="col-6 col-sm-6 col-lg-6 mb-3">
+                                <label class="form-label" for="price">Price</label>
+                                <input class="form-control" id="price" placeholder="1000.00" type="text">
+                            </div>
+                            <div class="col-6 col-sm-6 col-lg-6 mb-3">
+                                <label class="form-label" for="qtyOnHand">QtyOnHand</label>
+                                <input class="form-control" id="qtyOnHand" placeholder="50" type="number">
+                            </div>
+                        </div>
+                        <div class="row gx-3">
+                            <div class="mt-2 mt-sm-0 mb-3 ">
+                                <label class="form-label" for="OrderQty">Order Quantity</label>
+                                <input class="form-control shadow-lg border" id="OrderQty" type="number">
+                            </div>
+                            <div class="d-flex justify-content-evenly">
+                                <button class="btn btn-primary btn-sm rounded-1" data-bs-target="#newItemModel"
+                                        data-bs-toggle="modal" type="button">+New Item
+                                </button>
+
+                                <!-- New Item Modal -->
+                                <div aria-hidden="true" aria-labelledby="newItemModelLabel" class="modal fade"
+                                     id="newItemModel"
+                                     tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="newItemModelLabel">New Item</h5>
+                                                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                                                        type="button"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container-fluid">
+
+                                                    <div class="row">
+                                                        <div>
+                                                            <label class="form-label" for="newItemCode">Item
+                                                                Code</label>
+                                                            <input class="form-control" id="newItemCode"
+                                                                   placeholder="P001"
+                                                                   type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div>
+                                                            <label class="form-label" for="newItemName">Item
+                                                                Name</label>
+                                                            <input class="form-control" id="newItemName" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div>
+                                                            <label class="form-label "
+                                                                   for="itemPrice">Item Price</label>
+                                                            <input class="form-control" id="itemPrice"
+                                                                   placeholder="1000.00" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div>
+                                                            <label class="form-label " for="itemQuantity">Item
+                                                                Quantity</label>
+                                                            <input class="form-control" id="itemQuantity"
+                                                                   type="number">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer mt-2 d-flex justify-content-center">
+                                                <button class="btn btn-outline-success" type="button">Save</button>
+                                                <button class="btn btn-outline-danger" data-bs-dismiss="modal"
+                                                        type="button">Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- add to cart button-->
+                                <button class="btn btn-danger btn rounded-1" type="button">Add to Cart
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--Payment-->
+                <div class="col">
+
+                    <!--header-->
+                    <div class="fw-bolder text-white p-2 mt-1 text-center rounded-5 shadow-md"
+                         style="background-color:#00b712">Payment
+                    </div>
+
+                    <!--main of payment-->
+                    <div class="rounded-3 mt-4 p-3 border mb-lg-0 mb-sm-4 pb-xl-5 shadow-lg">
+                        <div class="row justify-content-evenly justify-content-md-center justify-content-lg-between justify-content-xl-evenly">
+                            <div class="col-4 col-lg-6 text-center">
+                                <label class="form-label fs-5 fw-bold" for="totalPrice">Total(Rs.)</label>
+                            </div>
+                            <div class="col-5 col-lg-5">
+                                <input class="form-control fw-bold" id="totalPrice" readonly type="number"
+                                       value="00.00">
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-evenly justify-content-md-center justify-content-lg-between justify-content-xl-evenly">
+                            <div class="col-4 col-lg-6 text-center mt-3">
+                                <label class="form-label fs-5 " for="discount">Discount(%)</label>
+                            </div>
+                            <div class="col-5 col-lg-5 mt-3">
+                                <input class="form-control " id="discount" type="number">
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-evenly justify-content-md-center justify-content-lg-between justify-content-xl-evenly">
+                            <div class="col-4 col-lg-6 text-center mt-3">
+                                <label class="form-label fs-5 fw-bold" for="subTotal">Sub Total(Rs.)</label>
+                            </div>
+                            <div class="col-5 col-lg-5 mt-3">
+                                <input class="form-control fw-bold" id="subTotal" readonly type="number" value="00.00">
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-evenly justify-content-md-center justify-content-lg-between justify-content-xl-evenly">
+                            <div class="col-4 col-lg-6 text-center mt-3">
+                                <label class="form-label fs-5 fw-bold" for="cashInHand">Cash</label>
+                            </div>
+                            <div class="col-5 col-lg-5 mt-3">
+                                <input class="form-control fw-bold" id="cashInHand" type="number">
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center pt-3 mt-5 mb-xl-5 mb-lg-5 pb-6">
+                            <button class="col-5 col-sm-3 col-md-2 col-lg-6 col-xl-4 btn btn-success btn rounded-1 "
+                                    data-bs-target="#succesNotifiModel" data-bs-toggle="modal"
+                                    type="button">Purchase
+                            </button>
+
+                            <!-- Modal -->
+                            <div aria-hidden="true" aria-labelledby="succesNotifiModelLabel"
+                                 class="modal fade text-center" id="succesNotifiModel"
+                                 tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                                                    type="button"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Order Purchased Successfully.
+                                            <div class="row justify-content-center">
+                                                <div>
+                                                    <label class="form-label fs-5 fw-bold"
+                                                           for="balance">Balance(Rs.)</label>
+                                                </div>
+                                                <div class="col-4">
+                                                    <input class="text-center form-control fw-bold " id="balance"
+                                                           readonly type="number" value="00.00">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="mt-4 ">
+
+    <!--table section-->
+    <section class="container-fluid">
+        <div class="d-block position-relative overflow-auto" style="height: 170px">
+            <table class="table container-lg overflow-hidden text-center">
+                <thead class="text-white" style="background-color: #00b712">
+                <tr>
+                    <th scope="col">Item Code</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-success">
+                    <th scope="row">P001</th>
+                    <td>Sugar 1kg</td>
+                    <td>200.00</td>
+                    <td>2</td>
+                    <td>400.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">P004</th>
+                    <td>Daal 1kg</td>
+                    <td>350.00</td>
+                    <td>4</td>
+                    <td>1400.00</td>
+                </tr>
+                <tr class="table-success">
+                    <th scope="row">P003</th>
+                    <td>Samba 1kg</td>
+                    <td>200.00</td>
+                    <td>5</td>
+                    <td>1000.00</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script src="../assets/js/bootstrap.min.js"></script>
+</body>
+</html>
