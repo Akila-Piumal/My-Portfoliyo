@@ -248,26 +248,26 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
                     <li class="nav-item">
                         <a aria-current="page" class="nav-link active text-decoration-underline fw-bold text-white"
-                           role="button">Cart</a>
+                           id="CartBtn" role="button">Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" role="button">Items</a>
+                        <a class="nav-link" id="ItemBtn" role="button">Items</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" role="button">Customers</a>
+                        <a class="nav-link" id="CustomerBtn" role="button">Customers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" role="button">Orders</a>
+                        <a class="nav-link" id="OrdersBtn" role="button">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" role="button">Home</a>
+                        <a class="nav-link" id="HomeBtn" role="button">Home</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container-fluid mt-5 pt-4">
+    <main class="container-fluid mt-5 pt-4" id="mainOfCart">
         <div class="mt-1">
             <h3 class="small text-muted">Home > Cart</h3>
         </div>
@@ -676,15 +676,379 @@
     </main>
 </div>
 
+<!--Customer-->
+<main class="container-fluid mt-5 pt-4" id="Customer" style="display: none">
+    <div class="mt-1">
+        <h3 class="small text-muted">Home > Customers</h3>
+    </div>
+    <hr class="mb-2 mt-0">
+
+    <section>
+        <div class="row mt-3 mx-lg-2">
+            <!--select id-->
+            <div class="col-5 col-sm-3 col-md-2 pb-2">
+                <select aria-label=".form-select-lg example" class="form-select form-select-ls ">
+                    <option selected>ID</option>
+                    <option value="1">Name</option>
+                </select>
+            </div>
+            <!--search-->
+            <div class="col-12 col-sm-9 col-md-6 col-xl-5 pb-2">
+                <form class="d-flex">
+                    <input aria-label="Search" class="form-control me-2" placeholder="Search Customer" type="search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+            </div>
+            <!--add Customer button-->
+            <div class="col">
+                <div class="col d-flex justify-content-center justify-content-md-end">
+                    <button class="btn btn-primary col-7 col-sm-4 col-md-8 col-lg-6 col-xl-4 "
+                            data-bs-target="#newCustomerModel"
+                            data-bs-toggle="modal"
+                            type="button">+New Customer
+                    </button>
+
+                    <!-- New Customer Modal -->
+                    <div aria-hidden="true" aria-labelledby="customerModalLabel" class="modal fade"
+                         id="newCustomerModel"
+                         tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="customerModalLabel">New Customer</h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                                            type="button"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+
+                                        <div class="row">
+                                            <div class="col-6 col-md-12">
+                                                <label class="form-label" for="customerIdInputInCustomer">ID</label>
+                                                <input class="form-control" id="customerIdInputInCustomer" type="text">
+                                            </div>
+                                            <div class="col-6 col-md-12">
+                                                <label class="form-label" for="customerNameInputInCustomer">Name</label>
+                                                <input class="form-control" id="customerNameInputInCustomer"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label"
+                                                       for="customerAddressInputInCustomer">Address</label>
+                                                <input class="form-control" id="customerAddressInputInCustomer"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="form-label "
+                                                       for="customerSalaryInputInCustomer">Salary</label>
+                                                <input class="form-control" id="customerSalaryInputInCustomer"
+                                                       placeholder="1000.00" type="number">
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="form-label "
+                                                       for="genderInCustomer">Gender</label>
+                                                <select class="form-select " id="genderInCustomer">
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="form-label " for="CustomerNumberInputInCustomer">Contact
+                                                    No</label>
+                                                <input class="form-control" id="CustomerNumberInputInCustomer"
+                                                       type="number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer mt-2 d-flex justify-content-center">
+                                    <button class="btn btn-outline-success" type="button">Save</button>
+                                    <button class="btn btn-outline-danger" data-bs-dismiss="modal"
+                                            type="button">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Customer details-->
+        <div class="rounded-3 border shadow-lg mt-3 mx-lg-3 bg-success bg-opacity-25">
+            <div class="row gx-3 m-3 ">
+                <!--Customer ID-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerIDInCustomer">Customer ID</label>
+                    <input class="form-control" id="customerIDInCustomer" placeholder="C001" type="text">
+                </div>
+
+                <!--Customer Name-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerNameInCustomer">Customer Name</label>
+                    <input class="form-control" id="customerNameInCustomer" readonly type="text">
+                </div>
+
+                <!--Customer address-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerAddressInCustomer">Customer Address</label>
+                    <input class="form-control" id="customerAddressInCustomer" readonly type="text">
+                </div>
+
+                <!--Customer Salary-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="customerSalaryInCustomer">Customer Salary</label>
+                    <input class="form-control" id="customerSalaryInCustomer" readonly type="text">
+                </div>
+
+                <!--Gender-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold"
+                           for="gender">Gender</label>
+                    <input class="form-control" id="gender" readonly type="text">
+                </div>
+
+                <!--Contact Number-->
+                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
+                    <label class="form-label fw-bold" for="contactNumber">Contact
+                        No</label>
+                    <input class="form-control" id="contactNumber"
+                           readonly type="number">
+                </div>
+
+            </div>
+
+            <!--Buttons-->
+            <div class="row mb-4 mt-4">
+                <div class="d-flex justify-content-center">
+                    <!--delete button-->
+                    <button class="btn btn-outline-danger col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#addItemModal"
+                            data-bs-toggle="modal"
+                            type="button">Delete
+                    </button>
+
+                    <!--update button-->
+                    <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#updateCustomerModel"
+                            data-bs-toggle="modal"
+                            type="button">Update
+                    </button>
+
+                    <!-- Update Customer Modal -->
+                    <div aria-hidden="true" aria-labelledby="UpdateCustomerModalLabel" class="modal fade"
+                         id="updateCustomerModel"
+                         tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="UpdateCustomerModalLabel">Update Customer</h5>
+                                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                                            type="button"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+
+                                        <div class="row">
+                                            <div class="col-6 col-md-12">
+                                                <label class="form-label" for="newCustomer">ID</label>
+                                                <input class="form-control" id="newCustomer" readonly type="text"
+                                                       value="C004">
+                                            </div>
+                                            <div class="col-6 col-md-12">
+                                                <label class="form-label" for="newName">Name</label>
+                                                <input class="form-control" id="newName" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="form-label"
+                                                       for="newAddress">Address</label>
+                                                <input class="form-control" id="newAddress"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="form-label "
+                                                       for="newSalary">Salary</label>
+                                                <input class="form-control" id="newSalary"
+                                                       placeholder="1000.00" type="number">
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="form-label " for="newPhoneNumber">Contact
+                                                    No</label>
+                                                <input class="form-control" id="newPhoneNumber"
+                                                       type="number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer mt-2 d-flex justify-content-center">
+                                    <button class="btn btn-outline-success" type="button">Save</button>
+                                    <button class="btn btn-outline-danger" data-bs-dismiss="modal"
+                                            type="button">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Clear button-->
+                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2"
+                            data-bs-target="#addItemModal"
+                            data-bs-toggle="modal"
+                            type="button">Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <hr class="mt-4">
+
+        <!--table section-->
+        <section class="container-fluid">
+            <div class="d-block position-relative overflow-auto" style="height: 300px">
+                <table class="table container-lg overflow-hidden text-center">
+                    <thead class="text-white" style="background-color: #00b712">
+                    <tr>
+                        <th scope="col">Customer ID</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Customer Address</th>
+                        <th scope="col">Customer Salary</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Contact No.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-success">
+                        <th scope="row">C001</th>
+                        <td>Akila</td>
+                        <td>Mathugama</td>
+                        <td>95000.00</td>
+                        <td>Male</td>
+                        <td>0783223485</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">C002</th>
+                        <td>Pasindu</td>
+                        <td>Kaluthara</td>
+                        <td>55000.00</td>
+                        <td>Male</td>
+                        <td>0773923485</td>
+                    </tr>
+                    <tr class="table-success">
+                        <th scope="row">C003</th>
+                        <td>Kamal</td>
+                        <td>Panadura</td>
+                        <td>100000.00</td>
+                        <td>Male</td>
+                        <td>0754298825</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">C004</th>
+                        <td>Dilshani</td>
+                        <td>Kalawana</td>
+                        <td>55000.00</td>
+                        <td>Female</td>
+                        <td>0783287835</td>
+                    </tr>
+                    <tr class="table-success">
+                        <th scope="row">C005</th>
+                        <td>Madushani</td>
+                        <td>Rathnapura</td>
+                        <td>65000.00</td>
+                        <td>Female</td>
+                        <td>0727893485</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">C006</th>
+                        <td>Piumi</td>
+                        <td>walallawita</td>
+                        <td>70000.00</td>
+                        <td>Female</td>
+                        <td>0727862367</td>
+                    </tr>
+                    <tr class="table-success">
+                        <th scope="row">C007</th>
+                        <td>Pathum</td>
+                        <td>Colombo</td>
+                        <td>110000.00</td>
+                        <td>Male</td>
+                        <td>0783223485</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </section>
+</main>
+
 
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 
 <script>
+    // Login Button
     $('#login_button').click(function () {
         $('#Login').css('display', 'none');
         $('#loginModel').modal('hide');
         $('#Cart').css('display', 'block');
     });
+
+    // Customer Button
+    $('#CustomerBtn').click(function () {
+        $('#mainOfCart').css('display', 'none');
+        $('#Customer').css('display', 'block');
+        $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        $('#CustomerBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
+
+        // hover
+        $("#CartBtn").hover(function () {
+            $(this).css("color", "white");
+        }, function () {
+            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        });
+    });
+
+    // Cart Button
+    $('#CartBtn').click(function () {
+        $('#Customer').css('display', 'none');
+        $('#mainOfCart').css('display', 'block');
+        $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        $(this).unbind('mouseenter').unbind('mouseleave')
+        $('#CartBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
+
+        // hover
+        $("#CustomerBtn").hover(function () {
+            $(this).css("color", "white");
+        }, function () {
+            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        });
+    });
+
+    // if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+    //     $('#Login').css('display', 'none');
+    //     $('#Customer').css('display','block');
+    // } else {
+    //     console.info( "This page is not reloaded");
+    // }
+
+
+    // $(window).on('beforeunload', function(){
+    //     $('#Customer').css('display','none');
+    // });
+
+    // $(window).on('load', function(){
+    //     pushState(window.location, unused)
+    // });
+
 </script>
 
 <script src="../POS/assets/js/bootstrap.min.js"></script>
