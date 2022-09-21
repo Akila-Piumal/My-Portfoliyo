@@ -1518,10 +1518,13 @@
         $('#Item').css('display', 'none');
         $('#Order').css('display', 'none');
 
+        //Change the other buttons when the Customer button clicked.
         $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#ItemBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#OrdersBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#CustomerBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
+
+        // Remove the hover From Current page Button
         $(this).unbind('mouseenter').unbind('mouseleave');
 
         // Cart Button hover
@@ -1554,10 +1557,13 @@
         $('#Order').css('display', 'none');
         $('#mainOfCart').css('display', 'block');
 
+        //Change the other buttons when the Cart button clicked.
         $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#ItemBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#OrdersBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#CartBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
+
+        // Remove the hover From Current page Button
         $(this).unbind('mouseenter').unbind('mouseleave')
 
         // Customer Button hover
@@ -1590,10 +1596,13 @@
         $('#Order').css('display', 'none');
         $('#Item').css('display', 'block');
 
+        //Change the other buttons when the Item button clicked.
         $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#OrdersBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#ItemBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
+
+        // Remove the hover From Current page Button
         $(this).unbind('mouseenter').unbind('mouseleave');
 
         // Cart Button hover
