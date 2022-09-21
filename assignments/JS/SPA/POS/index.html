@@ -1276,12 +1276,21 @@
     $('#CustomerBtn').click(function () {
         $('#mainOfCart').css('display', 'none');
         $('#Customer').css('display', 'block');
+        $('#Item').css('display', 'none');
         $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        $('#ItemBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#CustomerBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
         $(this).unbind('mouseenter').unbind('mouseleave');
 
-        // hover
+        // Cart Button hover
         $("#CartBtn").hover(function () {
+            $(this).css("color", "white");
+        }, function () {
+            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        });
+
+        // Item Button hover
+        $("#ItemBtn").hover(function () {
             $(this).css("color", "white");
         }, function () {
             $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
@@ -1316,17 +1325,27 @@
     // Item button
     $('#ItemBtn').click(function () {
         $('#mainOfCart').css('display', 'none');
+        $('#Customer').css('display', 'none');
         $('#Item').css('display', 'block');
         $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#ItemBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
         $(this).unbind('mouseenter').unbind('mouseleave');
 
-        // hover
+        // Cart Button hover
         $("#CartBtn").hover(function () {
             $(this).css("color", "white");
         }, function () {
             $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         });
+
+        // Customer Button hover
+        $("#CustomerBtn").hover(function () {
+            $(this).css("color", "white");
+        }, function () {
+            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        });
+
     });
 
 
