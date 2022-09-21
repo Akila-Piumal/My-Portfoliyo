@@ -49,15 +49,15 @@
 
 <!--dashBoard content-->
 <main class="container-fluid mt-5 pt-4">
-    <section>
+    <section class="container">
         <div class="row gx-5 justify-content-center mt-4">
 
-            <div class="col-3">
+            <div class="col-10 col-md-4">
                 <div class="fw-bolder text-white p-2 mt-1 text-center rounded-5" style="background-color:#00b712">
                     Customers
                 </div>
 
-                <div class="rounded-3 mt-2 p-3 border shadow-lg ">
+                <div class="rounded-3 mt-2 mb-2 p-3 border shadow-lg ">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
                             <div class="dash-tile-icon fs-1 "><i class="fa-solid fa-users-rectangle"></i></div>
@@ -69,12 +69,12 @@
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-10 col-md-4">
                 <div class="fw-bolder text-white p-2 mt-1 text-center rounded-5" style="background-color:#00b712">
                     Orders
                 </div>
 
-                <div class="rounded-3 mt-2 p-3 border shadow-lg ">
+                <div class="rounded-3 mt-2 mb-2 p-3 border shadow-lg ">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
                             <div class="dash-tile-icon fs-1 "><i class="fa-solid fa-cart-arrow-down"></i></div>
@@ -86,12 +86,12 @@
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-10 col-md-4">
                 <div class="fw-bolder text-white p-2 mt-1 text-center rounded-5" style="background-color:#00b712">
                     Items
                 </div>
 
-                <div class="rounded-3 mt-2 p-3 border shadow-lg ">
+                <div class="rounded-3 mt-2 mb-2 p-3 border shadow-lg ">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
                             <div class="dash-tile-icon fs-1 "><i class="fa-solid fa-receipt"></i></div>
@@ -104,6 +104,79 @@
             </div>
 
         </div>
+    </section>
+
+    <section class=" mt-4">
+        <div class="row justify-content-center">
+            <div class="fw-bolder text-white p-2 mt-1 text-center rounded-5 col-8 col-sm-6 col-md-4 col-lg-3"
+                 style="background-color:#00b712">
+                Most Movable Items
+            </div>
+
+            <hr class="mt-2">
+
+            <!--table section-->
+            <section class="container-fluid">
+                <div class="d-block position-relative overflow-auto" style="height: 300px">
+                    <table class="table container-lg overflow-hidden text-center">
+                        <thead class="text-white" style="background-color: #00b712">
+                        <tr>
+                            <th scope="col">Item Code</th>
+                            <th scope="col">Item Name</th>
+                            <th scope="col">Item Price</th>
+                            <th scope="col">Quantity On Hand</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="table-success">
+                            <th scope="row">P001</th>
+                            <td>Sugar 1kg</td>
+                            <td>200.00</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">P002</th>
+                            <td>Daal 1kg</td>
+                            <td>350.00</td>
+                            <td>30</td>
+                        </tr>
+                        <tr class="table-success">
+                            <th scope="row">P003</th>
+                            <td>Samba 1kg</td>
+                            <td>200.00</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">P004</th>
+                            <td>Munchee nice sm</td>
+                            <td>150.00</td>
+                            <td>20</td>
+                        </tr>
+                        <tr class="table-success">
+                            <th scope="row">P005</th>
+                            <td>Lemon Puff</td>
+                            <td>150.00</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">P006</th>
+                            <td>Samon Big</td>
+                            <td>700.00</td>
+                            <td>15</td>
+                        </tr>
+                        <tr class="table-success">
+                            <th scope="row">P007</th>
+                            <td>Raththi Big</td>
+                            <td>2000.00</td>
+                            <td>5</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+
     </section>
 
 </main>
