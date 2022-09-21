@@ -992,7 +992,7 @@
 </main>
 
 <!--Item-->
-<main class="container-fluid mt-5 pt-4" style="display:none;">
+<main class="container-fluid mt-5 pt-4" id="Item" style="display:none;">
     <div class="mt-1">
         <h3 class="small text-muted">Home > Items</h3>
     </div>
@@ -1278,7 +1278,7 @@
         $('#Customer').css('display', 'block');
         $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $('#CustomerBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
-        $(this).unbind('mouseenter').unbind('mouseleave')
+        $(this).unbind('mouseenter').unbind('mouseleave');
 
         // hover
         $("#CartBtn").hover(function () {
@@ -1291,18 +1291,44 @@
     // Cart Button
     $('#CartBtn').click(function () {
         $('#Customer').css('display', 'none');
+        $('#Item').css('display', 'none');
         $('#mainOfCart').css('display', 'block');
         $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        $('#ItemBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         $(this).unbind('mouseenter').unbind('mouseleave')
         $('#CartBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
 
-        // hover
+        // Customer Button hover
         $("#CustomerBtn").hover(function () {
             $(this).css("color", "white");
         }, function () {
             $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
         });
+
+        // Item Button hover
+        $("#ItemBtn").hover(function () {
+            $(this).css("color", "white");
+        }, function () {
+            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        });
     });
+
+    // Item button
+    $('#ItemBtn').click(function () {
+        $('#mainOfCart').css('display', 'none');
+        $('#Item').css('display', 'block');
+        $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        $('#ItemBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
+        $(this).unbind('mouseenter').unbind('mouseleave');
+
+        // hover
+        $("#CartBtn").hover(function () {
+            $(this).css("color", "white");
+        }, function () {
+            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
+        });
+    });
+
 
     // if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
     //     $('#Login').css('display', 'none');
