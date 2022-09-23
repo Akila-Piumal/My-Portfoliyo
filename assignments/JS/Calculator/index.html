@@ -165,10 +165,23 @@
 
 <script>
 
+    //class declaration
     var calculation = {
         "firstValue": "",
         "symbol": "",
         "secondValue": ""
+    }
+
+    // method to getFinal Count
+    function getFinalResult() {
+        let finalCount = null;
+
+        if (calculation.symbol === '/') {
+            var firstNumber = parseFloat(calculation.firstValue);
+            var secondNumber = parseFloat(calculation.secondValue);
+            finalCount = firstNumber / secondNumber;
+            alert(finalCount);
+        }
     }
 
     //click function for clear button
@@ -332,6 +345,15 @@
         calculation.symbol = "+";
 
         $('#finalResult').text('0');
+    });
+
+    // click function for " btnEquals "
+    $("#btnEquals").click(function () {
+        let finalResult = $('#finalResult').text();
+
+        calculation.secondValue = finalResult;
+
+        getFinalResult();
     });
 
 </script>
