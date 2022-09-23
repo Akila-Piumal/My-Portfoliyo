@@ -34,7 +34,7 @@
             <div class="col-9">
                 <div class="d-flex justify-content-end rounded-3 shadow-lg" id="finalResultDiv"
                      style="background-color: #d2e2f1">
-                    <h1 class="pt-3 pb-3" id="finalResult">0</h1>
+                    <h1 class="pt-3 pb-3 px-4" id="finalResult">0</h1>
                 </div>
             </div>
         </div>
@@ -180,28 +180,28 @@
             var firstNumber = parseFloat(calculation.firstValue);
             var secondNumber = parseFloat(calculation.secondValue);
             finalCount = firstNumber / secondNumber;
-            alert(finalCount);
+            $('#finalResult').text(finalCount);
         }
 
         if (calculation.symbol === 'x') {
             var firstNumber = parseFloat(calculation.firstValue);
             var secondNumber = parseFloat(calculation.secondValue);
             finalCount = firstNumber * secondNumber;
-            alert(finalCount);
+            $('#finalResult').text(finalCount);
         }
 
         if (calculation.symbol === '-') {
             var firstNumber = parseFloat(calculation.firstValue);
             var secondNumber = parseFloat(calculation.secondValue);
             finalCount = firstNumber - secondNumber;
-            alert(finalCount);
+            $('#finalResult').text(finalCount);
         }
 
         if (calculation.symbol === '+') {
             var firstNumber = parseFloat(calculation.firstValue);
             var secondNumber = parseFloat(calculation.secondValue);
             finalCount = firstNumber + secondNumber;
-            alert(finalCount);
+            $('#finalResult').text(finalCount);
         }
     }
 
