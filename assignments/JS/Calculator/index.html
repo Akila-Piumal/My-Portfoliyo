@@ -34,7 +34,7 @@
             <div class="col-9">
                 <div class="d-flex justify-content-end rounded-3 shadow-lg" id="finalResultDiv"
                      style="background-color: #d2e2f1">
-                    <h1 class="pt-3 pb-3" id="finalResult">33</h1>
+                    <h1 class="pt-3 pb-3" id="finalResult">0</h1>
                 </div>
             </div>
         </div>
@@ -292,6 +292,46 @@
         let finalResult = $('#finalResult').text();
 
         $('#finalResult').text(finalResult + '.');
+    });
+
+    // click function for " btnDivision "
+    $("#btnDivision").click(function () {
+        let finalResult = $('#finalResult').text();
+
+        calculation.firstValue = finalResult;
+        calculation.symbol = "/";
+
+        $('#finalResult').text('0');
+    });
+
+    // click function for " btnMultiplication "
+    $("#btnMultiplication").click(function () {
+        let finalResult = $('#finalResult').text();
+
+        calculation.firstValue = finalResult;
+        calculation.symbol = "x";
+
+        $('#finalResult').text('0');
+    });
+
+    // click function for " btnSubtraction "
+    $("#btnSubtraction").click(function () {
+        let finalResult = $('#finalResult').text();
+
+        calculation.firstValue = finalResult;
+        calculation.symbol = "-";
+
+        $('#finalResult').text('0');
+    });
+
+    // click function for " btnAddition "
+    $("#btnAddition").click(function () {
+        let finalResult = $('#finalResult').text();
+
+        calculation.firstValue = finalResult;
+        calculation.symbol = "+";
+
+        $('#finalResult').text('0');
     });
 
 </script>
