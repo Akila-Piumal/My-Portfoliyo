@@ -391,8 +391,48 @@
             timer: 1500
         })
 
+        console.log(customerArray);
+
         $('#tblCustomers').append(`<tr className="table-success"><th scope="row">${ID}</th><td>${Name}</td><td>${address}</td><td>${salary}</td><td>${gender}</td><td>${contactNo}</td></tr>`);
 
+    });
+
+    // key event to ENTER key
+    $('#customerID').keypress(function (e) {
+        if (e.which == 13) {
+            if ($.isEmptyObject(customerArray)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Empty Set',
+                })
+            } else {
+                for (let i = 0; i < customerArray.length; i++) {
+                    if ($('#customerID').val() === (customerArray[i].id)) {
+                        $('#customerName').val(customerArray[i].name);
+                        $('#customerAddress').val(customerArray[i].address);
+                        $('#customerSalary').val(customerArray[i].salary);
+                        $('#gender').val(customerArray[i].gender);
+                        $('#contactNumber').val(customerArray[i].contactNo);
+                        return;
+                    }
+
+                }
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Customer not exist'
+                })
+                $("#customerID").val("");
+                $("#customerName").val("");
+                $("#customerAddress").val("");
+                $("#customerSalary").val("");
+                $("#gender").val("");
+                $("#contactNumber").val("");
+            }
+
+            return false;
+        }
     });
 </script>
 
