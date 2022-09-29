@@ -256,7 +256,7 @@
         <!--table section-->
         <section class="container-fluid">
             <div class="d-block position-relative overflow-auto" style="height: 300px">
-                <table class="table container-lg overflow-hidden text-center">
+                <table class="table container-lg overflow-hidden text-center" id="tblItems">
                     <thead class="text-white" style="background-color: #00b712">
                     <tr>
                         <th scope="col">Item Code</th>
@@ -266,48 +266,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="table-success">
-                        <th scope="row">P001</th>
-                        <td>Sugar 1kg</td>
-                        <td>200.00</td>
-                        <td>40</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">P002</th>
-                        <td>Daal 1kg</td>
-                        <td>350.00</td>
-                        <td>30</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">P003</th>
-                        <td>Samba 1kg</td>
-                        <td>200.00</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">P004</th>
-                        <td>Munchee nice sm</td>
-                        <td>150.00</td>
-                        <td>20</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">P005</th>
-                        <td>Lemon Puff</td>
-                        <td>150.00</td>
-                        <td>40</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">P006</th>
-                        <td>Samon Big</td>
-                        <td>700.00</td>
-                        <td>15</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">P007</th>
-                        <td>Raththi Big</td>
-                        <td>2000.00</td>
-                        <td>5</td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -338,6 +297,42 @@
             timer: 1500
         })
 
+        $('#tblItems').append(`<tr className="table-success"><th scope="row">${item.code}</th><td>${item.name}</td><td>${item.price}</td><td>${item.quantity}`);
+
+    });
+
+    // key event to ENTER key
+    $('#itemCode').keypress(function (e) {
+        if (e.which == 13) {
+            if ($.isEmptyObject(Items)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Empty Set',
+                })
+            } else {
+                for (let i = 0; i < Items.length; i++) {
+                    if ($('#itemCode').val() === (Items[i].code)) {
+                        $('#itemName').val(Items[i].name);
+                        $('#itemPrice').val(Items[i].price);
+                        $('#itemQuantity').val(Items[i].quantity);
+                        return;
+                    }
+
+                }
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Customer not exist'
+                })
+                $("#itemCode").val("");
+                $("#itemName").val("");
+                $("#itemPrice").val("");
+                $("#itemQuantity").val("");
+            }
+
+            return false;
+        }
     });
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
