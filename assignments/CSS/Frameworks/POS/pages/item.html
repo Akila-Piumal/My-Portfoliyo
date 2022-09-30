@@ -256,7 +256,7 @@
         <!--table section-->
         <section class="container-fluid">
             <div class="d-block position-relative overflow-auto" style="height: 300px">
-                <table class="table container-lg overflow-hidden text-center" id="tblItems">
+                <table class="table container-lg overflow-hidden text-center">
                     <thead class="text-white" style="background-color: #00b712">
                     <tr>
                         <th scope="col">Item Code</th>
@@ -265,7 +265,7 @@
                         <th scope="col">Quantity On Hand</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tblItem">
 
                     </tbody>
                 </table>
@@ -289,6 +289,18 @@
 
         Items.push(item);
 
+        addDataToTable();
+    });
+
+    function addDataToTable() {
+        $('#tblItem').empty();
+
+        for (var item of Items) {
+            var row = `<tr><th scope="row">${item.code}</th><td>${item.name}</td><td>${item.price}</td><td>${item.quantity}</td></tr>`
+
+            $('#tblItem').append(row);
+        }
+
         Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -296,10 +308,7 @@
             showConfirmButton: false,
             timer: 1500
         })
-
-        $('#tblItems').append(`<tr className="table-success"><th scope="row">${item.code}</th><td>${item.name}</td><td>${item.price}</td><td>${item.quantity}`);
-
-    });
+    }
 
     // key event to ENTER key
     $('#itemCode').keypress(function (e) {
@@ -323,7 +332,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Customer not exist'
+                    text: 'Item not exist'
                 })
                 $("#itemCode").val("");
                 $("#itemName").val("");
@@ -334,6 +343,7 @@
             return false;
         }
     });
+
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
 </body>
