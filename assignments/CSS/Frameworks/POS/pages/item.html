@@ -153,7 +153,7 @@
                     <input class="form-control" id="itemName" readonly type="text">
                 </div>
 
-                <!--item Name-->
+                <!--item price-->
                 <div class="col-12 col-sm-6 col-md-3 text-center text-sm-start text-lg-center">
                     <label class="form-label fw-bold" for="itemPrice">Item Price</label>
                     <input class="form-control" id="itemPrice" readonly type="text">
@@ -290,6 +290,8 @@
         Items.push(item);
 
         addDataToTable();
+
+        bindRowClickEvent();
     });
 
     function addDataToTable() {
@@ -343,6 +345,20 @@
             return false;
         }
     });
+
+    function bindRowClickEvent() {
+        $('#tblItem>tr').click(function () {
+            let code = $(this).children().eq('0').text();
+            let name = $(this).children().eq('1').text();
+            let price = $(this).children().eq('2').text();
+            let quantity = $(this).children().eq('3').text();
+
+            $('#itemCode').val(code);
+            $('#itemName').val(name);
+            $('#itemPrice').val(price);
+            $('#itemQuantity').val(quantity);
+        });
+    }
 
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
