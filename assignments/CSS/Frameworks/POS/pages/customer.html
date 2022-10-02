@@ -528,6 +528,13 @@
         }
     });
 
+    $('#maleOrFemale').keypress(function (e) {
+        if (e.which == 13) {
+            $('#CustomerNumberInput').focus();
+            up(this);
+        }
+    });
+
 </script>
 
 <script src="../assets/js/bootstrap.min.js"></script>
