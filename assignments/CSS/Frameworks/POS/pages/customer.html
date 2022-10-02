@@ -411,75 +411,15 @@
 
     $('#searchBarCustomer').keypress(function (e) {
         if (e.which == 13) {
-            if ($('#cmbSelectIDOrName').find('option:selected').val() === "id") {
-                if ($.isEmptyObject(customerArray)) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Empty Set',
-                    })
-                } else {
-                    for (let i = 0; i < customerArray.length; i++) {
-                        if ($('#searchBarCustomer').val() === (customerArray[i].id)) {
-                            $('#customerID').val(customerArray[i].id);
-                            $('#customerName').val(customerArray[i].name);
-                            $('#customerAddress').val(customerArray[i].address);
-                            $('#customerSalary').val(customerArray[i].salary);
-                            $('#gender').val(customerArray[i].gender);
-                            $('#contactNumber').val(customerArray[i].contactNo);
-                            return;
-                        }
-                    }
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Customer not exist'
-                    })
-                    $("#customerID").val("");
-                    $("#customerName").val("");
-                    $("#customerAddress").val("");
-                    $("#customerSalary").val("");
-                    $("#gender").val("");
-                    $("#contactNumber").val("");
-                }
-                return false;
-            } else if ($('#cmbSelectIDOrName').find('option:selected').val() === "name") {
-                if ($.isEmptyObject(customerArray)) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Empty Set',
-                    })
-                } else {
-                    for (let i = 0; i < customerArray.length; i++) {
-                        if ($('#searchBarCustomer').val() === (customerArray[i].name)) {
-                            $('#customerID').val(customerArray[i].id);
-                            $('#customerName').val(customerArray[i].name);
-                            $('#customerAddress').val(customerArray[i].address);
-                            $('#customerSalary').val(customerArray[i].salary);
-                            $('#gender').val(customerArray[i].gender);
-                            $('#contactNumber').val(customerArray[i].contactNo);
-                            return;
-                        }
-                    }
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Customer not exist'
-                    })
-                    $("#customerID").val("");
-                    $("#customerName").val("");
-                    $("#customerAddress").val("");
-                    $("#customerSalary").val("");
-                    $("#gender").val("");
-                    $("#contactNumber").val("");
-                }
-                return false;
-            }
+            searchCustomer();
         }
     });
 
     $('#btnSearchForCustomer').click(function () {
+        searchCustomer();
+    });
+
+    function searchCustomer() {
         if ($('#cmbSelectIDOrName').find('option:selected').val() === "id") {
             if ($.isEmptyObject(customerArray)) {
                 Swal.fire({
@@ -545,7 +485,7 @@
             }
             return false;
         }
-    });
+    }
 
 </script>
 
