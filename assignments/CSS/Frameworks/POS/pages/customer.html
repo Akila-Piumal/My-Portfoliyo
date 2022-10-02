@@ -56,17 +56,18 @@
         <div class="row mt-3 mx-lg-2">
             <!--select id-->
             <div class="col-5 col-sm-3 col-md-2 pb-2">
-                <select aria-label=".form-select-lg example" class="form-select form-select-ls ">
-                    <option selected>ID</option>
-                    <option value="1">Name</option>
+                <select aria-label=".form-select-lg example" class="form-select form-select-ls " id="cmbSelectIDOrName">
+                    <option selected value="id">ID</option>
+                    <option value="name">Name</option>
                 </select>
             </div>
             <!--search-->
             <div class="col-12 col-sm-9 col-md-6 col-xl-5 pb-2">
-                <form class="d-flex">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Search Customer" type="search">
+                <div class="d-flex">
+                    <input aria-label="Search" class="form-control me-2" id="searchBarCustomer"
+                           placeholder="Search Customer">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
+                </div>
             </div>
             <!--add Customer button-->
             <div class="col">
@@ -405,6 +406,76 @@
             }
 
             return false;
+        }
+    });
+
+    $('#searchBarCustomer').keypress(function (e) {
+        if (e.which == 13) {
+            if ($('#cmbSelectIDOrName').find('option:selected').val() === "id") {
+                if ($.isEmptyObject(customerArray)) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Empty Set',
+                    })
+                } else {
+                    for (let i = 0; i < customerArray.length; i++) {
+                        if ($('#searchBarCustomer').val() === (customerArray[i].id)) {
+                            $('#customerID').val(customerArray[i].id);
+                            $('#customerName').val(customerArray[i].name);
+                            $('#customerAddress').val(customerArray[i].address);
+                            $('#customerSalary').val(customerArray[i].salary);
+                            $('#gender').val(customerArray[i].gender);
+                            $('#contactNumber').val(customerArray[i].contactNo);
+                            return;
+                        }
+                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Customer not exist'
+                    })
+                    $("#customerID").val("");
+                    $("#customerName").val("");
+                    $("#customerAddress").val("");
+                    $("#customerSalary").val("");
+                    $("#gender").val("");
+                    $("#contactNumber").val("");
+                }
+                return false;
+            } else if ($('#cmbSelectIDOrName').find('option:selected').val() === "name") {
+                if ($.isEmptyObject(customerArray)) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Empty Set',
+                    })
+                } else {
+                    for (let i = 0; i < customerArray.length; i++) {
+                        if ($('#searchBarCustomer').val() === (customerArray[i].name)) {
+                            $('#customerID').val(customerArray[i].id);
+                            $('#customerName').val(customerArray[i].name);
+                            $('#customerAddress').val(customerArray[i].address);
+                            $('#customerSalary').val(customerArray[i].salary);
+                            $('#gender').val(customerArray[i].gender);
+                            $('#contactNumber').val(customerArray[i].contactNo);
+                            return;
+                        }
+                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Customer not exist'
+                    })
+                    $("#customerID").val("");
+                    $("#customerName").val("");
+                    $("#customerAddress").val("");
+                    $("#customerSalary").val("");
+                    $("#gender").val("");
+                    $("#contactNumber").val("");
+                }
+                return false;
+            }
         }
     });
 
