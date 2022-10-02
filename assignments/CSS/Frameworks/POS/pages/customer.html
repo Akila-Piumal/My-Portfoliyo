@@ -75,7 +75,7 @@
                     <button class="btn btn-primary col-7 col-sm-4 col-md-8 col-lg-6 col-xl-4 "
                             data-bs-target="#newCustomerModel"
                             data-bs-toggle="modal"
-                            type="button">+New Customer
+                            id="newCustomerButton" type="button">+New Customer
                     </button>
 
                     <!-- New Customer Modal -->
@@ -121,8 +121,8 @@
                                                 <label class="form-label "
                                                        for="maleOrFemale">Gender</label>
                                                 <select class="form-select " id="maleOrFemale">
-                                                    <option>Male</option>
-                                                    <option>Female</option>
+                                                    <option class="option" id="maleOption">Male</option>
+                                                    <option class="option">Female</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -486,6 +486,10 @@
             return false;
         }
     }
+
+    $("#newCustomerModel").on('shown.bs.modal', function () {
+        $(this).find('#customerIdInput').focus();
+    });
 
 </script>
 
