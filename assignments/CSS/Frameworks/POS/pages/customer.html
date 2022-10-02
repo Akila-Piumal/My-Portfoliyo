@@ -497,6 +497,12 @@
         }
     });
 
+    $('#customerNameInput').keypress(function (e) {
+        if (e.which == 13) {
+            $('#customerAddressInput').focus();
+        }
+    });
+
 </script>
 
 <script src="../assets/js/bootstrap.min.js"></script>
