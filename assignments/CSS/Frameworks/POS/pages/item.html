@@ -430,6 +430,10 @@
         }
     }
 
+    $("#newItemModel").on('shown.bs.modal', function () {
+        $(this).find('#newItemCode').focus();
+    });
+
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
 </body>
