@@ -521,6 +521,13 @@
         $(what).attr("size", "1");  // close dropdown
     }
 
+    $('#customerSalaryInput').keypress(function (e) {
+        if (e.which == 13) {
+            $('#maleOrFemale').focus();
+            down("#maleOrFemale");
+        }
+    });
+
 </script>
 
 <script src="../assets/js/bootstrap.min.js"></script>
