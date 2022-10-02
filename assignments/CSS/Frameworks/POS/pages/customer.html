@@ -121,8 +121,8 @@
                                                 <label class="form-label "
                                                        for="maleOrFemale">Gender</label>
                                                 <select class="form-select " id="maleOrFemale">
-                                                    <option class="option" id="maleOption">Male</option>
-                                                    <option class="option">Female</option>
+                                                    <option>Male</option>
+                                                    <option>Female</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -311,6 +311,10 @@
     var customerArray = [];
 
     $('#btnSaveCustomer').click(function () {
+        saveCustomer();
+    });
+
+    function saveCustomer() {
         let ID = $('#customerIdInput').val();
         let Name = $('#customerNameInput').val();
         let address = $('#customerAddressInput').val();
@@ -332,8 +336,7 @@
         addDataToTable();
 
         bindRowClickEvent();
-
-    });
+    }
 
     function addDataToTable() {
         $('#tblCustomer').empty();
@@ -532,6 +535,19 @@
         if (e.which == 13) {
             $('#CustomerNumberInput').focus();
             up(this);
+        }
+    });
+
+    $('#CustomerNumberInput').keypress(function (e) {
+        if (e.which == 13) {
+            saveCustomer();
+            $('#newCustomerModel').modal('hide');
+            $('#customerIdInput').val('');
+            $('#customerNameInput').val('');
+            $('#customerAddressInput').val('');
+            $('#customerSalaryInput').val('');
+            $('#maleOrFemale').val('');
+            $('#CustomerNumberInput').val('');
         }
     });
 
