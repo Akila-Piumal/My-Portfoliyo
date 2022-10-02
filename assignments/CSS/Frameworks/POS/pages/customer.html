@@ -271,11 +271,10 @@
                     </div>
 
                     <!--Clear button-->
-                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#addItemModal"
-                            data-bs-toggle="modal"
-                            type="button">Clear
+                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2" id="btnClear" type="button">
+                        Clear
                     </button>
+
                 </div>
             </div>
         </div>
@@ -549,6 +548,16 @@
             $('#maleOrFemale').val('');
             $('#CustomerNumberInput').val('');
         }
+    });
+
+    $('#btnClear').click(function () {
+        $('#customerID').val('');
+        $('#customerName').val('');
+        $('#customerAddress').val('');
+        $('#customerSalary').val('');
+        $('#gender').val('');
+        $('#contactNumber').val('');
+        $('#searchBarCustomer').val('');
     });
 
 </script>
