@@ -362,67 +362,15 @@
 
     $('#searchBar').keypress(function (e) {
         if (e.which == 13) {
-            if ($('#cmbSelect').find('option:selected').val() === "code") {
-                if ($.isEmptyObject(Items)) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Empty Set',
-                    })
-                } else {
-                    for (let i = 0; i < Items.length; i++) {
-                        if ($('#searchBar').val() === (Items[i].code)) {
-                            $('#itemCode').val(Items[i].code);
-                            $('#itemName').val(Items[i].name);
-                            $('#itemPrice').val(Items[i].price);
-                            $('#itemQuantity').val(Items[i].quantity);
-                            return;
-                        }
-                    }
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Item not exist'
-                    })
-                    $("#itemCode").val("");
-                    $("#itemName").val("");
-                    $("#itemPrice").val("");
-                    $("#itemQuantity").val("");
-                }
-                return false;
-            } else if ($('#cmbSelect').find('option:selected').val() === "name") {
-                if ($.isEmptyObject(Items)) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Empty Set',
-                    })
-                } else {
-                    for (let i = 0; i < Items.length; i++) {
-                        if ($('#searchBar').val() === (Items[i].name)) {
-                            $('#itemCode').val(Items[i].code);
-                            $('#itemName').val(Items[i].name);
-                            $('#itemPrice').val(Items[i].price);
-                            $('#itemQuantity').val(Items[i].quantity);
-                            return;
-                        }
-                    }
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Item not exist'
-                    })
-                    $("#itemCode").val("");
-                    $("#itemName").val("");
-                    $("#itemPrice").val("");
-                    $("#itemQuantity").val("");
-                }
-                return false;
-            }
+            searchItem();
         }
     });
 
     $('#btnSearchForItem').click(function () {
+        searchItem();
+    });
+
+    function searchItem() {
         if ($('#cmbSelect').find('option:selected').val() === "code") {
             if ($.isEmptyObject(Items)) {
                 Swal.fire({
@@ -480,7 +428,7 @@
             }
             return false;
         }
-    });
+    }
 
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
