@@ -503,6 +503,24 @@
         }
     });
 
+    $('#customerAddressInput').keypress(function (e) {
+        if (e.which == 13) {
+            $('#customerSalaryInput').focus();
+        }
+    });
+
+    function down(what) {
+        pos = $(what).offset();  // remember position
+        $(what).css("position", "absolute");
+        $(what).offset(pos);   // reset position
+        $(what).attr("size", "3"); // open dropdown
+    }
+
+    function up(what) {
+        $(what).css("position", "static");
+        $(what).attr("size", "1");  // close dropdown
+    }
+
 </script>
 
 <script src="../assets/js/bootstrap.min.js"></script>
