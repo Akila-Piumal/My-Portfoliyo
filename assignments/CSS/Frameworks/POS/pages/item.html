@@ -440,6 +440,12 @@
         }
     });
 
+    $('#newItemName').keypress(function (e) {
+        if (e.which == 13) {
+            $('#OneItemPrice').focus();
+        }
+    });
+
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
 </body>
