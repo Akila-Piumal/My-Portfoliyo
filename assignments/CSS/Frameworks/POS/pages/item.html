@@ -280,6 +280,10 @@
     var Items = [];
 
     $('#btnSaveItem').click(function () {
+        saveItem();
+    });
+
+    function saveItem() {
         var item = {
             code: $('#newItemCode').val(),
             name: $('#newItemName').val(),
@@ -292,7 +296,7 @@
         addDataToTable();
 
         bindRowClickEvent();
-    });
+    }
 
     function addDataToTable() {
         $('#tblItem').empty();
@@ -449,6 +453,17 @@
     $('#OneItemPrice').keypress(function (e) {
         if (e.which == 13) {
             $('#NewItemQuantity').focus();
+        }
+    });
+
+    $('#NewItemQuantity').keypress(function (e) {
+        if (e.which == 13) {
+            saveItem();
+            $('#newItemModel').modal('hide');
+            $('#newItemCode').val('');
+            $('#newItemName').val('');
+            $('#OneItemPrice').val('');
+            $('#NewItemQuantity').val('');
         }
     });
 
