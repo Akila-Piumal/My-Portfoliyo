@@ -113,20 +113,12 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="form-label "
-                                                       for="customerSalaryInput">Salary</label>
-                                                <input class="form-control" id="customerSalaryInput"
-                                                       placeholder="1000.00" type="number">
-                                            </div>
-                                            <div class="col-6">
-                                                <label class="form-label "
                                                        for="maleOrFemale">Gender</label>
                                                 <select class="form-select " id="maleOrFemale">
                                                     <option>Male</option>
                                                     <option>Female</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-6">
                                                 <label class="form-label " for="CustomerNumberInput">Contact
                                                     No</label>
@@ -152,7 +144,7 @@
 
         <!--Customer details-->
         <div class="rounded-3 border shadow-lg mt-3 mx-lg-3 bg-success bg-opacity-25">
-            <div class="row gx-3 m-3 ">
+            <div class="row gx-3 m-3 d-flex justify-content-center ">
                 <!--Customer ID-->
                 <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
                     <label class="form-label fw-bold" for="customerID">Customer ID</label>
@@ -169,12 +161,6 @@
                 <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
                     <label class="form-label fw-bold" for="customerAddress">Customer Address</label>
                     <input class="form-control" id="customerAddress" readonly type="text">
-                </div>
-
-                <!--Customer Salary-->
-                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="customerSalary">Customer Salary</label>
-                    <input class="form-control" id="customerSalary" readonly type="text">
                 </div>
 
                 <!--Gender-->
@@ -290,7 +276,6 @@
                         <th scope="col">Customer ID</th>
                         <th scope="col">Customer Name</th>
                         <th scope="col">Customer Address</th>
-                        <th scope="col">Customer Salary</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Contact No.</th>
                     </tr>
@@ -317,7 +302,6 @@
         let ID = $('#customerIdInput').val();
         let Name = $('#customerNameInput').val();
         let address = $('#customerAddressInput').val();
-        let salary = $('#customerSalaryInput').val();
         let gender = $('#maleOrFemale').val();
         let contactNo = $('#CustomerNumberInput').val();
 
@@ -325,7 +309,6 @@
             id: ID,
             name: Name,
             address: address,
-            salary: salary,
             gender: gender,
             contactNo: contactNo
         }
@@ -341,7 +324,7 @@
         $('#tblCustomer').empty();
 
         for (var customer of customerArray) {
-            var row = `<tr><th scope='row'>${customer.id}</th><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td><td>${customer.gender}</td><td>${customer.contactNo}</td></tr>`;
+            var row = `<tr><th scope='row'>${customer.id}</th><td>${customer.name}</td><td>${customer.address}</td><td>${customer.gender}</td><td>${customer.contactNo}</td></tr>`;
 
             $('#tblCustomer').append(row);
         }
@@ -360,14 +343,12 @@
             let id = $(this).children().eq('0').text();
             let name = $(this).children().eq('1').text();
             let address = $(this).children().eq('2').text();
-            let salary = $(this).children().eq('3').text();
-            let gender = $(this).children().eq('4').text();
-            let contactNo = $(this).children().eq('5').text();
+            let gender = $(this).children().eq('3').text();
+            let contactNo = $(this).children().eq('4').text();
 
             $('#customerID').val(id);
             $('#customerName').val(name);
             $('#customerAddress').val(address);
-            $('#customerSalary').val(salary);
             $('#gender').val(gender);
             $('#contactNumber').val(contactNo);
         });
@@ -387,7 +368,6 @@
                     if ($('#customerID').val() === (customerArray[i].id)) {
                         $('#customerName').val(customerArray[i].name);
                         $('#customerAddress').val(customerArray[i].address);
-                        $('#customerSalary').val(customerArray[i].salary);
                         $('#gender').val(customerArray[i].gender);
                         $('#contactNumber').val(customerArray[i].contactNo);
                         return;
@@ -402,7 +382,6 @@
                 $("#customerID").val("");
                 $("#customerName").val("");
                 $("#customerAddress").val("");
-                $("#customerSalary").val("");
                 $("#gender").val("");
                 $("#contactNumber").val("");
             }
@@ -435,7 +414,6 @@
                         $('#customerID').val(customerArray[i].id);
                         $('#customerName').val(customerArray[i].name);
                         $('#customerAddress').val(customerArray[i].address);
-                        $('#customerSalary').val(customerArray[i].salary);
                         $('#gender').val(customerArray[i].gender);
                         $('#contactNumber').val(customerArray[i].contactNo);
                         return;
@@ -449,7 +427,6 @@
                 $("#customerID").val("");
                 $("#customerName").val("");
                 $("#customerAddress").val("");
-                $("#customerSalary").val("");
                 $("#gender").val("");
                 $("#contactNumber").val("");
             }
@@ -467,7 +444,6 @@
                         $('#customerID').val(customerArray[i].id);
                         $('#customerName').val(customerArray[i].name);
                         $('#customerAddress').val(customerArray[i].address);
-                        $('#customerSalary').val(customerArray[i].salary);
                         $('#gender').val(customerArray[i].gender);
                         $('#contactNumber').val(customerArray[i].contactNo);
                         return;
@@ -481,7 +457,6 @@
                 $("#customerID").val("");
                 $("#customerName").val("");
                 $("#customerAddress").val("");
-                $("#customerSalary").val("");
                 $("#gender").val("");
                 $("#contactNumber").val("");
             }
@@ -507,7 +482,8 @@
 
     $('#customerAddressInput').keypress(function (e) {
         if (e.which == 13) {
-            $('#customerSalaryInput').focus();
+            $('#maleOrFemale').focus();
+            down("#maleOrFemale");
         }
     });
 
@@ -523,13 +499,6 @@
         $(what).attr("size", "1");  // close dropdown
     }
 
-    $('#customerSalaryInput').keypress(function (e) {
-        if (e.which == 13) {
-            $('#maleOrFemale').focus();
-            down("#maleOrFemale");
-        }
-    });
-
     $('#maleOrFemale').keypress(function (e) {
         if (e.which == 13) {
             $('#CustomerNumberInput').focus();
@@ -544,13 +513,12 @@
             $('#customerIdInput').val('');
             $('#customerNameInput').val('');
             $('#customerAddressInput').val('');
-            $('#customerSalaryInput').val('');
             $('#maleOrFemale').val('');
             $('#CustomerNumberInput').val('');
         }
     });
 
-    $('#customerIdInput, #customerNameInput, #customerAddressInput, #customerSalaryInput, #maleOrFemale, #CustomerNumberInput').on('keydown', function (event) {
+    $('#customerIdInput, #customerNameInput, #customerAddressInput, #maleOrFemale, #CustomerNumberInput').on('keydown', function (event) {
         if (event.key == "Tab") {
             event.preventDefault();
         }
@@ -560,7 +528,6 @@
         $('#customerID').val('');
         $('#customerName').val('');
         $('#customerAddress').val('');
-        $('#customerSalary').val('');
         $('#gender').val('');
         $('#contactNumber').val('');
         $('#searchBarCustomer').val('');
