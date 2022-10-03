@@ -550,6 +550,12 @@
         }
     });
 
+    $('#customerIdInput, #customerNameInput, #customerAddressInput, #customerSalaryInput, #maleOrFemale, #CustomerNumberInput').on('keydown', function (event) {
+        if (event.key == "Tab") {
+            event.preventDefault();
+        }
+    });
+
     $('#btnClear').click(function () {
         $('#customerID').val('');
         $('#customerName').val('');

@@ -462,14 +462,20 @@
             $('#OneItemPrice').val('');
             $('#NewItemQuantity').val('');
         }
+    });
 
-        $('#btnClear').click(function () {
-            $('#itemCode').val('');
-            $('#itemName').val('');
-            $('#itemPrice').val('');
-            $('#itemQuantity').val('');
-            $('#searchBar').val('');
-        });
+    $('#newItemCode, #newItemName, #OneItemPrice, #NewItemQuantity').on('keydown', function (event) {
+        if (event.key == "Tab") {
+            event.preventDefault();
+        }
+    });
+
+    $('#btnClear').click(function () {
+        $('#itemCode').val('');
+        $('#itemName').val('');
+        $('#itemPrice').val('');
+        $('#itemQuantity').val('');
+        $('#searchBar').val('');
     });
 
 </script>
