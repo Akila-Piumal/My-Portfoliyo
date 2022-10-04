@@ -96,10 +96,16 @@
                                             <div class="col-6 col-md-12">
                                                 <label class="form-label" for="customerIdInput">ID</label>
                                                 <input class="form-control" id="customerIdInput" type="text">
+                                                <label class="form-label" for="customerIdInput" id="warnMsgForID"
+                                                       style="display: none;color: red;font-size: 12px">Customer ID is a
+                                                    required field: Pattern-C001</label>
                                             </div>
                                             <div class="col-6 col-md-12">
                                                 <label class="form-label" for="customerNameInput">Name</label>
                                                 <input class="form-control" id="customerNameInput" type="text">
+                                                <label class="form-label" for="customerNameInput" id="warnMsgForName"
+                                                       style="display:none;color: red;font-size: 12px">Customer Name is
+                                                    a required field. Minimum-5, Maximum-25, Spaces Allowed</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -108,6 +114,11 @@
                                                        for="customerAddressInput">Address</label>
                                                 <input class="form-control" id="customerAddressInput"
                                                        type="text">
+                                                <label class="form-label" for="customerAddressInput"
+                                                       id="warnMsgForAddress"
+                                                       style="display:none;color: red;font-size: 12px">Customer Address
+                                                    is a required field. Minimum-5, Maximum-25, Spaces, ",", "/"
+                                                    Allowed</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -124,6 +135,10 @@
                                                     No</label>
                                                 <input class="form-control" id="CustomerNumberInput"
                                                        type="number">
+                                                <label class="form-label" for="CustomerNumberInput"
+                                                       id="warnMsgForConNumber"
+                                                       style="display:none;color: red;font-size: 12px">Contact Number is
+                                                    a required field. Pattern-0783223485</label>
                                             </div>
                                         </div>
                                     </div>
