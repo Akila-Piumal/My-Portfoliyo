@@ -564,14 +564,47 @@
     });
 
     $('#CustomerNumberInput').on('keyup', function (e) {
-        if (e.which == 13) {
-            saveCustomer();
-            $('#newCustomerModel').modal('hide');
-            $('#customerIdInput').val('');
-            $('#customerNameInput').val('');
-            $('#customerAddressInput').val('');
-            $('#maleOrFemale').val('');
-            $('#CustomerNumberInput').val('');
+        let conNumber = /^(078|077|072|075|076|074|071|070)[0-9]{7}$/;
+
+        let val = $('#CustomerNumberInput').val();
+        let result = conNumber.test(val);
+
+        if (result !== true) {
+            $('#CustomerNumberInput').css("border", "3px solid red");
+            $('#warnMsgForConNumber').css('display', 'block');
+        } else {
+            $('#CustomerNumberInput').css("border", "3px solid green");
+            $('#warnMsgForConNumber').css('display', 'none');
+
+            if (e.which == 13) {
+                Swal.fire({
+                    title: 'Do you want to save the Customer?',
+                    showDenyButton: true,
+                    confirmButtonText: 'Save',
+                    denyButtonText: `Don't save`,
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Swal.fire('Saved!', '', 'success');
+                        saveCustomer();
+                        $('#newCustomerModel').modal('hide');
+                        $('#customerIdInput').val('');
+                        $('#customerNameInput').val('');
+                        $('#customerAddressInput').val('');
+                        $('#customerSalaryInput').val('');
+                        $('#maleOrFemale').val('');
+                        $('#CustomerNumberInput').val('');
+                        $('#customerIdInput').css("border", "1px solid gray");
+                        $('#customerNameInput').css("border", "1px solid gray");
+                        $('#customerAddressInput').css("border", "1px solid gray");
+                        $('#customerSalaryInput').css("border", "1px solid gray");
+                        $('#maleOrFemale').css("border", "1px solid gray");
+                        $('#CustomerNumberInput').css("border", "1px solid gray");
+                    } else if (result.isDenied) {
+                        Swal.fire('Changes are not saved', '', 'info')
+                    }
+                })
+            }
         }
     });
 
