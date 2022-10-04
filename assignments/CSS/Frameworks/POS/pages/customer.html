@@ -633,6 +633,8 @@
                         $('#newCustomerModel').modal('hide');
                         clearFields();
                     } else if (result.isDenied) {
+                        clearFields();
+                        $('#newCustomerModel').modal('hide');
                         Swal.fire('Changes are not saved', '', 'info')
                     }
                 });
