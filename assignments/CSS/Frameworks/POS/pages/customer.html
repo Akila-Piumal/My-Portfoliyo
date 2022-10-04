@@ -522,7 +522,7 @@
         }
     });
 
-    $('#customerAddressInput').keypress(function (e) {
+    $('#customerAddressInput').keyup(function (e) {
         let cusAddress = /^[A-z0-9, /]{5,35}$/;
 
         let val = $('#customerAddressInput').val();
@@ -555,12 +555,15 @@
 
     $('#maleOrFemale').keypress(function (e) {
         if (e.which == 13) {
+            $('#maleOrFemale').css("border", "3px solid green");
             $('#CustomerNumberInput').focus();
             up(this);
+            $('#CustomerNumberInput').css("border", "3px solid red");
+            $('#warnMsgForConNumber').css('display', 'block');
         }
     });
 
-    $('#CustomerNumberInput').keypress(function (e) {
+    $('#CustomerNumberInput').on('keyup', function (e) {
         if (e.which == 13) {
             saveCustomer();
             $('#newCustomerModel').modal('hide');
