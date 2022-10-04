@@ -483,9 +483,23 @@
         $(this).find('#customerIdInput').focus();
     });
 
-    $('#customerIdInput').keypress(function (e) {
-        if (e.which == 13) {
-            $('#customerNameInput').focus();
+    $('#customerIdInput').on('keyup', function (e) {
+        let cusID = /^(C)[0-9]{3}$/; // this is a js literal (regex literal)
+
+        let val = $('#customerIdInput').val();
+
+        let result = cusID.test(val);
+        if (result !== true) {
+            $('#customerIdInput').css("border", "3px solid red");
+            $('#warnMsgForID').css('display', 'block');
+        } else {
+            $('#customerIdInput').css("border", "3px solid green");
+            $('#warnMsgForID').css('display', 'none');
+            $('#customerNameInput').css("border", "3px solid red");
+            $('#warnMsgForName').css('display', 'block');
+            if (e.which == 13) {
+                $('#customerNameInput').focus();
+            }
         }
     });
 
