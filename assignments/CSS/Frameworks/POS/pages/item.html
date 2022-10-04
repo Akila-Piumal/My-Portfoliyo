@@ -283,8 +283,34 @@
     var Items = [];
 
     $('#btnSaveItem').click(function () {
-        saveItem();
+        Swal.fire({
+            title: 'Do you want to save the Item?',
+            showDenyButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                saveItem();
+                Swal.fire('Saved!', '', 'success');
+                $('#newItemModel').modal('hide');
+                clearFields();
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        });
     });
+
+    function clearFields() {
+        $('#newItemCode').val('');
+        $('#newItemName').val('');
+        $('#OneItemPrice').val('');
+        $('#NewItemQuantity').val('');
+        $('#newItemCode').css("border", "1px solid gray");
+        $('#newItemName').css("border", "1px solid gray");
+        $('#OneItemPrice').css("border", "1px solid gray");
+        $('#NewItemQuantity').css("border", "1px solid gray");
+    }
 
     function saveItem() {
         var item = {
@@ -309,14 +335,6 @@
 
             $('#tblItem').append(row);
         }
-
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Item has been saved',
-            showConfirmButton: false,
-            timer: 1500
-        })
     }
 
     function bindRowClickEvent() {
@@ -535,12 +553,23 @@
             $('#btnSaveItem').removeAttr("disabled");
 
             if (e.which == 13) {
-                saveItem();
-                $('#newItemModel').modal('hide');
-                $('#newItemCode').val('');
-                $('#newItemName').val('');
-                $('#OneItemPrice').val('');
-                $('#NewItemQuantity').val('');
+
+                Swal.fire({
+                    title: 'Do you want to save the Item?',
+                    showDenyButton: true,
+                    confirmButtonText: 'Save',
+                    denyButtonText: `Don't save`,
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Swal.fire('Saved!', '', 'success');
+                        saveItem();
+                        $('#newItemModel').modal('hide');
+                        clearFields();
+                    } else if (result.isDenied) {
+                        Swal.fire('Changes are not saved', '', 'info')
+                    }
+                });
             }
         }
     });

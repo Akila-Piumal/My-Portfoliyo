@@ -326,8 +326,6 @@
                 Swal.fire('Changes are not saved', '', 'info')
             }
         });
-
-        console.log(customerArray);
     });
 
     function clearFields() {
@@ -377,14 +375,6 @@
 
             $('#tblCustomer').append(row);
         }
-
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Customer has been saved',
-            showConfirmButton: false,
-            timer: 1500
-        })
     }
 
     function bindRowClickEvent() {
