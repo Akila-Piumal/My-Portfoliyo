@@ -503,9 +503,22 @@
         }
     });
 
-    $('#customerNameInput').keypress(function (e) {
-        if (e.which == 13) {
-            $('#customerAddressInput').focus();
+    $('#customerNameInput').on('keyup', function (e) {
+        let cusName = /^[A-z ]{5,25}$/;
+
+        let val = $('#customerNameInput').val();
+        let result = cusName.test(val);
+        if (result !== true) {
+            $('#customerNameInput').css("border", "3px solid red");
+            $('#warnMsgForName').css('display', 'block');
+        } else {
+            $('#customerNameInput').css("border", "3px solid green");
+            $('#warnMsgForName').css('display', 'none');
+            $('#customerAddressInput').css("border", "3px solid red");
+            $('#warnMsgForAddress').css('display', 'block');
+            if (e.which == 13) {
+                $('#customerAddressInput').focus();
+            }
         }
     });
 
