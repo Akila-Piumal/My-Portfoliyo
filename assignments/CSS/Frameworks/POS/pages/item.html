@@ -447,9 +447,27 @@
     var itemPricePattern = /^[1-9][0-9]*(.[0-9]{2})?$/;
     var itemQuantityPattern = /^[1-9][0-9]*$/;
 
-    $('#newItemCode').keypress(function (e) {
-        if (e.which == 13) {
-            $('#newItemName').focus();
+    $('#newItemCode').on('keyup', function (e) {
+        let val = $('#newItemCode').val();
+
+        let result = itemCodePattern.test(val);
+        if (result !== true) {
+            $('#newItemCode').css("border", "3px solid red");
+            $('#warnMsgForCode').css('display', 'block');
+            $('#btnSaveItem').attr("disabled", true);
+        } else {
+            $('#newItemCode').css("border", "3px solid green");
+            $('#warnMsgForCode').css('display', 'none');
+            $('#btnSaveItem').removeAttr("disabled");
+            if (itemNamePattern.test($('#newItemName').val()) !== true) {
+                $('#newItemName').css("border", "3px solid red");
+                $('#warnMsgForItemName').css('display', 'block');
+                $('#btnSaveItem').attr("disabled", true);
+            }
+
+            if (e.which == 13) {
+                $('#newItemName').focus();
+            }
         }
     });
 
