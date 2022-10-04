@@ -527,12 +527,15 @@
         if (result !== true) {
             $('#customerIdInput').css("border", "3px solid red");
             $('#warnMsgForID').css('display', 'block');
+            $('#btnSaveCustomer').attr("disabled", true);
         } else {
             $('#customerIdInput').css("border", "3px solid green");
             $('#warnMsgForID').css('display', 'none');
+            $('#btnSaveCustomer').removeAttr("disabled");
             if (cusName.test($('#customerNameInput').val()) !== true) {
                 $('#customerNameInput').css("border", "3px solid red");
                 $('#warnMsgForName').css('display', 'block');
+                $('#btnSaveCustomer').attr("disabled", true);
             }
 
             if (e.which == 13) {
@@ -547,13 +550,16 @@
         if (result !== true) {
             $('#customerNameInput').css("border", "3px solid red");
             $('#warnMsgForName').css('display', 'block');
+            $('#btnSaveCustomer').attr("disabled", true);
         } else {
             $('#customerNameInput').css("border", "3px solid green");
             $('#warnMsgForName').css('display', 'none');
+            $('#btnSaveCustomer').removeAttr("disabled");
 
             if (cusAddress.test($('#customerAddressInput').val()) !== true) {
                 $('#customerAddressInput').css("border", "3px solid red");
                 $('#warnMsgForAddress').css('display', 'block');
+                $('#btnSaveCustomer').attr("disabled", true);
             }
             if (e.which == 13) {
                 $('#customerAddressInput').focus();
@@ -567,12 +573,15 @@
         if (result !== true) {
             $('#customerAddressInput').css("border", "3px solid red");
             $('#warnMsgForAddress').css('display', 'block');
+            $('#btnSaveCustomer').attr("disabled", true);
         } else {
             $('#customerAddressInput').css("border", "3px solid green");
             $('#warnMsgForAddress').css('display', 'none');
+            $('#btnSaveCustomer').removeAttr("disabled");
 
             if ($('#maleOrFemale').val() == null) {
                 $('#maleOrFemale').css("border", "3px solid red");
+                $('#btnSaveCustomer').attr("disabled", true);
             }
             if (e.which == 13) {
                 $('#maleOrFemale').focus();
