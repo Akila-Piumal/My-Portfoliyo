@@ -520,14 +520,28 @@
         }
     });
 
-    $('#NewItemQuantity').keypress(function (e) {
-        if (e.which == 13) {
-            saveItem();
-            $('#newItemModel').modal('hide');
-            $('#newItemCode').val('');
-            $('#newItemName').val('');
-            $('#OneItemPrice').val('');
-            $('#NewItemQuantity').val('');
+    $('#NewItemQuantity').on('keyup', function (e) {
+        let val = $('#NewItemQuantity').val();
+
+        let result = itemQuantityPattern.test(val);
+
+        if (result !== true) {
+            $('#NewItemQuantity').css("border", "3px solid red");
+            $('#warnMsgForQuantity').css('display', 'block');
+            $('#btnSaveItem').attr("disabled", true);
+        } else {
+            $('#NewItemQuantity').css("border", "3px solid green");
+            $('#warnMsgForQuantity').css('display', 'none');
+            $('#btnSaveItem').removeAttr("disabled");
+
+            if (e.which == 13) {
+                saveItem();
+                $('#newItemModel').modal('hide');
+                $('#newItemCode').val('');
+                $('#newItemName').val('');
+                $('#OneItemPrice').val('');
+                $('#NewItemQuantity').val('');
+            }
         }
     });
 
