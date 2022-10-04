@@ -310,8 +310,38 @@
     var customerArray = [];
 
     $('#btnSaveCustomer').click(function () {
-        saveCustomer();
+        Swal.fire({
+            title: 'Do you want to save the Customer?',
+            showDenyButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Saved!', '', 'success');
+                saveCustomer();
+                $('#newCustomerModel').modal('hide');
+                clearFields();
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        });
     });
+
+    function clearFields() {
+        $('#customerIdInput').val('');
+        $('#customerNameInput').val('');
+        $('#customerAddressInput').val('');
+        $('#customerSalaryInput').val('');
+        $('#maleOrFemale').val('');
+        $('#CustomerNumberInput').val('');
+        $('#customerIdInput').css("border", "1px solid gray");
+        $('#customerNameInput').css("border", "1px solid gray");
+        $('#customerAddressInput').css("border", "1px solid gray");
+        $('#customerSalaryInput').css("border", "1px solid gray");
+        $('#maleOrFemale').css("border", "1px solid gray");
+        $('#CustomerNumberInput').css("border", "1px solid gray");
+    }
 
     function saveCustomer() {
         let ID = $('#customerIdInput').val();
@@ -481,6 +511,7 @@
 
     $("#newCustomerModel").on('shown.bs.modal', function () {
         $(this).find('#customerIdInput').focus();
+        $(this).find('#btnSaveCustomer').attr("disabled", true);
     });
 
     $('#customerIdInput').on('keyup', function (e) {
@@ -572,9 +603,11 @@
         if (result !== true) {
             $('#CustomerNumberInput').css("border", "3px solid red");
             $('#warnMsgForConNumber').css('display', 'block');
+            $('#btnSaveCustomer').attr("disabled", true);
         } else {
             $('#CustomerNumberInput').css("border", "3px solid green");
             $('#warnMsgForConNumber').css('display', 'none');
+            $('#btnSaveCustomer').removeAttr("disabled");
 
             if (e.which == 13) {
                 Swal.fire({
@@ -588,22 +621,11 @@
                         Swal.fire('Saved!', '', 'success');
                         saveCustomer();
                         $('#newCustomerModel').modal('hide');
-                        $('#customerIdInput').val('');
-                        $('#customerNameInput').val('');
-                        $('#customerAddressInput').val('');
-                        $('#customerSalaryInput').val('');
-                        $('#maleOrFemale').val('');
-                        $('#CustomerNumberInput').val('');
-                        $('#customerIdInput').css("border", "1px solid gray");
-                        $('#customerNameInput').css("border", "1px solid gray");
-                        $('#customerAddressInput').css("border", "1px solid gray");
-                        $('#customerSalaryInput').css("border", "1px solid gray");
-                        $('#maleOrFemale').css("border", "1px solid gray");
-                        $('#CustomerNumberInput').css("border", "1px solid gray");
+                        clearFields();
                     } else if (result.isDenied) {
                         Swal.fire('Changes are not saved', '', 'info')
                     }
-                })
+                });
             }
         }
     });
