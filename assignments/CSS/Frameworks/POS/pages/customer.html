@@ -523,9 +523,21 @@
     });
 
     $('#customerAddressInput').keypress(function (e) {
-        if (e.which == 13) {
-            $('#maleOrFemale').focus();
-            down("#maleOrFemale");
+        let cusAddress = /^[A-z0-9, /]{5,35}$/;
+
+        let val = $('#customerAddressInput').val();
+        let result = cusAddress.test(val);
+        if (result !== true) {
+            $('#customerAddressInput').css("border", "3px solid red");
+            $('#warnMsgForAddress').css('display', 'block');
+        } else {
+            $('#customerAddressInput').css("border", "3px solid green");
+            $('#warnMsgForAddress').css('display', 'none');
+            $('#maleOrFemale').css("border", "3px solid red");
+            if (e.which == 13) {
+                $('#maleOrFemale').focus();
+                down("#maleOrFemale");
+            }
         }
     });
 
