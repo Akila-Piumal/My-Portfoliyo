@@ -432,8 +432,14 @@
     }
 
     $("#newItemModel").on('shown.bs.modal', function () {
+        $(this).find('#btnSaveItem').attr("disabled", true);
         $(this).find('#newItemCode').focus();
     });
+
+    var itemCodePattern = /^(P)[0-9]{3}$/;
+    var itemNamePattern = /^[A-z0-9]{4,25}$/;
+    var itemPricePattern = /^[1-9][0-9]*(.[0-9]{2})?$/;
+    var itemQuantityPattern = /^[1-9][0-9]*$/;
 
     $('#newItemCode').keypress(function (e) {
         if (e.which == 13) {
