@@ -125,7 +125,7 @@
                                             <div class="col-6">
                                                 <label class="form-label "
                                                        for="maleOrFemale">Gender</label>
-                                                <select class="form-select " id="maleOrFemale">
+                                                <select class="form-select user-select-none" id="maleOrFemale">
                                                     <option>Male</option>
                                                     <option>Female</option>
                                                 </select>
@@ -146,7 +146,7 @@
                                 <div class="modal-footer mt-2 d-flex justify-content-center">
                                     <button class="btn btn-outline-success" id="btnSaveCustomer" type="button">Save
                                     </button>
-                                    <button class="btn btn-outline-danger" data-bs-dismiss="modal"
+                                    <button class="btn btn-outline-danger" data-bs-dismiss="modal" id="btnClose"
                                             type="button">Close
                                     </button>
                                 </div>
@@ -512,11 +512,15 @@
     $("#newCustomerModel").on('shown.bs.modal', function () {
         $(this).find('#customerIdInput').focus();
         $(this).find('#btnSaveCustomer').attr("disabled", true);
+        $(this).find('#maleOrFemale').val('');
     });
 
-    $('#customerIdInput').on('keyup', function (e) {
-        let cusID = /^(C)[0-9]{3}$/; // this is a js literal (regex literal)
+    var cusID = /^(C)[0-9]{3}$/;
+    var cusName = /^[A-z ]{5,25}$/;
+    var cusAddress = /^[A-z0-9, /]{5,35}$/;
+    var conNumber = /^(078|077|072|075|076|074|071|070)[0-9]{7}$/;
 
+    $('#customerIdInput').on('keyup', function (e) {
         let val = $('#customerIdInput').val();
 
         let result = cusID.test(val);
@@ -526,8 +530,11 @@
         } else {
             $('#customerIdInput').css("border", "3px solid green");
             $('#warnMsgForID').css('display', 'none');
-            $('#customerNameInput').css("border", "3px solid red");
-            $('#warnMsgForName').css('display', 'block');
+            if (cusName.test($('#customerNameInput').val()) !== true) {
+                $('#customerNameInput').css("border", "3px solid red");
+                $('#warnMsgForName').css('display', 'block');
+            }
+
             if (e.which == 13) {
                 $('#customerNameInput').focus();
             }
@@ -535,8 +542,6 @@
     });
 
     $('#customerNameInput').on('keyup', function (e) {
-        let cusName = /^[A-z ]{5,25}$/;
-
         let val = $('#customerNameInput').val();
         let result = cusName.test(val);
         if (result !== true) {
@@ -545,8 +550,11 @@
         } else {
             $('#customerNameInput').css("border", "3px solid green");
             $('#warnMsgForName').css('display', 'none');
-            $('#customerAddressInput').css("border", "3px solid red");
-            $('#warnMsgForAddress').css('display', 'block');
+
+            if (cusAddress.test($('#customerAddressInput').val()) !== true) {
+                $('#customerAddressInput').css("border", "3px solid red");
+                $('#warnMsgForAddress').css('display', 'block');
+            }
             if (e.which == 13) {
                 $('#customerAddressInput').focus();
             }
@@ -554,8 +562,6 @@
     });
 
     $('#customerAddressInput').keyup(function (e) {
-        let cusAddress = /^[A-z0-9, /]{5,35}$/;
-
         let val = $('#customerAddressInput').val();
         let result = cusAddress.test(val);
         if (result !== true) {
@@ -564,7 +570,10 @@
         } else {
             $('#customerAddressInput').css("border", "3px solid green");
             $('#warnMsgForAddress').css('display', 'none');
-            $('#maleOrFemale').css("border", "3px solid red");
+
+            if ($('#maleOrFemale').val() == null) {
+                $('#maleOrFemale').css("border", "3px solid red");
+            }
             if (e.which == 13) {
                 $('#maleOrFemale').focus();
                 down("#maleOrFemale");
@@ -595,8 +604,6 @@
     });
 
     $('#CustomerNumberInput').on('keyup', function (e) {
-        let conNumber = /^(078|077|072|075|076|074|071|070)[0-9]{7}$/;
-
         let val = $('#CustomerNumberInput').val();
         let result = conNumber.test(val);
 
@@ -643,6 +650,10 @@
         $('#gender').val('');
         $('#contactNumber').val('');
         $('#searchBarCustomer').val('');
+    });
+
+    $('#btnClose').click(function () {
+        clearFields();
     });
 
 </script>
