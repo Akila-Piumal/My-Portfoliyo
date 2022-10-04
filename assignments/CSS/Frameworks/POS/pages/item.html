@@ -325,6 +325,8 @@
         addDataToTable();
 
         bindRowClickEvent();
+
+        bindRowDblClickEvent();
     }
 
     function addDataToTable() {
@@ -592,6 +594,37 @@
     $('#btnClose').click(function () {
         clearFields();
     });
+
+    function bindRowDblClickEvent() {
+        $('#tblItem>tr').on('dblclick', function () {
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let code = $(this).children().eq('0').text();
+                    for (var item of Items) {
+                        if (item.code === code) {
+                            let index = Items.indexOf(item);
+                            Items.splice(index, 1);
+                        }
+                    }
+                    $(this).remove();
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            });
+        });
+    }
 
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
