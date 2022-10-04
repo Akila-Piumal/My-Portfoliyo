@@ -471,9 +471,27 @@
         }
     });
 
-    $('#newItemName').keypress(function (e) {
-        if (e.which == 13) {
-            $('#OneItemPrice').focus();
+    $('#newItemName').on('keyup', function (e) {
+        let val = $('#newItemName').val();
+
+        let result = itemNamePattern.test(val);
+        if (result !== true) {
+            $('#newItemName').css("border", "3px solid red");
+            $('#warnMsgForItemName').css('display', 'block');
+            $('#btnSaveItem').attr("disabled", true);
+        } else {
+            $('#newItemName').css("border", "3px solid green");
+            $('#warnMsgForItemName').css('display', 'none');
+            $('#btnSaveItem').removeAttr("disabled");
+
+            if (itemPricePattern.test($('#OneItemPrice').val()) !== true) {
+                $('#OneItemPrice').css("border", "3px solid red");
+                $('#warnMsgForPrice').css('display', 'block');
+                $('#btnSaveItem').attr("disabled", true);
+            }
+            if (e.which == 13) {
+                $('#OneItemPrice').focus();
+            }
         }
     });
 
