@@ -318,14 +318,16 @@
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                Swal.fire('Saved!', '', 'success');
                 saveCustomer();
+                Swal.fire('Saved!', '', 'success');
                 $('#newCustomerModel').modal('hide');
                 clearFields();
             } else if (result.isDenied) {
                 Swal.fire('Changes are not saved', '', 'info')
             }
         });
+
+        console.log(customerArray);
     });
 
     function clearFields() {
@@ -363,6 +365,8 @@
         addDataToTable();
 
         bindRowClickEvent();
+
+        bindRowDblClickEvent();
     }
 
     function addDataToTable() {
@@ -664,6 +668,38 @@
     $('#btnClose').click(function () {
         clearFields();
     });
+
+    function bindRowDblClickEvent() {
+        $('#tblCustomer>tr').on('dblclick', function () {
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    console.log(customerArray);
+                    let id = $(this).children().eq('0').text();
+                    for (var customer of customerArray) {
+                        if (customer.id === id) {
+                            let index = customerArray.indexOf(customer);
+                            customerArray.splice(index, 1);
+                        }
+                    }
+                    $(this).remove();
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            });
+        });
+    }
 
 </script>
 
