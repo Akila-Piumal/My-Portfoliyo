@@ -252,7 +252,7 @@
                                     <button class="btn btn-outline-success" id="btnUpdateItem" type="button">Update
                                     </button>
                                     <button class="btn btn-outline-danger" data-bs-dismiss="modal"
-                                            type="button">Close
+                                            id="btnCloseInUpdateItem" type="button">Close
                                     </button>
                                 </div>
                             </div>
@@ -788,6 +788,10 @@
                 Swal.fire('Changes are not saved', '', 'info')
             }
         });
+    });
+
+    $('#btnCloseInUpdateItem').click(function () {
+        clearUpdateModelFields();
     });
 
 </script>
