@@ -179,7 +179,7 @@
                     <button class="btn btn-outline-danger col-3 col-md-2 col-lg-1 mx-2"
                             data-bs-target="#addItemModal"
                             data-bs-toggle="modal"
-                            type="button">Delete
+                            id="btnDelete" type="button">Delete
                     </button>
 
                     <!--update button-->
@@ -335,6 +335,7 @@
             var row = `<tr><th scope="row">${item.code}</th><td>${item.name}</td><td>${item.price}</td><td>${item.quantity}</td></tr>`
 
             $('#tblItem').append(row);
+            $("#tblItem>tr").css('cursor', 'pointer');
         }
     }
 
@@ -350,6 +351,7 @@
             $('#itemPrice').val(price);
             $('#itemQuantity').val(quantity);
             $('#btnUpdate').removeAttr("disabled");
+            $('#btnDelete').removeAttr("disabled");
         });
     }
 
@@ -369,6 +371,7 @@
                         $('#itemPrice').val(Items[i].price);
                         $('#itemQuantity').val(Items[i].quantity);
                         $('#btnUpdate').removeAttr("disabled");
+                        $('#btnDelete').removeAttr("disabled");
                         return;
                     }
 
@@ -378,10 +381,7 @@
                     title: 'Oops...',
                     text: 'Item not exist'
                 })
-                $("#itemCode").val("");
-                $("#itemName").val("");
-                $("#itemPrice").val("");
-                $("#itemQuantity").val("");
+                clearItemDetailsFields();
             }
 
             return false;
@@ -414,6 +414,7 @@
                         $('#itemPrice').val(Items[i].price);
                         $('#itemQuantity').val(Items[i].quantity);
                         $('#btnUpdate').removeAttr("disabled");
+                        $('#btnDelete').removeAttr("disabled");
                         return;
                     }
                 }
@@ -422,10 +423,7 @@
                     title: 'Oops...',
                     text: 'Item not exist'
                 })
-                $("#itemCode").val("");
-                $("#itemName").val("");
-                $("#itemPrice").val("");
-                $("#itemQuantity").val("");
+                clearItemDetailsFields();
             }
             return false;
         } else if ($('#cmbSelect').find('option:selected').val() === "name") {
@@ -450,10 +448,7 @@
                     title: 'Oops...',
                     text: 'Item not exist'
                 })
-                $("#itemCode").val("");
-                $("#itemName").val("");
-                $("#itemPrice").val("");
-                $("#itemQuantity").val("");
+                clearItemDetailsFields();
             }
             return false;
         }
@@ -586,13 +581,18 @@
     });
 
     $('#btnClear').click(function () {
+        clearItemDetailsFields();
+    });
+
+    function clearItemDetailsFields() {
         $('#itemCode').val('');
         $('#itemName').val('');
         $('#itemPrice').val('');
         $('#itemQuantity').val('');
         $('#searchBar').val('');
         $('#btnUpdate').attr('disabled', true);
-    });
+        $('#btnDelete').attr('disabled', true);
+    }
 
     $('#btnClose').click(function () {
         clearFields();
@@ -619,6 +619,7 @@
                         }
                     }
                     $(this).remove();
+                    clearItemDetailsFields();
                     Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',
@@ -631,6 +632,7 @@
 
     $(window).ready(function () {
         $('#btnUpdate').attr('disabled', true);
+        $('#btnDelete').attr('disabled', true);
     });
 
     $("#updateItemModel").on('shown.bs.modal', function () {
@@ -638,6 +640,7 @@
         $('#itemNameNew').val($('#itemName').val());
         $('#itemPriceNew').val($('#itemPrice').val());
         $('#itemQuantityNew').val($('#itemQuantity').val());
+        $('#itemNameNew').focus();
     });
 
 </script>
