@@ -207,7 +207,7 @@
                                             <div>
                                                 <label class="form-label" for="itemCodeNew">Item
                                                     Code</label>
-                                                <input class="form-control" id="itemCodeNew" type="text">
+                                                <input class="form-control" id="itemCodeNew" readonly type="text">
                                                 <label class="form-label" for="itemCodeNew" id="warnMsgForCodeNew"
                                                        style="display: none;color: red;font-size: 12px">Item Code is a
                                                     required field: Pattern-P001</label>
@@ -653,33 +653,13 @@
         $('#itemNameNew').val($('#itemName').val());
         $('#itemPriceNew').val($('#itemPrice').val());
         $('#itemQuantityNew').val($('#itemQuantity').val());
-        $('#itemCodeNew').focus();
+        $('#itemNameNew').focus();
         $('#btnUpdateItem').attr("disabled", true);
 
         $('#itemCodeNew').css("border", "3px solid green");
         $('#itemNameNew').css("border", "3px solid green");
         $('#itemPriceNew').css("border", "3px solid green");
         $('#itemQuantityNew').css("border", "3px solid green");
-    });
-
-
-    $('#itemCodeNew').on('keyup', function (e) {
-        let val = $('#itemCodeNew').val();
-
-        let result = itemCodePattern.test(val);
-        if (result !== true) {
-            $('#itemCodeNew').css("border", "3px solid red");
-            $('#warnMsgForCodeNew').css('display', 'block');
-            $('#btnUpdateItem').attr("disabled", true);
-        } else {
-            $('#itemCodeNew').css("border", "3px solid green");
-            $('#warnMsgForCodeNew').css('display', 'none');
-            $('#btnUpdateItem').removeAttr("disabled");
-
-            if (e.which == 13) {
-                $('#itemNameNew').focus();
-            }
-        }
     });
 
     $('#itemNameNew').on('keyup', function (e) {
@@ -742,9 +722,9 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         Swal.fire('Updated!', '', 'success');
-                        // updateItem();
-                        // $('#updateItemModel').modal('hide');
+                        updateItem();
                         // clearUpdateModelFields();
+                        // $('#updateItemModel').modal('hide');
                     } else if (result.isDenied) {
                         // clearUpdateModelFields();
                         // $('#updateItemModel').modal('hide');
@@ -754,6 +734,26 @@
             }
         }
     });
+
+    function updateItem() {
+        let code = $('#itemCodeNew').val();
+        let name = $('#itemNameNew').val();
+        let price = $('#itemPriceNew').val();
+        let quantity = $('#itemQuantityNew').val();
+
+        for (var item of Items) {
+            if (item.code === code) {
+                let index = Items.indexOf(item);
+                Items[index].name = name;
+                Items[index].price = price
+                Items[index].quantity = quantity;
+            }
+        }
+
+        $('#tblItem>tr').children().eq('1').text(name);
+        $('#tblItem>tr').children().eq('2').text(price);
+        $('#tblItem>tr').children().eq('3').text(quantity);
+    }
 
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
