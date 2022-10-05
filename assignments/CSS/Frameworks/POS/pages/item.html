@@ -207,8 +207,10 @@
                                             <div>
                                                 <label class="form-label" for="itemCodeNew">Item
                                                     Code</label>
-                                                <input class="form-control" id="itemCodeNew"
-                                                       readonly type="text">
+                                                <input class="form-control" id="itemCodeNew" type="text">
+                                                <label class="form-label" for="itemCodeNew" id="warnMsgForCodeNew"
+                                                       style="display: none;color: red;font-size: 12px">Item Code is a
+                                                    required field: Pattern-P001</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -216,6 +218,9 @@
                                                 <label class="form-label" for="itemNameNew">Item
                                                     Name</label>
                                                 <input class="form-control" id="itemNameNew" type="text">
+                                                <label class="form-label" for="itemNameNew" id="warnMsgForItemNameNew"
+                                                       style="display: none;color: red;font-size: 12px">Item Name is
+                                                    a required field. Minimum-4, Maximum-25, Spaces Allowed.</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -224,6 +229,9 @@
                                                        for="itemPriceNew">Item Price</label>
                                                 <input class="form-control" id="itemPriceNew"
                                                        placeholder="1000.00" type="text">
+                                                <label class="form-label" for="itemPriceNew" id="warnMsgForPriceNew"
+                                                       style="display: none;color: red;font-size: 12px">Item Price is
+                                                    a required field. Pattern- 100 or 100.00</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -232,12 +240,17 @@
                                                     Quantity</label>
                                                 <input class="form-control" id="itemQuantityNew"
                                                        type="number">
+                                                <label class="form-label" for="itemQuantityNew"
+                                                       id="warnMsgForQuantityNew"
+                                                       style="display: none;color: red;font-size: 12px">Quantity is
+                                                    a required field. Pattern- 100</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer mt-2 d-flex justify-content-center">
-                                    <button class="btn btn-outline-success" type="button">Update</button>
+                                    <button class="btn btn-outline-success" id="btnUpdateItem" type="button">Update
+                                    </button>
                                     <button class="btn btn-outline-danger" data-bs-dismiss="modal"
                                             type="button">Close
                                     </button>
@@ -640,7 +653,106 @@
         $('#itemNameNew').val($('#itemName').val());
         $('#itemPriceNew').val($('#itemPrice').val());
         $('#itemQuantityNew').val($('#itemQuantity').val());
-        $('#itemNameNew').focus();
+        $('#itemCodeNew').focus();
+        $('#btnUpdateItem').attr("disabled", true);
+
+        $('#itemCodeNew').css("border", "3px solid green");
+        $('#itemNameNew').css("border", "3px solid green");
+        $('#itemPriceNew').css("border", "3px solid green");
+        $('#itemQuantityNew').css("border", "3px solid green");
+    });
+
+
+    $('#itemCodeNew').on('keyup', function (e) {
+        let val = $('#itemCodeNew').val();
+
+        let result = itemCodePattern.test(val);
+        if (result !== true) {
+            $('#itemCodeNew').css("border", "3px solid red");
+            $('#warnMsgForCodeNew').css('display', 'block');
+            $('#btnUpdateItem').attr("disabled", true);
+        } else {
+            $('#itemCodeNew').css("border", "3px solid green");
+            $('#warnMsgForCodeNew').css('display', 'none');
+            $('#btnUpdateItem').removeAttr("disabled");
+
+            if (e.which == 13) {
+                $('#itemNameNew').focus();
+            }
+        }
+    });
+
+    $('#itemNameNew').on('keyup', function (e) {
+        let val = $('#itemNameNew').val();
+
+        let result = itemNamePattern.test(val);
+        if (result !== true) {
+            $('#itemNameNew').css("border", "3px solid red");
+            $('#warnMsgForItemNameNew').css('display', 'block');
+            $('#btnUpdateItem').attr("disabled", true);
+        } else {
+            $('#itemNameNew').css("border", "3px solid green");
+            $('#warnMsgForItemNameNew').css('display', 'none');
+            $('#btnUpdateItem').removeAttr("disabled");
+
+            if (e.which == 13) {
+                $('#itemPriceNew').focus();
+            }
+        }
+    });
+
+    $('#itemPriceNew').on('keyup', function (e) {
+        let val = $('#itemPriceNew').val();
+
+        let result = itemPricePattern.test(val);
+        if (result !== true) {
+            $('#itemPriceNew').css("border", "3px solid red");
+            $('#warnMsgForPriceNew').css('display', 'block');
+            $('#btnUpdateItem').attr("disabled", true);
+        } else {
+            $('#itemPriceNew').css("border", "3px solid green");
+            $('#warnMsgForPriceNew').css('display', 'none');
+            $('#btnUpdateItem').removeAttr("disabled");
+
+            if (e.which == 13) {
+                $('#itemQuantityNew').focus();
+            }
+        }
+    });
+
+    $('#itemQuantityNew').on('keyup', function (e) {
+        let val = $('#itemQuantityNew').val();
+
+        let result = itemQuantityPattern.test(val);
+
+        if (result !== true) {
+            $('#itemQuantityNew').css("border", "3px solid red");
+            $('#warnMsgForQuantityNew').css('display', 'block');
+            $('#btnUpdateItem').attr("disabled", true);
+        } else {
+            $('#itemQuantityNew').css("border", "3px solid green");
+            $('#warnMsgForQuantityNew').css('display', 'none');
+            $('#btnUpdateItem').removeAttr("disabled");
+            if (e.which == 13) {
+                Swal.fire({
+                    title: 'Do you want to Update the Item?',
+                    showDenyButton: true,
+                    confirmButtonText: 'Update',
+                    denyButtonText: `Don't update`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire('Updated!', '', 'success');
+                        // updateItem();
+                        // $('#updateItemModel').modal('hide');
+                        // clearUpdateModelFields();
+                    } else if (result.isDenied) {
+                        // clearUpdateModelFields();
+                        // $('#updateItemModel').modal('hide');
+                        Swal.fire('Changes are not saved', '', 'info')
+                    }
+                });
+            }
+        }
     });
 
 </script>
