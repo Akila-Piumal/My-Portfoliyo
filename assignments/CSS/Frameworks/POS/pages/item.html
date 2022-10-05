@@ -768,6 +768,28 @@
         $('#itemQuantityNew').css("border", "1px solid gray");
     }
 
+    $('#btnUpdateItem').click(function () {
+        Swal.fire({
+            title: 'Do you want to Update the Item?',
+            showDenyButton: true,
+            confirmButtonText: 'Update',
+            denyButtonText: `Don't update`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Updated!', '', 'success');
+                updateItem();
+                clearUpdateModelFields();
+                clearItemDetailsFields();
+                $('#updateItemModel').modal('hide');
+            } else if (result.isDenied) {
+                clearUpdateModelFields();
+                clearItemDetailsFields();
+                $('#updateItemModel').modal('hide');
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        });
+    });
+
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
 </body>
