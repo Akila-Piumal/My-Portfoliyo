@@ -723,11 +723,13 @@
                     if (result.isConfirmed) {
                         Swal.fire('Updated!', '', 'success');
                         updateItem();
-                        // clearUpdateModelFields();
-                        // $('#updateItemModel').modal('hide');
+                        clearUpdateModelFields();
+                        clearItemDetailsFields();
+                        $('#updateItemModel').modal('hide');
                     } else if (result.isDenied) {
-                        // clearUpdateModelFields();
-                        // $('#updateItemModel').modal('hide');
+                        clearUpdateModelFields();
+                        clearItemDetailsFields();
+                        $('#updateItemModel').modal('hide');
                         Swal.fire('Changes are not saved', '', 'info')
                     }
                 });
@@ -753,6 +755,17 @@
         $('#tblItem>tr').children().eq('1').text(name);
         $('#tblItem>tr').children().eq('2').text(price);
         $('#tblItem>tr').children().eq('3').text(quantity);
+    }
+
+    function clearUpdateModelFields() {
+        $('#itemCodeNew').val('');
+        $('#itemNameNew').val('');
+        $('#itemPriceNew').val('');
+        $('#itemQuantityNew').val('');
+        $('#itemCodeNew').css("border", "1px solid gray");
+        $('#itemNameNew').css("border", "1px solid gray");
+        $('#itemPriceNew').css("border", "1px solid gray");
+        $('#itemQuantityNew').css("border", "1px solid gray");
     }
 
 </script>
