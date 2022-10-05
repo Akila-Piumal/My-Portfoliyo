@@ -186,7 +186,7 @@
                     <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
                             data-bs-target="#updateItemModel"
                             data-bs-toggle="modal"
-                            type="button">Update
+                            id="btnUpdate" type="button">Update
                     </button>
 
                     <!-- Update Item Modal -->
@@ -208,8 +208,7 @@
                                                 <label class="form-label" for="itemCodeNew">Item
                                                     Code</label>
                                                 <input class="form-control" id="itemCodeNew"
-                                                       placeholder="P001"
-                                                       readonly type="text" value="P006">
+                                                       readonly type="text">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -350,6 +349,7 @@
             $('#itemName').val(name);
             $('#itemPrice').val(price);
             $('#itemQuantity').val(quantity);
+            $('#btnUpdate').removeAttr("disabled");
         });
     }
 
@@ -368,6 +368,7 @@
                         $('#itemName').val(Items[i].name);
                         $('#itemPrice').val(Items[i].price);
                         $('#itemQuantity').val(Items[i].quantity);
+                        $('#btnUpdate').removeAttr("disabled");
                         return;
                     }
 
@@ -412,6 +413,7 @@
                         $('#itemName').val(Items[i].name);
                         $('#itemPrice').val(Items[i].price);
                         $('#itemQuantity').val(Items[i].quantity);
+                        $('#btnUpdate').removeAttr("disabled");
                         return;
                     }
                 }
@@ -589,6 +591,7 @@
         $('#itemPrice').val('');
         $('#itemQuantity').val('');
         $('#searchBar').val('');
+        $('#btnUpdate').attr('disabled', true);
     });
 
     $('#btnClose').click(function () {
@@ -625,6 +628,17 @@
             });
         });
     }
+
+    $(window).ready(function () {
+        $('#btnUpdate').attr('disabled', true);
+    });
+
+    $("#updateItemModel").on('shown.bs.modal', function () {
+        $('#itemCodeNew').val($('#itemCode').val());
+        $('#itemNameNew').val($('#itemName').val());
+        $('#itemPriceNew').val($('#itemPrice').val());
+        $('#itemQuantityNew').val($('#itemQuantity').val());
+    });
 
 </script>
 <script src="../assets/js/bootstrap.min.js"></script>
