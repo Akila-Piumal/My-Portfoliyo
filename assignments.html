@@ -271,6 +271,38 @@
             }
         }
 
+        @media all and (max-width: 650px) {
+            .assignment_box {
+                display: flex;
+                flex-direction: column;
+                height: 260px;
+                justify-content: center;
+            }
+
+            .view_div {
+                height: 33px;
+                margin-top: 14px;
+            }
+
+            .AssignmentVideo {
+                width: 165px;
+                height: 93px;
+            }
+
+            .assignment_photo {
+                width: 163px !important;
+                height: 83px !important;
+            }
+
+            .assignment_box_with_header > h1 {
+                font-size: 17px;
+            }
+
+            #assignment_aside > h1 {
+                font-size: 16px;
+            }
+        }
+
     </style>
 
 </head>
@@ -316,7 +348,7 @@
 
         <section class="assignment_box_with_header">
             <h1>SPA POS System</h1>
-            <section class="assignment_box">
+            <section class="assignment_box" id="SPA_POS">
                 <section class="assignment_video_sec">
                     <video autoplay class="AssignmentVideo" height="150px" loop muted src="assets/videos/SPA%20POS.mp4"
                            width="300px"></video>
