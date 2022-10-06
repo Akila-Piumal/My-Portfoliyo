@@ -221,6 +221,18 @@
             }
         }
 
+        /*----------------MEDIA QUERIES-------------*/
+
+        @media all and (max-width: 1024px) {
+            .assignment_box_with_header {
+                width: 80%;
+            }
+
+            #assignments_section {
+                margin-left: 50px;
+            }
+        }
+
     </style>
 
 </head>
@@ -246,7 +258,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/javascript_calculator.mp4"
-                           width="300px"></video>
+                           id="video" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
