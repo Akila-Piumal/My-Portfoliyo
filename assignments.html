@@ -39,7 +39,23 @@
 
         #assignment_aside > h1 {
             font-size: 20px;
-            color: #7c5ef2;
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            text-transform: uppercase;
+            animation: flip 3s infinite;
+            animation-delay: calc(.3s * var(--i));
+            background: linear-gradient(
+                    -225deg,
+                    #231557 0%,
+                    #ffeaa7 29%,
+                    white 67%,
+                    #fff800 100%
+            );
+
+            /*background: -webkit-linear-gradient(#eee, #333);*/
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .assignment_box {
@@ -164,23 +180,30 @@
             background-position: center;
         }
 
+        /*for Assignment heading*/
+        @keyframes flip {
+            0%, 80% {
+                transform: rotateY(360deg)
+            }
+        }
+
     </style>
 
 </head>
 <body>
 <main>
     <aside id="assignment_aside">
-        <h1>A</h1>
-        <h1>S</h1>
-        <h1>S</h1>
-        <h1>I</h1>
-        <h1>G</h1>
-        <h1>N</h1>
-        <h1>M</h1>
-        <h1>E</h1>
-        <h1>N</h1>
-        <h1>T</h1>
-        <h1>S</h1>
+        <h1 style="--i:1">A</h1>
+        <h1 style="--i:2">S</h1>
+        <h1 style="--i:3">S</h1>
+        <h1 style="--i:4">I</h1>
+        <h1 style="--i:5">G</h1>
+        <h1 style="--i:6">N</h1>
+        <h1 style="--i:7">M</h1>
+        <h1 style="--i:8">E</h1>
+        <h1 style="--i:9">N</h1>
+        <h1 style="--i:10">T</h1>
+        <h1 style="--i:11">S</h1>
     </aside>
 
     <section id="assignments_section">
