@@ -156,6 +156,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-evenly;
+            margin-left: 15px;
         }
 
         .js_logo {
@@ -207,6 +208,14 @@
             text-align: center;
         }
 
+        .AssignmentVideo {
+            box-shadow: 1px 0px 8px 0px black;
+        }
+
+        .assignment_photo {
+            box-shadow: 1px 0px 8px 0px black;
+        }
+
         /*for Assignment heading*/
         @keyframes flip {
             0%, 80% {
@@ -230,6 +239,35 @@
 
             #assignments_section {
                 margin-left: 50px;
+            }
+        }
+
+        @media all and (max-width: 768px) {
+            .AssignmentVideo {
+                width: 200px;
+                height: 120px;
+            }
+
+            .assignment_photo {
+                width: 188px !important;
+                height: 100px !important;
+            }
+
+            .assignment_box_with_header > h1 {
+                font-size: 21px;
+            }
+
+            .details_sec > p {
+                font-size: 15px;
+            }
+
+            .view_div {
+                width: 132px;
+                height: 15%;
+            }
+
+            .view_div > a {
+                font-size: 15px;
             }
         }
 
@@ -258,7 +296,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/javascript_calculator.mp4"
-                           id="video" width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -280,7 +318,8 @@
             <h1>SPA POS System</h1>
             <section class="assignment_box">
                 <section class="assignment_video_sec">
-                    <video autoplay height="150px" loop muted src="assets/videos/SPA%20POS.mp4" width="300px"></video>
+                    <video autoplay class="AssignmentVideo" height="150px" loop muted src="assets/videos/SPA%20POS.mp4"
+                           width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -307,7 +346,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/Transitions%20Case_1.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -331,6 +370,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted
+                           class="AssignmentVideo"
                            src="assets/videos/Transitions%20Case_2%20-%20Google%20Chrome%202022-10-05%2022-54-10.mp4"
                            width="300px"></video>
                 </section>
@@ -356,7 +396,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/Frameworks%20POS.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -383,7 +423,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/Animations%20Case_1.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -407,7 +447,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/Animations%20Case_2.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -431,11 +471,11 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/Animations%20Case_3.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
-                    <p>This is a simple project created by me to practise Animations. Tis is a slide show.</p>
+                    <p>This is a simple project created by me to practise Animations. This is a slide show.</p>
 
                     <div class="used_lan_box">
                         <div class="html_logo"></div>
@@ -455,7 +495,7 @@
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted
                            src="assets/videos/Animations%20Case_4%20-%20Google%20Chrome%202022-10-05%2022-51-24.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -478,7 +518,7 @@
             <h1>CSS Basics Case-01</h1>
             <section class="assignment_box">
                 <section class="assignment_video_sec">
-                    <div id="Case_01"></div>
+                    <div class="assignment_photo" id="Case_01"></div>
                 </section>
 
                 <section class="details_sec">
@@ -502,7 +542,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/CSS%20Case_2%20.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -526,7 +566,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/CSS%20Case_3%20.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -550,7 +590,7 @@
             <section class="assignment_box">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/CSS%20Case_4%20.mp4"
-                           width="300px"></video>
+                           class="AssignmentVideo" width="300px"></video>
                 </section>
 
                 <section class="details_sec">
@@ -573,7 +613,7 @@
             <h1>CSS Basics Case-05</h1>
             <section class="assignment_box">
                 <section class="assignment_video_sec">
-                    <div id="Case_05"></div>
+                    <div class="assignment_photo" id="Case_05"></div>
                 </section>
 
                 <section class="details_sec">
@@ -596,7 +636,7 @@
             <h1>CSS Basics Case-06</h1>
             <section class="assignment_box">
                 <section class="assignment_video_sec">
-                    <div id="Case_06"></div>
+                    <div class="assignment_photo" id="Case_06"></div>
                 </section>
 
                 <section class="details_sec">
