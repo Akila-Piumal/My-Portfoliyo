@@ -301,6 +301,70 @@
             #assignment_aside > h1 {
                 font-size: 16px;
             }
+
+            .js_logo {
+                width: 6vw;
+                height: 6vw;
+            }
+
+            .bootstrap_logo {
+                width: 6vw;
+                height: 6vw;
+            }
+
+            .jquery_logo {
+                width: 6vw;
+                height: 6vw;
+            }
+
+            .CSS_logo {
+                width: 6vw;
+                height: 6vw;
+            }
+
+            .html_logo {
+                width: 6vw;
+                height: 6vw;
+            }
+
+            .details_sec {
+                margin-left: 0;
+            }
+        }
+
+        @media all and (max-width: 500px) {
+            #SPA_POS {
+                height: 286px;
+            }
+
+            #CSS_basics_2 {
+                height: 290px;
+            }
+
+            #frameworks_POS {
+                height: 310px;
+            }
+
+            .assignment_box_with_header {
+                width: 90%;
+            }
+
+            main {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #assignment_aside {
+                width: 80%;
+                height: 50px;
+                flex-direction: row;
+                position: relative;
+            }
+
+            #assignments_section {
+                margin-left: 0;
+            }
         }
 
     </style>
@@ -425,7 +489,7 @@
 
         <section class="assignment_box_with_header">
             <h1>Frameworks POS System</h1>
-            <section class="assignment_box">
+            <section class="assignment_box" id="frameworks_POS">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/Frameworks%20POS.mp4"
                            class="AssignmentVideo" width="300px"></video>
@@ -571,7 +635,7 @@
 
         <section class="assignment_box_with_header">
             <h1>CSS Basics Case-02</h1>
-            <section class="assignment_box">
+            <section class="assignment_box" id="CSS_basics_2">
                 <section class="assignment_video_sec">
                     <video autoplay height="150px" loop muted src="assets/videos/CSS%20Case_2%20.mp4"
                            class="AssignmentVideo" width="300px"></video>
