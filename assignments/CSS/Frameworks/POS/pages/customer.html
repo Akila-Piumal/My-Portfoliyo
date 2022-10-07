@@ -226,9 +226,8 @@
 
                                         <div class="row">
                                             <div class="col-6 col-md-12">
-                                                <label class="form-label" for="newCustomer">ID</label>
-                                                <input class="form-control" id="newCustomer" readonly type="text"
-                                                       value="C004">
+                                                <label class="form-label" for="newCustomerId">ID</label>
+                                                <input class="form-control" id="newCustomerId" readonly type="text">
                                             </div>
                                             <div class="col-6 col-md-12">
                                                 <label class="form-label" for="newName">Name</label>
@@ -246,9 +245,11 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="form-label "
-                                                       for="newSalary">Salary</label>
-                                                <input class="form-control" id="newSalary"
-                                                       placeholder="1000.00" type="number">
+                                                       for="newGender">Gender</label>
+                                                <select class="form-select user-select-none" id="newGender">
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                </select>
                                             </div>
                                             <div class="col-6">
                                                 <label class="form-label " for="newPhoneNumber">Contact
@@ -260,7 +261,9 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer mt-2 d-flex justify-content-center">
-                                    <button class="btn btn-outline-success" type="button">Save</button>
+                                    <button class="btn btn-outline-success" id="btnUpdateCustomer" type="button">
+                                        Update
+                                    </button>
                                     <button class="btn btn-outline-danger" data-bs-dismiss="modal"
                                             type="button">Close
                                     </button>
@@ -536,49 +539,72 @@
     var cusAddress = /^[A-z0-9, /]{5,35}$/;
     var conNumber = /^(078|077|072|075|076|074|071|070)[0-9]{7}$/;
 
+    function testPattern(val, pattern) {
+        return pattern.test(val);
+    }
 
-    $('#customerIdInput').on('keyup', function (e) {
-        let val = $('#customerIdInput').val();
-
-        let result = cusID.test(val);
+    function validate(object, pattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj) {
+        let val = object.val();
+        let result = testPattern(val, pattern);
         if (result !== true) {
-            $('#customerIdInput').css("border", "3px solid red");
-            $('#warnMsgForID').css('display', 'block');
-            $('#btnSaveCustomer').attr("disabled", true);
+            object.css("border", "3px solid red");
+            warnMsgObject.css('display', 'block');
+            btnObject.attr("disabled", true);
+
+            return false;
+
         } else {
-            $('#customerIdInput').css("border", "3px solid green");
-            $('#warnMsgForID').css('display', 'none');
-            $('#btnSaveCustomer').removeAttr("disabled");
-            if (cusName.test($('#customerNameInput').val()) !== true) {
-                $('#customerNameInput').css("border", "3px solid red");
-                $('#warnMsgForName').css('display', 'block');
-                $('#btnSaveCustomer').attr("disabled", true);
+            object.css("border", "3px solid green");
+            warnMsgObject.css('display', 'none');
+            btnObject.removeAttr("disabled");
+
+            if (nextFocusObject !== null) {
+                let focusedTextVal = nextFocusObject.val();
+                if (testPattern(focusedTextVal, nextFocusPattern) === false) {
+                    nextFocusObject.css("border", "3px solid red");
+                    nextWarnMsgObj.css('display', 'block');
+                    btnObject.attr("disabled", true);
+                }
             }
 
-            if (e.which == 13) {
+            return true;
+
+        }
+    }
+
+    $('#customerIdInput').on('keyup', function (event) {
+
+        let currentObject = $('#customerIdInput');
+        let currentPattern = cusID;
+        let warnMsgObject = $('#warnMsgForID');
+        let btnObject = $('#btnSaveCustomer');
+        let nextFocusPattern = cusName;
+        let nextFocusObject = $('#customerNameInput');
+        let nextWarnMsgObj = $('#warnMsgForName');
+
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
+
+        if (event.which === 13) {
+            if (result === true) {
                 $('#customerNameInput').focus();
             }
         }
     });
 
-    $('#customerNameInput').on('keyup', function (e) {
-        let val = $('#customerNameInput').val();
-        let result = cusName.test(val);
-        if (result !== true) {
-            $('#customerNameInput').css("border", "3px solid red");
-            $('#warnMsgForName').css('display', 'block');
-            $('#btnSaveCustomer').attr("disabled", true);
-        } else {
-            $('#customerNameInput').css("border", "3px solid green");
-            $('#warnMsgForName').css('display', 'none');
-            $('#btnSaveCustomer').removeAttr("disabled");
+    $('#customerNameInput').on('keyup', function (event) {
 
-            if (cusAddress.test($('#customerAddressInput').val()) !== true) {
-                $('#customerAddressInput').css("border", "3px solid red");
-                $('#warnMsgForAddress').css('display', 'block');
-                $('#btnSaveCustomer').attr("disabled", true);
-            }
-            if (e.which == 13) {
+        let currentObject = $('#customerNameInput');
+        let currentPattern = cusName;
+        let warnMsgObject = $('#warnMsgForName');
+        let btnObject = $('#btnSaveCustomer');
+        let nextFocusPattern = cusAddress;
+        let nextFocusObject = $('#customerAddressInput');
+        let nextWarnMsgObj = $('#warnMsgForAddress');
+
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
+
+        if (event.which === 13) {
+            if (result === true) {
                 $('#customerAddressInput').focus();
             }
         }
@@ -629,20 +655,17 @@
         }
     });
 
-    $('#CustomerNumberInput').on('keyup', function (e) {
-        let val = $('#CustomerNumberInput').val();
-        let result = conNumber.test(val);
+    $('#CustomerNumberInput').on('keyup', function (event) {
 
-        if (result !== true) {
-            $('#CustomerNumberInput').css("border", "3px solid red");
-            $('#warnMsgForConNumber').css('display', 'block');
-            $('#btnSaveCustomer').attr("disabled", true);
-        } else {
-            $('#CustomerNumberInput').css("border", "3px solid green");
-            $('#warnMsgForConNumber').css('display', 'none');
-            $('#btnSaveCustomer').removeAttr("disabled");
+        let currentObject = $('#CustomerNumberInput');
+        let currentPattern = conNumber;
+        let warnMsgObject = $('#warnMsgForConNumber');
+        let btnObject = $('#btnSaveCustomer');
 
-            if (e.which == 13) {
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+        if (event.which === 13) {
+            if (result === true) {
                 Swal.fire({
                     title: 'Do you want to save the Customer?',
                     showDenyButton: true,
@@ -665,7 +688,7 @@
         }
     });
 
-    $('#customerIdInput, #customerNameInput, #customerAddressInput, #maleOrFemale, #CustomerNumberInput').on('keydown', function (event) {
+    $('#customerIdInput, #customerNameInput, #customerAddressInput, #maleOrFemale, #CustomerNumberInput, #newCustomerId, #newName, #newAddress, #newGender, #newPhoneNumber').on('keydown', function (event) {
         if (event.key == "Tab") {
             event.preventDefault();
         }
@@ -674,6 +697,24 @@
     $(window).ready(function () {
         $('#btnUpdateCus').attr('disabled', true);
         $('#btnDeleteCus').attr('disabled', true);
+    });
+
+    $("#updateCustomerModel").on('shown.bs.modal', function () {
+        $(this).find('#newName').focus();
+        $(this).find('#btnUpdateCustomer').attr("disabled", true);
+        $(this).find('#newGender').val('');
+
+        $('#newCustomerId').val($('#customerID').val());
+        $('#newName').val($('#customerName').val());
+        $('#newAddress').val($('#customerAddress').val());
+        $('#newGender').val($('#gender').val());
+        $('#newPhoneNumber').val($('#contactNumber').val());
+
+        $('#newCustomerId').css("border", "3px solid green");
+        $('#newName').css("border", "3px solid green");
+        $('#newAddress').css("border", "3px solid green");
+        $('#newGender').css("border", "3px solid green");
+        $('#newPhoneNumber').css("border", "3px solid green");
     });
 
     $('#btnClear').click(function () {
@@ -706,6 +747,7 @@
                         }
                     }
                     $(this).remove();
+                    clearCustomerDetailsFields();
                     Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',
