@@ -690,58 +690,50 @@
         $('#itemQuantityNew').css("border", "3px solid green");
     });
 
-    $('#itemNameNew').on('keyup', function (e) {
-        let val = $('#itemNameNew').val();
+    $('#itemNameNew').on('keyup', function (event) {
 
-        let result = itemNamePattern.test(val);
-        if (result !== true) {
-            $('#itemNameNew').css("border", "3px solid red");
-            $('#warnMsgForItemNameNew').css('display', 'block');
-            $('#btnUpdateItem').attr("disabled", true);
-        } else {
-            $('#itemNameNew').css("border", "3px solid green");
-            $('#warnMsgForItemNameNew').css('display', 'none');
-            $('#btnUpdateItem').removeAttr("disabled");
+        let currentObject = $('#itemNameNew');
+        let currentPattern = itemNamePattern;
+        let warnMsgObject = $('#warnMsgForItemNameNew');
+        let btnObject = $('#btnUpdateItem');
 
-            if (e.which == 13) {
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+        if (event.which === 13) {
+            if (result === true) {
                 $('#itemPriceNew').focus();
             }
         }
+
     });
 
-    $('#itemPriceNew').on('keyup', function (e) {
-        let val = $('#itemPriceNew').val();
+    $('#itemPriceNew').on('keyup', function (event) {
 
-        let result = itemPricePattern.test(val);
-        if (result !== true) {
-            $('#itemPriceNew').css("border", "3px solid red");
-            $('#warnMsgForPriceNew').css('display', 'block');
-            $('#btnUpdateItem').attr("disabled", true);
-        } else {
-            $('#itemPriceNew').css("border", "3px solid green");
-            $('#warnMsgForPriceNew').css('display', 'none');
-            $('#btnUpdateItem').removeAttr("disabled");
+        let currentObject = $('#itemPriceNew');
+        let currentPattern = itemPricePattern;
+        let warnMsgObject = $('#warnMsgForPriceNew');
+        let btnObject = $('#btnUpdateItem');
 
-            if (e.which == 13) {
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+        if (event.which === 13) {
+            if (result === true) {
                 $('#itemQuantityNew').focus();
             }
         }
     });
 
-    $('#itemQuantityNew').on('keyup', function (e) {
-        let val = $('#itemQuantityNew').val();
+    $('#itemQuantityNew').on('keyup', function (event) {
 
-        let result = itemQuantityPattern.test(val);
+        let currentObject = $('#itemQuantityNew');
+        let currentPattern = itemQuantityPattern;
+        let warnMsgObject = $('#warnMsgForQuantityNew');
+        let btnObject = $('#btnUpdateItem');
 
-        if (result !== true) {
-            $('#itemQuantityNew').css("border", "3px solid red");
-            $('#warnMsgForQuantityNew').css('display', 'block');
-            $('#btnUpdateItem').attr("disabled", true);
-        } else {
-            $('#itemQuantityNew').css("border", "3px solid green");
-            $('#warnMsgForQuantityNew').css('display', 'none');
-            $('#btnUpdateItem').removeAttr("disabled");
-            if (e.which == 13) {
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+        if (event.which === 13) {
+            if (result === true) {
                 Swal.fire({
                     title: 'Do you want to Update the Item?',
                     showDenyButton: true,
