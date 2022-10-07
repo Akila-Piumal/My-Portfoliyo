@@ -200,16 +200,14 @@
                 <div class="d-flex justify-content-center">
                     <!--delete button-->
                     <button class="btn btn-outline-danger col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#addItemModal"
-                            data-bs-toggle="modal"
-                            type="button">Delete
+                            id="btnDeleteCus" type="button">Delete
                     </button>
 
                     <!--update button-->
                     <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
                             data-bs-target="#updateCustomerModel"
                             data-bs-toggle="modal"
-                            type="button">Update
+                            id="btnUpdateCus" type="button">Update
                     </button>
 
                     <!-- Update Customer Modal -->
@@ -374,7 +372,20 @@
             var row = `<tr><th scope='row'>${customer.id}</th><td>${customer.name}</td><td>${customer.address}</td><td>${customer.gender}</td><td>${customer.contactNo}</td></tr>`;
 
             $('#tblCustomer').append(row);
+            $("#tblCustomer>tr").css('cursor', 'pointer');
         }
+    }
+
+    function setCustomerValues(id, name, address, gender, contactNo) {
+        $('#customerID').val(id);
+        $('#customerName').val(name);
+        $('#customerAddress').val(address);
+        $('#gender').val(gender);
+        $('#contactNumber').val(contactNo);
+
+        $('#btnUpdateCus').removeAttr("disabled");
+        $('#btnDeleteCus').removeAttr("disabled");
+
     }
 
     function bindRowClickEvent() {
@@ -385,17 +396,45 @@
             let gender = $(this).children().eq('3').text();
             let contactNo = $(this).children().eq('4').text();
 
-            $('#customerID').val(id);
-            $('#customerName').val(name);
-            $('#customerAddress').val(address);
-            $('#gender').val(gender);
-            $('#contactNumber').val(contactNo);
+            setCustomerValues(id, name, address, gender, contactNo)
         });
+    }
+
+    function searchCustomerWithID(id) {
+        for (let i = 0; i < customerArray.length; i++) {
+            if (id === (customerArray[i].id)) {
+                let customer = {
+                    id: customerArray[i].id,
+                    name: customerArray[i].name,
+                    address: customerArray[i].address,
+                    gender: customerArray[i].gender,
+                    contactNo: customerArray[i].contactNo
+                }
+                return customer;
+            }
+        }
+        return null;
+    }
+
+    function searchCustomerWithName(name) {
+        for (let i = 0; i < customerArray.length; i++) {
+            if (name === (customerArray[i].name)) {
+                let customer = {
+                    id: customerArray[i].id,
+                    name: customerArray[i].name,
+                    address: customerArray[i].address,
+                    gender: customerArray[i].gender,
+                    contactNo: customerArray[i].contactNo
+                }
+                return customer;
+            }
+        }
+        return null;
     }
 
     // key event to ENTER key
     $('#customerID').keypress(function (e) {
-        if (e.which == 13) {
+        if (e.which === 13) {
             if ($.isEmptyObject(customerArray)) {
                 Swal.fire({
                     icon: 'error',
@@ -403,31 +442,31 @@
                     text: 'Empty Set',
                 })
             } else {
-                for (let i = 0; i < customerArray.length; i++) {
-                    if ($('#customerID').val() === (customerArray[i].id)) {
-                        $('#customerName').val(customerArray[i].name);
-                        $('#customerAddress').val(customerArray[i].address);
-                        $('#gender').val(customerArray[i].gender);
-                        $('#contactNumber').val(customerArray[i].contactNo);
-                        return;
-                    }
-
+                if (searchCustomerWithID($('#customerID').val()) !== null) {
+                    let customer = searchCustomerWithID($('#customerID').val());
+                    setCustomerValues(customer.id, customer.name, customer.address, customer.gender, customer.contactNo)
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Customer not exist'
+                    })
+                    clearCustomerDetailsFields();
                 }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Customer not exist'
-                })
-                $("#customerID").val("");
-                $("#customerName").val("");
-                $("#customerAddress").val("");
-                $("#gender").val("");
-                $("#contactNumber").val("");
             }
-
-            return false;
         }
     });
+
+    function clearCustomerDetailsFields() {
+        $("#customerID").val("");
+        $("#customerName").val("");
+        $("#customerAddress").val("");
+        $("#gender").val("");
+        $("#contactNumber").val("");
+        $("#searchBarCustomer").val("");
+        $('#btnUpdateCus').attr('disabled', true);
+        $('#btnDeleteCus').attr('disabled', true);
+    }
 
     $('#searchBarCustomer').keypress(function (e) {
         if (e.which == 13) {
@@ -440,6 +479,8 @@
     });
 
     function searchCustomer() {
+        let searchBarText = $('#searchBarCustomer').val();
+
         if ($('#cmbSelectIDOrName').find('option:selected').val() === "id") {
             if ($.isEmptyObject(customerArray)) {
                 Swal.fire({
@@ -448,28 +489,19 @@
                     text: 'Empty Set',
                 })
             } else {
-                for (let i = 0; i < customerArray.length; i++) {
-                    if ($('#searchBarCustomer').val() === (customerArray[i].id)) {
-                        $('#customerID').val(customerArray[i].id);
-                        $('#customerName').val(customerArray[i].name);
-                        $('#customerAddress').val(customerArray[i].address);
-                        $('#gender').val(customerArray[i].gender);
-                        $('#contactNumber').val(customerArray[i].contactNo);
-                        return;
-                    }
+
+                if (searchCustomerWithID(searchBarText) !== null) {
+                    let customer = searchCustomerWithID(searchBarText);
+                    setCustomerValues(customer.id, customer.name, customer.address, customer.gender, customer.contactNo);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Customer not exist'
+                    })
+                    clearCustomerDetailsFields();
                 }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Customer not exist'
-                })
-                $("#customerID").val("");
-                $("#customerName").val("");
-                $("#customerAddress").val("");
-                $("#gender").val("");
-                $("#contactNumber").val("");
             }
-            return false;
         } else if ($('#cmbSelectIDOrName').find('option:selected').val() === "name") {
             if ($.isEmptyObject(customerArray)) {
                 Swal.fire({
@@ -478,28 +510,18 @@
                     text: 'Empty Set',
                 })
             } else {
-                for (let i = 0; i < customerArray.length; i++) {
-                    if ($('#searchBarCustomer').val() === (customerArray[i].name)) {
-                        $('#customerID').val(customerArray[i].id);
-                        $('#customerName').val(customerArray[i].name);
-                        $('#customerAddress').val(customerArray[i].address);
-                        $('#gender').val(customerArray[i].gender);
-                        $('#contactNumber').val(customerArray[i].contactNo);
-                        return;
-                    }
+                if (searchCustomerWithName(searchBarText) !== null) {
+                    let customer = searchCustomerWithName(searchBarText);
+                    setCustomerValues(customer.id, customer.name, customer.address, customer.gender, customer.contactNo);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Customer not exist'
+                    })
+                    clearCustomerDetailsFields();
                 }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Customer not exist'
-                })
-                $("#customerID").val("");
-                $("#customerName").val("");
-                $("#customerAddress").val("");
-                $("#gender").val("");
-                $("#contactNumber").val("");
             }
-            return false;
         }
     }
 
@@ -513,6 +535,7 @@
     var cusName = /^[A-z ]{5,25}$/;
     var cusAddress = /^[A-z0-9, /]{5,35}$/;
     var conNumber = /^(078|077|072|075|076|074|071|070)[0-9]{7}$/;
+
 
     $('#customerIdInput').on('keyup', function (e) {
         let val = $('#customerIdInput').val();
@@ -648,13 +671,13 @@
         }
     });
 
+    $(window).ready(function () {
+        $('#btnUpdateCus').attr('disabled', true);
+        $('#btnDeleteCus').attr('disabled', true);
+    });
+
     $('#btnClear').click(function () {
-        $('#customerID').val('');
-        $('#customerName').val('');
-        $('#customerAddress').val('');
-        $('#gender').val('');
-        $('#contactNumber').val('');
-        $('#searchBarCustomer').val('');
+        clearCustomerDetailsFields();
     });
 
     $('#btnClose').click(function () {
