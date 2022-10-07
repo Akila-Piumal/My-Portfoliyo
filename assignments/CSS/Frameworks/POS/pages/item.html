@@ -299,7 +299,6 @@
             confirmButtonText: 'Save',
             denyButtonText: `Don't save`,
         }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 saveItem();
                 Swal.fire('Saved!', '', 'success');
@@ -350,6 +349,15 @@
         }
     }
 
+    function setValues(code, name, price, quantity) {
+        $('#itemCode').val(code);
+        $('#itemName').val(name);
+        $('#itemPrice').val(price);
+        $('#itemQuantity').val(quantity);
+        $('#btnUpdate').removeAttr("disabled");
+        $('#btnDelete').removeAttr("disabled");
+    }
+
     function bindRowClickEvent() {
         $('#tblItem>tr').click(function () {
             let code = $(this).children().eq('0').text();
@@ -357,13 +365,38 @@
             let price = $(this).children().eq('2').text();
             let quantity = $(this).children().eq('3').text();
 
-            $('#itemCode').val(code);
-            $('#itemName').val(name);
-            $('#itemPrice').val(price);
-            $('#itemQuantity').val(quantity);
-            $('#btnUpdate').removeAttr("disabled");
-            $('#btnDelete').removeAttr("disabled");
+            setValues(code, name, price, quantity);
         });
+    }
+
+    function searchItemWithCode(code) {
+        for (let i = 0; i < Items.length; i++) {
+            if (code === (Items[i].code)) {
+                let item = {
+                    code: Items[i].code,
+                    name: Items[i].name,
+                    price: Items[i].price,
+                    quantity: Items[i].quantity
+                }
+                return item;
+            }
+        }
+        return null;
+    }
+
+    function searchItemWithName(name) {
+        for (let i = 0; i < Items.length; i++) {
+            if (name === (Items[i].name)) {
+                let item = {
+                    code: Items[i].code,
+                    name: Items[i].name,
+                    price: Items[i].price,
+                    quantity: Items[i].quantity
+                }
+                return item;
+            }
+        }
+        return null;
     }
 
     // key event to ENTER key
@@ -376,26 +409,18 @@
                     text: 'Empty Set',
                 })
             } else {
-                for (let i = 0; i < Items.length; i++) {
-                    if ($('#itemCode').val() === (Items[i].code)) {
-                        $('#itemName').val(Items[i].name);
-                        $('#itemPrice').val(Items[i].price);
-                        $('#itemQuantity').val(Items[i].quantity);
-                        $('#btnUpdate').removeAttr("disabled");
-                        $('#btnDelete').removeAttr("disabled");
-                        return;
-                    }
-
+                if (searchItemWithCode($('#itemCode').val()) !== null) {
+                    let item = searchItemWithCode($('#itemCode').val());
+                    setValues(item.code, item.name, item.price, item.quantity)
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Item not exist'
+                    })
+                    clearItemDetailsFields();
                 }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Item not exist'
-                })
-                clearItemDetailsFields();
             }
-
-            return false;
         }
     });
 
@@ -410,6 +435,8 @@
     });
 
     function searchItem() {
+        let searchBarText = $('#searchBar').val();
+
         if ($('#cmbSelect').find('option:selected').val() === "code") {
             if ($.isEmptyObject(Items)) {
                 Swal.fire({
@@ -418,26 +445,20 @@
                     text: 'Empty Set',
                 })
             } else {
-                for (let i = 0; i < Items.length; i++) {
-                    if ($('#searchBar').val() === (Items[i].code)) {
-                        $('#itemCode').val(Items[i].code);
-                        $('#itemName').val(Items[i].name);
-                        $('#itemPrice').val(Items[i].price);
-                        $('#itemQuantity').val(Items[i].quantity);
-                        $('#btnUpdate').removeAttr("disabled");
-                        $('#btnDelete').removeAttr("disabled");
-                        return;
-                    }
+                if (searchItemWithCode(searchBarText) !== null) {
+                    let item = searchItemWithCode(searchBarText);
+                    setValues(item.code, item.name, item.price, item.quantity)
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Item not exist'
+                    })
+                    clearItemDetailsFields();
                 }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Item not exist'
-                })
-                clearItemDetailsFields();
             }
-            return false;
         } else if ($('#cmbSelect').find('option:selected').val() === "name") {
+
             if ($.isEmptyObject(Items)) {
                 Swal.fire({
                     icon: 'error',
@@ -445,23 +466,18 @@
                     text: 'Empty Set',
                 })
             } else {
-                for (let i = 0; i < Items.length; i++) {
-                    if ($('#searchBar').val() === (Items[i].name)) {
-                        $('#itemCode').val(Items[i].code);
-                        $('#itemName').val(Items[i].name);
-                        $('#itemPrice').val(Items[i].price);
-                        $('#itemQuantity').val(Items[i].quantity);
-                        return;
-                    }
+                if (searchItemWithName(searchBarText) !== null) {
+                    let item = searchItemWithName(searchBarText);
+                    setValues(item.code, item.name, item.price, item.quantity)
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Item not exist'
+                    })
+                    clearItemDetailsFields();
                 }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Item not exist'
-                })
-                clearItemDetailsFields();
             }
-            return false;
         }
     }
 
@@ -475,94 +491,108 @@
     var itemPricePattern = /^[1-9][0-9]*(.[0-9]{2})?$/;
     var itemQuantityPattern = /^[1-9][0-9]*$/;
 
-    $('#newItemCode').on('keyup', function (e) {
-        let val = $('#newItemCode').val();
+    function testPattern(val, pattern) {
+        return pattern.test(val);
+    }
 
-        let result = itemCodePattern.test(val);
+    function validate(object, pattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj) {
+        let val = object.val();
+        let result = testPattern(val, pattern);
         if (result !== true) {
-            $('#newItemCode').css("border", "3px solid red");
-            $('#warnMsgForCode').css('display', 'block');
-            $('#btnSaveItem').attr("disabled", true);
+            object.css("border", "3px solid red");
+            warnMsgObject.css('display', 'block');
+            btnObject.attr("disabled", true);
+
+            return false;
         } else {
-            $('#newItemCode').css("border", "3px solid green");
-            $('#warnMsgForCode').css('display', 'none');
-            $('#btnSaveItem').removeAttr("disabled");
-            if (itemNamePattern.test($('#newItemName').val()) !== true) {
-                $('#newItemName').css("border", "3px solid red");
-                $('#warnMsgForItemName').css('display', 'block');
-                $('#btnSaveItem').attr("disabled", true);
+            object.css("border", "3px solid green");
+            warnMsgObject.css('display', 'none');
+            btnObject.removeAttr("disabled");
+
+            if (nextFocusObject !== null) {
+                let focusedTextVal = nextFocusObject.val();
+                if (testPattern(focusedTextVal, nextFocusPattern) === false) {
+                    nextFocusObject.css("border", "3px solid red");
+                    nextWarnMsgObj.css('display', 'block');
+                    btnObject.attr("disabled", true);
+                }
             }
 
-            if (e.which == 13) {
+            return true;
+        }
+    }
+
+    $('#newItemCode').on('keyup', function (event) {
+
+        let currentObject = $('#newItemCode');
+        let currentPattern = itemCodePattern;
+        let warnMsgObject = $('#warnMsgForCode');
+        let btnObject = $('#btnSaveItem');
+        let nextFocusPattern = itemNamePattern;
+        let nextFocusObject = $('#newItemName');
+        let nextWarnMsgObj = $('#warnMsgForItemName');
+
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
+
+        if (event.which === 13) {
+            if (result === true) {
                 $('#newItemName').focus();
             }
         }
     });
 
-    $('#newItemName').on('keyup', function (e) {
-        let val = $('#newItemName').val();
+    $('#newItemName').on('keyup', function (event) {
 
-        let result = itemNamePattern.test(val);
-        if (result !== true) {
-            $('#newItemName').css("border", "3px solid red");
-            $('#warnMsgForItemName').css('display', 'block');
-            $('#btnSaveItem').attr("disabled", true);
-        } else {
-            $('#newItemName').css("border", "3px solid green");
-            $('#warnMsgForItemName').css('display', 'none');
-            $('#btnSaveItem').removeAttr("disabled");
+        let currentObject = $('#newItemName');
+        let currentPattern = itemNamePattern;
+        let warnMsgObject = $('#warnMsgForItemName');
+        let btnObject = $('#btnSaveItem');
+        let nextFocusPattern = itemPricePattern;
+        let nextFocusObject = $('#OneItemPrice');
+        let nextWarnMsgObj = $('#warnMsgForPrice');
 
-            if (itemPricePattern.test($('#OneItemPrice').val()) !== true) {
-                $('#OneItemPrice').css("border", "3px solid red");
-                $('#warnMsgForPrice').css('display', 'block');
-                $('#btnSaveItem').attr("disabled", true);
-            }
-            if (e.which == 13) {
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
+
+        if (event.which === 13) {
+            if (result === true) {
                 $('#OneItemPrice').focus();
             }
         }
     });
 
-    $('#OneItemPrice').on('keyup', function (e) {
-        let val = $('#OneItemPrice').val();
+    $('#OneItemPrice').on('keyup', function (event) {
 
-        let result = itemPricePattern.test(val);
-        if (result !== true) {
-            $('#OneItemPrice').css("border", "3px solid red");
-            $('#warnMsgForPrice').css('display', 'block');
-            $('#btnSaveItem').attr("disabled", true);
-        } else {
-            $('#OneItemPrice').css("border", "3px solid green");
-            $('#warnMsgForPrice').css('display', 'none');
-            $('#btnSaveItem').removeAttr("disabled");
+        let currentObject = $('#OneItemPrice');
+        let currentPattern = itemPricePattern;
+        let warnMsgObject = $('#warnMsgForPrice');
+        let btnObject = $('#btnSaveItem');
+        let nextFocusPattern = itemQuantityPattern;
+        let nextFocusObject = $('#NewItemQuantity');
+        let nextWarnMsgObj = $('#warnMsgForQuantity');
 
-            if (itemQuantityPattern.test($('#NewItemQuantity').val()) !== true) {
-                $('#NewItemQuantity').css("border", "3px solid red");
-                $('#warnMsgForQuantity').css('display', 'block');
-                $('#btnSaveItem').attr("disabled", true);
-            }
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
 
-            if (e.which == 13) {
+        if (event.which === 13) {
+            if (result === true) {
                 $('#NewItemQuantity').focus();
             }
         }
     });
 
-    $('#NewItemQuantity').on('keyup', function (e) {
-        let val = $('#NewItemQuantity').val();
+    $('#NewItemQuantity').on('keyup', function (event) {
 
-        let result = itemQuantityPattern.test(val);
+        let currentObject = $('#NewItemQuantity');
+        let currentPattern = itemQuantityPattern;
+        let warnMsgObject = $('#warnMsgForQuantity');
+        let btnObject = $('#btnSaveItem');
+        let nextFocusPattern = null;
+        let nextFocusObject = null;
+        let nextWarnMsgObj = null;
 
-        if (result !== true) {
-            $('#NewItemQuantity').css("border", "3px solid red");
-            $('#warnMsgForQuantity').css('display', 'block');
-            $('#btnSaveItem').attr("disabled", true);
-        } else {
-            $('#NewItemQuantity').css("border", "3px solid green");
-            $('#warnMsgForQuantity').css('display', 'none');
-            $('#btnSaveItem').removeAttr("disabled");
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
 
-            if (e.which == 13) {
+        if (event.which === 13) {
+            if (result === true) {
                 Swal.fire({
                     title: 'Do you want to save the Item?',
                     showDenyButton: true,
@@ -586,7 +616,7 @@
     });
 
     $('#newItemCode, #newItemName, #OneItemPrice, #NewItemQuantity').on('keydown', function (event) {
-        if (event.key == "Tab") {
+        if (event.key === "Tab") {
             event.preventDefault();
         }
     });
