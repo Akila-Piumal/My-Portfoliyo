@@ -205,7 +205,19 @@ $('#btnSearchForItem').click(function () {
 
 $("#newItemModel").on('shown.bs.modal', function () {
     $(this).find('#btnSaveItem').attr("disabled", true);
-    $(this).find('#newItemCode').focus();
+    $(this).find('#newItemName').focus();
+    $('#newItemCode').css("border", "3px solid green");
+
+    if ($.isEmptyObject(Items)) {
+        $('#newItemCode').val('P001');
+    } else {
+        let lastId;
+        for (let i = 0; i < Items.length; i++) {
+            lastId = Items[i].code;
+        }
+        let newID = idGenerator(lastId);
+        $('#newItemCode').val(newID);
+    }
 });
 
 var itemCodePattern = /^(P)[0-9]{3}$/;
