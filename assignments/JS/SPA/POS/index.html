@@ -52,34 +52,34 @@
                         <div class="row gx-3 ">
                             <div class="col">
                                 <div class="mb-3">
-                                    <label class="form-label" for="customerId">Customer</label>
+                                    <label class="form-label" for="cmbCusID">Customer</label>
                                     <select aria-label=".form-select-lg example" class="form-select form-select-ls"
-                                            id="customerId">
+                                            id="cmbCusID">
                                         <option selected>C003</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
-                                    <label class="form-label" for="customerName">Customer ID</label>
-                                    <input class="form-control" id="customerName" placeholder="C003" type="text">
+                                    <label class="form-label" for="cusIDInInvoice">Customer ID</label>
+                                    <input class="form-control" id="cusIDInInvoice" placeholder="C003" type="text">
                                 </div>
                             </div>
                         </div>
                         <div class="row gx-3">
                             <div class="col mb-3">
-                                <label class="form-label" for="inputName">Name</label>
-                                <input class="form-control" id="inputName" placeholder="Pawan" type="text">
+                                <label class="form-label" for="cusNameInInvoice">Name</label>
+                                <input class="form-control" id="cusNameInInvoice" placeholder="Pawan" type="text">
                             </div>
                             <div class="col mb-3">
-                                <label class="form-label" for="salary">Salary</label>
-                                <input class="form-control" id="salary" placeholder="0000.00" type="text">
+                                <label class="form-label" for="cusSalaryInInvoice">Salary</label>
+                                <input class="form-control" id="cusSalaryInInvoice" placeholder="0000.00" type="text">
                             </div>
 
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="address">Address</label>
-                            <input class="form-control" id="address" placeholder="Panadura" type="text">
+                            <label class="form-label" for="cusAddressInInvoice">Address</label>
+                            <input class="form-control" id="cusAddressInInvoice" placeholder="Panadura" type="text">
                         </div>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-primary btn rounded-1" data-bs-target="#exampleModal"
@@ -102,36 +102,37 @@
 
                                                 <div class="row">
                                                     <div class="col-6 col-md-12">
-                                                        <label class="form-label" for="customerIdInput">ID</label>
-                                                        <input class="form-control" id="customerIdInput"
+                                                        <label class="form-label"
+                                                               for="newCustomerIdInInvoice">ID</label>
+                                                        <input class="form-control" id="newCustomerIdInInvoice"
                                                                type="text">
                                                     </div>
                                                     <div class="col-6 col-md-12">
                                                         <label class="form-label"
-                                                               for="customerNameInput">Name</label>
-                                                        <input class="form-control" id="customerNameInput"
+                                                               for="newCustomerNameInInvoice">Name</label>
+                                                        <input class="form-control" id="newCustomerNameInInvoice"
                                                                type="text">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <label class="form-label"
-                                                               for="customerAddressInput">Address</label>
-                                                        <input class="form-control" id="customerAddressInput"
+                                                               for="newCustomerAddressInInvoice">Address</label>
+                                                        <input class="form-control" id="newCustomerAddressInInvoice"
                                                                type="text">
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <label class="form-label "
-                                                               for="customerSalaryInput">Salary</label>
-                                                        <input class="form-control" id="customerSalaryInput"
+                                                               for="newCustomerSalaryInInvoice">Salary</label>
+                                                        <input class="form-control" id="newCustomerSalaryInInvoice"
                                                                placeholder="1000.00" type="number">
                                                     </div>
                                                     <div class="col-6">
                                                         <label class="form-label "
-                                                               for="maleOrFemale">Gender</label>
-                                                        <select class="form-select " id="maleOrFemale">
+                                                               for="newCustomerGenderInInvoice">Gender</label>
+                                                        <select class="form-select " id="newCustomerGenderInInvoice">
                                                             <option>Male</option>
                                                             <option>Female</option>
                                                         </select>
@@ -139,9 +140,9 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-6">
-                                                        <label class="form-label " for="CustomerNumberInput">Contact
+                                                        <label class="form-label " for="newCustomerNumberInInvoice">Contact
                                                             No</label>
-                                                        <input class="form-control" id="CustomerNumberInput"
+                                                        <input class="form-control" id="newCustomerNumberInInvoice"
                                                                type="number">
                                                     </div>
                                                 </div>
@@ -186,43 +187,43 @@
                             </div>
                             <div class="col">
                                 <div class="mb-3">
-                                    <label class="form-label" for="itemCode">Item Code</label>
-                                    <input class="form-control" id="itemCode" placeholder="P003" type="text">
+                                    <label class="form-label" for="itemCodeInCart">Item Code</label>
+                                    <input class="form-control" id="itemCodeInCart" placeholder="P003" type="text">
                                 </div>
                             </div>
                         </div>
                         <div class="row gx-3">
                             <div class="col-6 col-sm-6 col-lg-6  mb-3">
-                                <label class="form-label" for="ItemName">Item Name</label>
-                                <input class="form-control" id="ItemName" placeholder="Sugar 1kg " type="text">
+                                <label class="form-label" for="ItemNameInCart">Item Name</label>
+                                <input class="form-control" id="ItemNameInCart" placeholder="Sugar 1kg " type="text">
                             </div>
                             <div class="col-6 col-sm-6 col-lg-6 mb-3">
-                                <label class="form-label" for="price">Price</label>
-                                <input class="form-control" id="price" placeholder="1000.00" type="text">
+                                <label class="form-label" for="ItemPriceInCart">Price</label>
+                                <input class="form-control" id="ItemPriceInCart" placeholder="1000.00" type="text">
                             </div>
                             <div class="col-6 col-sm-6 col-lg-6 mb-3">
-                                <label class="form-label" for="qtyOnHand">QtyOnHand</label>
-                                <input class="form-control" id="qtyOnHand" placeholder="50" type="number">
+                                <label class="form-label" for="qtyOnHandInCart">QtyOnHand</label>
+                                <input class="form-control" id="qtyOnHandInCart" placeholder="50" type="number">
                             </div>
                         </div>
                         <div class="row gx-3">
                             <div class="mt-2 mt-sm-0 mb-3 ">
-                                <label class="form-label" for="OrderQty">Order Quantity</label>
-                                <input class="form-control shadow-lg border" id="OrderQty" type="number">
+                                <label class="form-label" for="OrderQtyInCart">Order Quantity</label>
+                                <input class="form-control shadow-lg border" id="OrderQtyInCart" type="number">
                             </div>
                             <div class="d-flex justify-content-evenly">
-                                <button class="btn btn-primary btn-sm rounded-1" data-bs-target="#newItemModel"
+                                <button class="btn btn-primary btn-sm rounded-1" data-bs-target="#newItemModelInCart"
                                         data-bs-toggle="modal" type="button">+New Item
                                 </button>
 
                                 <!-- New Item Modal -->
-                                <div aria-hidden="true" aria-labelledby="newItemModelLabel" class="modal fade"
-                                     id="newItemModel"
+                                <div aria-hidden="true" aria-labelledby="newItemModelLabelInCart" class="modal fade"
+                                     id="newItemModelInCart"
                                      tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="newItemModelLabel">New Item</h5>
+                                                <h5 class="modal-title" id="newItemModelLabelInCart">New Item</h5>
                                                 <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
                                                         type="button"></button>
                                             </div>
@@ -231,34 +232,34 @@
 
                                                     <div class="row">
                                                         <div>
-                                                            <label class="form-label" for="newItemCode">Item
+                                                            <label class="form-label" for="newItemCodeInInvoice">Item
                                                                 Code</label>
-                                                            <input class="form-control" id="newItemCode"
+                                                            <input class="form-control" id="newItemCodeInInvoice"
                                                                    placeholder="P001"
                                                                    type="text">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div>
-                                                            <label class="form-label" for="newItemName">Item
+                                                            <label class="form-label" for="newItemCodeInInvoice">Item
                                                                 Name</label>
-                                                            <input class="form-control" id="newItemName"
+                                                            <input class="form-control" id="newItemNameInInvoice"
                                                                    type="text">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div>
                                                             <label class="form-label "
-                                                                   for="itemPrice">Item Price</label>
-                                                            <input class="form-control" id="itemPrice"
+                                                                   for="newItemPriceInInvoice">Item Price</label>
+                                                            <input class="form-control" id="newItemPriceInInvoice"
                                                                    placeholder="1000.00" type="text">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div>
-                                                            <label class="form-label " for="itemQuantity">Item
+                                                            <label class="form-label " for="newItemQuantityInInvoice">Item
                                                                 Quantity</label>
-                                                            <input class="form-control" id="itemQuantity"
+                                                            <input class="form-control" id="newItemQuantityInInvoice"
                                                                    type="number">
                                                         </div>
                                                     </div>
@@ -433,17 +434,18 @@
         <div class="row mt-3 mx-lg-2">
             <!--select id-->
             <div class="col-5 col-sm-3 col-md-2 pb-2">
-                <select aria-label=".form-select-lg example" class="form-select form-select-ls ">
-                    <option selected>ID</option>
-                    <option value="1">Name</option>
+                <select aria-label=".form-select-lg example" class="form-select form-select-ls " id="cmbSelectIDOrName">
+                    <option selected value="id">ID</option>
+                    <option value="name">Name</option>
                 </select>
             </div>
             <!--search-->
             <div class="col-12 col-sm-9 col-md-6 col-xl-5 pb-2">
-                <form class="d-flex">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Search Customer" type="search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
+                <div class="d-flex">
+                    <input aria-label="Search" class="form-control me-2" id="searchBarCustomer"
+                           placeholder="Search Customer">
+                    <button class="btn btn-outline-primary" id="btnSearchForCustomer" type="submit">Search</button>
+                </div>
             </div>
             <!--add Customer button-->
             <div class="col">
@@ -451,7 +453,7 @@
                     <button class="btn btn-primary col-7 col-sm-4 col-md-8 col-lg-6 col-xl-4 "
                             data-bs-target="#newCustomerModel"
                             data-bs-toggle="modal"
-                            type="button">+New Customer
+                            id="newCustomerButton" type="button">+New Customer
                     </button>
 
                     <!-- New Customer Modal -->
@@ -470,52 +472,60 @@
 
                                         <div class="row">
                                             <div class="col-6 col-md-12">
-                                                <label class="form-label" for="customerIdInputInCustomer">ID</label>
-                                                <input class="form-control" id="customerIdInputInCustomer" type="text">
+                                                <label class="form-label" for="customerIdInput">ID</label>
+                                                <input class="form-control" id="customerIdInput" type="text">
+                                                <label class="form-label" for="customerIdInput" id="warnMsgForID"
+                                                       style="display: none;color: red;font-size: 12px">Customer ID is a
+                                                    required field: Pattern-C001</label>
                                             </div>
                                             <div class="col-6 col-md-12">
-                                                <label class="form-label" for="customerNameInputInCustomer">Name</label>
-                                                <input class="form-control" id="customerNameInputInCustomer"
-                                                       type="text">
+                                                <label class="form-label" for="customerNameInput">Name</label>
+                                                <input class="form-control" id="customerNameInput" type="text">
+                                                <label class="form-label" for="customerNameInput" id="warnMsgForName"
+                                                       style="display:none;color: red;font-size: 12px">Customer Name is
+                                                    a required field. Minimum-5, Maximum-25, Spaces Allowed</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
                                                 <label class="form-label"
-                                                       for="customerAddressInputInCustomer">Address</label>
-                                                <input class="form-control" id="customerAddressInputInCustomer"
+                                                       for="customerAddressInput">Address</label>
+                                                <input class="form-control" id="customerAddressInput"
                                                        type="text">
+                                                <label class="form-label" for="customerAddressInput"
+                                                       id="warnMsgForAddress"
+                                                       style="display:none;color: red;font-size: 12px">Customer Address
+                                                    is a required field. Minimum-5, Maximum-25, Spaces, ",", "/"
+                                                    Allowed</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="form-label "
-                                                       for="customerSalaryInputInCustomer">Salary</label>
-                                                <input class="form-control" id="customerSalaryInputInCustomer"
-                                                       placeholder="1000.00" type="number">
-                                            </div>
-                                            <div class="col-6">
-                                                <label class="form-label "
-                                                       for="genderInCustomer">Gender</label>
-                                                <select class="form-select " id="genderInCustomer">
+                                                       for="maleOrFemale">Gender</label>
+                                                <select class="form-select user-select-none" id="maleOrFemale">
                                                     <option>Male</option>
                                                     <option>Female</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-6">
-                                                <label class="form-label " for="CustomerNumberInputInCustomer">Contact
+                                                <label class="form-label " for="CustomerNumberInput">Contact
                                                     No</label>
-                                                <input class="form-control" id="CustomerNumberInputInCustomer"
+                                                <input class="form-control" id="CustomerNumberInput"
                                                        type="number">
+                                                <label class="form-label" for="CustomerNumberInput"
+                                                       id="warnMsgForConNumber"
+                                                       style="display:none;color: red;font-size: 12px">Contact Number is
+                                                    a required field. Pattern-0783223485</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer mt-2 d-flex justify-content-center">
-                                    <button class="btn btn-outline-success" type="button">Save</button>
+                                    <button class="btn btn-outline-success" id="btnSaveCustomer" type="button">Save
+                                    </button>
                                     <button class="btn btn-outline-danger" data-bs-dismiss="modal"
+                                            id="btnCloseInNewCustomer"
                                             type="button">Close
                                     </button>
                                 </div>
@@ -528,29 +538,23 @@
 
         <!--Customer details-->
         <div class="rounded-3 border shadow-lg mt-3 mx-lg-3 bg-success bg-opacity-25">
-            <div class="row gx-3 m-3 ">
+            <div class="row gx-3 m-3 d-flex justify-content-center ">
                 <!--Customer ID-->
                 <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="customerIDInCustomer">Customer ID</label>
-                    <input class="form-control" id="customerIDInCustomer" placeholder="C001" type="text">
+                    <label class="form-label fw-bold" for="customerID">Customer ID</label>
+                    <input class="form-control" id="customerID" placeholder="C001" type="text">
                 </div>
 
                 <!--Customer Name-->
                 <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="customerNameInCustomer">Customer Name</label>
-                    <input class="form-control" id="customerNameInCustomer" readonly type="text">
+                    <label class="form-label fw-bold" for="customerName">Customer Name</label>
+                    <input class="form-control" id="customerName" readonly type="text">
                 </div>
 
                 <!--Customer address-->
                 <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="customerAddressInCustomer">Customer Address</label>
-                    <input class="form-control" id="customerAddressInCustomer" readonly type="text">
-                </div>
-
-                <!--Customer Salary-->
-                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="customerSalaryInCustomer">Customer Salary</label>
-                    <input class="form-control" id="customerSalaryInCustomer" readonly type="text">
+                    <label class="form-label fw-bold" for="customerAddress">Customer Address</label>
+                    <input class="form-control" id="customerAddress" readonly type="text">
                 </div>
 
                 <!--Gender-->
@@ -575,16 +579,14 @@
                 <div class="d-flex justify-content-center">
                     <!--delete button-->
                     <button class="btn btn-outline-danger col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#addItemModal"
-                            data-bs-toggle="modal"
-                            type="button">Delete
+                            id="btnDeleteCus" type="button">Delete
                     </button>
 
                     <!--update button-->
                     <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
                             data-bs-target="#updateCustomerModel"
                             data-bs-toggle="modal"
-                            type="button">Update
+                            id="btnUpdateCus" type="button">Update
                     </button>
 
                     <!-- Update Customer Modal -->
@@ -603,13 +605,15 @@
 
                                         <div class="row">
                                             <div class="col-6 col-md-12">
-                                                <label class="form-label" for="newCustomer">ID</label>
-                                                <input class="form-control" id="newCustomer" readonly type="text"
-                                                       value="C004">
+                                                <label class="form-label" for="newCustomerId">ID</label>
+                                                <input class="form-control" id="newCustomerId" readonly type="text">
                                             </div>
                                             <div class="col-6 col-md-12">
                                                 <label class="form-label" for="newName">Name</label>
                                                 <input class="form-control" id="newName" type="text">
+                                                <label class="form-label" for="newName" id="warnMsgForNameInUpdate"
+                                                       style="display:none;color: red;font-size: 12px">Customer Name is
+                                                    a required field. Minimum-5, Maximum-25, Spaces Allowed</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -618,28 +622,41 @@
                                                        for="newAddress">Address</label>
                                                 <input class="form-control" id="newAddress"
                                                        type="text">
+                                                <label class="form-label" for="newAddress"
+                                                       id="warnMsgForAddressInUpdate"
+                                                       style="display:none;color: red;font-size: 12px">Customer Address
+                                                    is a required field. Minimum-5, Maximum-25, Spaces, ",", "/"
+                                                    Allowed</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="form-label "
-                                                       for="newSalary">Salary</label>
-                                                <input class="form-control" id="newSalary"
-                                                       placeholder="1000.00" type="number">
+                                                       for="newGender">Gender</label>
+                                                <select class="form-select user-select-none" id="newGender">
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                </select>
                                             </div>
                                             <div class="col-6">
                                                 <label class="form-label " for="newPhoneNumber">Contact
                                                     No</label>
                                                 <input class="form-control" id="newPhoneNumber"
                                                        type="number">
+                                                <label class="form-label" for="newPhoneNumber"
+                                                       id="warnMsgForConNumberInUpdate"
+                                                       style="display:none;color: red;font-size: 12px">Contact Number is
+                                                    a required field. Pattern-0783223485</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer mt-2 d-flex justify-content-center">
-                                    <button class="btn btn-outline-success" type="button">Save</button>
+                                    <button class="btn btn-outline-success" id="btnUpdateCustomer" type="button">
+                                        Update
+                                    </button>
                                     <button class="btn btn-outline-danger" data-bs-dismiss="modal"
-                                            type="button">Close
+                                            id="btnCloseInUpdateCustomer" type="button">Close
                                     </button>
                                 </div>
                             </div>
@@ -647,11 +664,11 @@
                     </div>
 
                     <!--Clear button-->
-                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#addItemModal"
-                            data-bs-toggle="modal"
-                            type="button">Clear
+                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2" id="btnClearInCustomer"
+                            type="button">
+                        Clear
                     </button>
+
                 </div>
             </div>
         </div>
@@ -667,68 +684,12 @@
                         <th scope="col">Customer ID</th>
                         <th scope="col">Customer Name</th>
                         <th scope="col">Customer Address</th>
-                        <th scope="col">Customer Salary</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Contact No.</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr class="table-success">
-                        <th scope="row">C001</th>
-                        <td>Akila</td>
-                        <td>Mathugama</td>
-                        <td>95000.00</td>
-                        <td>Male</td>
-                        <td>0783223485</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">C002</th>
-                        <td>Pasindu</td>
-                        <td>Kaluthara</td>
-                        <td>55000.00</td>
-                        <td>Male</td>
-                        <td>0773923485</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">C003</th>
-                        <td>Kamal</td>
-                        <td>Panadura</td>
-                        <td>100000.00</td>
-                        <td>Male</td>
-                        <td>0754298825</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">C004</th>
-                        <td>Dilshani</td>
-                        <td>Kalawana</td>
-                        <td>55000.00</td>
-                        <td>Female</td>
-                        <td>0783287835</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">C005</th>
-                        <td>Madushani</td>
-                        <td>Rathnapura</td>
-                        <td>65000.00</td>
-                        <td>Female</td>
-                        <td>0727893485</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">C006</th>
-                        <td>Piumi</td>
-                        <td>walallawita</td>
-                        <td>70000.00</td>
-                        <td>Female</td>
-                        <td>0727862367</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">C007</th>
-                        <td>Pathum</td>
-                        <td>Colombo</td>
-                        <td>110000.00</td>
-                        <td>Male</td>
-                        <td>0783223485</td>
-                    </tr>
+                    <tbody id="tblCustomer">
+
                     </tbody>
                 </table>
             </div>
@@ -748,35 +709,35 @@
         <div class="row mt-3 mx-lg-2">
             <!--select id-->
             <div class="col-5 col-sm-3 col-md-2 pb-2">
-                <select aria-label=".form-select-lg example" class="form-select form-select-ls ">
-                    <option selected>CODE</option>
-                    <option value="1">NAME</option>
+                <select aria-label=".form-select-lg example" class="form-select form-select-ls " id="cmbSelect">
+                    <option selected value="code">CODE</option>
+                    <option value="name">NAME</option>
                 </select>
             </div>
             <!--search-->
             <div class="col-12 col-sm-9 col-md-6 col-xl-5 pb-2">
-                <form class="d-flex">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Search Item" type="search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
+                <div class="d-flex">
+                    <input aria-label="Search" class="form-control me-2" id="searchBar" placeholder="Search Item">
+                    <button class="btn btn-outline-primary" id="btnSearchForItem" type="submit">Search</button>
+                </div>
             </div>
             <!--add item button-->
             <div class="col">
                 <div class="col d-flex justify-content-center justify-content-md-end">
                     <button class="btn btn-primary col-6 col-sm-3 col-md-6 col-lg-5 col-xl-3"
-                            data-bs-target="#newItemModelInItem"
+                            data-bs-target="#newItemModel"
                             data-bs-toggle="modal"
                             type="button">+New Item
                     </button>
 
                     <!-- New Item Modal -->
-                    <div aria-hidden="true" aria-labelledby="newItemModelLabelInItem" class="modal fade"
-                         id="newItemModelInItem"
+                    <div aria-hidden="true" aria-labelledby="newItemModelLabel" class="modal fade"
+                         id="newItemModel"
                          tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="newItemModelLabelInItem">New Item</h5>
+                                    <h5 class="modal-title" id="newItemModelLabel">New Item</h5>
                                     <button aria-label="Close" class="btn-close" data-bs-dismiss="modal"
                                             type="button"></button>
                                 </div>
@@ -785,42 +746,48 @@
 
                                         <div class="row">
                                             <div>
-                                                <label class="form-label" for="newItemCodeInItem">Item
-                                                    Code</label>
-                                                <input class="form-control" id="newItemCodeInItem"
-                                                       placeholder="P001"
+                                                <label class="form-label" for="newItemCode">Item Code</label>
+                                                <input class="form-control" id="newItemCode" placeholder="P001"
                                                        type="text">
+                                                <label class="form-label" for="newItemCode" id="warnMsgForCode"
+                                                       style="display: none;color: red;font-size: 12px">Item Code is a
+                                                    required field: Pattern-P001</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div>
-                                                <label class="form-label" for="newItemNameInItem">Item
-                                                    Name</label>
-                                                <input class="form-control" id="newItemNameInItem" type="text">
+                                                <label class="form-label" for="newItemName">Item Name</label>
+                                                <input class="form-control" id="newItemName" type="text">
+                                                <label class="form-label" for="newItemName" id="warnMsgForItemName"
+                                                       style="display: none;color: red;font-size: 12px">Item Name is
+                                                    a required field. Minimum-4, Maximum-25, Spaces Allowed.</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div>
-                                                <label class="form-label "
-                                                       for="OneItemPriceInItem">Item Price</label>
-                                                <input class="form-control" id="OneItemPriceInItem"
-                                                       placeholder="1000.00" type="text">
+                                                <label class="form-label " for="OneItemPrice">Item Price</label>
+                                                <input class="form-control" id="OneItemPrice" placeholder="1000.00"
+                                                       type="text">
+                                                <label class="form-label" for="OneItemPrice" id="warnMsgForPrice"
+                                                       style="display: none;color: red;font-size: 12px">Item Price is
+                                                    a required field. Pattern- 100 or 100.00</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div>
-                                                <label class="form-label " for="NewItemQuantity">Item
-                                                    Quantity</label>
-                                                <input class="form-control" id="NewItemQuantity"
-                                                       type="number">
+                                                <label class="form-label " for="NewItemQuantity">Item Quantity</label>
+                                                <input class="form-control" id="NewItemQuantity" type="number">
+                                                <label class="form-label" for="NewItemQuantity" id="warnMsgForQuantity"
+                                                       style="display: none;color: red;font-size: 12px">Quantity is
+                                                    a required field. Pattern- 100</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer mt-2 d-flex justify-content-center">
-                                    <button class="btn btn-outline-success" type="button">Save</button>
+                                    <button class="btn btn-outline-success" id="btnSaveItem" type="button">Save</button>
                                     <button class="btn btn-outline-danger" data-bs-dismiss="modal"
-                                            type="button">Close
+                                            id="btnClose" type="button">Close
                                     </button>
                                 </div>
                             </div>
@@ -835,26 +802,26 @@
             <div class="row gx-3 m-3 ">
                 <!--item Code-->
                 <div class="col-12 col-sm-6 col-md-3 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="itemCodeInItem">Item Code</label>
-                    <input class="form-control" id="itemCodeInItem" type="text">
+                    <label class="form-label fw-bold" for="itemCode">Item Code</label>
+                    <input class="form-control" id="itemCode" type="text">
                 </div>
 
                 <!--item Name-->
                 <div class="col-12 col-sm-6 col-md-3 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="itemNameInItem">Item name</label>
-                    <input class="form-control" id="itemNameInItem" readonly type="text">
+                    <label class="form-label fw-bold" for="itemName">Item name</label>
+                    <input class="form-control" id="itemName" readonly type="text">
                 </div>
 
-                <!--item Name-->
+                <!--item price-->
                 <div class="col-12 col-sm-6 col-md-3 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="itemPriceInItem">Item Price</label>
-                    <input class="form-control" id="itemPriceInItem" readonly type="text">
+                    <label class="form-label fw-bold" for="itemPrice">Item Price</label>
+                    <input class="form-control" id="itemPrice" readonly type="text">
                 </div>
 
                 <!--item Quantity-->
                 <div class="col-12 col-sm-6 col-md-3 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="itemQuantityInItem">Item Quantity</label>
-                    <input class="form-control" id="itemQuantityInItem" readonly type="text">
+                    <label class="form-label fw-bold" for="itemQuantity">Item Quantity</label>
+                    <input class="form-control" id="itemQuantity" readonly type="text">
                 </div>
             </div>
 
@@ -863,16 +830,14 @@
                 <div class="d-flex justify-content-center">
                     <!--delete button-->
                     <button class="btn btn-outline-danger col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#addItemModal"
-                            data-bs-toggle="modal"
-                            type="button">Delete
+                            id="btnDelete" type="button">Delete
                     </button>
 
                     <!--update button-->
                     <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
                             data-bs-target="#updateItemModel"
                             data-bs-toggle="modal"
-                            type="button">Update
+                            id="btnUpdate" type="button">Update
                     </button>
 
                     <!-- Update Item Modal -->
@@ -893,9 +858,10 @@
                                             <div>
                                                 <label class="form-label" for="itemCodeNew">Item
                                                     Code</label>
-                                                <input class="form-control" id="itemCodeNew"
-                                                       placeholder="P001"
-                                                       readonly type="text" value="P006">
+                                                <input class="form-control" id="itemCodeNew" readonly type="text">
+                                                <label class="form-label" for="itemCodeNew" id="warnMsgForCodeNew"
+                                                       style="display: none;color: red;font-size: 12px">Item Code is a
+                                                    required field: Pattern-P001</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -903,6 +869,9 @@
                                                 <label class="form-label" for="itemNameNew">Item
                                                     Name</label>
                                                 <input class="form-control" id="itemNameNew" type="text">
+                                                <label class="form-label" for="itemNameNew" id="warnMsgForItemNameNew"
+                                                       style="display: none;color: red;font-size: 12px">Item Name is
+                                                    a required field. Minimum-4, Maximum-25, Spaces Allowed.</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -911,6 +880,9 @@
                                                        for="itemPriceNew">Item Price</label>
                                                 <input class="form-control" id="itemPriceNew"
                                                        placeholder="1000.00" type="text">
+                                                <label class="form-label" for="itemPriceNew" id="warnMsgForPriceNew"
+                                                       style="display: none;color: red;font-size: 12px">Item Price is
+                                                    a required field. Pattern- 100 or 100.00</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -919,14 +891,19 @@
                                                     Quantity</label>
                                                 <input class="form-control" id="itemQuantityNew"
                                                        type="number">
+                                                <label class="form-label" for="itemQuantityNew"
+                                                       id="warnMsgForQuantityNew"
+                                                       style="display: none;color: red;font-size: 12px">Quantity is
+                                                    a required field. Pattern- 100</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer mt-2 d-flex justify-content-center">
-                                    <button class="btn btn-outline-success" type="button">Update</button>
+                                    <button class="btn btn-outline-success" id="btnUpdateItem" type="button">Update
+                                    </button>
                                     <button class="btn btn-outline-danger" data-bs-dismiss="modal"
-                                            type="button">Close
+                                            id="btnCloseInUpdateItem" type="button">Close
                                     </button>
                                 </div>
                             </div>
@@ -934,10 +911,7 @@
                     </div>
 
                     <!--Clear button-->
-                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#addItemModal"
-                            data-bs-toggle="modal"
-                            type="button">Clear
+                    <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2" id="btnClear" type="button">Clear
                     </button>
                 </div>
             </div>
@@ -957,49 +931,8 @@
                         <th scope="col">Quantity On Hand</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr class="table-success">
-                        <th scope="row">P001</th>
-                        <td>Sugar 1kg</td>
-                        <td>200.00</td>
-                        <td>40</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">P002</th>
-                        <td>Daal 1kg</td>
-                        <td>350.00</td>
-                        <td>30</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">P003</th>
-                        <td>Samba 1kg</td>
-                        <td>200.00</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">P004</th>
-                        <td>Munchee nice sm</td>
-                        <td>150.00</td>
-                        <td>20</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">P005</th>
-                        <td>Lemon Puff</td>
-                        <td>150.00</td>
-                        <td>40</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">P006</th>
-                        <td>Samon Big</td>
-                        <td>700.00</td>
-                        <td>15</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">P007</th>
-                        <td>Raththi Big</td>
-                        <td>2000.00</td>
-                        <td>5</td>
-                    </tr>
+                    <tbody id="tblItem">
+
                     </tbody>
                 </table>
             </div>
@@ -1108,39 +1041,40 @@
 
                                         <div class="row">
                                             <div class="col-6 col-md-12">
-                                                <label class="form-label" for="newOrder">Order ID</label>
-                                                <input class="form-control" id="newOrder" readonly type="text"
+                                                <label class="form-label" for="orderIdInUpdateModel">Order ID</label>
+                                                <input class="form-control" id="orderIdInUpdateModel" readonly
+                                                       type="text"
                                                        value="D001">
                                             </div>
                                             <div class="col-6 col-md-12">
-                                                <label class="form-label" for="newNameInOrder">Date</label>
-                                                <input class="form-control" id="newNameInOrder" type="date">
+                                                <label class="form-label" for="orderDateInUpdateModel">Date</label>
+                                                <input class="form-control" id="orderDateInUpdateModel" type="date">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
                                                 <label class="form-label"
-                                                       for="newCustomerID">Customer ID</label>
-                                                <input class="form-control" id="newCustomerID"
+                                                       for="customerIdInUpdateModel">Customer ID</label>
+                                                <input class="form-control" id="customerIdInUpdateModel"
                                                        type="text">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
                                                 <label class="form-label "
-                                                       for="newCustomerName">Customer Name</label>
-                                                <input class="form-control" id="newCustomerName" type="text">
+                                                       for="customerNameInUpdateModel">Customer Name</label>
+                                                <input class="form-control" id="customerNameInUpdateModel" type="text">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <label class="form-label " for="newDiscount">Discount</label>
-                                                <input class="form-control" id="newDiscount"
+                                                <label class="form-label " for="discountInUpdateModel">Discount</label>
+                                                <input class="form-control" id="discountInUpdateModel"
                                                        type="number">
                                             </div>
                                             <div class="col-6">
-                                                <label class="form-label " for="newTotal">Sub Total</label>
-                                                <input class="form-control" id="newTotal"
+                                                <label class="form-label " for="subTotalInUpdateModel">Sub Total</label>
+                                                <input class="form-control" id="subTotalInUpdateModel"
                                                        type="text">
                                             </div>
                                         </div>
@@ -1420,257 +1354,10 @@
 </main>
 
 <script src="assets/js/jquery-3.6.1.min.js"></script>
-
-<script>
-    // Login Button
-    $('#login_button').click(function () {
-        $('#Login').css('display', 'none');
-        $('#loginModel').modal('hide');
-        $('#Home').css('display', 'block');
-    });
-
-    // Customer Button
-    $('#CustomerBtn').click(function () {
-        $('#Cart').css('display', 'none');
-        $('#Customer').css('display', 'block');
-        $('#Item').css('display', 'none');
-        $('#mainOfHome').css('display', 'none');
-        $('#Order').css('display', 'none');
-
-        //Change the other buttons when the Customer button clicked.
-        $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#ItemBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#OrdersBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#HomeBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#CustomerBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
-
-        // Remove the hover From Current page Button
-        $(this).unbind('mouseenter').unbind('mouseleave');
-
-        // Cart Button hover
-        $("#CartBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Item Button hover
-        $("#ItemBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Orders Button hover
-        $("#OrdersBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Home Button hover
-        $("#HomeBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-    });
-
-    // Cart Button
-    $('#CartBtn').click(function () {
-        $('#Customer').css('display', 'none');
-        $('#Item').css('display', 'none');
-        $('#Order').css('display', 'none');
-        $('#mainOfHome').css('display', 'none');
-        $('#Cart').css('display', 'block');
-
-        //Change the other buttons when the Cart button clicked.
-        $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#ItemBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#OrdersBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#HomeBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#CartBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
-
-        // Remove the hover From Current page Button
-        $(this).unbind('mouseenter').unbind('mouseleave')
-
-        // Customer Button hover
-        $("#CustomerBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Item Button hover
-        $("#ItemBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Orders Button hover
-        $("#OrdersBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Home Button hover
-        $("#HomeBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-    });
-
-    // Item button
-    $('#ItemBtn').click(function () {
-        $('#Cart').css('display', 'none');
-        $('#Customer').css('display', 'none');
-        $('#Order').css('display', 'none');
-        $('#mainOfHome').css('display', 'none');
-        $('#Item').css('display', 'block');
-
-        //Change the other buttons when the Item button clicked.
-        $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#OrdersBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#HomeBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#ItemBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
-
-        // Remove the hover From Current page Button
-        $(this).unbind('mouseenter').unbind('mouseleave');
-
-        // Cart Button hover
-        $("#CartBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Customer Button hover
-        $("#CustomerBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Orders Button hover
-        $("#OrdersBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Home Button hover
-        $("#HomeBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-    });
-
-    // orders Button
-    $('#OrdersBtn').click(function () {
-        $('#Cart').css('display', 'none');
-        $('#Customer').css('display', 'none');
-        $('#Item').css('display', 'none');
-        $('#mainOfHome').css('display', 'none');
-        $('#Order').css('display', 'block');
-
-        //Change the other buttons when the orders button clicked.
-        $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#ItemBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#HomeBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#OrdersBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
-
-        // Remove the hover From Current page
-        $(this).unbind('mouseenter').unbind('mouseleave');
-
-        // Cart Button hover
-        $("#CartBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Customer Button hover
-        $("#CustomerBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Item Button hover
-        $("#ItemBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Home Button hover
-        $("#HomeBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-    });
-
-    // Home Button
-    $('#HomeBtn').click(function () {
-        $('#Cart').css('display', 'none');
-        $('#Customer').css('display', 'none');
-        $('#Order').css('display', 'none');
-        $('#Item').css('display', 'none');
-        $('#mainOfHome').css('display', 'block');
-
-        //Change the other buttons when the Item button clicked.
-        $('#CartBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#CustomerBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#OrdersBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#ItemBtn').attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        $('#HomeBtn').attr('style', 'text-decoration: underline !important; color: white !important; font-weight: 700 !important');
-
-        // Remove the hover From Current page Button
-        $(this).unbind('mouseenter').unbind('mouseleave');
-
-        // Cart Button hover
-        $("#CartBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Customer Button hover
-        $("#CustomerBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Orders Button hover
-        $("#OrdersBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-        // Items Button hover
-        $("#ItemBtn").hover(function () {
-            $(this).css("color", "white");
-        }, function () {
-            $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
-        });
-
-    });
-
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+<script src="controller/ItemController.js"></script>
+<script src="controller/DashboardController.js"></script>
+<script src="controller/CustomerController.js"></script>
 <script src="../POS/assets/js/bootstrap.min.js"></script>
 </body>
 
