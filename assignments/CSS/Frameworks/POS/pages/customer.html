@@ -232,6 +232,9 @@
                                             <div class="col-6 col-md-12">
                                                 <label class="form-label" for="newName">Name</label>
                                                 <input class="form-control" id="newName" type="text">
+                                                <label class="form-label" for="newName" id="warnMsgForNameInUpdate"
+                                                       style="display:none;color: red;font-size: 12px">Customer Name is
+                                                    a required field. Minimum-5, Maximum-25, Spaces Allowed</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -240,6 +243,11 @@
                                                        for="newAddress">Address</label>
                                                 <input class="form-control" id="newAddress"
                                                        type="text">
+                                                <label class="form-label" for="newAddress"
+                                                       id="warnMsgForAddressInUpdate"
+                                                       style="display:none;color: red;font-size: 12px">Customer Address
+                                                    is a required field. Minimum-5, Maximum-25, Spaces, ",", "/"
+                                                    Allowed</label>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -256,6 +264,10 @@
                                                     No</label>
                                                 <input class="form-control" id="newPhoneNumber"
                                                        type="number">
+                                                <label class="form-label" for="newPhoneNumber"
+                                                       id="warnMsgForConNumberInUpdate"
+                                                       style="display:none;color: red;font-size: 12px">Contact Number is
+                                                    a required field. Pattern-0783223485</label>
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +277,7 @@
                                         Update
                                     </button>
                                     <button class="btn btn-outline-danger" data-bs-dismiss="modal"
-                                            type="button">Close
+                                            id="btnCloseInUpdateCustomer" type="button">Close
                                     </button>
                                 </div>
                             </div>
@@ -435,52 +447,6 @@
         return null;
     }
 
-    // key event to ENTER key
-    $('#customerID').keypress(function (e) {
-        if (e.which === 13) {
-            if ($.isEmptyObject(customerArray)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Empty Set',
-                })
-            } else {
-                if (searchCustomerWithID($('#customerID').val()) !== null) {
-                    let customer = searchCustomerWithID($('#customerID').val());
-                    setCustomerValues(customer.id, customer.name, customer.address, customer.gender, customer.contactNo)
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Customer not exist'
-                    })
-                    clearCustomerDetailsFields();
-                }
-            }
-        }
-    });
-
-    function clearCustomerDetailsFields() {
-        $("#customerID").val("");
-        $("#customerName").val("");
-        $("#customerAddress").val("");
-        $("#gender").val("");
-        $("#contactNumber").val("");
-        $("#searchBarCustomer").val("");
-        $('#btnUpdateCus').attr('disabled', true);
-        $('#btnDeleteCus').attr('disabled', true);
-    }
-
-    $('#searchBarCustomer').keypress(function (e) {
-        if (e.which == 13) {
-            searchCustomer();
-        }
-    });
-
-    $('#btnSearchForCustomer').click(function () {
-        searchCustomer();
-    });
-
     function searchCustomer() {
         let searchBarText = $('#searchBarCustomer').val();
 
@@ -527,6 +493,57 @@
             }
         }
     }
+
+    function clearCustomerDetailsFields() {
+        $("#customerID").val("");
+        $("#customerName").val("");
+        $("#customerAddress").val("");
+        $("#gender").val("");
+        $("#contactNumber").val("");
+        $("#searchBarCustomer").val("");
+        $('#btnUpdateCus').attr('disabled', true);
+        $('#btnDeleteCus').attr('disabled', true);
+    }
+
+    $(window).ready(function () {
+        $('#btnUpdateCus').attr('disabled', true);
+        $('#btnDeleteCus').attr('disabled', true);
+    });
+
+    // key event to ENTER key
+    $('#customerID').keypress(function (e) {
+        if (e.which === 13) {
+            if ($.isEmptyObject(customerArray)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Empty Set',
+                })
+            } else {
+                if (searchCustomerWithID($('#customerID').val()) !== null) {
+                    let customer = searchCustomerWithID($('#customerID').val());
+                    setCustomerValues(customer.id, customer.name, customer.address, customer.gender, customer.contactNo)
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Customer not exist'
+                    })
+                    clearCustomerDetailsFields();
+                }
+            }
+        }
+    });
+
+    $('#searchBarCustomer').keypress(function (e) {
+        if (e.which == 13) {
+            searchCustomer();
+        }
+    });
+
+    $('#btnSearchForCustomer').click(function () {
+        searchCustomer();
+    });
 
     $("#newCustomerModel").on('shown.bs.modal', function () {
         $(this).find('#customerIdInput').focus();
@@ -694,11 +711,6 @@
         }
     });
 
-    $(window).ready(function () {
-        $('#btnUpdateCus').attr('disabled', true);
-        $('#btnDeleteCus').attr('disabled', true);
-    });
-
     $("#updateCustomerModel").on('shown.bs.modal', function () {
         $(this).find('#newName').focus();
         $(this).find('#btnUpdateCustomer').attr("disabled", true);
@@ -728,35 +740,184 @@
     function bindRowDblClickEvent() {
         $('#tblCustomer>tr').on('dblclick', function () {
 
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    console.log(customerArray);
-                    let id = $(this).children().eq('0').text();
-                    for (var customer of customerArray) {
-                        if (customer.id === id) {
-                            let index = customerArray.indexOf(customer);
-                            customerArray.splice(index, 1);
-                        }
-                    }
-                    $(this).remove();
-                    clearCustomerDetailsFields();
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                }
-            });
+            let id = $(this).children().eq('0').text();
+
+            deleteCustomer(id);
         });
     }
+
+    // Update model input fields
+
+    $('#newName').on('keyup', function (event) {
+        let currentObject = $('#newName');
+        let currentPattern = cusName;
+        let warnMsgObject = $('#warnMsgForNameInUpdate');
+        let btnObject = $('#btnUpdateCustomer');
+
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+        if (event.which === 13) {
+            if (result === true) {
+                $('#newAddress').focus();
+            }
+        }
+    });
+
+    $('#newAddress').on('keyup', function (event) {
+        let currentObject = $('#newAddress');
+        let currentPattern = cusAddress;
+        let warnMsgObject = $('#warnMsgForAddressInUpdate');
+        let btnObject = $('#btnUpdateCustomer');
+
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+        if (event.which === 13) {
+            if (result === true) {
+                $('#newGender').focus();
+                down("#newGender");
+            }
+        }
+    });
+
+    $('#newGender').on('keyup', function (event) {
+        if (event.which == 13) {
+            $('#newPhoneNumber').focus();
+            up(this);
+        }
+    });
+
+    $('#newPhoneNumber').on('keyup', function (event) {
+        let currentObject = $('#newPhoneNumber');
+        let currentPattern = conNumber;
+        let warnMsgObject = $('#warnMsgForConNumberInUpdate');
+        let btnObject = $('#btnUpdateCustomer');
+
+        let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+        if (event.which === 13) {
+            if (result === true) {
+                Swal.fire({
+                    title: 'Do you want to Update the Customer?',
+                    showDenyButton: true,
+                    confirmButtonText: 'Update',
+                    denyButtonText: `Don't Update`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire('Updated!', '', 'success');
+                        updateCustomer();
+                        clearUpdateModelFieldsInCustomer();
+                        clearCustomerDetailsFields();
+                        $('#updateCustomerModel').modal('hide');
+                    } else if (result.isDenied) {
+                        clearUpdateModelFieldsInCustomer();
+                        clearCustomerDetailsFields();
+                        $('#updateCustomerModel').modal('hide');
+                        Swal.fire('Changes are not saved', '', 'info')
+                    }
+                });
+            }
+        }
+    });
+
+    function updateCustomer() {
+        let ID = $('#newCustomerId').val();
+        let Name = $('#newName').val();
+        let address = $('#newAddress').val();
+        let gender = $('#newGender').val();
+        let contactNo = $('#newPhoneNumber').val();
+
+        for (let customer of customerArray) {
+            if (customer.id === ID) {
+                let index = customerArray.indexOf(customer);
+                customerArray[index].name = Name;
+                customerArray[index].address = address;
+                customerArray[index].gender = gender;
+                customerArray[index].contactNo = contactNo;
+            }
+        }
+
+        $('#tblCustomer>tr').children().eq('1').text(Name);
+        $('#tblCustomer>tr').children().eq('2').text(address);
+        $('#tblCustomer>tr').children().eq('3').text(gender);
+        $('#tblCustomer>tr').children().eq('4').text(contactNo);
+
+    }
+
+    function clearUpdateModelFieldsInCustomer() {
+        $('#newCustomerId').val('');
+        $('#newName').val('');
+        $('#newAddress').val('');
+        $('#newGender').val('');
+        $('#newPhoneNumber').val('');
+        $('#newCustomerId').css("border", "1px solid gray");
+        $('#newName').css("border", "1px solid gray");
+        $('#newAddress').css("border", "1px solid gray");
+        $('#newGender').css("border", "1px solid gray");
+        $('#newPhoneNumber').css("border", "1px solid gray");
+    }
+
+    $('#btnUpdateCustomer').click(function () {
+
+        Swal.fire({
+            title: 'Do you want to Update the Customer?',
+            showDenyButton: true,
+            confirmButtonText: 'Update',
+            denyButtonText: `Don't Update`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Updated!', '', 'success');
+                updateCustomer();
+                clearUpdateModelFieldsInCustomer();
+                clearCustomerDetailsFields();
+                $('#updateCustomerModel').modal('hide');
+            } else if (result.isDenied) {
+                clearUpdateModelFieldsInCustomer();
+                clearCustomerDetailsFields();
+                $('#updateCustomerModel').modal('hide');
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        });
+    });
+
+    $('#btnCloseInUpdateCustomer').click(function () {
+        clearUpdateModelFieldsInCustomer();
+    });
+
+    function deleteCustomer(id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                for (var customer of customerArray) {
+                    if (customer.id === id) {
+                        let index = customerArray.indexOf(customer);
+                        customerArray.splice(index, 1);
+                    }
+                }
+                // $(this).remove();
+                addDataToTable();
+                bindRowClickEvent();
+                bindRowDblClickEvent();
+                clearCustomerDetailsFields();
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        });
+    }
+
+    $('#btnDeleteCus').click(function () {
+        let id = $('#customerID').val();
+        deleteCustomer(id);
+    });
 
 </script>
 

@@ -399,41 +399,6 @@
         return null;
     }
 
-    // key event to ENTER key
-    $('#itemCode').keypress(function (e) {
-        if (e.which == 13) {
-            if ($.isEmptyObject(Items)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Empty Set',
-                })
-            } else {
-                if (searchItemWithCode($('#itemCode').val()) !== null) {
-                    let item = searchItemWithCode($('#itemCode').val());
-                    setValues(item.code, item.name, item.price, item.quantity)
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Item not exist'
-                    })
-                    clearItemDetailsFields();
-                }
-            }
-        }
-    });
-
-    $('#searchBar').keypress(function (e) {
-        if (e.which == 13) {
-            searchItem();
-        }
-    });
-
-    $('#btnSearchForItem').click(function () {
-        searchItem();
-    });
-
     function searchItem() {
         let searchBarText = $('#searchBar').val();
 
@@ -480,6 +445,56 @@
             }
         }
     }
+
+    function clearItemDetailsFields() {
+        $('#itemCode').val('');
+        $('#itemName').val('');
+        $('#itemPrice').val('');
+        $('#itemQuantity').val('');
+        $('#searchBar').val('');
+        $('#btnUpdate').attr('disabled', true);
+        $('#btnDelete').attr('disabled', true);
+    }
+
+    $(window).ready(function () {
+        $('#btnUpdate').attr('disabled', true);
+        $('#btnDelete').attr('disabled', true);
+    });
+
+    // key event to ENTER key
+    $('#itemCode').keypress(function (e) {
+        if (e.which == 13) {
+            if ($.isEmptyObject(Items)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Empty Set',
+                })
+            } else {
+                if (searchItemWithCode($('#itemCode').val()) !== null) {
+                    let item = searchItemWithCode($('#itemCode').val());
+                    setValues(item.code, item.name, item.price, item.quantity)
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Item not exist'
+                    })
+                    clearItemDetailsFields();
+                }
+            }
+        }
+    });
+
+    $('#searchBar').keypress(function (e) {
+        if (e.which == 13) {
+            searchItem();
+        }
+    });
+
+    $('#btnSearchForItem').click(function () {
+        searchItem();
+    });
 
     $("#newItemModel").on('shown.bs.modal', function () {
         $(this).find('#btnSaveItem').attr("disabled", true);
@@ -625,16 +640,6 @@
         clearItemDetailsFields();
     });
 
-    function clearItemDetailsFields() {
-        $('#itemCode').val('');
-        $('#itemName').val('');
-        $('#itemPrice').val('');
-        $('#itemQuantity').val('');
-        $('#searchBar').val('');
-        $('#btnUpdate').attr('disabled', true);
-        $('#btnDelete').attr('disabled', true);
-    }
-
     $('#btnClose').click(function () {
         clearFields();
     });
@@ -642,39 +647,12 @@
     function bindRowDblClickEvent() {
         $('#tblItem>tr').on('dblclick', function () {
 
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    let code = $(this).children().eq('0').text();
-                    for (var item of Items) {
-                        if (item.code === code) {
-                            let index = Items.indexOf(item);
-                            Items.splice(index, 1);
-                        }
-                    }
-                    $(this).remove();
-                    clearItemDetailsFields();
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                }
-            });
+            let code = $(this).children().eq('0').text();
+
+            deleteItem(code);
+
         });
     }
-
-    $(window).ready(function () {
-        $('#btnUpdate').attr('disabled', true);
-        $('#btnDelete').attr('disabled', true);
-    });
 
     $("#updateItemModel").on('shown.bs.modal', function () {
         $('#itemCodeNew').val($('#itemCode').val());
@@ -814,7 +792,7 @@
         clearUpdateModelFields();
     });
 
-    $('#btnDelete').click(function () {
+    function deleteItem(code) {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -825,7 +803,6 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                let code = $('#itemCode').val();
                 for (var item of Items) {
                     if (item.code === code) {
                         let index = Items.indexOf(item);
@@ -836,7 +813,6 @@
                 bindRowClickEvent();
                 bindRowDblClickEvent();
                 clearItemDetailsFields();
-                console.log(Items);
                 Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',
@@ -844,6 +820,11 @@
                 )
             }
         });
+    }
+
+    $('#btnDelete').click(function () {
+        let code = $('#itemCode').val();
+        deleteItem(code);
     });
 
 </script>
