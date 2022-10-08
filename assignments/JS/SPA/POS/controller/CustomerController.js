@@ -223,10 +223,44 @@ $('#btnSearchForCustomer').click(function () {
 });
 
 $("#newCustomerModel").on('shown.bs.modal', function () {
-    $(this).find('#customerIdInput').focus();
+    $(this).find('#customerNameInput').focus();
     $(this).find('#btnSaveCustomer').attr("disabled", true);
     $(this).find('#maleOrFemale').val('');
+    $('#customerIdInput').css("border", "3px solid green");
+
+    if ($.isEmptyObject(customerArray)) {
+        $('#customerIdInput').val('C001');
+    } else {
+        let lastId;
+        for (let i = 0; i < customerArray.length; i++) {
+            lastId = customerArray[i].id;
+        }
+        let newID = idGenerator(lastId);
+        $('#customerIdInput').val(newID);
+    }
 });
+
+function idGenerator(lastId) {
+    if (lastId.charAt(3) === '9') {
+        if (lastId.charAt(2) === '9') {
+            if (lastId.charAt(1) !== '9') {
+                let index1NewNumber = parseInt(lastId.charAt(1)) + 1;
+                let newID = (lastId.substring(0, 1)) + index1NewNumber + 0 + 0;
+                return newID;
+            } else {
+                // C999
+            }
+        } else {
+            let index2NewNumber = parseInt(lastId.charAt(2)) + 1;
+            let newID = (lastId.substring(0, 2)) + index2NewNumber + 0;
+            return newID;
+        }
+    } else {
+        let lastNumber = parseInt(lastId.charAt(3));
+        let newID = (lastId.substring(0, 3)) + (lastNumber + 1);
+        return newID;
+    }
+}
 
 var cusID = /^(C)[0-9]{3}$/;
 var cusName = /^[A-z ]{5,25}$/;
@@ -265,25 +299,6 @@ function validate(object, pattern, warnMsgObject, btnObject, nextFocusPattern, n
 
     }
 }
-
-$('#customerIdInput').on('keyup', function (event) {
-
-    let currentObject = $('#customerIdInput');
-    let currentPattern = cusID;
-    let warnMsgObject = $('#warnMsgForID');
-    let btnObject = $('#btnSaveCustomer');
-    let nextFocusPattern = cusName;
-    let nextFocusObject = $('#customerNameInput');
-    let nextWarnMsgObj = $('#warnMsgForName');
-
-    let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
-
-    if (event.which === 13) {
-        if (result === true) {
-            $('#customerNameInput').focus();
-        }
-    }
-});
 
 $('#customerNameInput').on('keyup', function (event) {
 
