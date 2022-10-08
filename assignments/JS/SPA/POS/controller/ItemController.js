@@ -523,7 +523,7 @@ function deleteItem(code) {
                     Items.splice(index, 1);
                 }
             }
-            addDataToTable();
+            addDataToTableInItem();
             bindRowClickEvent();
             bindRowDblClickEvent();
             clearItemDetailsFields();
