@@ -269,7 +269,7 @@
         <!--table section-->
         <section class="container-fluid">
             <div class="d-block position-relative overflow-auto" style="height: 300px">
-                <table class="table container-lg overflow-hidden text-center">
+                <table class="table container-lg overflow-hidden text-center" id="testTable">
                     <thead class="text-white" style="background-color: #00b712">
                     <tr>
                         <th scope="col">Item Code</th>
@@ -750,9 +750,16 @@
             }
         }
 
-        $('#tblItem>tr').children().eq('1').text(name);
-        $('#tblItem>tr').children().eq('2').text(price);
-        $('#tblItem>tr').children().eq('3').text(quantity);
+        let length = $('#tblItem>tr').length;
+        for (let i = 0; i < length; i++) {
+            let itemCodeInTable = $('#tblItem>tr').eq(i).children().eq('0').text();
+            if (itemCodeInTable === code) {
+                $('#tblItem>tr').eq(i).children().eq('0').text(code);
+                $('#tblItem>tr').eq(i).children().eq('1').text(name);
+                $('#tblItem>tr').eq(i).children().eq('2').text(price);
+                $('#tblItem>tr').eq(i).children().eq('3').text(quantity);
+            }
+        }
     }
 
     function clearUpdateModelFields() {

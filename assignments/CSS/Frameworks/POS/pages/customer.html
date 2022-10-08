@@ -836,10 +836,17 @@
             }
         }
 
-        $('#tblCustomer>tr').children().eq('1').text(Name);
-        $('#tblCustomer>tr').children().eq('2').text(address);
-        $('#tblCustomer>tr').children().eq('3').text(gender);
-        $('#tblCustomer>tr').children().eq('4').text(contactNo);
+        let rowCountOfCusTable = $('#tblCustomer>tr').length;
+        for (let i = 0; i < rowCountOfCusTable; i++) {
+            let cusIdInTable = $('#tblCustomer>tr').eq(i).children().eq('0').text();
+            if (cusIdInTable === ID) {
+                $('#tblCustomer>tr').eq(i).children().eq('0').text(ID);
+                $('#tblCustomer>tr').eq(i).children().eq('1').text(Name);
+                $('#tblCustomer>tr').eq(i).children().eq('2').text(address);
+                $('#tblCustomer>tr').eq(i).children().eq('3').text(gender);
+                $('#tblCustomer>tr').eq(i).children().eq('4').text(contactNo);
+            }
+        }
 
     }
 
