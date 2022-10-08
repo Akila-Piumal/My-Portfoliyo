@@ -1,4 +1,3 @@
-var customerArray = [];
 
 $('#btnSaveCustomer').click(function () {
     Swal.fire({

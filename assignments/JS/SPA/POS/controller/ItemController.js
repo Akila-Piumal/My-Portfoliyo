@@ -1,4 +1,3 @@
-var Items = [];
 
 $('#btnSaveItem').click(function () {
     Swal.fire({
