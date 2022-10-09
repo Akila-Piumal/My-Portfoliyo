@@ -46,3 +46,15 @@ function setCustomerIDsToComboBox() {
 
     $('#cmbCusID').val('');
 }
+
+$('#cmbCusID').change(function () {
+    let customer = searchCustomerWithID($('#cmbCusID').val());
+    setValuesToInvoiceDetails(customer.id, customer.name, customer.contactNo, customer.address);
+});
+
+function setValuesToInvoiceDetails(id, name, contactNo, address) {
+    $('#cusIDInInvoice').val(id);
+    $('#cusNameInInvoice').val(name);
+    $('#contactNoInInvoice').val(contactNo);
+    $('#cusAddressInInvoice').val(address);
+}
