@@ -218,7 +218,10 @@
                         <div class="row gx-3">
                             <div class="mt-2 mt-sm-0 mb-3 ">
                                 <label class="form-label" for="OrderQtyInCart">Order Quantity</label>
-                                <input class="form-control shadow-lg border" id="OrderQtyInCart" type="number">
+                                <input class="form-control " id="OrderQtyInCart" type="number">
+                                <label class="form-label" for="OrderQtyInCart" id="warnMsgForOrderQty"
+                                       style="display: none;color: red;font-size: 12px">Quantity is
+                                    a required field. Pattern- 100</label>
                             </div>
                             <div class="d-flex justify-content-evenly">
                                 <button class="btn btn-primary btn-sm rounded-1" data-bs-target="#newItemModelInCart"
@@ -285,7 +288,7 @@
                                 </div>
 
                                 <!-- add to cart button-->
-                                <button class="btn btn-danger btn rounded-1" type="button">Add to Cart
+                                <button class="btn btn-danger btn rounded-1" id="btnAddToCart" type="button">Add to Cart
                                 </button>
                             </div>
                         </div>
@@ -404,28 +407,8 @@
                     <th scope="col">Total</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr class="table-success">
-                    <th scope="row">P001</th>
-                    <td>Sugar 1kg</td>
-                    <td>200.00</td>
-                    <td>2</td>
-                    <td>400.00</td>
-                </tr>
-                <tr>
-                    <th scope="row">P004</th>
-                    <td>Daal 1kg</td>
-                    <td>350.00</td>
-                    <td>4</td>
-                    <td>1400.00</td>
-                </tr>
-                <tr class="table-success">
-                    <th scope="row">P003</th>
-                    <td>Samba 1kg</td>
-                    <td>200.00</td>
-                    <td>5</td>
-                    <td>1000.00</td>
-                </tr>
+                <tbody id="tblCart">
+
                 </tbody>
             </table>
         </div>

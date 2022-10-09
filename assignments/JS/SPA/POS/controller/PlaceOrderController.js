@@ -5,6 +5,7 @@ $(document).ready(function () {
     // set Current Date
     $('#dateInput').val(getCurrentDate());
 
+    $('#btnAddToCart').attr('disabled', true);
 });
 
 function autoGenerateOrderID() {
@@ -294,7 +295,6 @@ $('#itemCodeInCart').on('keypress', function (event) {
     }
 });
 
-
 function clearSelectItemFields() {
     $('#selectItem').val('');
     $('#itemCodeInCart').val('');
@@ -302,3 +302,35 @@ function clearSelectItemFields() {
     $('#ItemPriceInCart').val('');
     $('#qtyOnHandInCart').val('');
 }
+
+$('#OrderQtyInCart').on('keyup', function (event) {
+
+    let currentObject = $('#OrderQtyInCart');
+    let currentPattern = itemQuantityPattern;
+    let warnMsgObject = $('#warnMsgForOrderQty');
+    let btnObject = $('#btnAddToCart');
+
+    let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+    if ($('#cmbCusID').val() != null && $('#selectItem').val() != null && $('#OrderQtyInCart').val() != '') {
+        $('#btnAddToCart').removeAttr("disabled");
+    } else {
+        $('#btnAddToCart').attr("disabled", true);
+    }
+
+    if (event.which === 13) {
+        if (result === true) {
+            let code = $('#itemCodeInCart').val();
+            let name = $('#ItemNameInCart').val();
+            let price = $('#ItemPriceInCart').val();
+            let qtyOnHand = $('#qtyOnHandInCart').val();
+            let quantity = $('#OrderQtyInCart').val();
+            let Total = (parseFloat(price) * parseInt(quantity)).toFixed(2);
+
+            var row = `<tr><th scope='row'>${code}</th><td>${name}</td><td>${price}</td><td>${quantity}</td><td>${Total}</td></tr>`;
+
+            $('#tblCart').append(row);
+            $("#tblCart>tr").css('cursor', 'pointer');
+        }
+    }
+});
