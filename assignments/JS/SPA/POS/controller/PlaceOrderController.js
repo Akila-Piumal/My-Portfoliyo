@@ -266,7 +266,7 @@ function setItemCodesToComboBox() {
 $('#selectItem').change(function () {
     let item = searchItemWithCode($('#selectItem').val());
     setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
-    $('#selectItem').focus();
+    $('#OrderQtyInCart').focus();
 });
 
 function setValuesToSelectItem(code, name, price, qtyOnHand) {
@@ -274,4 +274,31 @@ function setValuesToSelectItem(code, name, price, qtyOnHand) {
     $('#ItemNameInCart').val(name);
     $('#ItemPriceInCart').val(price);
     $('#qtyOnHandInCart').val(qtyOnHand);
+}
+
+$('#itemCodeInCart').on('keypress', function (event) {
+    if (event.key == "Enter") {
+        if (searchItemWithCode($('#itemCodeInCart').val()) !== null) {
+            $('#selectItem').val($('#itemCodeInCart').val());
+            let item = searchItemWithCode($('#itemCodeInCart').val());
+            setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
+            $('#OrderQtyInCart').focus();
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Item not exist'
+            })
+            clearSelectItemFields();
+        }
+    }
+});
+
+
+function clearSelectItemFields() {
+    $('#selectItem').val('');
+    $('#itemCodeInCart').val('');
+    $('#ItemNameInCart').val('');
+    $('#ItemPriceInCart').val('');
+    $('#qtyOnHandInCart').val('');
 }
