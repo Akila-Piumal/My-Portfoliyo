@@ -55,6 +55,8 @@ function saveCustomer() {
     bindRowClickEvent();
 
     bindRowDblClickEvent();
+
+    setCustomerIDsToComboBox();
 }
 
 function addDataToTable() {

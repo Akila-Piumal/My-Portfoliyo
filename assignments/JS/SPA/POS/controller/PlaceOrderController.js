@@ -1,7 +1,10 @@
 $(document).ready(function () {
+    // auto generate Order ID
     autoGenerateOrderID();
 
+    // set Current Date
     $('#dateInput').val(getCurrentDate());
+
 });
 
 function autoGenerateOrderID() {
@@ -34,3 +37,12 @@ function getCurrentDate() {
     return formatDate();
 }
 
+function setCustomerIDsToComboBox() {
+    $('#cmbCusID').empty();
+
+    for (let customer of customerArray) {
+        $('#cmbCusID').append(` <option >${customer.id}</option>`)
+    }
+
+    $('#cmbCusID').val('');
+}

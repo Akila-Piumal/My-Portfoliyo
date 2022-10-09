@@ -99,6 +99,8 @@ $('#CartBtn').click(function () {
         $(this).attr('style', 'text-decoration: none !important; color: rgba(0, 0, 0, 0.55) !important; font-weight: inherit !important; cursor: pointer');
     });
 
+    $('#cmbCusID').focus();
+
 });
 
 // Item button
