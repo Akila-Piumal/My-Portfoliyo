@@ -251,3 +251,27 @@ $('#btnSaveCustomerInInvoice').click(function () {
         }
     });
 });
+
+
+function setItemCodesToComboBox() {
+    $('#selectItem').empty();
+
+    for (let item of Items) {
+        $('#selectItem').append(` <option >${item.code}</option>`)
+    }
+
+    $('#selectItem').val('');
+}
+
+$('#selectItem').change(function () {
+    let item = searchItemWithCode($('#selectItem').val());
+    setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
+    $('#selectItem').focus();
+});
+
+function setValuesToSelectItem(code, name, price, qtyOnHand) {
+    $('#itemCodeInCart').val(code);
+    $('#ItemNameInCart').val(name);
+    $('#ItemPriceInCart').val(price);
+    $('#qtyOnHandInCart').val(qtyOnHand);
+}

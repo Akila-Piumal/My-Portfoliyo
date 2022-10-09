@@ -43,6 +43,8 @@ function saveItem() {
     bindRowClickEventInItem();
 
     bindRowDblClickEventInItem();
+
+    setItemCodesToComboBox();
 }
 
 function addDataToTableInItem() {
