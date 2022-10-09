@@ -50,6 +50,7 @@ function setCustomerIDsToComboBox() {
 $('#cmbCusID').change(function () {
     let customer = searchCustomerWithID($('#cmbCusID').val());
     setValuesToInvoiceDetails(customer.id, customer.name, customer.contactNo, customer.address);
+    $('#selectItem').focus();
 });
 
 function setValuesToInvoiceDetails(id, name, contactNo, address) {
@@ -57,4 +58,30 @@ function setValuesToInvoiceDetails(id, name, contactNo, address) {
     $('#cusNameInInvoice').val(name);
     $('#contactNoInInvoice').val(contactNo);
     $('#cusAddressInInvoice').val(address);
+}
+
+$('#cusIDInInvoice').on('keypress', function (event) {
+    if (event.key == "Enter") {
+        if (searchCustomerWithID($('#cusIDInInvoice').val()) !== null) {
+            $('#cmbCusID').val($('#cusIDInInvoice').val());
+            let customer = searchCustomerWithID($('#cusIDInInvoice').val());
+            setValuesToInvoiceDetails(customer.id, customer.name, customer.contactNo, customer.address);
+            $('#selectItem').focus();
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Customer not exist'
+            })
+            clearInvoiceDetailsFields();
+        }
+    }
+});
+
+function clearInvoiceDetailsFields() {
+    $('#cmbCusID').val('');
+    $('#cusIDInInvoice').val('');
+    $('#cusNameInInvoice').val('');
+    $('#contactNoInInvoice').val('');
+    $('#cusAddressInInvoice').val('');
 }
