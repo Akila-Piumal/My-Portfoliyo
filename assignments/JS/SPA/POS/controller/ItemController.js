@@ -225,37 +225,6 @@ var itemNamePattern = /^[A-z0-9 ]{4,25}$/;
 var itemPricePattern = /^[1-9][0-9]*(.[0-9]{2})?$/;
 var itemQuantityPattern = /^[1-9][0-9]*$/;
 
-function testPattern(val, pattern) {
-    return pattern.test(val);
-}
-
-function validate(object, pattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj) {
-    let val = object.val();
-    let result = testPattern(val, pattern);
-    if (result !== true) {
-        object.css("border", "3px solid red");
-        warnMsgObject.css('display', 'block');
-        btnObject.attr("disabled", true);
-
-        return false;
-    } else {
-        object.css("border", "3px solid green");
-        warnMsgObject.css('display', 'none');
-        btnObject.removeAttr("disabled");
-
-        if (nextFocusObject !== null) {
-            let focusedTextVal = nextFocusObject.val();
-            if (testPattern(focusedTextVal, nextFocusPattern) === false) {
-                nextFocusObject.css("border", "3px solid red");
-                nextWarnMsgObj.css('display', 'block');
-                btnObject.attr("disabled", true);
-            }
-        }
-
-        return true;
-    }
-}
-
 $('#newItemCode').on('keyup', function (event) {
 
     let currentObject = $('#newItemCode');

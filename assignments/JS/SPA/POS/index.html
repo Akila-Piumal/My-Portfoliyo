@@ -81,13 +81,13 @@
                             <input class="form-control" id="cusAddressInInvoice" readonly type="text">
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary btn rounded-1" data-bs-target="#exampleModal"
+                            <button class="btn btn-primary btn rounded-1" data-bs-target="#newCustomerModelInInvoice"
                                     data-bs-toggle="modal" type="button">+New Customer
                             </button>
 
                             <!-- New Customer Modal -->
                             <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade"
-                                 id="exampleModal"
+                                 id="newCustomerModelInInvoice"
                                  tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
@@ -104,13 +104,19 @@
                                                         <label class="form-label"
                                                                for="newCustomerIdInInvoice">ID</label>
                                                         <input class="form-control" id="newCustomerIdInInvoice"
-                                                               type="text">
+                                                               readonly type="text">
                                                     </div>
                                                     <div class="col-6 col-md-12">
                                                         <label class="form-label"
                                                                for="newCustomerNameInInvoice">Name</label>
                                                         <input class="form-control" id="newCustomerNameInInvoice"
                                                                type="text">
+                                                        <label class="form-label" for="newCustomerNameInInvoice"
+                                                               id="warnMsgForNameInInvoice"
+                                                               style="display:none;color: red;font-size: 12px">Customer
+                                                            Name is
+                                                            a required field. Minimum-5, Maximum-25, Spaces
+                                                            Allowed</label>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -119,15 +125,15 @@
                                                                for="newCustomerAddressInInvoice">Address</label>
                                                         <input class="form-control" id="newCustomerAddressInInvoice"
                                                                type="text">
+                                                        <label class="form-label" for="newCustomerAddressInInvoice"
+                                                               id="warnMsgForAddressInInvoice"
+                                                               style="display:none;color: red;font-size: 12px">Customer
+                                                            Address
+                                                            is a required field. Minimum-5, Maximum-25, Spaces, ",", "/"
+                                                            Allowed</label>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6">
-                                                        <label class="form-label "
-                                                               for="newCustomerSalaryInInvoice">Salary</label>
-                                                        <input class="form-control" id="newCustomerSalaryInInvoice"
-                                                               placeholder="1000.00" type="number">
-                                                    </div>
                                                     <div class="col-6">
                                                         <label class="form-label "
                                                                for="newCustomerGenderInInvoice">Gender</label>
@@ -136,21 +142,26 @@
                                                             <option>Female</option>
                                                         </select>
                                                     </div>
-                                                </div>
-                                                <div class="row">
                                                     <div class="col-6">
                                                         <label class="form-label " for="newCustomerNumberInInvoice">Contact
                                                             No</label>
                                                         <input class="form-control" id="newCustomerNumberInInvoice"
                                                                type="number">
+                                                        <label class="form-label" for="newCustomerNumberInInvoice"
+                                                               id="warnMsgForConNumberInInvoice"
+                                                               style="display:none;color: red;font-size: 12px">Contact
+                                                            Number is
+                                                            a required field. Pattern-0783223485</label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer mt-2 d-flex justify-content-center">
-                                            <button class="btn btn-outline-success" type="button">Save</button>
+                                            <button class="btn btn-outline-success" id="btnSaveCustomerInInvoice"
+                                                    type="button">Save
+                                            </button>
                                             <button class="btn btn-outline-danger" data-bs-dismiss="modal"
-                                                    type="button">Close
+                                                    id="btnCloseCustomerInInvoice" type="button">Close
                                             </button>
                                         </div>
                                     </div>
