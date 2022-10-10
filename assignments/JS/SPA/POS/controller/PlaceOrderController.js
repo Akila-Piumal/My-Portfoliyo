@@ -8,6 +8,7 @@ $(document).ready(function () {
     $('#btnAddToCart').attr('disabled', true);
 });
 
+// Auto generate Order ID
 function autoGenerateOrderID() {
     if ($.isEmptyObject(orders)) {
         $('#orderId').val('O001');
@@ -21,6 +22,7 @@ function autoGenerateOrderID() {
     }
 }
 
+// set Current Date
 function getCurrentDate() {
 
     function padTo2Digits(num) {
@@ -38,6 +40,7 @@ function getCurrentDate() {
     return formatDate();
 }
 
+// set all Customer IDs to the combo box
 function setCustomerIDsToComboBox() {
     $('#cmbCusID').empty();
 
@@ -45,15 +48,19 @@ function setCustomerIDsToComboBox() {
         $('#cmbCusID').append(` <option >${customer.id}</option>`)
     }
 
-    $('#cmbCusID').val('');
+    if ($('#cusIDInInvoice').val() == '') {
+        $('#cmbCusID').val('');
+    }
 }
 
+// add change event to the customer ID combo box
 $('#cmbCusID').change(function () {
     let customer = searchCustomerWithID($('#cmbCusID').val());
     setValuesToInvoiceDetails(customer.id, customer.name, customer.contactNo, customer.address);
     $('#selectItem').focus();
 });
 
+// set customer Details to the text fields
 function setValuesToInvoiceDetails(id, name, contactNo, address) {
     $('#cusIDInInvoice').val(id);
     $('#cusNameInInvoice').val(name);
@@ -61,6 +68,7 @@ function setValuesToInvoiceDetails(id, name, contactNo, address) {
     $('#cusAddressInInvoice').val(address);
 }
 
+// When enter key press on Customer ID input field
 $('#cusIDInInvoice').on('keypress', function (event) {
     if (event.key == "Enter") {
         if (searchCustomerWithID($('#cusIDInInvoice').val()) !== null) {
@@ -79,6 +87,7 @@ $('#cusIDInInvoice').on('keypress', function (event) {
     }
 });
 
+// clear the fields in the invoice details
 function clearInvoiceDetailsFields() {
     $('#cmbCusID').val('');
     $('#cusIDInInvoice').val('');
@@ -86,6 +95,8 @@ function clearInvoiceDetailsFields() {
     $('#contactNoInInvoice').val('');
     $('#cusAddressInInvoice').val('');
 }
+
+// New Customer Model Content starts
 
 $("#newCustomerModelInInvoice").on('shown.bs.modal', function () {
     $('#newCustomerNameInInvoice').focus();
@@ -257,7 +268,9 @@ $('#btnCloseCustomerInInvoice').click(function () {
     clearFieldsInNewCusModelInInvoice();
 });
 
+// New Customer Model Content Ends
 
+// set all Item Codes to the combo box
 function setItemCodesToComboBox() {
     $('#selectItem').empty();
 
@@ -265,15 +278,34 @@ function setItemCodesToComboBox() {
         $('#selectItem').append(` <option >${item.code}</option>`)
     }
 
-    $('#selectItem').val('');
+    if ($('#itemCodeInCart').val() == '') {
+        $('#selectItem').val('');
+    }
 }
 
+// add change event to the Item Code combo box
 $('#selectItem').change(function () {
     let item = searchItemWithCode($('#selectItem').val());
-    setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
-    $('#OrderQtyInCart').focus();
+    let length = $('#tblCart>tr').length;
+    if (length == 0) {
+        setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
+        $('#OrderQtyInCart').focus();
+    } else {
+        for (let i = 0; i < length; i++) {
+            let itemCodeInTable = $('#tblCart>tr').eq(i).children().eq('0').text();
+            if (itemCodeInTable === item.code) {
+                let tableQuantity = $('#tblCart>tr').eq(i).children().eq('3').text();
+                let newQtyOnHAnd = parseInt(item.quantity) - parseInt(tableQuantity);
+                setValuesToSelectItem(item.code, item.name, item.price, newQtyOnHAnd);
+                return;
+            }
+        }
+        setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
+        $('#OrderQtyInCart').focus();
+    }
 });
 
+// set Item Details to the text fields
 function setValuesToSelectItem(code, name, price, qtyOnHand) {
     $('#itemCodeInCart').val(code);
     $('#ItemNameInCart').val(name);
@@ -281,6 +313,7 @@ function setValuesToSelectItem(code, name, price, qtyOnHand) {
     $('#qtyOnHandInCart').val(qtyOnHand);
 }
 
+// When enter key press on Item Code input field
 $('#itemCodeInCart').on('keypress', function (event) {
     if (event.key == "Enter") {
         if (searchItemWithCode($('#itemCodeInCart').val()) !== null) {
@@ -298,6 +331,15 @@ $('#itemCodeInCart').on('keypress', function (event) {
         }
     }
 });
+
+// clear the fields in the item details
+function clearSelectItemFields() {
+    $('#selectItem').val('');
+    $('#itemCodeInCart').val('');
+    $('#ItemNameInCart').val('');
+    $('#ItemPriceInCart').val('');
+    $('#qtyOnHandInCart').val('');
+}
 
 // New Item Model Content starts
 
@@ -454,14 +496,7 @@ $('#btnCloseNewItemModelInCart').click(function () {
 
 // New Item Model Content Ends
 
-function clearSelectItemFields() {
-    $('#selectItem').val('');
-    $('#itemCodeInCart').val('');
-    $('#ItemNameInCart').val('');
-    $('#ItemPriceInCart').val('');
-    $('#qtyOnHandInCart').val('');
-}
-
+// When enter key press on Order quantity input field
 $('#OrderQtyInCart').on('keyup', function (event) {
 
     let currentObject = $('#OrderQtyInCart');
@@ -479,17 +514,66 @@ $('#OrderQtyInCart').on('keyup', function (event) {
 
     if (event.which === 13) {
         if (result === true) {
-            let code = $('#itemCodeInCart').val();
-            let name = $('#ItemNameInCart').val();
-            let price = $('#ItemPriceInCart').val();
-            let qtyOnHand = $('#qtyOnHandInCart').val();
-            let quantity = $('#OrderQtyInCart').val();
-            let Total = (parseFloat(price) * parseInt(quantity)).toFixed(2);
+            addToCart();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Added to the cart',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            $('#OrderQtyInCart').val('');
+            $('#btnAddToCart').attr('disabled', true);
 
-            var row = `<tr><th scope='row'>${code}</th><td>${name}</td><td>${price}</td><td>${quantity}</td><td>${Total}</td></tr>`;
-
-            $('#tblCart').append(row);
-            $("#tblCart>tr").css('cursor', 'pointer');
         }
     }
 });
+
+function addToCart() {
+    let code = $('#itemCodeInCart').val();
+    let name = $('#ItemNameInCart').val();
+    let price = $('#ItemPriceInCart').val();
+    let qtyOnHand = $('#qtyOnHandInCart').val();
+    let quantity = $('#OrderQtyInCart').val();
+    let Total = (parseFloat(price) * parseInt(quantity)).toFixed(2);
+    let newQtyOnHand = parseInt(qtyOnHand) - parseInt(quantity);
+
+    var row = `<tr><th scope='row'>${code}</th><td>${name}</td><td>${price}</td><td>${quantity}</td><td>${Total}</td></tr>`;
+
+    let length = $('#tblCart>tr').length;
+    if (length == 0) {
+        $('#tblCart').append(row);
+        $('#qtyOnHandInCart').val(newQtyOnHand);
+        $("#tblCart>tr").css('cursor', 'pointer');
+        calculateTheTotal();
+    } else {
+        for (let i = 0; i < length; i++) {
+            let itemCodeInTable = $('#tblCart>tr').eq(i).children().eq('0').text();
+            if (itemCodeInTable === code) {
+                let currentQuantity = $('#tblCart>tr').eq(i).children().eq('3').text();
+                let newQuantity = parseInt(quantity) + parseInt(currentQuantity)
+                let newTotal = (parseFloat(price) * newQuantity).toFixed(2);
+                $('#tblCart>tr').eq(i).children().eq('3').text(newQuantity);
+                $('#tblCart>tr').eq(i).children().eq('4').text(newTotal);
+                $('#qtyOnHandInCart').val(newQtyOnHand);
+                calculateTheTotal();
+                return;
+            }
+        }
+        $('#tblCart').append(row);
+        $('#qtyOnHandInCart').val(newQtyOnHand);
+        $("#tblCart>tr").css('cursor', 'pointer');
+        calculateTheTotal();
+    }
+}
+
+function calculateTheTotal() {
+    let length = $('#tblCart>tr').length;
+    let total = 0;
+    for (let i = 0; i < length; i++) {
+        let OneItemTotalText = $('#tblCart>tr').eq(i).children().eq('4').text();
+        let OneItemTotal = parseFloat(OneItemTotalText);
+        total = total + OneItemTotal;
+    }
+    $('#totalPrice').val(total.toFixed(2));
+}
