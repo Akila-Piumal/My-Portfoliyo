@@ -253,6 +253,10 @@ $('#btnSaveCustomerInInvoice').click(function () {
     });
 });
 
+$('#btnCloseCustomerInInvoice').click(function () {
+    clearFieldsInNewCusModelInInvoice();
+});
+
 
 function setItemCodesToComboBox() {
     $('#selectItem').empty();
@@ -294,6 +298,161 @@ $('#itemCodeInCart').on('keypress', function (event) {
         }
     }
 });
+
+// New Item Model Content starts
+
+$("#newItemModelInCart").on('shown.bs.modal', function () {
+    $(this).find('#btnSaveItemInCart').attr("disabled", true);
+    $(this).find('#newItemNameInInvoice').focus();
+    $('#newItemCodeInInvoice').css("border", "3px solid green");
+
+    if ($.isEmptyObject(Items)) {
+        $('#newItemCodeInInvoice').val('P001');
+    } else {
+        let lastId;
+        for (let i = 0; i < Items.length; i++) {
+            lastId = Items[i].code;
+        }
+        let newID = idGenerator(lastId);
+        $('#newItemCodeInInvoice').val(newID);
+    }
+});
+
+$('#newItemNameInInvoice').on('keyup', function (event) {
+
+    let currentObject = $('#newItemNameInInvoice');
+    let currentPattern = itemNamePattern;
+    let warnMsgObject = $('#warnMsgForItemNameInInvoice');
+    let btnObject = $('#btnSaveItemInCart');
+    let nextFocusPattern = itemPricePattern;
+    let nextFocusObject = $('#newItemPriceInInvoice');
+    let nextWarnMsgObj = $('#warnMsgForPriceInInvoice');
+
+    let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
+
+    if (event.which === 13) {
+        if (result === true) {
+            $('#newItemPriceInInvoice').focus();
+        }
+    }
+});
+
+$('#newItemPriceInInvoice').on('keyup', function (event) {
+
+    let currentObject = $('#newItemPriceInInvoice');
+    let currentPattern = itemPricePattern;
+    let warnMsgObject = $('#warnMsgForPriceInInvoice');
+    let btnObject = $('#btnSaveItemInCart');
+    let nextFocusPattern = itemQuantityPattern;
+    let nextFocusObject = $('#newItemQuantityInInvoice');
+    let nextWarnMsgObj = $('#warnMsgForQuantityInInvoice');
+
+    let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
+
+    if (event.which === 13) {
+        if (result === true) {
+            $('#newItemQuantityInInvoice').focus();
+        }
+    }
+});
+
+$('#newItemQuantityInInvoice').on('keyup', function (event) {
+
+    let currentObject = $('#newItemQuantityInInvoice');
+    let currentPattern = itemQuantityPattern;
+    let warnMsgObject = $('#warnMsgForQuantityInInvoice');
+    let btnObject = $('#btnSaveItemInCart');
+
+    let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+    if (event.which === 13) {
+        if (result === true) {
+            Swal.fire({
+                title: 'Do you want to save the Item?',
+                showDenyButton: true,
+                confirmButtonText: 'Save',
+                denyButtonText: `Don't save`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Saved!', '', 'success');
+                    saveItemInPlaceOrder();
+                    $('#newItemModelInCart').modal('hide');
+                    clearFieldsInNewItemModelInInvoice();
+                } else if (result.isDenied) {
+                    clearFieldsInNewItemModelInInvoice();
+                    $('#newItemModelInCart').modal('hide');
+                    Swal.fire('Changes are not saved', '', 'info')
+                }
+            });
+        }
+    }
+});
+
+function saveItemInPlaceOrder() {
+    let code = $('#newItemCodeInInvoice').val();
+    let name = $('#newItemNameInInvoice').val();
+    let price = $('#newItemPriceInInvoice').val();
+    let quantity = $('#newItemQuantityInInvoice').val();
+
+    var item = {
+        code: code,
+        name: name,
+        price: price,
+        quantity: quantity
+    }
+
+    Items.push(item);
+
+    addDataToTableInItem();
+
+    bindRowClickEventInItem();
+
+    bindRowDblClickEventInItem();
+
+    setItemCodesToComboBox();
+
+    $('#selectItem').val(code);
+
+    setValuesToSelectItem(code, name, price, quantity);
+
+}
+
+function clearFieldsInNewItemModelInInvoice() {
+    $('#newItemCodeInInvoice').val('');
+    $('#newItemNameInInvoice').val('');
+    $('#newItemPriceInInvoice').val('');
+    $('#newItemQuantityInInvoice').val('');
+    $('#newItemCodeInInvoice').css("border", "1px solid gray");
+    $('#newItemNameInInvoice').css("border", "1px solid gray");
+    $('#newItemPriceInInvoice').css("border", "1px solid gray");
+    $('#newItemQuantityInInvoice').css("border", "1px solid gray");
+}
+
+$('#btnSaveItemInCart').click(function () {
+    Swal.fire({
+        title: 'Do you want to save the Item?',
+        showDenyButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire('Saved!', '', 'success');
+            saveItemInPlaceOrder();
+            $('#newItemModelInCart').modal('hide');
+            clearFieldsInNewItemModelInInvoice();
+        } else if (result.isDenied) {
+            clearFieldsInNewItemModelInInvoice();
+            $('#newItemModelInCart').modal('hide');
+            Swal.fire('Changes are not saved', '', 'info')
+        }
+    });
+});
+
+$('#btnCloseNewItemModelInCart').click(function () {
+    clearFieldsInNewItemModelInInvoice();
+});
+
+// New Item Model Content Ends
 
 function clearSelectItemFields() {
     $('#selectItem').val('');
