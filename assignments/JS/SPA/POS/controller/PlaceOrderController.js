@@ -513,21 +513,59 @@ $('#OrderQtyInCart').on('keyup', function (event) {
     }
 
     if (event.which === 13) {
-        if (result === true) {
-            addToCart();
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Added to the cart',
-                showConfirmButton: false,
-                timer: 1500
-            })
-            $('#OrderQtyInCart').val('');
-            $('#btnAddToCart').attr('disabled', true);
-
+        if ($('#btnAddToCart').text() == "Add to Cart") {
+            if (result === true) {
+                addToCart();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Added to the cart',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                $('#OrderQtyInCart').val('');
+                $('#btnAddToCart').attr('disabled', true);
+            }
+        } else {
+            updateQuantity();
         }
     }
+
 });
+
+function updateQuantity() {
+    let length = $('#tblCart>tr').length;
+    for (let i = 0; i < length; i++) {
+        let itemCodeInTable = $('#tblCart>tr').eq(i).children().eq('0').text();
+        let itemCode = $('#itemCodeInCart').val();
+        let price = $('#ItemPriceInCart').val();
+        if (itemCode == itemCodeInTable) {
+            let updateQuantity = $('#OrderQtyInCart').val();
+            let total = parseInt(updateQuantity) * parseFloat(price);
+            $('#tblCart>tr').eq(i).children().eq('3').text(updateQuantity);
+            $('#tblCart>tr').eq(i).children().eq('4').text(total.toFixed(2));
+            let item = searchItemWithCode(itemCode);
+            let newQtyOnHand = parseInt(item.quantity) - parseInt(updateQuantity);
+            $('#qtyOnHandInCart').val(newQtyOnHand);
+            calculateTheTotal();
+            clearTableColors();
+            $('#btnNewItemInPlaceOrder').text('+New Item');
+            $('#btnAddToCart').text('Add to Cart');
+            $('#OrderQtyInCart').val('');
+            $('#OrderQtyInCart').css("border", "1px solid gray");
+            setValuesToSelectItem('', '', '', '');
+            $('#selectItem').val('');
+            $('#selectItem').focus();
+        }
+    }
+}
+
+function clearTableColors() {
+    let length = $('#tblCart>tr').length;
+    for (let i = 0; i < length; i++) {
+        $('#tblCart>tr').eq(i).css('background-color', 'white');
+    }
+}
 
 function addToCart() {
     let code = $('#itemCodeInCart').val();
@@ -545,6 +583,7 @@ function addToCart() {
         $('#tblCart').append(row);
         $('#qtyOnHandInCart').val(newQtyOnHand);
         $("#tblCart>tr").css('cursor', 'pointer');
+        bindRowClickEventInCart();
         calculateTheTotal();
     } else {
         for (let i = 0; i < length; i++) {
@@ -563,9 +602,35 @@ function addToCart() {
         $('#tblCart').append(row);
         $('#qtyOnHandInCart').val(newQtyOnHand);
         $("#tblCart>tr").css('cursor', 'pointer');
+        bindRowClickEventInCart();
         calculateTheTotal();
     }
 }
+
+// click event to add to cart button
+$('#btnAddToCart').click(function () {
+    if ($('#btnAddToCart').text() == 'Add to Cart') {
+        addToCart();
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Added to the cart',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        $('#OrderQtyInCart').val('');
+        $('#btnAddToCart').attr('disabled', true);
+    } else {
+        clearTableColors();
+        $('#btnNewItemInPlaceOrder').text('+New Item');
+        $('#btnAddToCart').text('Add to Cart');
+        $('#OrderQtyInCart').val('');
+        setValuesToSelectItem('', '', '', '');
+        $('#selectItem').val('');
+        $('#OrderQtyInCart').css("border", "1px solid gray");
+        $('#selectItem').focus();
+    }
+});
 
 function calculateTheTotal() {
     let length = $('#tblCart>tr').length;
@@ -576,4 +641,34 @@ function calculateTheTotal() {
         total = total + OneItemTotal;
     }
     $('#totalPrice').val(total.toFixed(2));
+    $('#totalPrice').css('border', '3px solid green');
 }
+
+function bindRowClickEventInCart() {
+    $('#tblCart>tr').click(function () {
+        $('#btnNewItemInPlaceOrder').text("Update");
+        $('#btnAddToCart').text("Cancel Update");
+        let length = $('#tblCart>tr').length;
+        for (let i = 0; i < length; i++) {
+            $('#tblCart>tr').eq(i).css('background-color', 'white');
+        }
+        $(this).css('background-color', '#b2bec3');
+
+        let itemCode = $(this).children().eq('0').text();
+        let item = searchItemWithCode(itemCode);
+
+        $('#selectItem').val(itemCode);
+        setValuesToSelectItem(itemCode, item.name, item.price, item.quantity);
+        $('#OrderQtyInCart').val($(this).children().eq('3').text());
+        $('#OrderQtyInCart').focus();
+    });
+}
+
+$('#btnNewItemInPlaceOrder').click(function () {
+    if ($('#btnNewItemInPlaceOrder').text() == 'Update') {
+        $('#newItemModelInCart').modal('hide');
+        updateQuantity();
+    } else {
+        $('#newItemModelInCart').modal('toggle');
+    }
+});

@@ -224,8 +224,8 @@
                                     a required field. Pattern- 100</label>
                             </div>
                             <div class="d-flex justify-content-evenly">
-                                <button class="btn btn-primary btn-sm rounded-1" data-bs-target="#newItemModelInCart"
-                                        data-bs-toggle="modal" id="btnNewItemInPlaceOrder" type="button">+New Item
+                                <button class="btn btn-primary btn-sm rounded-1" id="btnNewItemInPlaceOrder"
+                                        type="button">+New Item
                                 </button>
 
                                 <!-- New Item Modal -->
@@ -306,7 +306,8 @@
                                 </div>
 
                                 <!-- add to cart button-->
-                                <button class="btn btn-danger btn rounded-1" id="btnAddToCart" type="button">Add to Cart
+                                <button class="btn btn-danger btn rounded-1" id="btnAddToCart" type="button">Add to
+                                    Cart
                                 </button>
                             </div>
                         </div>
@@ -326,39 +327,42 @@
                     <!--main of payment-->
                     <div class="rounded-3 mt-4 p-3 border mb-lg-0 mb-sm-4 pb-xl-5 shadow-lg">
                         <div class="row justify-content-evenly justify-content-md-center justify-content-lg-between justify-content-xl-evenly">
-                            <div class="col-4 col-lg-6 text-center">
-                                <label class="form-label fs-5 fw-bold" for="totalPrice">Total(Rs.)</label>
+                            <div class="col-4 col-lg-6 text-center d-flex justify-content-center align-items-center">
+                                <label class="form-label fs-5 fw-bold mb-0" for="totalPrice">Total(Rs.)</label>
                             </div>
                             <div class="col-5 col-lg-5">
-                                <input class="form-control fw-bold" id="totalPrice" readonly type="text">
+                                <input class="form-control fw-bold col text-primary text-opacity-75 fs-5"
+                                       id="totalPrice" readonly type="text">
                             </div>
                         </div>
 
                         <div class="row justify-content-evenly justify-content-md-center justify-content-lg-between justify-content-xl-evenly">
-                            <div class="col-4 col-lg-6 text-center mt-3">
-                                <label class="form-label fs-5 " for="discount">Discount(%)</label>
+                            <div class="col-4 col-lg-6 text-center mt-3 d-flex justify-content-center align-items-center">
+                                <label class="form-label fs-5 mb-0" for="discount">Discount(%)</label>
                             </div>
                             <div class="col-5 col-lg-5 mt-3">
-                                <input class="form-control " id="discount" type="number">
+                                <input class="form-control col text-primary text-opacity-75 fs-5" id="discount"
+                                       type="number">
                             </div>
                         </div>
 
                         <div class="row justify-content-evenly justify-content-md-center justify-content-lg-between justify-content-xl-evenly">
-                            <div class="col-4 col-lg-6 text-center mt-3">
-                                <label class="form-label fs-5 fw-bold" for="subTotal">Sub Total(Rs.)</label>
+                            <div class="col-4 col-lg-6 text-center mt-3 d-flex justify-content-center align-items-center">
+                                <label class="form-label fs-5 fw-bold mb-0" for="subTotal">Sub Total(Rs.)</label>
                             </div>
                             <div class="col-5 col-lg-5 mt-3">
-                                <input class="form-control fw-bold" id="subTotal" readonly type="number"
-                                       value="00.00">
+                                <input class="form-control fw-bold col text-danger text-opacity-75 fs-5" id="subTotal"
+                                       readonly type="number">
                             </div>
                         </div>
 
                         <div class="row justify-content-evenly justify-content-md-center justify-content-lg-between justify-content-xl-evenly">
-                            <div class="col-4 col-lg-6 text-center mt-3">
-                                <label class="form-label fs-5 fw-bold" for="cashInHand">Cash</label>
+                            <div class="col-4 col-lg-6 text-center mt-3 d-flex justify-content-center align-items-center">
+                                <label class="form-label fs-5 fw-bold mb-0" for="cashInHand">Cash</label>
                             </div>
                             <div class="col-5 col-lg-5 mt-3">
-                                <input class="form-control fw-bold" id="cashInHand" type="number">
+                                <input class="form-control fw-bold col text-muted text-opacity-75 fs-5" id="cashInHand"
+                                       type="number">
                             </div>
                         </div>
 
