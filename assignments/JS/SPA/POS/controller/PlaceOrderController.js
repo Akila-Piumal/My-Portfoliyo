@@ -6,6 +6,8 @@ $(document).ready(function () {
     $('#dateInput').val(getCurrentDate());
 
     $('#btnAddToCart').attr('disabled', true);
+
+    $('#btnPurchase').attr('disabled', true);
 });
 
 // Auto generate Order ID
@@ -678,7 +680,6 @@ function calculateTheTotal() {
     $('#discount').css('border', '3px solid green');
 }
 
-
 // row click event
 function bindRowClickEventInCart() {
     $('#tblCart>tr').click(function () {
@@ -717,3 +718,57 @@ $('#newCustomerIdInInvoice, #newCustomerNameInInvoice, #newCustomerAddressInInvo
     }
 });
 
+var discountPattern = /^[0-9]{1,3}$/;
+
+$('#discount').on('keyup', function (event) {
+
+    let currentObject = $('#discount');
+    let currentPattern = discountPattern;
+    let warnMsgObject = $('#warnMsgForDiscount');
+    let btnObject = $('#btnPurchase');
+    let nextFocusPattern = itemPricePattern;
+    let nextFocusObject = $('#cashInHand');
+    let nextWarnMsgObj = $('#warnMsgForCashInHand');
+
+    let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, nextFocusPattern, nextFocusObject, nextWarnMsgObj);
+
+    let result2 = checkTheDiscount();
+
+    calculateSubTotal();
+
+    if (event.which === 13) {
+        if (result === true && result2 === true) {
+            nextFocusObject.focus();
+        }
+    }
+});
+
+// calculate the subTotal
+function calculateSubTotal() {
+    let total = parseInt($('#totalPrice').val());
+    if ($('#discount').val() != '') {
+        let discountPresentage = parseInt($('#discount').val())
+        let discount = (total / 100) * discountPresentage;
+        let subTotal = total - discount;
+
+        $('#subTotal').val(subTotal.toFixed(2));
+        $('#subTotal').css('border', '3px solid green');
+        $('#discount').css('border', '3px solid green');
+    }
+}
+
+// check the discount presentage is less than 100
+function checkTheDiscount() {
+    let disPresentage = parseInt($('#discount').val());
+    if (disPresentage <= 100) {
+        $('#btnPurchase').removeAttr("disabled");
+        $('#discount').css('border', '3px solid green');
+        $('#warnMsgForDiscount').css('display', 'none');
+        return true;
+    } else {
+        $('#btnPurchase').attr("disabled", true);
+        $('#discount').css('border', '3px solid red');
+        $('#warnMsgForDiscount').css('display', 'block');
+        return false;
+    }
+}

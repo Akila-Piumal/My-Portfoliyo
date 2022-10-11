@@ -343,6 +343,9 @@
                             <div class="col-5 col-lg-5 mt-3">
                                 <input class="form-control col text-primary text-opacity-75 fs-5" id="discount"
                                        type="number" value="0">
+                                <label class="form-label" for="discount" id="warnMsgForDiscount"
+                                       style="display: none;color: red;font-size: 12px">Please Enter a amount lower than
+                                    100</label>
                             </div>
                         </div>
 
@@ -362,14 +365,16 @@
                             </div>
                             <div class="col-5 col-lg-5 mt-3">
                                 <input class="form-control fw-bold col text-muted text-opacity-75 fs-5" id="cashInHand"
-                                       type="number">
+                                       type="text">
+                                <label class="form-label" for="cashInHand" id="warnMsgForCashInHand"
+                                       style="display: none;color: red;font-size: 12px">Pattern- 100.00</label>
                             </div>
                         </div>
 
                         <div class="row justify-content-center pt-3 mt-5 mb-xl-5 mb-lg-5 pb-6">
                             <button class="col-5 col-sm-3 col-md-2 col-lg-6 col-xl-4 btn btn-success btn rounded-1 "
                                     data-bs-target="#succesNotifiModel" data-bs-toggle="modal"
-                                    type="button">Purchase
+                                    id="btnPurchase" type="button">Purchase
                             </button>
 
                             <!-- Modal -->
