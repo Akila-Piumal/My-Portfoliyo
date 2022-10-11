@@ -533,6 +533,7 @@ $('#OrderQtyInCart').on('keyup', function (event) {
 
 });
 
+// Update the quantity of buying
 function updateQuantity() {
     let length = $('#tblCart>tr').length;
     for (let i = 0; i < length; i++) {
@@ -560,6 +561,7 @@ function updateQuantity() {
     }
 }
 
+// clear table row colors to default
 function clearTableColors() {
     let length = $('#tblCart>tr').length;
     for (let i = 0; i < length; i++) {
@@ -567,6 +569,7 @@ function clearTableColors() {
     }
 }
 
+// add items to the cart
 function addToCart() {
     let code = $('#itemCodeInCart').val();
     let name = $('#ItemNameInCart').val();
@@ -632,6 +635,7 @@ $('#btnAddToCart').click(function () {
     }
 });
 
+// calculate the Total
 function calculateTheTotal() {
     let length = $('#tblCart>tr').length;
     let total = 0;
@@ -644,6 +648,7 @@ function calculateTheTotal() {
     $('#totalPrice').css('border', '3px solid green');
 }
 
+// row click event
 function bindRowClickEventInCart() {
     $('#tblCart>tr').click(function () {
         $('#btnNewItemInPlaceOrder').text("Update");
@@ -664,11 +669,19 @@ function bindRowClickEventInCart() {
     });
 }
 
+// click event to New Item button
 $('#btnNewItemInPlaceOrder').click(function () {
     if ($('#btnNewItemInPlaceOrder').text() == 'Update') {
         $('#newItemModelInCart').modal('hide');
         updateQuantity();
     } else {
         $('#newItemModelInCart').modal('toggle');
+    }
+});
+
+// Cancel the focus of TAB key
+$('#newCustomerIdInInvoice, #newCustomerNameInInvoice, #newCustomerAddressInInvoice, #newCustomerGenderInInvoice, #newCustomerNumberInInvoice, #newItemCodeInInvoice, #newItemNameInInvoice, #newItemPriceInInvoice, #newItemQuantityInInvoice').on('keydown', function (event) {
+    if (event.key === "Tab") {
+        event.preventDefault();
     }
 });
