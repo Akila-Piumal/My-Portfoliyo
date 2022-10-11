@@ -286,6 +286,45 @@ function setItemCodesToComboBox() {
 // add change event to the Item Code combo box
 $('#selectItem').change(function () {
     let item = searchItemWithCode($('#selectItem').val());
+
+    changeTheFields(item);
+});
+
+// set Item Details to the text fields
+function setValuesToSelectItem(code, name, price, qtyOnHand) {
+    $('#itemCodeInCart').val(code);
+    $('#ItemNameInCart').val(name);
+    $('#ItemPriceInCart').val(price);
+    $('#qtyOnHandInCart').val(qtyOnHand);
+}
+
+// When enter key press on Item Code input field
+$('#itemCodeInCart').on('keypress', function (event) {
+    if (event.key == "Enter") {
+        let item = searchItemWithCode($('#itemCodeInCart').val());
+
+        if (item == null) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Item Not Exist!'
+            })
+            setValuesToSelectItem('', '', '', '');
+            $('#OrderQtyInCart').val('');
+            $('#selectItem').val('');
+            $('#selectItem').focus();
+        } else {
+            changeTheFields(item);
+
+            $('#selectItem').val($('#itemCodeInCart').val());
+
+            $('#OrderQtyInCart').focus();
+        }
+    }
+});
+
+// set values to the fields when combo box value changed and enter key press on item code input
+function changeTheFields(item) {
     let length = $('#tblCart>tr').length;
     if (length == 0) {
         setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
@@ -303,34 +342,7 @@ $('#selectItem').change(function () {
         setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
         $('#OrderQtyInCart').focus();
     }
-});
-
-// set Item Details to the text fields
-function setValuesToSelectItem(code, name, price, qtyOnHand) {
-    $('#itemCodeInCart').val(code);
-    $('#ItemNameInCart').val(name);
-    $('#ItemPriceInCart').val(price);
-    $('#qtyOnHandInCart').val(qtyOnHand);
 }
-
-// When enter key press on Item Code input field
-$('#itemCodeInCart').on('keypress', function (event) {
-    if (event.key == "Enter") {
-        if (searchItemWithCode($('#itemCodeInCart').val()) !== null) {
-            $('#selectItem').val($('#itemCodeInCart').val());
-            let item = searchItemWithCode($('#itemCodeInCart').val());
-            setValuesToSelectItem(item.code, item.name, item.price, item.quantity);
-            $('#OrderQtyInCart').focus();
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Item not exist'
-            })
-            clearSelectItemFields();
-        }
-    }
-});
 
 // clear the fields in the item details
 function clearSelectItemFields() {
@@ -506,10 +518,18 @@ $('#OrderQtyInCart').on('keyup', function (event) {
 
     let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
 
-    if ($('#cmbCusID').val() != null && $('#selectItem').val() != null && $('#OrderQtyInCart').val() != '') {
+    let qtyOnHand = parseInt($('#qtyOnHandInCart').val());
+    let orderQuantity = parseInt(currentObject.val());
+
+    if ($('#cmbCusID').val() != null && $('#selectItem').val() != null && $('#OrderQtyInCart').val() != '' && orderQuantity <= qtyOnHand && orderQuantity > 0) {
         $('#btnAddToCart').removeAttr("disabled");
+        $('#OrderQtyInCart').css('border', '3px solid green');
+        warnMsgObject.css('display', 'none');
     } else {
         $('#btnAddToCart').attr("disabled", true);
+        $('#OrderQtyInCart').css('border', '3px solid red');
+        warnMsgObject.css('display', 'block');
+        $('#maxQuantity').text(qtyOnHand);
     }
 
     if (event.which === 13) {
@@ -608,6 +628,9 @@ function addToCart() {
         bindRowClickEventInCart();
         calculateTheTotal();
     }
+
+    $('#OrderQtyInCart').css("border", "1px solid gray");
+    $('#OrderQtyInCart').focus();
 }
 
 // click event to add to cart button
@@ -685,3 +708,4 @@ $('#newCustomerIdInInvoice, #newCustomerNameInInvoice, #newCustomerAddressInInvo
         event.preventDefault();
     }
 });
+
