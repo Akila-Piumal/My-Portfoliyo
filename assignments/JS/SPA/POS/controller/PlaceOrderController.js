@@ -621,6 +621,10 @@ function addToCart() {
                 $('#tblCart>tr').eq(i).children().eq('4').text(newTotal);
                 $('#qtyOnHandInCart').val(newQtyOnHand);
                 calculateTheTotal();
+                // cash gaana dala passe item ekk add karama
+                if ($('#cashInHand').val() != '') {
+                    checkTheCashSufficient();
+                }
                 return;
             }
         }
@@ -629,6 +633,9 @@ function addToCart() {
         $("#tblCart>tr").css('cursor', 'pointer');
         bindRowClickEventInCart();
         calculateTheTotal();
+        if ($('#cashInHand').val() != '') {
+            checkTheCashSufficient();
+        }
     }
 
     $('#OrderQtyInCart').css("border", "1px solid gray");
@@ -736,6 +743,14 @@ $('#discount').on('keyup', function (event) {
 
     calculateSubTotal();
 
+    checkTheCashSufficient();
+
+    if ($('#cashInHand').val() == '') {
+        $('#btnPurchase').attr('disabled', true);
+    } else {
+        $('#btnPurchase').removeAttr('disabled');
+    }
+
     if (event.which === 13) {
         if (result === true && result2 === true) {
             nextFocusObject.focus();
@@ -770,5 +785,44 @@ function checkTheDiscount() {
         $('#discount').css('border', '3px solid red');
         $('#warnMsgForDiscount').css('display', 'block');
         return false;
+    }
+}
+
+$('#cashInHand').on('keyup', function (event) {
+
+    let currentObject = $('#cashInHand');
+    let currentPattern = itemPricePattern;
+    let warnMsgObject = $('#warnMsgForCashInHand');
+    let btnObject = $('#btnPurchase');
+
+    let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
+
+    let result2;
+    if (result == true) {
+        result2 = checkTheCashSufficient();
+    }
+
+    if (event.which === 13) {
+        if (result === true && result2 === true) {
+            alert('purchase');
+        }
+    }
+});
+
+// check that the cash is sufficient to purchase
+function checkTheCashSufficient() {
+    let cashInHand = parseFloat($('#cashInHand').val());
+    let subTotal = parseFloat($('#subTotal').val());
+
+    if ($('#cashInHand').val() == '' || cashInHand < subTotal) {
+        $('#btnPurchase').attr("disabled", true);
+        $('#cashInHand').css('border', '3px solid red');
+        $('#warnMsgForCashInHand').css('display', 'block');
+        return false;
+    } else {
+        $('#btnPurchase').removeAttr("disabled");
+        $('#cashInHand').css('border', '3px solid green');
+        $('#warnMsgForCashInHand').css('display', 'none');
+        return true;
     }
 }
