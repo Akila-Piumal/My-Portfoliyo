@@ -667,9 +667,17 @@ function calculateTheTotal() {
         let OneItemTotal = parseFloat(OneItemTotalText);
         total = total + OneItemTotal;
     }
+    let discountPresentage = parseInt($('#discount').val())
+    let discount = (total / 100) * discountPresentage;
+    let subTotal = total - discount;
+
     $('#totalPrice').val(total.toFixed(2));
     $('#totalPrice').css('border', '3px solid green');
+    $('#subTotal').val(subTotal.toFixed(2));
+    $('#subTotal').css('border', '3px solid green');
+    $('#discount').css('border', '3px solid green');
 }
+
 
 // row click event
 function bindRowClickEventInCart() {
