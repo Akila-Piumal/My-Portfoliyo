@@ -5,7 +5,7 @@ $(document).ready(function () {
     // set Current Date
     $('#dateInput').val(getCurrentDate());
 
-    $('#btnAddToCart').attr('disabled', true);
+    $('#btnAddCart').attr('disabled', true);
 
     $('#btnPurchase').attr('disabled', true);
 });
@@ -516,7 +516,7 @@ $('#OrderQtyInCart').on('keyup', function (event) {
     let currentObject = $('#OrderQtyInCart');
     let currentPattern = itemQuantityPattern;
     let warnMsgObject = $('#warnMsgForOrderQty');
-    let btnObject = $('#btnAddToCart');
+    let btnObject = $('#btnAddCart');
 
     let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
 
@@ -524,18 +524,18 @@ $('#OrderQtyInCart').on('keyup', function (event) {
     let orderQuantity = parseInt(currentObject.val());
 
     if ($('#cmbCusID').val() != null && $('#selectItem').val() != null && $('#OrderQtyInCart').val() != '' && orderQuantity <= qtyOnHand && orderQuantity > 0) {
-        $('#btnAddToCart').removeAttr("disabled");
+        $('#btnAddCart').removeAttr("disabled");
         $('#OrderQtyInCart').css('border', '3px solid green');
         warnMsgObject.css('display', 'none');
     } else {
-        $('#btnAddToCart').attr("disabled", true);
+        $('#btnAddCart').attr("disabled", true);
         $('#OrderQtyInCart').css('border', '3px solid red');
         warnMsgObject.css('display', 'block');
         $('#maxQuantity').text(qtyOnHand);
     }
 
     if (event.which === 13) {
-        if ($('#btnAddToCart').text() == "Add to Cart") {
+        if ($('#btnAddCart').text() == "Add to Cart") {
             if (result === true) {
                 addToCart();
                 Swal.fire({
@@ -546,7 +546,7 @@ $('#OrderQtyInCart').on('keyup', function (event) {
                     timer: 1500
                 })
                 $('#OrderQtyInCart').val('');
-                $('#btnAddToCart').attr('disabled', true);
+                $('#btnAddCart').attr('disabled', true);
             }
         } else {
             updateQuantity();
@@ -573,7 +573,7 @@ function updateQuantity() {
             calculateTheTotal();
             clearTableColors();
             $('#btnNewItemInPlaceOrder').text('+New Item');
-            $('#btnAddToCart').text('Add to Cart');
+            $('#btnAddCart').text('Add to Cart');
             $('#OrderQtyInCart').val('');
             $('#OrderQtyInCart').css("border", "1px solid gray");
             setValuesToSelectItem('', '', '', '');
@@ -643,8 +643,8 @@ function addToCart() {
 }
 
 // click event to add to cart button
-$('#btnAddToCart').click(function () {
-    if ($('#btnAddToCart').text() == 'Add to Cart') {
+$('#btnAddCart').click(function () {
+    if ($('#btnAddCart').text() == 'Add to Cart') {
         addToCart();
         Swal.fire({
             position: 'top-end',
@@ -654,11 +654,11 @@ $('#btnAddToCart').click(function () {
             timer: 1500
         })
         $('#OrderQtyInCart').val('');
-        $('#btnAddToCart').attr('disabled', true);
+        $('#btnAddCart').attr('disabled', true);
     } else {
         clearTableColors();
         $('#btnNewItemInPlaceOrder').text('+New Item');
-        $('#btnAddToCart').text('Add to Cart');
+        $('#btnAddCart').text('Add to Cart');
         $('#OrderQtyInCart').val('');
         setValuesToSelectItem('', '', '', '');
         $('#selectItem').val('');
@@ -691,7 +691,7 @@ function calculateTheTotal() {
 function bindRowClickEventInCart() {
     $('#tblCart>tr').click(function () {
         $('#btnNewItemInPlaceOrder').text("Update");
-        $('#btnAddToCart').text("Cancel Update");
+        $('#btnAddCart').text("Cancel Update");
         let length = $('#tblCart>tr').length;
         for (let i = 0; i < length; i++) {
             $('#tblCart>tr').eq(i).css('background-color', 'white');
