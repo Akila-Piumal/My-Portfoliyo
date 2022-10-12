@@ -284,14 +284,6 @@
     color: white;
 }
 
-.txt_des {
-    color: #7c5ef2;
-    font-size: 33px;
-    margin-top: 8px;
-    margin-left: 4px;
-    font-family: 'Roboto', sans-serif;
-}
-
 .btn_hireMe {
     width: 150px;
     border: none;
@@ -1659,6 +1651,10 @@ label #cancel {
         height: 305px;
         width: 247px;
     }
+
+    #fullStackDevAnima {
+        font-size: 19px!important;
+    }
 }
 
 @media all and (max-width: 950px) {
@@ -1902,6 +1898,22 @@ label #cancel {
 
     #txtFollowMe {
         font-size: 23px;
+    }
+
+    #fullStackDevAnima {
+        font-size: 16px!important;
+    }
+    #coderImage{
+        width: 263px;
+        height: 59px;
+    }
+    #designerImage{
+        width: 237px;
+        height: 50px;
+    }
+    #developerImage{
+        width: 167px;
+        height: 42px;
     }
 }
 
@@ -3056,6 +3068,10 @@ label #cancel {
         width: 47px;
         height: 47px;
     }
+
+    #fullStackDevAnima {
+        font-size: 14px!important;
+    }
 }
 
 #loader{
@@ -3082,4 +3098,30 @@ label #cancel {
     background-size: cover;
     background-position: center;
 
+}
+
+#fullStackDevAnima{
+    font-weight: 500;
+    text-align: left;
+    font-size: 25px;
+    font-family: Hack, sans-serif;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #000, #fff, #7c5ef2);
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: shine 5s linear infinite;
+    position: relative;
+}
+
+@keyframes shine {
+    0% {
+        background-position-x: -500%;
+    }
+    100% {
+        background-position-x: 500%;
+    }
 }
