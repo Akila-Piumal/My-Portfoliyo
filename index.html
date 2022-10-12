@@ -31,6 +31,12 @@
 
 </head>
 <body>
+
+<div id="loader">
+    <div id="loader_inside">
+    </div>
+</div>
+
 <main class="main">
     <!--    <<<<<<   NAVIGATION ASIDE    >>>>>-->
     <aside class="aside">
@@ -110,7 +116,8 @@
             <section class="top_section">
                 <aside class="welcome_details_box">
                     <div class="welcome_details">
-                        <h1 class="txt_hi">Hi,</h1>
+<!--                        <h1 class="txt_hi">Hi,</h1>-->
+                        <div id="hiImage"></div>
                         <h1 class="txt_name">I'm Akila Piumal.</h1>
                         <h3 class="txt_des">Full Stack developer</h3>
                         <button class="btn_hireMe">Hire Me</button>
@@ -139,9 +146,9 @@
 
                 <aside class="deco_box">
                     <div class="coder_designer">
-                        <h1 class="txt_coder">< CODER ></h1>
-                        <h1 class="txt_designer">< DESIGNER ></h1>
-                        <h1 class="txt_developer">< DEVELOPER ></h1>
+                        <div id="coderImage"></div>
+                        <div id="designerImage"></div>
+                        <div id="developerImage"></div>
                     </div>
                 </aside>
             </section>
@@ -469,6 +476,21 @@
         <small>ⓒ Copyright ⓒ2022 All Rights Reserved</small>
     </section>
 </footer>
+
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+<script>
+
+    $(window).on('load', function () {
+        console.log("Window on load");
+
+        $("#loader").fadeOut(2000);
+    });
+
+    $(document).ready(function () {
+
+    });
+
+</script>
 </body>
 
 </html>
