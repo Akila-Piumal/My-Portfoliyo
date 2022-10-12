@@ -535,7 +535,9 @@ $('#OrderQtyInCart').on('keyup', function (event) {
     }
 
     if (event.which === 13) {
-        if ($('#btnAddCart').text() == "Add to Cart") {
+        if ($('#btnAddCart').text() == "Cancel Update") {
+            updateQuantity();
+        } else {
             if (result === true) {
                 addToCart();
                 Swal.fire({
@@ -548,11 +550,8 @@ $('#OrderQtyInCart').on('keyup', function (event) {
                 $('#OrderQtyInCart').val('');
                 $('#btnAddCart').attr('disabled', true);
             }
-        } else {
-            updateQuantity();
         }
     }
-
 });
 
 // Update the quantity of buying
@@ -644,7 +643,16 @@ function addToCart() {
 
 // click event to add to cart button
 $('#btnAddCart').click(function () {
-    if ($('#btnAddCart').text() == 'Add to Cart') {
+    if ($('#btnAddCart').text() == 'Cancel Update') {
+        clearTableColors();
+        $('#btnNewItemInPlaceOrder').text('+New Item');
+        $('#btnAddCart').text('Add to Cart');
+        $('#OrderQtyInCart').val('');
+        setValuesToSelectItem('', '', '', '');
+        $('#selectItem').val('');
+        $('#OrderQtyInCart').css("border", "1px solid gray");
+        $('#selectItem').focus();
+    } else {
         addToCart();
         Swal.fire({
             position: 'top-end',
@@ -655,15 +663,6 @@ $('#btnAddCart').click(function () {
         })
         $('#OrderQtyInCart').val('');
         $('#btnAddCart').attr('disabled', true);
-    } else {
-        clearTableColors();
-        $('#btnNewItemInPlaceOrder').text('+New Item');
-        $('#btnAddCart').text('Add to Cart');
-        $('#OrderQtyInCart').val('');
-        setValuesToSelectItem('', '', '', '');
-        $('#selectItem').val('');
-        $('#OrderQtyInCart').css("border", "1px solid gray");
-        $('#selectItem').focus();
     }
 });
 
@@ -804,7 +803,7 @@ $('#cashInHand').on('keyup', function (event) {
 
     if (event.which === 13) {
         if (result === true && result2 === true) {
-            alert('purchase');
+            purchaseOrder();
         }
     }
 });
@@ -825,4 +824,22 @@ function checkTheCashSufficient() {
         $('#warnMsgForCashInHand').css('display', 'none');
         return true;
     }
+}
+
+$('#btnPurchase').click(function (){
+   purchaseOrder();
+});
+
+function purchaseOrder(){
+    let cash=parseFloat($('#cashInHand').val());
+    let subTotal=parseFloat($('#subTotal').val());
+    let balance = cash-subTotal;
+    Swal.fire({
+        title: "Order Placed Successfully",
+        html: `<h2><strong>Balance : <span style="color: #ff6b6b">${balance.toFixed(2)}</span></strong></h2>`,
+        icon: 'success',
+        allowOutsideClick: false,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+    })
 }
