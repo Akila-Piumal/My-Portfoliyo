@@ -787,6 +787,7 @@ function checkTheDiscount() {
     }
 }
 
+// key event added to Cash input field
 $('#cashInHand').on('keyup', function (event) {
 
     let currentObject = $('#cashInHand');
@@ -826,20 +827,99 @@ function checkTheCashSufficient() {
     }
 }
 
+// click event to purchase button
 $('#btnPurchase').click(function (){
-   purchaseOrder();
+    purchaseOrder();
 });
 
+// Purchase order
 function purchaseOrder(){
+    let orderID = $('#orderId').val();
+    let orderDate = $('#dateInput').val();
+    let customer = searchCustomerWithID($('#cmbCusID').val());
+    let total = parseFloat($('#totalPrice').val());
+    let discount = parseInt($('#discount').val());
+
     let cash=parseFloat($('#cashInHand').val());
     let subTotal=parseFloat($('#subTotal').val());
     let balance = cash-subTotal;
+
+    var order = {
+        id:orderID,
+        date: orderDate,
+        customer: customer,
+        total: total,
+        discount:discount,
+        subTotal:subTotal
+    }
+
+    orders.push(order);
+
+    let length = $('#tblCart>tr').length;
+    for (let i = 0; i < length; i++) {
+        let itemCode = $('#tblCart>tr').eq(i).children().eq(0).text();
+        let item = searchItemWithCode(itemCode);
+        let quantity = parseInt($('#tblCart>tr').eq(i).children().eq(3).text());
+        let total = parseFloat($('#tblCart>tr').eq(i).children().eq(4).text());
+        let orderDetail ={
+            orderId: orderID,
+            item: item,
+            quantity:quantity,
+            total:total
+        }
+        orderDetails.push(orderDetail);
+
+        updateAfterPurchase(itemCode,quantity);
+    }
+
     Swal.fire({
         title: "Order Placed Successfully",
         html: `<h2><strong>Balance : <span style="color: #ff6b6b">${balance.toFixed(2)}</span></strong></h2>`,
         icon: 'success',
         allowOutsideClick: false,
         confirmButtonColor: '#3085d6',
-        confirmButtonText: 'OK'
-    })
+        confirmButtonText: 'OK',
+        didClose: () => {
+            $('#cmbCusID').focus();
+        }
+    });
+
+    resetAllTheFields();
+
+    autoGenerateOrderID();
+
+
+}
+
+// clear fields after purchase done
+function resetAllTheFields(){
+    setValuesToInvoiceDetails('','','','');
+    setValuesToSelectItem('','','','');
+    $('#selectItem').val('');
+    $('#OrderQtyInCart').val('');
+    $('#totalPrice').val('00.00');
+    $('#totalPrice').css('border','1px solid gray');
+    $('#discount').val('0');
+    $('#discount').css('border','1px solid gray');
+    $('#subTotal').val('00.00');
+    $('#subTotal').css('border','1px solid gray');
+    $('#cashInHand').val('');
+    $('#cashInHand').css('border','1px solid gray');
+    $('#btnPurchase').attr('disabled',true);
+    $('#tblCart').empty();
+    $('#cmbCusID').val('');
+}
+
+// Update the item quantity
+function updateAfterPurchase(itemCode,buyingQty){
+    for (var item of Items) {
+        if (item.code===itemCode){
+            let oldQuantity = parseInt(item.quantity);
+            let newQuantity = oldQuantity-buyingQty;
+            let index = Items.indexOf(item);
+            Items[index].quantity = newQuantity;
+            return true;
+        }
+    }
+    return false;
 }
