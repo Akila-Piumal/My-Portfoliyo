@@ -7,3 +7,14 @@
 .nav-link:hover {
     color: white;
 }
+
+.itemDetImageDivInTable{
+    width: 42px;
+    height: 35px;
+    background: url("../images/details.png");
+    background-size: cover;
+    background-position: center;
+}
+.swal-wide{
+    width:1000px !important;
+}

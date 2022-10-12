@@ -855,6 +855,8 @@ function purchaseOrder(){
 
     orders.push(order);
 
+    addDataToOrdersTable();
+
     let length = $('#tblCart>tr').length;
     for (let i = 0; i < length; i++) {
         let itemCode = $('#tblCart>tr').eq(i).children().eq(0).text();
@@ -888,7 +890,7 @@ function purchaseOrder(){
 
     autoGenerateOrderID();
 
-
+    addDataToTableInItem();
 }
 
 // clear fields after purchase done
