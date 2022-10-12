@@ -938,23 +938,23 @@
         <div class="row mt-3 mx-lg-2">
             <!--select id-->
             <div class="col-5 col-sm-3 col-md-2 pb-2">
-                <select aria-label=".form-select-lg example" class="form-select form-select-ls ">
-                    <option selected>ID</option>
-                    <option value="1">DATE</option>
+                <select aria-label=".form-select-lg example" class="form-select form-select-ls " id="cmbIdOrDate">
+                    <option selected value="id">ID</option>
+                    <option value="date">DATE</option>
                 </select>
             </div>
             <!--search-->
             <div class="col-12 col-sm-9 col-md-6 col-xl-5 pb-2">
-                <form class="d-flex">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Search Order" type="search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
+                <div class="d-flex">
+                    <input aria-label="Search" class="form-control me-2" id="searchBarInOrder" placeholder="Search Order">
+                    <button class="btn btn-outline-primary" id="btnSearchOrder" type="submit">Search</button>
+                </div>
             </div>
         </div>
 
         <!--Order details-->
         <div class="rounded-3 border shadow-lg mt-3 mx-lg-3 bg-success bg-opacity-25">
-            <div class="row gx-3 m-3 ">
+            <div class="row gx-3 m-3 justify-content-center">
                 <!--Order ID-->
                 <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
                     <label class="form-label fw-bold" for="orderIDInOrder">Order ID</label>
@@ -973,12 +973,6 @@
                     <input class="form-control" id="customerIDInOrder" readonly type="text">
                 </div>
 
-                <!--Customer Name-->
-                <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
-                    <label class="form-label fw-bold" for="customerNameInOrder">Customer Name</label>
-                    <input class="form-control" id="customerNameInOrder" readonly type="text">
-                </div>
-
                 <!--Discount-->
                 <div class="col-12 col-sm-6 col-md-4 col-xl-2 text-center text-sm-start text-lg-center">
                     <label class="form-label fw-bold"
@@ -991,6 +985,7 @@
                     <label class="form-label fw-bold" for="subTotalInOrder">Sub Total</label>
                     <input class="form-control" id="subTotalInOrder" readonly type="text">
                 </div>
+
             </div>
 
             <!--Buttons-->
@@ -998,16 +993,14 @@
                 <div class="d-flex justify-content-center">
                     <!--delete button-->
                     <button class="btn btn-outline-danger col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#"
-                            data-bs-toggle="modal"
-                            type="button">Delete
+                            id="btnDeleteInOrder" type="button">Delete
                     </button>
 
                     <!--update button-->
                     <button class="btn btn-outline-primary col-3 col-md-2 col-lg-1 mx-2"
                             data-bs-target="#updateOrderModel"
                             data-bs-toggle="modal"
-                            type="button">Update
+                            id="btnUpdateInOrder" type="button">Update
                     </button>
 
                     <!-- Update Order Modal -->
@@ -1077,8 +1070,6 @@
 
                     <!--Clear button-->
                     <button class="btn btn-outline-dark col-3 col-md-2 col-lg-1 mx-2"
-                            data-bs-target="#"
-                            data-bs-toggle="modal"
                             type="button">Clear
                     </button>
                 </div>

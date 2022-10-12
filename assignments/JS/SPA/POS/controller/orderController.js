@@ -1,3 +1,4 @@
+// load orders to the table
 function addDataToOrdersTable() {
     $('#tblOrders').empty();
 
@@ -22,8 +23,8 @@ function addDataToOrdersTable() {
     });
 }
 
+// load item details of order
 function displayItemDetailsOfOrder(orderID) {
-
     swal.fire({
         customClass: 'swal-wide',
         html: `<table class="table container-lg overflow-hidden text-center">
@@ -54,7 +55,122 @@ function displayItemDetailsOfOrder(orderID) {
             $('#tblItemDetailsOfOrder').append(row);
         }
     }
+}
 
+// search bar key event
+$('#searchBarInOrder').keypress(function (e) {
+    if (e.which == 13) {
+        searchOrder();
+    }
+});
 
+// click event to search button
+$('#btnSearchOrder').click(function () {
+    searchOrder();
+});
+
+// search order with order id
+function searchOrderWithID(id) {
+    for (let i = 0; i < orders.length; i++) {
+        if (id === (orders[i].id)) {
+            let order = {
+                id: orders[i].id,
+                date: orders[i].date,
+                customer: orders[i].customer,
+                total: orders[i].total,
+                discount: orders[i].discount,
+                subTotal: orders[i].subTotal
+            }
+            return order;
+        }
+    }
+    return null;
+}
+
+// search order with order date
+function searchOrderWithDate(date) {
+    for (let i = 0; i < orders.length; i++) {
+        if (date === (orders[i].date)) {
+            let order = {
+                id: orders[i].id,
+                date: orders[i].date,
+                customer: orders[i].customer,
+                total: orders[i].total,
+                discount: orders[i].discount,
+                subTotal: orders[i].subTotal
+            }
+            return order;
+        }
+    }
+    return null;
+}
+
+function searchOrder(){
+    let searchBarText = $('#searchBarInOrder').val();
+
+    if ($('#cmbIdOrDate').find('option:selected').val() === "id") {
+        if ($.isEmptyObject(orders)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Empty Set',
+            })
+        } else {
+            if (searchOrderWithID(searchBarText) !== null) {
+                let order = searchOrderWithID(searchBarText);
+                let discount = (order.total / 100) * order.discount;
+                setValuesToOrderFields(order.id, order.date, (order.customer).id, discount, order.subTotal);
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Order not exist'
+                })
+                clearOrderDetailsFields();
+            }
+        }
+    }else if ($('#cmbIdOrDate').find('option:selected').val() === "date"){
+        if ($.isEmptyObject(orders)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Empty Set',
+            })
+        } else {
+            if (searchOrderWithDate(searchBarText) !== null) {
+                let order = searchOrderWithDate(searchBarText);
+                setValuesToOrderFields(order.id, order.date, (order.customer).id, order.discount, order.subTotal);
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Order not exist'
+                })
+                clearOrderDetailsFields();
+            }
+        }
+    }
+}
+
+// set values of search to the text fields
+function setValuesToOrderFields(id,date,cusId,discount,subTotal){
+    $('#orderIDInOrder').val(id);
+    $('#orderDate').val(date);
+    $('#customerIDInOrder').val(cusId);
+    $('#discountInOrder').val(discount);
+    $('#subTotalInOrder').val(subTotal);
+    $('#btnUpdateInOrder').removeAttr("disabled");
+    $('#btnDeleteInOrder').removeAttr("disabled");
+}
+
+// clear fields
+function clearOrderDetailsFields() {
+    $('#orderIDInOrder').val('');
+    $('#orderDate').val('');
+    $('#customerIDInOrder').val('');
+    $('#discountInOrder').val('');
+    $('#subTotalInOrder').val('');
+    $('#btnUpdateInOrder').attr("disabled",true);
+    $('#btnDeleteInOrder').attr("disabled",true);
 }
 
