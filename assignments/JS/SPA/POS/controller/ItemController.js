@@ -45,6 +45,8 @@ function saveItem() {
     bindRowDblClickEventInItem();
 
     setItemCodesToComboBox();
+
+    setItemsCount();
 }
 
 function addDataToTableInItem() {
@@ -193,6 +195,8 @@ $(window).ready(function () {
     bindRowDblClickEventInItem();
 
     setItemCodesToComboBox();
+
+    setItemsCount();
 });
 
 // key event to ENTER key

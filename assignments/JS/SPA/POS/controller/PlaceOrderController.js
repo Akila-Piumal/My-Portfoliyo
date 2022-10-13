@@ -231,6 +231,9 @@ function saveCustomerInPlaceOrder() {
     $('#cmbCusID').val(ID);
 
     setValuesToInvoiceDetails(ID, Name, contactNo, address);
+
+    // update the customerCount
+    setCusCount();
 }
 
 function clearFieldsInNewCusModelInInvoice() {
@@ -470,6 +473,8 @@ function saveItemInPlaceOrder() {
     $('#selectItem').val(code);
 
     setValuesToSelectItem(code, name, price, quantity);
+
+    setItemsCount();
 
 }
 
@@ -872,6 +877,7 @@ function purchaseOrder(){
 
     addDataToOrdersTable();
     bindRowClickEventInOrderTable();
+    setOrdersCount();
 
     let length = $('#tblCart>tr').length;
     for (let i = 0; i < length; i++) {

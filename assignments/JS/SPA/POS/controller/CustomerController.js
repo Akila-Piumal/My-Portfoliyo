@@ -57,6 +57,9 @@ function saveCustomer() {
     bindRowDblClickEvent();
 
     setCustomerIDsToComboBox();
+
+    // update the customerCount
+    setCusCount();
 }
 
 function addDataToTable() {
@@ -213,6 +216,7 @@ $(window).ready(function () {
     setCustomerIDsToComboBox();
     bindRowClickEvent();
     bindRowDblClickEvent();
+    setCusCount();
 });
 
 // key event to ENTER key

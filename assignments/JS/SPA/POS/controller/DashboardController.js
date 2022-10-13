@@ -246,3 +246,29 @@ $('#HomeBtn').click(function () {
     });
 
 });
+
+//  set Customer count in homepage
+function setCusCount(){
+    let cusCount=0;
+    for (let customer of customerArray) {
+        cusCount=cusCount+1;
+    }
+    $('#customersCount').text(cusCount);
+}
+
+function setOrdersCount(){
+    let ordersCount=0;
+    for (let order of orders) {
+        ordersCount=ordersCount+1;
+    }
+    $('#ordersCount').text(ordersCount);
+}
+
+function setItemsCount(){
+    let itemsCount=0;
+    for (let item of Items) {
+        itemsCount=itemsCount+1;
+    }
+    $('#itemsCount').text(itemsCount);
+}
+
