@@ -520,21 +520,10 @@ $('#OrderQtyInCart').on('keyup', function (event) {
 
     let result = validate(currentObject, currentPattern, warnMsgObject, btnObject, null, null, null);
 
-    let qtyOnHand = parseInt($('#qtyOnHandInCart').val());
-    let orderQuantity = parseInt(currentObject.val());
+    // check the text fields
+    let result2 = checkTheTestFields();
 
-    if ($('#cmbCusID').val() != null && $('#selectItem').val() != null && $('#OrderQtyInCart').val() != '' && orderQuantity <= qtyOnHand && orderQuantity > 0) {
-        $('#btnAddCart').removeAttr("disabled");
-        $('#OrderQtyInCart').css('border', '3px solid green');
-        warnMsgObject.css('display', 'none');
-    } else {
-        $('#btnAddCart').attr("disabled", true);
-        $('#OrderQtyInCart').css('border', '3px solid red');
-        warnMsgObject.css('display', 'block');
-        $('#maxQuantity').text(qtyOnHand);
-    }
-
-    if (event.which === 13) {
+    if (event.which === 13 && result2==true) {
         if ($('#btnAddCart').text() == "Cancel Update") {
             updateQuantity();
         } else {
@@ -553,6 +542,32 @@ $('#OrderQtyInCart').on('keyup', function (event) {
         }
     }
 });
+
+function checkTheTestFields(){
+    let warnMsgObject = $('#warnMsgForOrderQty');
+    let currentObject = $('#OrderQtyInCart');
+
+    let qtyOnHand = parseInt($('#qtyOnHandInCart').val());
+    let orderQuantity = parseInt(currentObject.val());
+
+    if ($('#cmbCusID').val() != null && $('#selectItem').val() != null && $('#OrderQtyInCart').val() != '' && orderQuantity <= qtyOnHand && orderQuantity > 0) {
+        $('#btnAddCart').removeAttr("disabled");
+        $('#OrderQtyInCart').css('border', '3px solid green');
+        warnMsgObject.css('display', 'none');
+        return true;
+    } else {
+        if (qtyOnHand==0){
+            warnMsgObject.text('Item is out of stock');
+        }else{
+            warnMsgObject.text(`Please Enter a amount lower than -${qtyOnHand}`);
+        }
+        $('#btnAddCart').attr("disabled", true);
+        $('#OrderQtyInCart').css('border', '3px solid red');
+        warnMsgObject.css('display', 'block');
+        $('#maxQuantity').text(qtyOnHand);
+        return false;
+    }
+}
 
 // Update the quantity of buying
 function updateQuantity() {
@@ -899,6 +914,7 @@ function resetAllTheFields(){
     setValuesToSelectItem('','','','');
     $('#selectItem').val('');
     $('#OrderQtyInCart').val('');
+    $('#OrderQtyInCart').css('border','1px solid gray');
     $('#totalPrice').val('00.00');
     $('#totalPrice').css('border','1px solid gray');
     $('#discount').val('0');
@@ -910,6 +926,8 @@ function resetAllTheFields(){
     $('#btnPurchase').attr('disabled',true);
     $('#tblCart').empty();
     $('#cmbCusID').val('');
+    $('#warnMsgForOrderQty').css('display','none');
+
 }
 
 // Update the item quantity

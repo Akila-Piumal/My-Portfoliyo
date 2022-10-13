@@ -168,6 +168,31 @@ function clearItemDetailsFields() {
 $(window).ready(function () {
     $('#btnUpdate').attr('disabled', true);
     $('#btnDelete').attr('disabled', true);
+
+    // add items in start
+    var item = {
+        code: 'P001',
+        name: 'Sugar 1KG',
+        price: '140.00',
+        quantity: '50'
+    }
+    Items.push(item);
+
+    var item2 = {
+        code: 'P002',
+        name: 'Lemon puff',
+        price: '100.00',
+        quantity: '100'
+    }
+    Items.push(item2);
+
+    addDataToTableInItem();
+
+    bindRowClickEventInItem();
+
+    bindRowDblClickEventInItem();
+
+    setItemCodesToComboBox();
 });
 
 // key event to ENTER key

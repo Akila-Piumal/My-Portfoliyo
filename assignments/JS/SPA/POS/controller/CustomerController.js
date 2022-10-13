@@ -187,6 +187,32 @@ function clearCustomerDetailsFields() {
 $(window).ready(function () {
     $('#btnUpdateCus').attr('disabled', true);
     $('#btnDeleteCus').attr('disabled', true);
+
+    // add customers in start
+    let customer = {
+        id:'C001',
+        name:'Akila',
+        address:'Mathugama',
+        gender:'Male',
+        contactNo:'0783223485'
+    }
+
+    customerArray.push(customer);
+
+    let customer2 = {
+        id:'C002',
+        name:'KAmal',
+        address:'Kaluthara',
+        gender:'Male',
+        contactNo:'0713719867'
+    }
+
+    customerArray.push(customer2);
+
+    addDataToTable();
+    setCustomerIDsToComboBox();
+    bindRowClickEvent();
+    bindRowDblClickEvent();
 });
 
 // key event to ENTER key

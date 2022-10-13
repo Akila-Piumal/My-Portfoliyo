@@ -119,7 +119,8 @@ function searchOrder(){
             if (searchOrderWithID(searchBarText) !== null) {
                 let order = searchOrderWithID(searchBarText);
                 let discount = (order.total / 100) * order.discount;
-                setValuesToOrderFields(order.id, order.date, (order.customer).id, discount, order.subTotal);
+                let total = parseFloat(order.subTotal);
+                setValuesToOrderFields(order.id, order.date, (order.customer).id, discount.toFixed(2),total.toFixed(2));
             } else {
                 Swal.fire({
                     icon: 'error',
@@ -139,7 +140,9 @@ function searchOrder(){
         } else {
             if (searchOrderWithDate(searchBarText) !== null) {
                 let order = searchOrderWithDate(searchBarText);
-                setValuesToOrderFields(order.id, order.date, (order.customer).id, order.discount, order.subTotal);
+                let discount = (order.total / 100) * order.discount;
+                let total = parseFloat(order.subTotal);
+                setValuesToOrderFields(order.id, order.date, (order.customer).id, discount.toFixed(2),total.toFixed(2));
             } else {
                 Swal.fire({
                     icon: 'error',
