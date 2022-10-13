@@ -177,3 +177,15 @@ function clearOrderDetailsFields() {
     $('#btnDeleteInOrder').attr("disabled",true);
 }
 
+function bindRowClickEventInOrderTable(){
+    $('#tblOrders>tr').click(function () {
+        let orderID = $(this).children().eq('0').text();
+        let date = $(this).children().eq('1').text();
+        let customerID = $(this).children().eq('2').text();
+        let discount = $(this).children().eq('3').text();
+        let subTotal = $(this).children().eq('4').text();
+
+        setValuesToOrderFields(orderID, date, customerID, discount, subTotal);
+    });
+}
+

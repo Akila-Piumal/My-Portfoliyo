@@ -871,6 +871,7 @@ function purchaseOrder(){
     orders.push(order);
 
     addDataToOrdersTable();
+    bindRowClickEventInOrderTable();
 
     let length = $('#tblCart>tr').length;
     for (let i = 0; i < length; i++) {
