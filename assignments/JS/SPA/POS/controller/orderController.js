@@ -1,3 +1,9 @@
+
+
+$(window).ready(function () {
+    $('#btnDeleteInOrder').attr('disabled', true);
+});
+
 // load orders to the table
 function addDataToOrdersTable() {
     $('#tblOrders').empty();
@@ -162,7 +168,6 @@ function setValuesToOrderFields(id,date,cusId,discount,subTotal){
     $('#customerIDInOrder').val(cusId);
     $('#discountInOrder').val(discount);
     $('#subTotalInOrder').val(subTotal);
-    $('#btnUpdateInOrder').removeAttr("disabled");
     $('#btnDeleteInOrder').removeAttr("disabled");
 }
 
@@ -173,10 +178,10 @@ function clearOrderDetailsFields() {
     $('#customerIDInOrder').val('');
     $('#discountInOrder').val('');
     $('#subTotalInOrder').val('');
-    $('#btnUpdateInOrder').attr("disabled",true);
     $('#btnDeleteInOrder').attr("disabled",true);
 }
 
+// row click event
 function bindRowClickEventInOrderTable(){
     $('#tblOrders>tr').click(function () {
         let orderID = $(this).children().eq('0').text();
@@ -188,4 +193,47 @@ function bindRowClickEventInOrderTable(){
         setValuesToOrderFields(orderID, date, customerID, discount, subTotal);
     });
 }
+
+// click event to clear button
+$('#btnClearInOrder').click(function () {
+    clearOrderDetailsFields();
+});
+
+// click event to delete button
+$('#btnDeleteInOrder').click(function () {
+    let id = $('#orderIDInOrder').val();
+    deleteOrder(id);
+});
+
+// delete Order
+function deleteOrder(id){
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            for (var order of orders) {
+                if (order.id === id) {
+                    let index = orders.indexOf(order);
+                    orders.splice(index, 1);
+                }
+            }
+            addDataToOrdersTable();
+            bindRowClickEventInOrderTable();
+            clearOrderDetailsFields();
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+        }
+    });
+}
+
+
 
