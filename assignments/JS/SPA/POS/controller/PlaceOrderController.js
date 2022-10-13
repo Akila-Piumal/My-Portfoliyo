@@ -8,6 +8,10 @@ $(document).ready(function () {
     $('#btnAddCart').attr('disabled', true);
 
     $('#btnPurchase').attr('disabled', true);
+
+
+
+
 });
 
 // Auto generate Order ID
@@ -894,6 +898,10 @@ function purchaseOrder(){
         orderDetails.push(orderDetail);
 
         updateAfterPurchase(itemCode,quantity);
+
+        // for most movable table
+        calculateTheSaleOfItems(orderDetail);
+
     }
 
     Swal.fire({

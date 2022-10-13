@@ -256,6 +256,7 @@ function setCusCount(){
     $('#customersCount').text(cusCount);
 }
 
+//  set Order count in homepage
 function setOrdersCount(){
     let ordersCount=0;
     for (let order of orders) {
@@ -264,6 +265,7 @@ function setOrdersCount(){
     $('#ordersCount').text(ordersCount);
 }
 
+//  set Item count in homepage
 function setItemsCount(){
     let itemsCount=0;
     for (let item of Items) {
@@ -272,3 +274,61 @@ function setItemsCount(){
     $('#itemsCount').text(itemsCount);
 }
 
+// Calculate the sale Quantity of items
+function calculateTheSaleOfItems(orderDetail){
+    if (sellingOfItems.length==0){
+        var sell = {
+            code: orderDetail.item.code,
+            quantity: orderDetail.quantity
+        }
+        sellingOfItems.push(sell);
+        setDataToTheTable();
+    }else{
+        let result = checkThatTheItemExists(orderDetail);
+
+        if (result==false){
+            var sell = {
+                code: orderDetail.item.code,
+                quantity: orderDetail.quantity
+            }
+            sellingOfItems.push(sell);
+            setDataToTheTable();
+        }
+    }
+}
+
+// sell quantity update of already exist item
+function checkThatTheItemExists(orderDetail){
+    for (let j = 0; j < sellingOfItems.length; j++) {
+        if (orderDetail.item.code==sellingOfItems[j].code){
+            var oldQty = sellingOfItems[j].quantity;
+            var newAddQty = orderDetail.quantity;
+
+            sellingOfItems[j].quantity=parseInt(oldQty)+newAddQty;
+            setDataToTheTable();
+            return true;
+        }
+
+    }
+    return false;
+}
+
+// set Data to the most Movable Items table
+function setDataToTheTable(){
+    $('#tblMostMovable').empty();
+
+    // Sort the Array
+    sellingOfItems.sort(function (x, y) {
+        return y.quantity - x.quantity;
+    });
+
+    for (var sellItem of sellingOfItems) {
+        console.log(sellItem.code, sellItem.quantity);
+
+        let item = searchItemWithCode(sellItem.code);
+
+        var row = `<tr><th scope="row">${item.code}</th><td>${item.name}</td><td>${item.price}</td><td>${sellItem.quantity}</td></tr>`
+
+        $('#tblMostMovable').append(row);
+    }
+}
