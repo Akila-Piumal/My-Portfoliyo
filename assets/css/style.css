@@ -10,7 +10,7 @@
 }
 
 /*aside  >>>>>>>>>>>>>>>*/
-.aside {
+#aside {
     width: 26%;
     height: 647px;
     /* background: linear-gradient(to left, #ffffff, #ffffff, #7cd6ff); */
@@ -22,6 +22,7 @@
     /*background: #FFD15C;*/
     background: #7c5ef273;
     box-shadow: 0px 0px 16px 0px #7c5ef273;
+    animation:nav-load 600ms ease-in;
 }
 
 /*start profile section >>>>>>>>>>>>>*/
@@ -91,7 +92,7 @@
     align-items: center;
 }
 
-.btn_nav_box {
+#btn_nav_box {
     /*background-color: yellow;*/
     width: 82%;
     height: 100%;
@@ -99,6 +100,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
 }
 
 .btn_box {
@@ -114,6 +116,24 @@
     letter-spacing: 0.18em;
     font-size: 11px;
     cursor: pointer;
+
+    animation-name: nav-link-load;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+    transform: scale(0);
+
+}
+
+#btn_nav_box .btn_box:nth-child(1){
+    animation-name: nav-first-link-load;
+    transform: translateY(-1000%);
+}
+
+#btn_nav_box .btn_box:last-child{
+    animation-name: nav-last-link-load;
+    transform: translateY(1000%);
 }
 
 .btn_box:hover {
@@ -130,6 +150,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    animation-name: nav-link-load;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+    transform: scale(0);
 }
 
 .contact_me {
@@ -328,6 +355,11 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
+
+    animation: social-links-load 400ms ease-in 800ms;
+    animation-fill-mode: forwards;
+    transform: translateY(-40px);
+    opacity: 0;
 }
 
 .fa-brands {
@@ -1549,7 +1581,7 @@ label #cancel {
 
 
 @media all and (max-width: 1355px) {
-    .aside {
+    #aside {
         /*position: absolute;*/
         /*visibility: hidden;*/
         display: none;
@@ -3123,5 +3155,78 @@ label #cancel {
     }
     100% {
         background-position-x: 500%;
+    }
+}
+
+/*Animation for aside content*/
+@keyframes nav-load {
+    0%{
+        transform: translateX(-100%);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+/*to all links*/
+@keyframes nav-link-load {
+    0%{
+        transform: scale(0);
+    }
+
+    90%{
+        transform: scale(1.1);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+/*to fist link*/
+@keyframes nav-first-link-load {
+    0%{
+        transform: translateY(-1000%);
+    }
+
+    90%{
+        transform: translateY(50%);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
+
+/*to last link*/
+@keyframes nav-last-link-load {
+    0%{
+        transform: translateY(1000%);
+    }
+
+    90%{
+        transform: translateY(-50%);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
+
+/*for social links in homepage*/
+@keyframes social-links-load {
+    0%{
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(20px);
+        opacity: 0.6;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
     }
 }
