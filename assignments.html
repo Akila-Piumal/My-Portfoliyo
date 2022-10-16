@@ -216,6 +216,32 @@
             box-shadow: 1px 0px 8px 0px black;
         }
 
+        #loader{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #121F26;
+            z-index: 9999;
+        }
+
+        #loader_inside{
+            width: 132px;
+            height: 135px;
+            /*border: 2px solid white;*/
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background: url("assets/images/loader_new.gif");
+            background-size: cover;
+            background-position: center;
+
+        }
+
         /*for Assignment heading*/
         @keyframes flip {
             0%, 80% {
@@ -418,6 +444,11 @@
 
 </head>
 <body>
+<div id="loader">
+    <div id="loader_inside">
+    </div>
+</div>
+
 <main>
     <aside id="assignment_aside">
         <h1 style="--i:1">A</h1>
@@ -801,5 +832,20 @@
     </section>
 
 </main>
+
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+<script>
+
+    $(window).on('load', function () {
+        console.log("Window on load");
+
+        $("#loader").fadeOut(2000);
+    });
+
+    $(document).ready(function () {
+
+    });
+
+</script>
 </body>
 </html>

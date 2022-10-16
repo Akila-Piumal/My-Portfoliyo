@@ -515,12 +515,18 @@
     font-weight: bold;
     font-size: 24px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #btn_DownloadCV:hover {
-    background-color: white;
-    color: #7c5ef2;
+    /*background-color: white;*/
+    /*color: #7c5ef2;*/
     border: 3px solid #7c5ef2;
+}
+#linkPdf:hover{
+    color:#7c5ef2;
 }
 
 .side_image_about {
