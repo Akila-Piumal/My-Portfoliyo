@@ -29,14 +29,14 @@ function clearFieldsInItem() {
 }
 
 function saveItem() {
-    var item = {
-        code: $('#newItemCode').val(),
-        name: $('#newItemName').val(),
-        price: $('#OneItemPrice').val(),
-        quantity: $('#NewItemQuantity').val()
-    }
+    let newItem = Object.assign({},item);
 
-    Items.push(item);
+    newItem.code=$('#newItemCode').val();
+    newItem.name=$('#newItemName').val();
+    newItem.price=$('#OneItemPrice').val();
+    newItem.quantity=$('#NewItemQuantity').val();
+
+    Items.push(newItem);
 
     addDataToTableInItem();
 
@@ -83,13 +83,14 @@ function bindRowClickEventInItem() {
 function searchItemWithCode(code) {
     for (let i = 0; i < Items.length; i++) {
         if (code === (Items[i].code)) {
-            let item = {
-                code: Items[i].code,
-                name: Items[i].name,
-                price: Items[i].price,
-                quantity: Items[i].quantity
-            }
-            return item;
+            let newItem=Object.assign({},item);
+
+            newItem.code=Items[i].code;
+            newItem.name=Items[i].name;
+            newItem.price=Items[i].price;
+            newItem.quantity=Items[i].quantity;
+
+            return newItem;
         }
     }
     return null;
@@ -98,13 +99,14 @@ function searchItemWithCode(code) {
 function searchItemWithName(name) {
     for (let i = 0; i < Items.length; i++) {
         if (name === (Items[i].name)) {
-            let item = {
-                code: Items[i].code,
-                name: Items[i].name,
-                price: Items[i].price,
-                quantity: Items[i].quantity
-            }
-            return item;
+            let newItem=Object.assign({},item);
+
+            newItem.code=Items[i].code;
+            newItem.name=Items[i].name;
+            newItem.price=Items[i].price;
+            newItem.quantity=Items[i].quantity;
+
+            return newItem;
         }
     }
     return null;
@@ -172,21 +174,21 @@ $(window).ready(function () {
     $('#btnDelete').attr('disabled', true);
 
     // add items in start
-    var item = {
-        code: 'P001',
-        name: 'Sugar 1KG',
-        price: '140.00',
-        quantity: '50'
-    }
-    Items.push(item);
+    let newItem=Object.assign({},item);
+    newItem.code='P001';
+    newItem.name='Sugar 1KG';
+    newItem.price='140.00';
+    newItem.quantity='50';
 
-    var item2 = {
-        code: 'P002',
-        name: 'Lemon puff',
-        price: '100.00',
-        quantity: '100'
-    }
-    Items.push(item2);
+    Items.push(newItem);
+
+    let newItem2=Object.assign({},item);
+    newItem2.code='P002';
+    newItem2.name='Lemon puff';
+    newItem2.price='100.00';
+    newItem2.quantity='100';
+
+    Items.push(newItem2);
 
     addDataToTableInItem();
 

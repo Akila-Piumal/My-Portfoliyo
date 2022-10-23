@@ -79,15 +79,15 @@ $('#btnSearchOrder').click(function () {
 function searchOrderWithID(id) {
     for (let i = 0; i < orders.length; i++) {
         if (id === (orders[i].id)) {
-            let order = {
-                id: orders[i].id,
-                date: orders[i].date,
-                customer: orders[i].customer,
-                total: orders[i].total,
-                discount: orders[i].discount,
-                subTotal: orders[i].subTotal
-            }
-            return order;
+            let newOrder=Object.assign({},order);
+            newOrder.id=orders[i].id;
+            newOrder.date=orders[i].date;
+            newOrder.customer=orders[i].customer;
+            newOrder.total=orders[i].total;
+            newOrder.discount=orders[i].discount;
+            newOrder.subTotal=orders[i].subTotal;
+
+            return newOrder;
         }
     }
     return null;
@@ -97,15 +97,15 @@ function searchOrderWithID(id) {
 function searchOrderWithDate(date) {
     for (let i = 0; i < orders.length; i++) {
         if (date === (orders[i].date)) {
-            let order = {
-                id: orders[i].id,
-                date: orders[i].date,
-                customer: orders[i].customer,
-                total: orders[i].total,
-                discount: orders[i].discount,
-                subTotal: orders[i].subTotal
-            }
-            return order;
+            let newOrder=Object.assign({},order);
+            newOrder.id=orders[i].id;
+            newOrder.date=orders[i].date;
+            newOrder.customer=orders[i].customer;
+            newOrder.total=orders[i].total;
+            newOrder.discount=orders[i].discount;
+            newOrder.subTotal=orders[i].subTotal;
+
+            return newOrder;
         }
     }
     return null;

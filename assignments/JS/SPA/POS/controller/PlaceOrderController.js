@@ -214,15 +214,14 @@ function saveCustomerInPlaceOrder() {
     let gender = $('#newCustomerGenderInInvoice').val();
     let contactNo = $('#newCustomerNumberInInvoice').val();
 
-    var customer = {
-        id: ID,
-        name: Name,
-        address: address,
-        gender: gender,
-        contactNo: contactNo
-    }
+    let newCustomer=Object.assign({},customer);
+    newCustomer.id=ID;
+    newCustomer.name=Name;
+    newCustomer.address=address;
+    newCustomer.gender=gender;
+    newCustomer.contactNo=contactNo;
 
-    customerArray.push(customer);
+    customerArray.push(newCustomer);
 
     addDataToTable();
 
@@ -457,14 +456,13 @@ function saveItemInPlaceOrder() {
     let price = $('#newItemPriceInInvoice').val();
     let quantity = $('#newItemQuantityInInvoice').val();
 
-    var item = {
-        code: code,
-        name: name,
-        price: price,
-        quantity: quantity
-    }
+    let newItem=Object.assign({},item);
+    newItem.code=code;
+    newItem.name=name;
+    newItem.price=price;
+    newItem.quantity=quantity;
 
-    Items.push(item);
+    Items.push(newItem);
 
     addDataToTableInItem();
 
@@ -868,16 +866,15 @@ function purchaseOrder(){
     let subTotal=parseFloat($('#subTotal').val());
     let balance = cash-subTotal;
 
-    var order = {
-        id:orderID,
-        date: orderDate,
-        customer: customer,
-        total: total,
-        discount:discount,
-        subTotal:subTotal
-    }
+    let newOrder=Object.assign({},order);
+    newOrder.id=orderID;
+    newOrder.date=orderDate;
+    newOrder.customer=customer;
+    newOrder.total=total;
+    newOrder.discount=discount;
+    newOrder.subTotal=subTotal;
 
-    orders.push(order);
+    orders.push(newOrder);
 
     addDataToOrdersTable();
     bindRowClickEventInOrderTable();

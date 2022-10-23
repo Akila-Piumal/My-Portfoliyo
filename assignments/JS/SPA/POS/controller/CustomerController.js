@@ -40,15 +40,14 @@ function saveCustomer() {
     let gender = $('#maleOrFemale').val();
     let contactNo = $('#CustomerNumberInput').val();
 
-    var customer = {
-        id: ID,
-        name: Name,
-        address: address,
-        gender: gender,
-        contactNo: contactNo
-    }
+    let newCustomer=Object.assign({},customer);
+    newCustomer.id=ID;
+    newCustomer.name=Name;
+    newCustomer.address=address;
+    newCustomer.gender=gender;
+    newCustomer.contactNo=contactNo;
 
-    customerArray.push(customer);
+    customerArray.push(newCustomer);
 
     addDataToTable();
 
@@ -100,14 +99,14 @@ function bindRowClickEvent() {
 function searchCustomerWithID(id) {
     for (let i = 0; i < customerArray.length; i++) {
         if (id === (customerArray[i].id)) {
-            let customer = {
-                id: customerArray[i].id,
-                name: customerArray[i].name,
-                address: customerArray[i].address,
-                gender: customerArray[i].gender,
-                contactNo: customerArray[i].contactNo
-            }
-            return customer;
+            let newCustomer=Object.assign({},customer);
+            newCustomer.id=customerArray[i].id;
+            newCustomer.name=customerArray[i].name;
+            newCustomer.address=customerArray[i].address;
+            newCustomer.gender=customerArray[i].gender;
+            newCustomer.contactNo=customerArray[i].contactNo;
+
+            return newCustomer;
         }
     }
     return null;
@@ -116,14 +115,13 @@ function searchCustomerWithID(id) {
 function searchCustomerWithName(name) {
     for (let i = 0; i < customerArray.length; i++) {
         if (name === (customerArray[i].name)) {
-            let customer = {
-                id: customerArray[i].id,
-                name: customerArray[i].name,
-                address: customerArray[i].address,
-                gender: customerArray[i].gender,
-                contactNo: customerArray[i].contactNo
-            }
-            return customer;
+            let newCustomer=Object.assign({},customer);
+            newCustomer.id=customerArray[i].id;
+            newCustomer.name=customerArray[i].name;
+            newCustomer.address=customerArray[i].address;
+            newCustomer.gender=customerArray[i].gender;
+            newCustomer.contactNo=customerArray[i].contactNo;
+            return newCustomer;
         }
     }
     return null;
@@ -192,25 +190,23 @@ $(window).ready(function () {
     $('#btnDeleteCus').attr('disabled', true);
 
     // add customers in start
-    let customer = {
-        id:'C001',
-        name:'Akila',
-        address:'Mathugama',
-        gender:'Male',
-        contactNo:'0783223485'
-    }
+    let newCustomer=Object.assign({},customer);
+    newCustomer.id='C001';
+    newCustomer.name='Akila';
+    newCustomer.address='Mathugama';
+    newCustomer.gender='Male';
+    newCustomer.contactNo='0783223485';
 
-    customerArray.push(customer);
+    customerArray.push(newCustomer);
 
-    let customer2 = {
-        id:'C002',
-        name:'KAmal',
-        address:'Kaluthara',
-        gender:'Male',
-        contactNo:'0713719867'
-    }
+    let newCustomer2=Object.assign({},customer);
+    newCustomer2.id='C002';
+    newCustomer2.name='Kamal';
+    newCustomer2.address='Kaluthara';
+    newCustomer2.gender='Male';
+    newCustomer2.contactNo='0711234567';
 
-    customerArray.push(customer2);
+    customerArray.push(newCustomer2);
 
     addDataToTable();
     setCustomerIDsToComboBox();
