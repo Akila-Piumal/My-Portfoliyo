@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Que 2</title>
+
+    <style>
+
+        body {
+            background-color: #36474F;
+        }
+
+        #title {
+            color: white;
+            position: absolute;
+            width: max-content;
+            left: 0;
+            right: 0;
+            top: 100px;
+            margin: auto;
+        }
+
+        #container div {
+            width: 130px;
+            height: 70px;
+            border-radius: 5px;
+        }
+
+        hr {
+            width: 800px;
+        }
+
+        #firstDivSec {
+            position: absolute;
+            top: 200px;
+            left: 300px;
+            margin: auto;
+            height: max-content;
+        }
+
+        #mainDivs {
+            position: absolute;
+            display: flex;
+            top: 310px;
+            left: 400px;
+            margin: auto;
+            width: 620px;
+            justify-content: space-evenly;
+        }
+
+        #lastHr {
+            position: absolute;
+            top: 400px;
+            left: 300px;
+            margin: auto;
+        }
+
+        #lastDiv {
+            position: absolute;
+            top: 410px;
+            left: 970px;
+            margin: auto;
+        }
+
+        #btnSec {
+            position: absolute;
+            width: 260px;
+            left: 0;
+            right: 0;
+            top: 580px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #btnStart {
+            border-radius: 5px;
+            border: none;
+            background-color: darkgreen;
+            color: white;
+            font-size: 20px;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        #btnEnd {
+            border-radius: 5px;
+            border: none;
+            background-color: #d94141;
+            color: white;
+            font-size: 20px;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="title">Java Script Queue</h1>
+
+<section id="container">
+    <section id="firstDivSec">
+        <div></div>
+        <hr>
+    </section>
+
+    <section id="mainDivs">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+
+    <hr id="lastHr">
+    <div id="lastDiv"></div>
+
+    <section id="btnSec">
+        <button id="btnStart">Start</button>
+        <button id="btnEnd">End</button>
+    </section>
+</section>
+
+<script src="../assets/js/jquery-3.6.1.min.js"></script>
+
+<script>
+
+    var colorArray = ['#FA0000', '#008001', '#0000FD', '#FFFF00', '#FFBFCD', '#EE82EF'];
+
+    function setColors() {
+        $('#firstDivSec>div').css('background-color', colorArray[0]);
+        $('#mainDivs>div:nth-child(1)').css('background-color', colorArray[1]);
+        $('#mainDivs>div:nth-child(2)').css('background-color', colorArray[2]);
+        $('#mainDivs>div:nth-child(3)').css('background-color', colorArray[3]);
+        $('#mainDivs>div:nth-child(4)').css('background-color', colorArray[4]);
+        $('#lastDiv').css('background-color', colorArray[5]);
+
+        change();
+    }
+
+    function change() {
+        let pop = colorArray.pop();
+        colorArray.unshift(pop);
+    }
+
+    setColors();
+
+    var interval = 0;
+
+    $('#btnStart').click(function () {
+        clearInterval(interval);
+        interval = setInterval(setColors, 600);
+    });
+
+    $('#btnEnd').click(function () {
+        clearInterval(interval);
+    });
+
+</script>
+
+</body>
+</html>
