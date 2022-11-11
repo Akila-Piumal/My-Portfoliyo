@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Queue 1</title>
+
+  <style>
+      body{
+          background-color: #FFF7E5;
+      }
+      #personsSec{
+          display: flex;
+          position: absolute;
+          top: 300px;
+          z-index: 2;
+          right: 471px;
+      }
+
+    .person{
+        width: 184px;
+        height: 200px;
+        background: url("../assets/img/men.gif");
+        background-position: right;
+        background-size: cover;
+
+    }
+    #house{
+        position: absolute;
+        right: 0;
+        top: 200px;
+        width: 400px;
+        height: 400px;
+        background: url("../assets/img/house.gif");
+        background-position: center;
+        background-size: cover;
+    }
+    #title{
+        font-size: 60px;
+        color: #7c322a;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 80px;
+        margin: auto;
+        width: max-content;
+        height: max-content;
+    }
+    #container{
+        display: flex;
+        position: absolute;
+        top: 350px;
+        left: 130px;
+    }
+    #container>h1{
+        width: 184px;
+        font-size: 40px;
+        color: #3bf606;
+    }
+
+    #btnSec{
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 200px;
+        margin: auto;
+        width: max-content;
+    }
+
+    #btnStart{
+        border-radius: 5px;
+        border: none;
+        background-color: darkgreen;
+        color: white;
+        font-size: 20px;
+        width: 100px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+      #btnEnd{
+          border-radius: 5px;
+          border: none;
+          background-color: #d94141;
+          color: white;
+          font-size: 20px;
+          width: 100px;
+          height: 40px;
+          cursor: pointer;
+      }
+
+  </style>
+
+</head>
+<body>
+<h1 id="title">JS Que</h1>
+<section id="personsSec">
+  <div class="person"></div>
+  <div class="person"></div>
+  <div class="person"></div>
+  <div class="person"></div>
+  <div class="person"></div>
+  <div class="person"></div>
+</section>
+
+<section id="container"></section>
+
+<section id="houseSec">
+    <div id="house"></div>
+</section>
+
+<section id="btnSec">
+    <button id="btnStart">Start</button>
+    <button id="btnEnd">End</button>
+</section>
+
+<script src="../assets/js/jquery-3.6.1.min.js"></script>
+<script>
+
+    var array=['A','B','C','D','E','F'];
+
+    changing();
+
+    function changing(){
+        $('#container').empty();
+        for (let i = 0; i < array.length; i++) {
+            $('#container').append(`<h1>${array[i]}</h1>`);
+        }
+        let pop = array.pop();
+        array.unshift(pop);
+    }
+
+    var interval=0;
+
+    $('#btnStart').click(function (){
+        clearInterval(interval);
+        interval=setInterval(changing,3000);
+    });
+
+    $('#btnEnd').click(function (){
+        clearInterval(interval);
+    });
+
+</script>
+
+</body>
+</html>
