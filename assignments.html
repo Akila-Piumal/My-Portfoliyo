@@ -22,7 +22,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-evenly;
-            height: 5000px;
+            height: 6000px;
             width: 90%;
         }
 
@@ -242,6 +242,30 @@
 
         }
 
+        /*scrollbar*/
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            /*background: #555;*/
+            background: #7c5ef2;
+        }
+
+
         /*for Assignment heading*/
         @keyframes flip {
             0%, 80% {
@@ -356,6 +380,10 @@
             .details_sec {
                 margin-left: 0;
             }
+            /*scrollbar*/
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
         }
 
         @media all and (max-width: 500px) {
@@ -465,6 +493,70 @@
     </aside>
 
     <section id="assignments_section">
+
+        <section class="assignment_box_with_header">
+            <h1>Java Script Knight Rider</h1>
+            <section class="assignment_box">
+                <section class="assignment_video_sec">
+                    <video autoplay class="AssignmentVideo" height="150px" loop muted
+                           src="assets/videos/Knight_Rider.mp4" width="300px"></video>
+                </section>
+
+                <section class="details_sec">
+                    <p>This is the Knight Rider system with the sound. I used Java Script Animations for this.</p>
+                    <div class="used_lan_box">
+                        <div class="js_logo"></div>
+                        <div class="jquery_logo"></div>
+                    </div>
+                    <div class="view_div">
+                        <a href="assignments/JS/Knight/index.html" target="_blank">View Assignment</a>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+        <section class="assignment_box_with_header">
+            <h1>Java Script Queue 1</h1>
+            <section class="assignment_box">
+                <section class="assignment_video_sec">
+                    <video autoplay class="AssignmentVideo" height="150px" loop muted
+                           src="assets/videos/Queue%201.mp4" width="300px"></video>
+                </section>
+
+                <section class="details_sec">
+                    <p>This is a example for simple Java Script Queue. I used Java Script Animations for this.</p>
+                    <div class="used_lan_box">
+                        <div class="js_logo"></div>
+                        <div class="jquery_logo"></div>
+                    </div>
+                    <div class="view_div">
+                        <a href="assignments/JS/Que/1/index.html" target="_blank">View Assignment</a>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+        <section class="assignment_box_with_header">
+            <h1>Java Script Queue 2</h1>
+            <section class="assignment_box">
+                <section class="assignment_video_sec">
+                    <video autoplay class="AssignmentVideo" height="150px" loop muted
+                           src="assets/videos/Que%202.mp4" width="300px"></video>
+                </section>
+
+                <section class="details_sec">
+                    <p>This is a example for simple Java Script Queue. I used Java Script Animations for this.</p>
+                    <div class="used_lan_box">
+                        <div class="js_logo"></div>
+                        <div class="jquery_logo"></div>
+                    </div>
+                    <div class="view_div">
+                        <a href="assignments/JS/Que/2/index.html" target="_blank">View Assignment</a>
+                    </div>
+                </section>
+            </section>
+        </section>
+
         <section class="assignment_box_with_header">
             <h1>Java Script Calculator</h1>
             <section class="assignment_box">
