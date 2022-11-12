@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knight Rider</title>
+
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.99);
+        }
+
+        #mainSec {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: max-content;
+            height: max-content;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        h1 {
+            color: #cd5656;
+            font-size: 30px;
+        }
+
+        hr {
+            width: 1200px;
+            background-color: white;
+        }
+
+        #container {
+            display: flex;
+            width: 1200px;
+            justify-content: space-evenly;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        #container > div {
+            width: 150px;
+            height: 70px;
+            border-radius: 7px;
+        }
+
+        #btnDiv {
+            margin-top: 20px;
+        }
+
+        #btnStart {
+            border-radius: 5px;
+            border: none;
+            background-color: darkgreen;
+            color: white;
+            font-size: 20px;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        #btnEnd {
+            border-radius: 5px;
+            border: none;
+            background-color: #d94141;
+            color: white;
+            font-size: 20px;
+            width: 100px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+<section id="mainSec">
+    <h1>JavaScript Knight Rider</h1>
+    <hr>
+    <div id="container"></div>
+    <hr>
+    <div id="btnDiv">
+        <Button id="btnStart">Start</Button>
+        <Button id="btnEnd">End</Button>
+    </div>
+</section>
+
+<audio class="my_audio" loop>
+    <source src="assets/audio/Knight-Rider-Theme-Song.mp3" type="audio/mpeg">
+</audio>
+
+<script src="assets/js/jquery-3.6.1.min.js"></script>
+<script>
+
+    $(".my_audio").trigger('load');
+
+    function play_audio(task) {
+        if(task == 'play'){
+            $(".my_audio").trigger('play');
+        }
+        if(task == 'stop'){
+            $(".my_audio").trigger('pause');
+            $(".my_audio").prop("currentTime",0);
+        }
+    }
+
+    var tempArray = ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'];
+    var array1 = ['white', 'white', 'white', 'white', 'white', 'white', '#b9a7a7', '#a67d7d', '#966161', '#bc6060', '#b84747', '#dc4141'];
+    var array2 = ['white', 'white', 'white', 'white', 'white', 'white', '#dc4141', '#b84747', '#bc6060', '#966161', '#a67d7d', '#b9a7a7'];
+    var count = 0;
+
+    setDives();
+
+    function setDives() {
+        $('#container').empty();
+        for (let i = 0; i < tempArray.length / 2; i++) {
+            $('#container').append(`<div style="background-color: ${tempArray[i]}"></div>`);
+        }
+        changeColors();
+    }
+
+    function changeColors() {
+        count++;
+        if (count <= 12) {
+            tempArray = array1;
+            let pop = tempArray.pop();
+            tempArray.unshift(pop);
+        } else {
+            if (count >= 24) {
+                count = 0;
+            }
+
+            tempArray = array2;
+            let firstColor = tempArray.shift();
+            tempArray.push(firstColor);
+        }
+    }
+
+    var interval = 0;
+    $('#btnStart').click(function () {
+        // var audio=new Audio("https://freesound.org/data/previews/501/501690_1661766-lq.mp3");
+        // audio.play();
+        play_audio('play');
+        clearInterval(interval);
+        interval = setInterval(setDives, 100);
+    });
+
+    $('#btnEnd').click(function () {
+        play_audio('stop');
+        clearInterval(interval);
+    });
+
+
+
+</script>
+</body>
+</html>
