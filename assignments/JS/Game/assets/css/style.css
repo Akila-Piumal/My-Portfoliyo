@@ -1,7 +1,27 @@
 #background{
     width: 100%;
     height: 100vh;
-    background-image: url("../images/forest_1.jpg");
+    background-image: url("../images/background/forest_2.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: repeat-x;
+    overflow-x: hidden;
+    position: absolute;
+}
+
+#character{
+    height: 210px;
+    margin-top: 380px;
+    position: absolute;
+    /*top: 47%;*/
+}
+
+.barrier{
+    width: 200px;
+    height: 200px;
+    background-image: url("../images/obstacles/monster.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 500px;
 }
