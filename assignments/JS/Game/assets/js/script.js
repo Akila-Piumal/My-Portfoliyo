@@ -43,7 +43,7 @@ function startRunning(){
 
 var jumpImgNum=0;
 let jumpingInterval=0;
-var marginTop=380;
+var marginTop=400;
 
 // function for character jump
 function jumpCharacter(){
@@ -167,6 +167,8 @@ function moveBarriers(){
 
                 clearInterval(moveForwardInterval);
                 moveForwardInterval=-1;
+
+                deadInterval = setInterval(deadCharacter,100);
             }
         }
     }
@@ -174,6 +176,17 @@ function moveBarriers(){
 
 //////////////////////////////////////////////////////////////////////////////////////
 
+var deadImgNum=1;
+var deadInterval=0;
 
+function deadCharacter(){
+    deadImgNum++;
+
+    if (deadImgNum==10){
+        deadImgNum=9;
+    }
+
+    $('#character').attr('src',"assets/images/character/Dead__00"+deadImgNum+".png");
+}
 
 
