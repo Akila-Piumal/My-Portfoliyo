@@ -50,12 +50,16 @@ function jumpCharacter(){
     jumpImgNum++;
 
     if (jumpImgNum <= 5){
-        marginTop=marginTop-50;
+        marginTop=marginTop-55;
         $('#character').css('marginTop',marginTop+"px");
+        // var character = document.getElementById("character");
+        // var currentMargin = getComputedStyle(character).marginLeft;//get the margin of barrier
+        // var newMargin=(currentMargin+300)+"px";
+        // $('#character').css({marginLeft:newMargin});//works
     }
 
     if (jumpImgNum>=6){
-        marginTop=marginTop+50;
+        marginTop=marginTop+55;
         $('#character').css('marginTop',marginTop+"px");
     }
 
@@ -114,10 +118,27 @@ $(document).on("keypress", function (e) {
 
 var backgroundPosX=0;
 var moveForwardInterval=0;
+var score=0;
+
 function moveForward(){
     backgroundPosX=backgroundPosX-20;
 
     $('#background').css('backgroundPositionX',backgroundPosX+"px");
+
+    score++;
+
+    $('#scoreBoard').text(score);
+
+    if ($('#scoreBoard').text()=="400"){
+        var imageUrl="assets/images/background/ninjaBackground.jpg"
+        $("#background").css("background-image", "url(" + imageUrl + ")");
+
+        changeTheCharacter();
+    }
+}
+
+function changeTheCharacter(){
+    var characterImgUrl="assets/images/";
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -133,14 +154,14 @@ function setBarriers(){
 
         barrier.id="barrier"+i;
 
-        MarginLeft=MarginLeft+1000;
+        // MarginLeft=MarginLeft+1000;
 
         if (i<5){
-            MarginLeft=MarginLeft+2000;
+            MarginLeft=MarginLeft+1000;
         }
 
         if (i>=5){
-            MarginLeft=MarginLeft+1000;
+            MarginLeft=MarginLeft+700;
         }
     }
 }
@@ -188,5 +209,9 @@ function deadCharacter(){
 
     $('#character').attr('src',"assets/images/character/Dead__00"+deadImgNum+".png");
 }
+
+/////////////////////////////////////////////////////////////////
+
+
 
 

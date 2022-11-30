@@ -2,16 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Game</title>
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/normalize.css" rel="stylesheet">
-</head>
-<body onload="startIdleAnimation();setBarriers() ">
+    <title>Start</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
+    <style>
+        /*#imgDiv{*/
+        /*    width: 250px;*/
+        /*    height: 350px;*/
+        /*    background-image: url("assets/images/character/Idle__000.png");*/
+        /*    background-size: cover;*/
+        /*    background-position: center;*/
+        /*    background-repeat: no-repeat;*/
+        /*    position: absolute;*/
+        /*    left: 400px;*/
+        /*}*/
+        #character{
+            width: 270px;
+            height: 350px;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
 
+        #background{
+            width: 100%;
+            height: 100vh;
+            background: url("assets/images/background/forest_1.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        #titleImg{
+            width: 600px;
+            height: 224px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
+        }
+        #titleText{
+            position: absolute;
+            width: max-content;
+            height: max-content;
+            left: 0;
+            right: 0;
+            top: 94px;
+            margin: auto;
+            font-size: 41px;
+            font-family: 'Rubik Distressed', cursive;
+            color: #b00707;
+        }
+        #startImg{
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 153px;
+            margin: auto;
+
+        }
+        #slideImg{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            bottom: 50px;
+            left: 100px;
+        }
+        #btnStart{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 273px;
+            height: 72px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 218px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body onload="startIdle()">
 <section id="background">
+    <img src="assets/images/title.png" alt="title image" id="titleImg">
+    <img src="assets/images/start.png" alt="start image" id="startImg">
+    <button type="button" id="btnStart" onclick="window.location.href='homePage.html'"></button>
+<!--    <a href="homePage.html" id="linkStart">aaaaaa</a>-->
+    <h1 id="titleText">The Hunting Ground</h1>
+
+    <img src="assets/images/character/Slide__000.png" alt="slide image" id="slideImg">
     <img src="assets/images/character/Idle__000.png" alt="this is image of the character" id="character">
 </section>
+
 <script src="assets/js/jquery-3.6.1.min.js"></script>
-<script src="assets/js/script.js"></script>
+<script>
+
+    function startIdle(){
+        let idleInterval = setInterval(idleCharacter,150);
+    }
+
+    var idleImgNum=0;
+
+    function idleCharacter(){
+        idleImgNum++;
+
+        if (idleImgNum==10){
+            idleImgNum=1;
+        }
+
+        $('#character').attr('src',"assets/images/character/Idle__00"+idleImgNum+".png");
+
+    }
+</script>
+
 </body>
 </html>
