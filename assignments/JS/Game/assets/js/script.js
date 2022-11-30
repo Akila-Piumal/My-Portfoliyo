@@ -99,19 +99,27 @@ $(document).on("keypress", function (e) {
         }
     }
 
-   if (e.which==32){
-        if (jumpingInterval==0){
-            startJumping();
+
+    // for the second level
+    let score1 = parseInt($('#scoreBoard').text());
+
+    if (score1<400){
+        if (e.which==32){
+            console.log("PAarana eka");
+            if (jumpingInterval==0){
+                startJumping();
+            }
+
+            if (moveForwardInterval==0){
+                moveForwardInterval = setInterval(moveForward,100);
+            }
+
+            if (barrierInterval==0){
+                barrierInterval=setInterval(moveBarriers,100);
+            }
         }
+    }
 
-       if (moveForwardInterval==0){
-           moveForwardInterval = setInterval(moveForward,100);
-       }
-
-       if (barrierInterval==0){
-           barrierInterval=setInterval(moveBarriers,100);
-       }
-   }
 });
 
 //////////////////////////////////////////////////////////////////
@@ -133,12 +141,151 @@ function moveForward(){
         var imageUrl="assets/images/background/ninjaBackground.jpg"
         $("#background").css("background-image", "url(" + imageUrl + ")");
 
+        // backgroundPosX=backgroundPosX-50;
+        //
+        // $('#background').css('backgroundPositionX',backgroundPosX+"px");
+
+        clearInterval(moveForwardInterval);
+        moveForwardInterval = setInterval(moveForwardFast,100);
+
+        clearInterval(barrierInterval);
+        barrierInterval=setInterval(moveBarriersWithNewSpeed,100);
+
         changeTheCharacter();
+
+        runningCharacter2();
+
+        jumpImgNum=0;
+        jumpingInterval=0;
+        marginTop=400;
+
+        $(document).on("keypress", function (e) {
+            if (e.which==32){
+
+                if (jumpingInterval==0){
+                    // start jump Animation
+                    // stop breathing
+                    clearInterval(idleInterval);
+                    runImgNum=0;
+                    clearInterval(runningInterval);
+                    jumpingInterval = setInterval(jumpingCharacter2,100);
+                }
+            }
+        });
+
     }
 }
 
+function moveBarriersWithNewSpeed(){
+    for (let i = 0; i < 100; i++) {
+        var barrier = document.getElementById("barrier"+i);
+        var currentMargin = getComputedStyle(barrier).marginLeft;//get the margin of barrier
+        var newMargin = parseInt(currentMargin)-35;// 25 karanna
+        barrier.style.marginLeft=newMargin+"px";
+
+        if (newMargin >= -80 && newMargin <=80){
+            if (marginTop>350) {
+                clearInterval(barrierInterval);
+
+                clearInterval(runningInterval);
+                runningInterval=-1;
+
+                clearInterval(jumpingInterval);
+                jumpingInterval=-1;
+
+                clearInterval(moveForwardInterval);
+                moveForwardInterval=-1;
+
+                deadInterval = setInterval(deadCharacterNew,100);
+
+                $('#gameOverDiv').css('display','block');
+                $('#Outscore').text($('#scoreBoard').text());
+            }
+        }
+    }
+}
+
+function deadCharacterNew(){
+        deadImgNum++;
+
+        if (deadImgNum==10){
+            deadImgNum=9;
+        }
+
+        $('#character').attr('src',"assets/images/character/ninja_character/Dead__00"+deadImgNum+".png");
+}
+
+function moveForwardFast(){
+    backgroundPosX=backgroundPosX-35;
+
+    $('#background').css('backgroundPositionX',backgroundPosX+"px");
+
+    score++;
+
+    $('#scoreBoard').text(score);
+}
+
+function jumpingCharacter2(){
+    jumpImgNum++;
+
+    if (jumpImgNum <= 5){
+        marginTop=marginTop-55;
+        $('#character').css('marginTop',marginTop+"px");
+        // var character = document.getElementById("character");
+        // var currentMargin = getComputedStyle(character).marginLeft;//get the margin of barrier
+        // var newMargin=(currentMargin+300)+"px";
+        // $('#character').css({marginLeft:newMargin});//works
+    }
+
+    if (jumpImgNum>=6){
+        marginTop=marginTop+55;
+        $('#character').css('marginTop',marginTop+"px");
+    }
+
+    if (jumpImgNum==10){
+        jumpImgNum=0;
+        clearInterval(jumpingInterval);
+        jumpingInterval=0;
+        runImgNum=0;
+        runningCharacter2();
+    }
+    $('#character').attr('src',"assets/images/character/ninja_character/Jump__00"+jumpImgNum+".png");
+}
+
+function runningCharacter2(){
+    runImgNum = 0;
+    runningInterval=0;
+
+
+
+// start Run Animation
+        clearInterval(idleInterval);
+        runningInterval = setInterval(runningCharacter2inner,100);
+}
+
+// function for character run
+function runningCharacter2inner() {
+    runImgNum++;
+
+    if (runImgNum==10){
+        runImgNum=1;
+    }
+
+    $('#character').attr('src', "assets/images/character/ninja_character/Run__00" + runImgNum + ".png");
+}
+
+// change the character
 function changeTheCharacter(){
-    var characterImgUrl="assets/images/";
+    // clearInterval(barrierInterval);
+
+    clearInterval(runningInterval);
+    runningInterval=-1;
+
+    clearInterval(jumpingInterval);
+    jumpingInterval=-1;
+
+    var characterImgUrl="assets/images/character/ninja_character/Run__001";
+    $("#character").attr("src","assets/images/character/ninja_character/Idle__001.png");
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -146,7 +293,7 @@ function changeTheCharacter(){
 var MarginLeft=1540;
 function setBarriers(){
 
-    for (let i = 0; i <= 10; i++) {
+    for (let i = 0; i <= 100; i++) {
         var barrier=document.createElement("div");
         barrier.className="barrier";
         document.getElementById("background").appendChild(barrier);
@@ -160,7 +307,13 @@ function setBarriers(){
             MarginLeft=MarginLeft+1000;
         }
 
-        if (i>=5){
+        if (i>=20){
+            MarginLeft=MarginLeft+800;
+        }else if (i>=12){
+            MarginLeft=MarginLeft+1000;
+        }else if (i>=9){
+            MarginLeft=MarginLeft+1500;
+        }else if (i>=5){
             MarginLeft=MarginLeft+700;
         }
     }
@@ -170,7 +323,7 @@ function setBarriers(){
 
 var barrierInterval=0;
 function moveBarriers(){
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 100; i++) {
         var barrier = document.getElementById("barrier"+i);
         var currentMargin = getComputedStyle(barrier).marginLeft;//get the margin of barrier
         var newMargin = parseInt(currentMargin)-25;// 25 karanna
@@ -190,6 +343,9 @@ function moveBarriers(){
                 moveForwardInterval=-1;
 
                 deadInterval = setInterval(deadCharacter,100);
+
+                $('#gameOverDiv').css('display','block');
+                $('#Outscore').text($('#scoreBoard').text());
             }
         }
     }

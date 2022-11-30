@@ -40,3 +40,110 @@
     height: 130px;
     position: absolute;
 }
+
+/*#gameOverDiv{*/
+/*    width: max-content;*/
+/*    height: max-content;*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    margin: auto;*/
+/*}*/
+
+#gameOverImg{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /*display: none;*/
+}
+
+#gameOverh1{
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 145px;
+    margin: auto;
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: 'Rubik Distressed', cursive;
+    color: #b52626;
+}
+#restarth2{
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    left: 16px;
+    right: 0;
+    top: 113px;
+    bottom: 0;
+    margin: auto;
+    font-weight: bolder;
+    font-size: 28px;
+    font-family: 'Rubik Distressed', cursive;
+    color: #ddc4c4e8;
+}
+
+#yourScoreh2{
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    left: 16px;
+    right: 0;
+    top: 0;
+    bottom: 159px;
+    margin: auto;
+    font-weight: bolder;
+    font-size: 33px;
+    font-family: 'Rubik Distressed', cursive;
+    color: #ddc4c4e8;
+}
+#Outscore{
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    left: 16px;
+    right: 0;
+    top: 0;
+    bottom: 40px;
+    margin: auto;
+    font-weight: bolder;
+    font-size: 84px;
+    font-family: 'Rubik Distressed', cursive;
+    color: #b52626;
+}
+.yesNobtn{
+    border-radius: 10px;
+    border: none;
+    width: 76px;
+    height: 40px;
+}
+#btnYes{
+    position: absolute;
+    left: 60px;
+    right: 155px;
+    top: 236px;
+    bottom: 0;
+    margin: auto;
+}
+
+#btnNo{
+    position: absolute;
+    left: 148px;
+    right: 0;
+    top: 232px;
+    bottom: 0;
+    margin: auto;
+}
+
+#gameOverDiv{
+    display: none;
+}

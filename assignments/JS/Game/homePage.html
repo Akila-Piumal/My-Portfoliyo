@@ -12,6 +12,19 @@
     <img src="assets/images/character/Idle__000.png" alt="this is image of the character" id="character">
     <img src="assets/images/scoreBoard.png" alt="score Board" id="scoreBoardImg">
     <div class="scoreBoard" id="scoreBoard">0</div>
+<!--    <div id="gameOverDiv">-->
+<!--        <h1>Game Over</h1>-->
+<!--    </div>-->
+    <div id="gameOverDiv" >
+        <img alt="score Board" id="gameOverImg" src="assets/images/scoreBoard.png">
+        <h1 id="gameOverh1">Game Over</h1>
+        <h2 id="yourScoreh2">Your Score</h2>
+        <h1 id="Outscore">0</h1>
+        <h2 id="restarth2">Do You Want to Restart ?</h2>
+        <button class="yesNobtn" id="btnYes" onclick="window.location.href='homePage.html'" type="button">YES</button>
+        <button class="yesNobtn" id="btnNo" onclick="window.location.href='index.html'" type="button">NO</button>
+    </div>
+
 </section>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
 <script src="assets/js/script.js"></script>
